@@ -37,7 +37,7 @@ Template Name: autopotencial
                                 <div class="flag relative">
                                     <img class="absolute top-0 right-0 z-10 sm:w-full sm:h-auto" src="<?php echo get_template_directory_uri() . '/src/img/main/bg-slide1.png'; ?>" alt="">
                                     <img class="wheel absolute top-28 right-0 z-10 md:w-80 w-48" src="<?php echo get_template_directory_uri() . '/src/img/main/japan.png'; ?>" alt="">
-                                    <img class="absolute top-1/2 right-0 z-10 md:w-[1130px] w-96" src="<?php echo get_template_directory_uri() . '/src/img/main/oblaco.svg'; ?>" alt="">
+                                    <img class="oblaco absolute top-1/2 right-0 z-10 md:w-[1130px] w-96" src="<?php echo get_template_directory_uri() . '/src/img/main/oblaco.svg'; ?>" alt="">
                                 </div>
                                 <div class="container text-5xl md:text-9xl pt-24 relative z-10">
                                     <h2 class="text-center text-white z-10 font-normal md:text-6xl text-xl uppercase">
@@ -54,7 +54,7 @@ Template Name: autopotencial
                                 <div class="flag2 relative">
                                     <img class="absolute top-0  right-0 z-10 sm:w-full sm:h-auto" src="<?php echo get_template_directory_uri() . '/src/img/main/bg-slide2.png'; ?>" alt="">
                                     <img class="wheel absolute top-16 right-0 z-10 md:w-96 w-48" src="<?php echo get_template_directory_uri() . '/src/img/main/korea.png'; ?>" alt="">
-                                    <img class="absolute top-1/2 right-0 z-10 md:w-[1130px] w-96" src="<?php echo get_template_directory_uri() . '/src/img/main/oblaco.svg'; ?>" alt="">
+                                    <img class="oblaco absolute top-1/2 right-0 z-10 md:w-[1130px] w-96" src="<?php echo get_template_directory_uri() . '/src/img/main/oblaco.svg'; ?>" alt="">
                                 </div>
                                 <div class="container text-5xl md:text-9xl pt-24 relative z-10">
                                     <h2 class="text-center text-white z-10 font-normal md:text-6xl text-xl uppercase">

@@ -4,6 +4,12 @@
 
 /* Импорт кастомных стилей для компонентов */
 
+@media (max-width: 767px) {
+  .oblaco {
+    margin-top: 200px !important;
+    margin-right: -69px !important;
+  }
+}
 .nav_left {
   padding-left: 220px;
 }
@@ -19,7 +25,7 @@
 }
 
 .slide2 {
-  top: -120px !important;
+  top: -250px !important;
   z-index: -1000 !important;
 }
 
