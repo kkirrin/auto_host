@@ -73,7 +73,7 @@ Template Name: autopotencial
                 </div>
             </section>
 
-            <section class="japan-swiper pt-40 wow fadeInUp " data-wow-delay="0.4s"">
+            <section class="japan-swiper md:pt-40 pt-20 wow fadeInUp " data-wow-delay="0.4s"">
                 <div class="container">
 
                     <div class="flex items-center justify-between">
@@ -211,7 +211,7 @@ Template Name: autopotencial
                 </div>
             </section> 
 
-            <section class="korea-swiper pt-40 wow fadeInUp nav-link" data-wow-delay="0.5s"">
+            <section class="korea-swiper md:pt-40 pt-20 wow fadeInUp nav-link" data-wow-delay="0.5s"">
                 <div class="container">
 
                     <div class="flex items-center justify-between">
@@ -347,7 +347,7 @@ Template Name: autopotencial
                 </div>
             </section>
 
-                <section class="stock-swiper pt-40 pb-20 wow fadeInUp page-section-3 nav-link" data-wow-delay="0.2s"">
+                <section class="stock-swiper md:pt-40 pt-20 pb-20 wow fadeInUp page-section-3 nav-link" data-wow-delay="0.2s"">
                 <div class="container">
 
                     <div class="flex items-center justify-between">

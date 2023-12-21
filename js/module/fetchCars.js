@@ -1,11 +1,12 @@
 export const initFetchCars = () => {
     console.log('Working...')
     // Запрашиваем данные с помощью fetch
-    fetch('http://78.46.90.228/gzip/?json&code=PASS&sql=select%20*%20from%20stats%20limit%2010')
+    fetch('http://78.46.90.228/api/?code=PASS&sql=select%20*%20from%20main%20limit%2010')
+    // fetch("https://avtopotencial-dv.ru/wp-content/themes/autopotencial/js/japan.js")
     .then(response => {
         // Проверяем, успешно ли выполнен запрос
         if (!response.ok) {
-        throw new Error('Network response was not ok');
+            throw new Error('Network response was not ok');
         }
         console.log(response)
         return response.json();

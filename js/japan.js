@@ -1,40 +1,5 @@
 [
 {
-    "id": "AC",
-    "name": "AC",
-    "cyrillic-name": "АС",
-    "popular": false,
-    "country": "Великобритания",
-    "models": [{
-        "id": "378_GT",
-        "name": "378 GT Zagato",
-        "cyrillic-name": "378 ДжиТи Загато",
-        "class": "S",
-        "year-from": 2012,
-        "year-to": 2012
-    }, {
-        "id": "ACE",
-        "name": "Ace",
-        "cyrillic-name": "асе",
-        "class": "S",
-        "year-from": 1992,
-        "year-to": 2000
-    }, {
-        "id": "ACECA",
-        "name": "Aceca",
-        "cyrillic-name": "Асека",
-        "class": "S",
-        "year-from": 1998,
-        "year-to": 2000
-    }, {
-        "id": "COBRA",
-        "name": "Cobra",
-        "cyrillic-name": "Кобра",
-        "class": "S",
-        "year-from": 1965,
-        "year-to": 2015}]
-},
-{
         "id": "DATSUN",
         "name": "Datsun",
         "cyrillic-name": "Датсун",

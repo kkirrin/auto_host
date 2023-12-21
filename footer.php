@@ -7,7 +7,7 @@
                     <p class="pb-4">Мы в соц.сетях</p>
                     <ul class="flex items-center justify-center gap-4">
                         <li class="pb-8 flex items-center gap-4">
-                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
+                            <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
                             <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
                             <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
                             <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt=""></a>

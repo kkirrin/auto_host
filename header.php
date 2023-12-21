@@ -48,8 +48,8 @@
                                 </li>
                                 <li class="px-4 mb-4">
                                     <a class="hover:text-green transition-colors" href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто из Кореи</a></li>
-                                <li class="px-4 mb-4">
-                                    <a class="hover:text-green transition-colors" href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Популярные авто</a></li>
+                                <!-- <li class="px-4 mb-4">
+                                    <a class="hover:text-green transition-colors" href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Популярные авто</a></li> -->
         
                                 <li class="px-4 mb-4">
                                     <a class="hover:text-green transition-colors" href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто в наличии</a></li>
@@ -73,36 +73,33 @@
                                     <p class="pb-2">Каталог</p>
                                     <ul class="text-gray md:text-base text-xs">
                                         <li class="pb-4">
-                                            <a href="catalog.html">Авто с аукционов Японии</a>
+                                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто с аукционов Японии</a>
                                         </li>  
                                         <li class="pb-4">
-                                            <a href="catalog.html">Авто с аукционов Кореи</a>
+                                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто с аукционов Кореи</a>
+                                        </li>  
+                                        <!-- <li class="pb-4">
+                                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Популярные авто</a>
+                                        </li>   -->
+                                        <li class="pb-4">
+                                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто в наличии</a>
                                         </li>  
                                         <li class="pb-4">
-                                            <a href="catalog.html">Популярные авто</a>
-                                        </li>  
-                                        <li class="pb-4">
-                                            <a href="catalog.html">Авто в наличии</a>
-                                        </li>  
-                                        <li class="pb-4">
-                                            <a href="catalog.html">Сейчас на аукционах</a>
+                                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Сейчас на аукционах</a>
                                         </li>  
                                     </ul>
                                 </div>
                                 <div>
                                     <p class="pb-2">Клиентам</p>
-                                    <ul class="text-gray md:text-base text-xs">
+                                    <ul class="text-gray md:text-base text-xs"> 
                                         <li class="pb-4">
-                                            <a href="index.html">О компании</a>
+                                            <a href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b/">Отзывы</a>
                                         </li>  
                                         <li class="pb-4">
-                                            <a href="reviews.html">Отзывы</a>
+                                            <a href="%d0%b4%d0%be%d1%81%d1%82%d0%b0%d0%b2%d0%ba%d0%b0/">Доставка</a>
                                         </li>  
                                         <li class="pb-4">
-                                            <a href="order.html">Доставка</a>
-                                        </li>  
-                                        <li class="pb-4">
-                                            <a href="finished.html">Выполненные заказы</a>
+                                            <a href="%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d0%b5%d0%bd%d0%bd%d1%8b%d0%b5-%d0%b7%d0%b0%d0%ba%d0%b0%d0%b7%d1%8b/">Выполненные заказы</a>
                                          </li>  
                                         <li class="pb-4">
                                         <a href="#">
@@ -115,11 +112,11 @@
                                     <p class="pb-4">Мы в соц.сетях</p>
                                     <ul class="flex items-center justify-center gap-4">
                                         <li class="pb-8 flex items-center gap-4">
-                                            <a href="#"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
-                                            <a href="#"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
-                                            <a href="#"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
-                                            <a href="#"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
-                                            <a href="#"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
+                                        <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
+                                        <a href="tg://resolve?domain=YourTelegramUsername"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
+                                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
+                                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
+                                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
                                         </li>  
                                     </ul>
                                 </div>
@@ -168,7 +165,7 @@
                 <a href="/autopotencial">
                     <img class="logo m-auto md:w-60 w-44" src="<?php echo get_template_directory_uri() .'/src/img/logo.png'; ?>" alt="Logo">
                 </a>
-                <a href="tel:+79020607575"><img class="md:hidden block bg-bg-gray p-2 rounded-md" src="<?php echo get_template_directory_uri()  .'/src/img/icons/sap.svg'; ?>" alt="" ></a></a>
+                <a href="https://api.whatsapp.com/send?phone=79020607575"><img class="md:hidden block bg-bg-gray p-2 rounded-md" src="<?php echo get_template_directory_uri()  .'/src/img/icons/sap.svg'; ?>" alt="" ></a></a>
                 
 
                 <?php wp_nav_menu([
@@ -179,7 +176,7 @@
 
                 <ul class="mobile gap-2 flex-wrap text-main-black hidden md:flex items-center justify-center">
 
-                    <li class="mr-4"><a class="text-main-black hover:bg-red transition-colors nav-link" href="tel:+79020607575"
+                    <li class="mr-4"><a class="text-main-black hover:bg-red transition-colors nav-link" href="https://api.whatsapp.com/send?phone=79020607575"
                             data-goto=""><img class="bg-bg-gray p-2 rounded-md up" src="<?php echo get_template_directory_uri() .'/src/img/icons/sap.svg'; ?>" alt="" ></a></li>
                     <li class="mr-4"><a class="text-main-black hover:bg-red transition-colors nav-link" href="tel:+79020607575"
                             data-goto=""><img class="bg-bg-gray p-2 rounded-md up" src="<?php echo get_template_directory_uri() .'/src/img/icons/tg.svg'; ?>" alt="" ></a></li>
