@@ -899,32 +899,36 @@ Template Name: autopotencial
                                 
                                         <div class="swiper-slide p-5 animate">
                                             <div class="flex flex-col items-center justify-between md:w-auto w-full">
-                                                <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                                    <img src="<?php the_field('видео_отзыва'); ?>" alt="вправо" >
-                                                </a>
-                                                <div class="flex flex-col items-center md:items-start">
-                                                    <div class="font-bold pb-5"><?php the_field('название_отзыва'); ?></div>
-                                                    <div class="font-medium pb-5">
-                                                        <?php the_field('текст_отзыва'); ?>
-                                                    </div>
-                                                    <div class="flex flex-col md:flex-row pb-5">
-                                                        <div class="flex items-center">
-                                                            <p class="pr-2 text-gray"><?php the_field('автор_отзыва'); ?></p>
+                                                <div class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                                    <video controls poster="<?php the_field('постер_отзыва'); ?>" alt="отзыв">
+                                                        <source src="<?php the_field('видео_отзыва'); ?>" type="video/mp4"> 
+                                                        <source src="<?php the_field('видео_отзыва'); ?>" type="video/webm"> 
+                                                    </video>
+                                                    </a>
+                                                    <div class="flex flex-col items-center md:items-start">
+                                                        <div class="font-bold pb-5"><?php the_field('название_отзыва'); ?></div>
+                                                        <div class="font-medium pb-5">
+                                                            <?php the_field('текст_отзыва'); ?>
                                                         </div>
-                                                        <div class="flex items-center">
-                                                            <p class="pr-2 text-gray"><?php the_field('дата_отзыва'); ?></p>
-                                                        </div>
-                                                        <div class="flex items-center">
-                                                            <p class="pr-2 text-gray"><?php the_field('город_отзыва'); ?></p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- <div class="flex flex-col md:flex-row items-center justify-around">
-                                                        <a href="reviews.php">
-                                                            <div>
-                                                                <a class="text-yellow hover:text-red" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">Смотреть оригинал</a>
+                                                        <div class="flex flex-col md:flex-row pb-5">
+                                                            <div class="flex items-center">
+                                                                <p class="pr-2 text-gray"><?php the_field('автор_отзыва'); ?></p>
                                                             </div>
-                                                        </a>
-                                                    </div> -->
+                                                            <div class="flex items-center">
+                                                                <p class="pr-2 text-gray"><?php the_field('дата_отзыва'); ?></p>
+                                                            </div>
+                                                            <div class="flex items-center">
+                                                                <p class="pr-2 text-gray"><?php the_field('город_отзыва'); ?></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex flex-col md:flex-row items-center justify-around">
+                                                            <a href="reviews.php">
+                                                                <div>
+                                                                    <a class="text-yellow hover:text-red" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">Смотреть оригинал</a>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>    
@@ -1069,7 +1073,7 @@ Template Name: autopotencial
                                 <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#FCBC40"/>
                                 </svg>
                         </button>
-                        <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
+                        <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Добавить отзыв</h2>
                         <div class="flex items-center justify-between pb-10">
                             <div>
                                 <p class="text-white md:text-base text-sm"></p>

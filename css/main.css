@@ -4,6 +4,12 @@
 
 /* Импорт кастомных стилей для компонентов */
 
+
+video {
+  height: 350px !important;
+  width: 350px !important;
+}
+
 .order {
   padding-top: 150px !important;
   height: 90vh !important;
@@ -25,6 +31,10 @@
   .order_car {
     right: 10px !important;
     top: 22rem !important;
+  }
+  video {
+    height: 150px !important;
+    width: 150px !important;
   }
 }
 .nav_left {
