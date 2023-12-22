@@ -918,13 +918,13 @@ Template Name: autopotencial
                                                             <p class="pr-2 text-gray"><?php the_field('город_отзыва'); ?></p>
                                                         </div>
                                                     </div>
-                                                    <div class="flex flex-col md:flex-row items-center justify-around">
+                                                    <!-- <div class="flex flex-col md:flex-row items-center justify-around">
                                                         <a href="reviews.php">
                                                             <div>
                                                                 <a class="text-yellow hover:text-red" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">Смотреть оригинал</a>
                                                             </div>
                                                         </a>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>    
@@ -937,6 +937,21 @@ Template Name: autopotencial
                             </div>
                         </div>
                     </div>     
+
+                    <div>
+                        <a href="#">
+                            <div>
+                                <a class="text-yellow hover:text-red" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">Смотреть все отзывы</a>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <a class="text-yellow hover:text-red popup-link" href="popup2">Добавить отзыв</a>
+                            </div>
+                        </a>
+                    </div>
 
                     <div class="md:hidden flex-nowrap gap-5 flex items-center justify-center">
                         <button
@@ -1019,7 +1034,9 @@ Template Name: autopotencial
                         </div>
 
                         <div class="form-wrapper">
-                            <form action="#" id="form" class="form validate-form flex-col">
+                            <!-- <form action="#" id="form" class="form validate-form flex-col">
+
+                            
                                 <div class="form__item">
                                     <input id="formName" type="text" name="name" class="form__input _req w-full"
                                         placeholder="Ваше имя">
@@ -1031,7 +1048,10 @@ Template Name: autopotencial
                                 </div>
 
                                 <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
-                            </form>
+                            </form> -->
+
+                            <?php echo do_shortcode('[contact-form-7 id="d806c55" title="Заявка заказать авто"]'); ?>
+
                         </div>
                         <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
                                 class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
@@ -1039,6 +1059,54 @@ Template Name: autopotencial
                     </div>
                 </div>
             </section>
+
+            <section id="popup2" class="popup">
+                <div class="popup__body">
+                    <div class="popup__content">
+                        <button class="popup__btn close-popup" aria-label="Закрыть" tabindex="4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
+                                <path d="M4 1.45508L19.9099 17.365" stroke="#FCBC40"/>
+                                <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#FCBC40"/>
+                                </svg>
+                        </button>
+                        <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
+                        <div class="flex items-center justify-between pb-10">
+                            <div>
+                                <p class="text-white md:text-base text-sm"></p>
+                            </div>
+                            
+                            <div>
+                                <p class="text-yellow font-bold md:text-xl text-sm"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-wrapper">
+                            <!-- <form action="#" id="form" class="form validate-form flex-col">
+
+                            
+                                <div class="form__item">
+                                    <input id="formName" type="text" name="name" class="form__input _req w-full"
+                                        placeholder="Ваше имя">
+                                </div>
+
+                                <div class="form__item">
+                                    <input id="formPhone" type="tel" name="phone" class="form__input _req w-full"
+                                        placeholder="Ваш телефон">
+                                </div>
+
+                                <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
+                            </form> -->
+
+                            <?php echo do_shortcode('[contact-form-7 id="74aaf08" title="Заявка на добавление отзыва"]'); ?>
+
+                        </div>
+                        <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
+                                class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
+                                данных</a></p>
+                    </div>
+                </div>
+            </section>
+
     </main>
 
 <?php get_footer(); ?>

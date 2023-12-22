@@ -4,10 +4,27 @@
 
 /* Импорт кастомных стилей для компонентов */
 
+.order {
+  padding-top: 150px !important;
+  height: 90vh !important;
+}
+
+.order_car {
+  right: 100px !important;
+}
+
 @media (max-width: 767px) {
   .oblaco {
     margin-top: 200px !important;
     margin-right: -69px !important;
+  }
+  .order {
+    padding-top: 0px;
+    height: 70vh !important;
+  }
+  .order_car {
+    right: 10px !important;
+    top: 22rem !important;
   }
 }
 .nav_left {
