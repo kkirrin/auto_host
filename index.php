@@ -453,7 +453,7 @@ Template Name: autopotencial
 
                         
                         <div class="w-full rounded-xl">
-                            <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
+                            <form id="formForMain" class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
                                 <div class="mb-4">
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
                                         Выберите марку
@@ -510,7 +510,7 @@ Template Name: autopotencial
 
                                     </select>
                                 </div>
-                                <div class="mb-4">
+                                <!-- <div class="mb-4">
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
                                         Выберите комплектацию 
                                     </label>
@@ -518,7 +518,7 @@ Template Name: autopotencial
                                         <option>Выберите комплектацию</option>
                                         <option></option>
                                     </select>
-                                </div>
+                                </div> -->
 
                             
                                 <div class="mb-4">
@@ -650,9 +650,9 @@ Template Name: autopotencial
                                 </div>
                                 
                                 <div class="flex items-center justify-center">
-                                    <button class="up bg-red py-2 px-10 text-white rounded-lg">
+                                    <a class="up bg-red py-2 px-10 text-white rounded-lg popup-link" href="#popup3">
                                         Получить расчёт
-                                    </button>
+                                </a>
                                 </div>
                                 
                                 <div class="flex items-end justify-end">
@@ -1104,6 +1104,93 @@ Template Name: autopotencial
                             <?php echo do_shortcode('[contact-form-7 id="74aaf08" title="Заявка на добавление отзыва"]'); ?>
 
                         </div>
+                        <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
+                                class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
+                                данных</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="popup3" class="popup">
+                <div class="popup__body">
+                    <div class="popup__content">
+                        <button class="popup__btn close-popup" aria-label="Закрыть" tabindex="4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
+                                <path d="M4 1.45508L19.9099 17.365" stroke="#FCBC40"/>
+                                <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#FCBC40"/>
+                                </svg>
+                        </button>
+                        <h2 class="text-start text-white z-10 font-normal md:text-3xl text-xl uppercase pb-10 ">Получить расчет</h2>
+                        <div class="flex items-center justify-between pb-10">
+                            <div>
+                                <p class="text-white md:text-base text-sm"><span class="text-yellow">Это бесплатно</span> для вас и ни к чему не обязывает</p>
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-wrapper">
+                            <form action="#" id="formMain" class="form validate-form flex-col">
+
+                            
+                                <div class="form__item">
+                                    <input id="formName" type="text" name="name" class="form__input _req w-full"
+                                        placeholder="Ваше имя">
+                                </div>
+
+                                <div class="form__item">
+                                    <input id="formPhone" type="tel" name="phone" class="form__input _req w-full"
+                                        placeholder="Ваш телефон">
+                                </div>
+
+
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainMarka" type="text" name="marka">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainModel" type="text" name="model">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainFuel" type="text" name="fuel">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainPrivod" type="text" name="privod">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainKpp" type="text" name="kpp">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainYearFrom" type="tel" name="phone">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainYearTo" type="tel" name="phone">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainMileageFrom" type="tel" name="phone">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainMileageTo" type="tel" name="phone">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainPriceFrom" type="tel" name="phone">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainPriceTo" type="tel" name="phone">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainValueFrom" type="tel" name="phone">
+                                </div>
+                                <div class="form__item hidden">
+                                    <input type='hidden' id="formMainValueTo" type="tel" name="phone">
+                                </div>
+
+                                <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
+                            </form>
+
+                        </div> -->
+
+
+                        <?php echo do_shortcode('[contact-form-7 id="493fe64" title="Заявка на получение расчета"]'); ?>
+
+
                         <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
                                 class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
                                 данных</a></p>

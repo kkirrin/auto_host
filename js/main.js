@@ -17,6 +17,7 @@ import { initStickyHeader } from "./module/sticky-header.js";
 import { initSum } from "./module/calculator.js";
 import { initCardItemSlider } from './module/card-item-slider.js';
 import { initFetchCars } from "./module/fetchCars.js";
+import { initFormMain } from "./module/formMain.js";
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -43,6 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // initCurrency();
     initCardItemSlider();
     initFetchCars();
+    initFormMain();
 
     
 

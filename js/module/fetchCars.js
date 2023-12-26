@@ -1,14 +1,14 @@
 export const initFetchCars = () => {
     console.log('Working...')
     // Запрашиваем данные с помощью fetch
-    fetch('https://78.46.90.228/api/?json&code=DvemR43s&sql=select%20*%20from%20main%20limit%2010')
-    // fetch("https://avtopotencial-dv.ru/wp-content/themes/autopotencial/js/japan.js")
+    // fetch('http://78.46.90.228/api/?code=APTnghDfD64KJ&sql=select%20*%20from%20main%20limit%205')
+    fetch("https://avtopotencial-dv.ru/wp-content/themes/autopotencial/js/japan.js")
     .then(response => {
         // Проверяем, успешно ли выполнен запрос
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        console.log(response)
+        // console.log(response)
         return response.json();
     })
     .then(users => {
@@ -71,7 +71,7 @@ export const initFetchCars = () => {
 
         function showModelsForBrand(brandname) {
             let options = document.querySelectorAll('option[data-id]');
-            console.log(options)
+            // console.log(options)
             options.forEach(option => {
               option.hidden = true;
             });
