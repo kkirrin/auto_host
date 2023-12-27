@@ -36,31 +36,38 @@
                                     <div class="slider card__slider relative">
                                         <div class="swiper slider__slider">
                                             <div class="swiper-wrapper">
-                                                <?php
-                                                    $photos = the_field('галерея');
-                                                   
-                                                    if ($photos) {
-                                                        foreach ($photos as $photo) {
-                                                            echo '<div class="swiper-slide"><img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="' . esc_url($photo['url']) . '" alt=""></div>';
-                                                        }
+                                               
+                                            <?php
+                                                $photos = get_field('галерея');
+                                                if ($photos) {
+                                                    foreach ($photos as $photo) {
+                                                        echo '<div class="swiper-slide">';
+                                                        echo '<img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="' . esc_url($photo['url']) . '" alt="">';
+                                                        echo '</div>';
                                                     }
-                                                ?>
-
-
+                                                } else {
+                                                    echo 'No photos found.'; // Add a message for when there are no photos.
+                                                }
+                                            ?>
                                             </div>
+                                       
                                         </div>
 
                                         <div class="swiper slider__thumb md:pt-10 pt-5 md:w-full w-80 md:relative absolute">
                                             <div class="swiper-wrapper">
-                                         
-                                                <?php
-                                                    $photos = the_field('галерея');
-                                                    if ($photos) {
-                                                        foreach ($photos as $photo) {
-                                                            echo '<div class="swiper-slide"><img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="' . esc_url($photo['url']) . '" alt=""></div>';
-                                                        }
+                                            <?php
+                                                $photos = get_field('галерея');
+                                                if ($photos) {
+                                                    foreach ($photos as $photo) {
+                                                        echo '<div class="swiper-slide">';
+                                                        echo '<img class="md:w-24 md:h-24 w-[60px] h-[60px]" src="' . esc_url($photo['url']) . '" alt="">';
+                                                        echo '</div>';
                                                     }
-                                                ?> 
+                                                } else {
+                                                    echo 'No photos found.'; // Add a message for when there are no photos.
+                                                }
+                                            ?>
+                                              
                                             </div>
                                         </div>
                                     </div>
