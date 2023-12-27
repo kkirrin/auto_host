@@ -6,6 +6,39 @@ Template Name: autopotencial
 
 <?php get_header(); ?>
 
+<?php 
+    
+    function aj_get($sql) {
+        error_reporting(0);
+
+        ##----- CONFIG ---------
+        $code='APTnghDfD64KJ';       ## REQUIRED
+        $server='78.46.90.228'; ## optional :: $server='144.76.203.145'; 
+        $go='api';              ## optional :: $go='gzip'; // gzip work faster
+
+        ## SET IP,URL
+        $ip = $_SERVER['HTTP_CF_CONNECTING_IP']=='' ? $_SERVER['REMOTE_ADDR'] : $_SERVER['HTTP_CF_CONNECTING_IP'];
+        $url = 'http://'.$server.'/'.$go.'/?ip='.$ip.'&json&code='.$code.'&sql='.urlencode(preg_replace("/%25/","%",$sql));
+
+        ## DEBUG
+        // echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
+
+        ## API REQUEST
+        $s = file_get_contents($url);
+        //echo $s;
+
+        ## GZIP DECODE
+        if ($go=='gzip') {
+            $s = $server=='144.76.203.145' ? gzinflate(substr($s,10,-8)) : 
+                gzuncompress(preg_replace("/^\\x1f\\x8b\\x08\\x00\\x00\\x00\\x00\\x00/","",$s));
+        }
+
+        $arr = json_decode($s,true);  //die(var_export($arr));
+        // echo gettype($arr);
+        return $arr;
+    }
+?>
+
     <main>
             <h1 class="visually-hidden">Скрытый заголовок</h1>
 
@@ -19,7 +52,7 @@ Template Name: autopotencial
                         
                         <div class="swiper-wrapper h-auto">
                         <div class="absolute right-0 md:bottom-52 bottom-0">
-                <a href="#">
+                <a href="https://auc.avtopotencial-dv.ru/">
                             <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
                                 <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
@@ -94,110 +127,70 @@ Template Name: autopotencial
                         </div>
                         
                     </div>
+
                     <div class="japan-wrapper overflow-hidden">
                         <div class="japan-item">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide p-5 animate">
-                                    <div class="md:w-auto w-full">
-                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                            <img class="" src="<?php echo get_template_directory_uri() .'/src/img/cars/car1.png'; ?>" alt="вправо" >
-                                        </a>
-                                        <div class="flex flex-col items-start gap-4 justify-between">
-                                            <div class="md:text-3xl text-xl font-medium pt-4">TOYOTA AQUA</div>
-                                            <div class="flex flex-row">
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/speed.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2.0, АКПП, 92 000 км.</p>
+                            <div class="swiper-wrapper">            
+     
+                                    <?php 
+
+                                        $arr = aj_get("select model_id,model_name from stats where marka_name='toyota'");
+
+                                        $offset = ((int)$_GET['page']-1)*20;
+                                        $arr = aj_get("select model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='toyota' group by model_id order by model_name limit 30");
+
+                                        foreach ($arr as $v) {
+                                            $avgPrice = $v['AVG_PRICE']; 
+                                            $priceRub = round($avgPrice * 0.61, 2);
+                                            $year = $v['YEAR'];
+                                            $kpp = $v['KPP'];
+                                            $mileage = $v['MILEAGE'];
+                                            $color = $v['COLOR'];
+                                            $engine_value = $v['ENG_V'];
+                                            $name_car = $v['MODEL_NAME'];
+                                            list($img1, $img2) = explode('#', $v['IMAGES']);
+                                            $img1 = str_replace("&h=50", "&w=320", $img1);
+                                        
+                                            echo '  
+                                            <div class="swiper-slide p-5 animate">
+                                                <div class="md:w-auto w-full">
+                                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                                        <img class="" src=' . $img1. ' width="430" height="460" alt="вправо" >;
+                                                    </a>
+                                                    <div class="flex flex-col items-start gap-4 justify-between">
+                                                        <div class="md:text-3xl text-xl font-medium pt-4">'.$name_car.'</div>
+                                                        <div class="flex flex-row">
+                                                            <div class="flex items-center">
+                                                                <img class="" src="' . get_template_directory_uri() . '/src/img/icons/speed.svg " alt="" >
+                                                                <p class="md:pr-3 pr-1  md:text-base text-xs">'.$engine_value.' '.$kpp.' '.$mileage.'</p>
+                                                            </div>
+                                                            <div class="flex items-center">
+                                                                <img class="pr-1 " src="' .get_template_directory_uri() . '/src/img/icons/color.svg" alt="" >
+                                                                <p class="md:pr-3 pr-1  md:text-base text-xs">'.$color.'</p>
+                                                            </div>
+                                                            <div class="flex items-center">
+                                                                <img class="pr-1 " src="' .get_template_directory_uri() . '/src/img/icons/year.svg" alt="" >
+                                                                <p class="md:pr-3 pr-1  md:text-base text-xs">'.$year.'</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex flex-row gap-4">
+                                                            <p class="md:text-xl text-base">
+                                                                <span class="font-bold">'. $priceRub .'  ₽</span> ('. $avgPrice .' ¥)
+                                                            </p>
+                                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="the_permalink(); ?">
+                                                                 Заказать
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/color.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">grey</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/color.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2012 год</p>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-row gap-4">
-                                                <p class="md:text-xl text-base">
-                                                    <span class="font-bold">937 061 ₽</span> (673 000 ¥)
-                                                </p>
-                                                <button class="up bg-red py-2 px-5 text-white rounded-lg ">
-                                                    Заказать
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>       
-                                <div class="swiper-slide p-5 animate">
-                                    <div class="md:w-auto w-full">
-                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                            <img class="" src="<?php echo get_template_directory_uri() .'/src/img/cars/car1.png'; ?>" alt="вправо" >
-                                        </a>
-                                        <div class="flex flex-col items-start gap-4 justify-between">
-                                            <div class="md:text-3xl text-xl font-medium pt-4">TOYOTA AQUA</div>
-                                            <div class="flex flex-row">
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/speed.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2.0, АКПП, 92 000 км.</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/color.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">grey</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/color.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2012 год</p>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-row gap-4">
-                                                <p class="md:text-xl text-base">
-                                                    <span class="font-bold">937 061 ₽</span> (673 000 ¥)
-                                                </p>
-                                                <button class="up bg-red py-2 px-5 text-white rounded-lg ">
-                                                    Заказать
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>       
-                                <div class="swiper-slide p-5 animate">
-                                    <div class="md:w-auto w-full">
-                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                            <img class="" src="<?php echo get_template_directory_uri() . '/src/img/cars/car1.png'; ?>" alt="вправо" >
-                                        </a>
-                                        <div class="flex flex-col items-start gap-4 justify-between">
-                                            <div class="md:text-3xl text-xl font-medium pt-4">TOYOTA AQUA</div>
-                                            <div class="flex flex-row">
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/speed.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2.0, АКПП, 92 000 км.</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/color.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">grey</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/color.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2012 год</p>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-row gap-4">
-                                                <p class="md:text-xl text-base">
-                                                    <span class="font-bold">937 061 ₽</span> (673 000 ¥)
-                                                </p>
-                                                <button class="up bg-red py-2 px-5 text-white rounded-lg ">
-                                                    Заказать
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>       
-                                    
+                                            </div>    
+                                                ';
+                                        }
+                                    ?>    
                             </div>
                         </div>
-                    </div>   
-                    
+                    </div>
+
                     <div class="md:hidden flex-nowrap gap-5 flex items-center justify-center">
                         <button
                             class="up japan-prev rounded-lg shadow-md shadow-main-black -z-0 ">
@@ -235,6 +228,7 @@ Template Name: autopotencial
                     <div class="korea-wrapper overflow-hidden">
                         <div class="korea-item">
                             <div class="swiper-wrapper">
+                               
                                 <div class="swiper-slide p-5 animate">
                                     <div class="md:w-auto w-full">
                                         <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
@@ -260,9 +254,9 @@ Template Name: autopotencial
                                                 <p class="md:text-xl text-base">
                                                     <span class="font-bold">937 061 ₽</span> (673 000 ¥)
                                                 </p>
-                                                <button class="up bg-red py-2 px-5 text-white rounded-lg ">
+                                                <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php get_permalink(); ?>">
                                                     Заказать
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -292,9 +286,9 @@ Template Name: autopotencial
                                                 <p class="md:text-xl text-base">
                                                     <span class="font-bold">937 061 ₽</span> (673 000 ¥)
                                                 </p>
-                                                <button class="up bg-red py-2 px-5 text-white rounded-lg ">
+                                                <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php get_permalink(); ?>">
                                                     Заказать
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -324,13 +318,14 @@ Template Name: autopotencial
                                                 <p class="md:text-xl text-base">
                                                     <span class="font-bold">937 061 ₽</span> (673 000 ¥)
                                                 </p>
-                                                <button class="up bg-red py-2 px-5 text-white rounded-lg ">
+                                                <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php get_permalink(); ?>">
                                                     Заказать
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>    
+ 
                             </div>
                         </div>
                     </div>    
@@ -380,22 +375,19 @@ Template Name: autopotencial
                                         'suppress_filters' => true
                                     ));
 
-                                    foreach( $my_posts as $post ){
-
-                                        setup_postdata( $post );
-                                    ?>  
-
-                                    <div class="swiper-slide p-5 animate">
+                                    foreach ($my_posts as $post) : setup_postdata($post);
+                                ?> 
+                                    <div class="swiper-slide p-3 animate">
                                         <div class="md:w-auto w-full">
                                             <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                                <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо" >
+                                                <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
                                             </a>
                                             <div class="flex flex-col items-start gap-4 justify-between">
-                                                <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('название_машины'); ?></div>
+                                                <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('бренд'); ?> <?php the_field('модель'); ?></div>
                                                 <div class="flex flex-row">
                                                     <div class="flex items-center">
                                                         <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/speed.svg'; ?>" alt="" >
-                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('характеристики_через_запятую'); ?></p>
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('объем_двигателя');?>л, <?php the_field('трансмиссия');?>, <?php the_field('пробег');?>км</p>
                                                     </div>
                                                     <div class="flex items-center">
                                                         <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/color.svg'; ?>" alt="" >
@@ -408,9 +400,9 @@ Template Name: autopotencial
                                                 </div>
                                                 <div class="flex flex-row gap-4">
                                                     <p class="md:text-xl text-base">
-                                                        <span class="font-bold"><?php the_field('сумма_в_рублях_с_пробелами'); ?> ₽</span> (<?php the_field('сумма_в_юанях_с_пробелами'); ?> ¥)
+                                                        <span class="font-bold"><?php the_field('сумма_в_рублях_с_пробелами'); ?> ₽</span> (<?php the_field('сумма_в_юанях_с_пробелами');?> ¥)
                                                     </p>
-                                                    <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php the_permalink(); ?>">
+                                                    <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php echo the_permalink(); ?>">
                                                         Заказать
                                                     </a>
                                                 </div>
@@ -418,11 +410,8 @@ Template Name: autopotencial
                                         </div>
                                     </div>    
 
-
-                                <?php
-                                    }
-                                    wp_reset_postdata();
-                                ?>
+                                <?php endforeach; ?>
+                                <?php wp_reset_postdata(); ?>
      
                             </div>
                         </div>
@@ -527,7 +516,7 @@ Template Name: autopotencial
                                     </label>
                                     <div class="flex gap-10">
                                         <div class="w-full">
-                                            <select id="year" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <select id="year_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                                 <option>от</option>
                                                 <option>2001</option>
                                                 <option>2002</option>
@@ -555,7 +544,7 @@ Template Name: autopotencial
                                             </select>
                                         </div>
                                         <div class="w-full">
-                                            <select id="year" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
+                                            <select id="year_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
                                                 <option>до</option>
                                                 <option>2001</option>
                                                 <option>2002</option>
@@ -594,12 +583,12 @@ Template Name: autopotencial
                                         </label>
                                         <div class="flex gap-10">
                                             <div class="w-1/2">
-                                                <input id="mileage" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
+                                                <input id="mileage_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
 
                                                 </input>
                                             </div>
                                             <div class="w-1/2">
-                                                <input id="7" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
+                                                <input id="mileage_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
 
                                                 </input>
                                             </div>
@@ -615,12 +604,12 @@ Template Name: autopotencial
                                         </label>
                                         <div class="flex gap-10">
                                             <div class="w-1/2">
-                                                <input id="price" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
+                                                <input id="price_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
 
                                                 </input>
                                             </div>
                                             <div class="w-1/2">
-                                                <input id="price" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
+                                                <input id="price_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
 
                                                 </input>
                                             </div>
@@ -635,12 +624,12 @@ Template Name: autopotencial
                                         </label>
                                         <div class="flex gap-10">
                                             <div class="w-1/2">
-                                                <input id="value" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
+                                                <input id="value_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
 
                                                 </input>
                                             </div>
                                             <div class="w-1/2">
-                                                <input id="value" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
+                                                <input id="value_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
 
                                                 </input>
                                             </div>

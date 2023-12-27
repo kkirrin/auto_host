@@ -12,7 +12,7 @@
             <section class="md:py-40 py-32 wow fadeInUp" data-wow-delay="0.2s"">
                 <div class="container">
                     <div class="absolute right-0 md:bottom-52 bottom-0">
-                        <a href="#">
+                        <a href="https://auc.avtopotencial-dv.ru/">
                             <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
                                 <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
@@ -36,33 +36,31 @@
                                     <div class="slider card__slider relative">
                                         <div class="swiper slider__slider">
                                             <div class="swiper-wrapper">
-                                                <div class="swiper-slide"><img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="<?php echo get_template_directory_uri() . '/src/img/card-item/image 8.png'; ?>" alt="">
-                                                </div>
-                                                <div class="swiper-slide"><img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="<?php echo get_template_directory_uri() . '/src/img/card-item/image1.png'; ?>" alt="">
-                                                </div>
-                                                <div class="swiper-slide"><img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="<?php echo get_template_directory_uri() . '/src/img/card-item/image2.png'; ?>" alt="">
-                                                </div>
-                                                <div class="swiper-slide"><img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="<?php echo get_template_directory_uri() . '/src/img/card-item/image3.png'; ?>" alt="">
-                                                </div>
-                                                <div class="swiper-slide"><img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="<?php echo get_template_directory_uri() . '/src/img/card-item/image4.png'; ?>" alt="">
-                                                </div>
+                                                <?php
+                                                    $photos = the_field('галерея');
+                                                   
+                                                    if ($photos) {
+                                                        foreach ($photos as $photo) {
+                                                            echo '<div class="swiper-slide"><img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="' . esc_url($photo['url']) . '" alt=""></div>';
+                                                        }
+                                                    }
+                                                ?>
+
+
                                             </div>
-                                       
                                         </div>
 
                                         <div class="swiper slider__thumb md:pt-10 pt-5 md:w-full w-80 md:relative absolute">
                                             <div class="swiper-wrapper">
-                                                <div class="swiper-slide"><img class="md:w-24 md:h-24 w-[60px] h-[60px]" src="<?php echo get_template_directory_uri() . '/src/img/card-item/image 8.png'; ?>" alt="">
-                                                </div>
-                                                <div class="swiper-slide"><img class="md:w-24 md:h-24 w-[60px] h-[60px]" src="<?php echo get_template_directory_uri() . '/src/img/card-item/image1.png'; ?>" alt="">
-                                                </div>
-                                                <div class="swiper-slide"><img class="md:w-24 md:h-24 w-[60px] h-[60px]" src="<?php echo get_template_directory_uri() . '/src/img/card-item/image2.png'; ?>" alt="">
-                                                </div>
-                                                <div class="swiper-slide"><img class="md:w-24 md:h-24 w-[60px] h-[60px]" src="<?php echo get_template_directory_uri() . '/src/img/card-item/image3.png'; ?>" alt="">
-                                                </div>
-                                                <div class="swiper-slide"><img class="md:w-24 md:h-24 w-[60px] h-[60px]" src="<?php echo get_template_directory_uri() . '/src/img/card-item/image4.png'; ?>" alt="">
-                                                </div>
-                                                </div>
+                                         
+                                                <?php
+                                                    $photos = the_field('галерея');
+                                                    if ($photos) {
+                                                        foreach ($photos as $photo) {
+                                                            echo '<div class="swiper-slide"><img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="' . esc_url($photo['url']) . '" alt=""></div>';
+                                                        }
+                                                    }
+                                                ?> 
                                             </div>
                                         </div>
                                     </div>
@@ -72,7 +70,7 @@
 
                         <div class="w-full md:pt-0 pt-20">
                             <h3 class="font-bold md:text-4xl text-xl">
-                                MAZDA CX-8
+                                <?php the_field('модель'); ?>
                             </h3>
                             <div class="flex justify-between items-center pt-10">
                                 <ul>
@@ -103,28 +101,28 @@
                                 </ul>
                                 <ul>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Бренд
+                                        <?php the_field('бренд'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Год выпуска
+                                        <?php the_field('год'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Тип кузова
+                                        <?php the_field('тип_кузова'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Тип двигателя
+                                        <?php the_field('тип_двигателя'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Объем двигателя
+                                        <?php the_field('объем_двигателя'); ?> л
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Аукцион
+                                        <?php the_field('аукцион'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Лот
+                                        <?php the_field('лот'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Цена на аукционе
+                                        <?php the_field('цена'); ?>
                                     </li>
                                 </ul>
                                
@@ -133,7 +131,7 @@
                             <div class="flex md:flex-row flex-col items-center justify-between gap-5">
                                 <div class="flex flex-1 gap-5 items-center ">
                                     <p class="font-bold md:text-2xl text-lg">
-                                        1 799 975 ₽
+                                        <?php the_field('цена'); ?>
                                     </p>
                                     <p class="text-gray md:text-base text-xs">
                                         *Цена указана в РФ с ПТС

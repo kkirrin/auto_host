@@ -6,12 +6,12 @@ export const initFormMain = () => {
     const select5 = document.getElementById('transmition');
     const select6 = document.getElementById('year_from');
     const select7 = document.getElementById('year_to');
-    const select8 = document.getElementById('mileage_from');
-    const select9 = document.getElementById('mileage_to');
-    const select10 = document.getElementById('price_from');
-    const select11 = document.getElementById('price_to');
-    const select12 = document.getElementById('value_from');
-    const select13 = document.getElementById('value_to');
+    const input8 = document.getElementById('mileage_from');
+    const input9 = document.getElementById('mileage_to');
+    const input10 = document.getElementById('price_from');
+    const input11 = document.getElementById('price_to');
+    const input12 = document.getElementById('value_from');
+    const input13 = document.getElementById('value_to');
 
     select1.onchange = function() {
         // Перезаписываем значение переменной selectedValue1 при выборе нового Option
@@ -19,31 +19,95 @@ export const initFormMain = () => {
         console.log('Текущее значение selectedValue1:', selectedValue1);
         document.getElementById('formMainMarka').value = selectedValue1;
       };
-    // const selectedValue2 = select1.options[select2.selectedIndex].value;
-    // const selectedValue3 = select1.options[select3.selectedIndex].value;
-    // const selectedValue4 = select1.options[select4.selectedIndex].value;
-    // const selectedValue5 = select1.options[select5.selectedIndex].value;
-    // const selectedValue6 = select1.options[select6.selectedIndex].value;
 
+    select2.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue2 = select2.options[select2.selectedIndex].value;
+        console.log('Текущее значение selectedValue2:', selectedValue2);
+        document.getElementById('formMainModel').value = selectedValue2;
+      };
 
-    // console.log(selectedValue1);
+    select3.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue3 = select3.options[select3.selectedIndex].value;
+        console.log('Текущее значение selectedValue3:', selectedValue3);
+        document.getElementById('formMainFuel').value = selectedValue3;
+      };
 
-    // document.getElementById('formMainMarka').value = selectedValue1;
-    // document.getElementById('formMainModel').value = selectedValue2;
-    // document.getElementById('formMainFuel').value = selectedValue3;
-    // document.getElementById('formMainPrivod').value = selectedValue3;
-    // document.getElementById('formMainKpp').value = selectedValue3;
-    // document.getElementById('formMainYearFrom').value = selectedValue3;
-    // document.getElementById('formMainYearFrom').value = selectedValue3;
-    // document.getElementById('formMainMileageFrom').value = selectedValue3;
-    // document.getElementById('formMainMileageTo').value = selectedValue3;
-    // document.getElementById('formMainPriceFrom').value = selectedValue3;
-    // document.getElementById('formMainPriceTo').value = selectedValue3;
-    // document.getElementById('formMainValueFrom').value = selectedValue3;
-    // document.getElementById('formMainValueTo').value = selectedValue3;
+    select4.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue4 = select4.options[select4.selectedIndex].value;
+        console.log('Текущее значение selectedValue4:', selectedValue4);
+        document.getElementById('formMainPrivod').value = selectedValue4;
+      };
+
+    select5.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue5 = select5.options[select5.selectedIndex].value;
+        console.log('Текущее значение selectedValue5:', selectedValue5);
+        document.getElementById('formMainKpp').value = selectedValue5;
+      };
+
+    select6.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue6 = select6.options[select6.selectedIndex].value;
+        console.log('Текущее значение selectedValue6:', selectedValue6);
+        document.getElementById('formMainYearFrom').value = selectedValue6;
+      };
+
+    select7.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue7 = select7.options[select7.selectedIndex].value;
+        console.log('Текущее значение selectedValue7:', selectedValue7);
+        document.getElementById('formMainYearTo').value = selectedValue7;
+      };
+
+    input8.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue8 = input8.value;
+        console.log('Текущее значение selectedValue8:', selectedValue8);
+        document.getElementById('formMainMileageFrom').value = selectedValue8;
+      };
+
+    input9.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue9 = input9.value;
+        console.log('Текущее значение selectedValue9:', selectedValue9);
+        document.getElementById('formMainMileageTo').value = selectedValue9;
+      };
+
+    input10.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue10 = input10.value
+        console.log('Текущее значение selectedValue10:', selectedValue10);
+        document.getElementById('formMainPriceFrom').value = selectedValue10;
+      };
+
+    input11.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue11 = input11.value
+        console.log('Текущее значение selectedValue11:', selectedValue11);
+        document.getElementById('formMainPriceTo').value = selectedValue11;
+      };
+
+    input12.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue12 = input12.value
+        console.log('Текущее значение selectedValue12:', selectedValue12);
+        document.getElementById('formMainValueFrom').value = selectedValue12;
+      };
+
+    input13.onchange = function() {
+        // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+        const selectedValue13 = input13.value
+        console.log('Текущее значение selectedValue13:', selectedValue13);
+        document.getElementById('formMainValueTo').value = selectedValue13;
+      };
 
 
     console.log('Тут')
+    const hiddenInput = document.getElementById('hidden');
+    hiddenInput.classList.add('display-none');
 
         
 }

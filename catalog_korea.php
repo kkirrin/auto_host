@@ -1,13 +1,12 @@
 <?php 
     /*
-    Template Name: catalog
+    Template Name: catalog_korea
     */
 ?>
 
 <?php 
 
     function aj_get($sql) {
-        error_reporting(0);
 
         ##----- CONFIG ---------
         $code='APTnghDfD64KJ';       ## REQUIRED
@@ -19,7 +18,7 @@
         $url = 'http://'.$server.'/'.$go.'/?ip='.$ip.'&json&code='.$code.'&sql='.urlencode(preg_replace("/%25/","%",$sql));
 
         ## DEBUG
-        // echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
+        echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
 
         ## API REQUEST
         $s = file_get_contents($url);
@@ -83,7 +82,7 @@
                     <div class="container">
                         
                         <h2 class="text-start text-white font-normal md:text-5xl text-xl uppercase py-5">
-                            японские автоаукционы
+                            Корейские машины
                         </h2>      
 
                         <div class="flex flex-wrap items-start justify-start gap-10 pb-10">
@@ -313,91 +312,64 @@
                     </div>
                 </section>
 
-               <section class=" w-full relative pt-20 pb-10 wow fadeInUp" data-wow-delay="0.4s">
+                <section class=" w-full relative pt-20 pb-10 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="container">
                         <div class="flex items-start justify-start flex-wrap ">
+                        <?php
+                                    $my_posts = get_posts(array(
+                                        'numberposts' => -1,
+                                        'category_name' => 'korea',
+                                        'order' => 'title',
+                                        'post_type' => 'post',
+                                        'suppress_filters' => true
+                                    ));
 
-                            <?php 
+                                    foreach( $my_posts as $post ){
 
-                                // $arr = aj_get("select model_id,model_name from stats where marka_name='toyota'");
+                                        setup_postdata( $post );
+                            ?>  
 
-                                $offset = ((int)$_GET['page']-1)*20;
-                                $arr = aj_get("select model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main group by model_id order by model_name limit 30");
-                                // echo '</tr></table>';
-
-                                $num_arr = aj_get("select count(*) from main");
-                                $lots=$num_arr[0]['TAG0'];
-                                echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
-
-                                $totalPages = ceil($lots / 20);
-                                $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-
-                                if ($totalPages > 1) {
-                                    $maxPages = 10;
-
-                                    for ($i = 1; $i <= min($maxPages, $totalPages); $i++) {
-                                        echo "<a class=page_num href='?model=" . $v['model_name'] . "&page=" . $i . "'>" . $i . "</a> ";
-                                    }
-
-                                    if ($maxPages < $totalPages) {
-                                        echo "... ";
-                                    }
-
-                                    echo "<a class=page_num href='?model=" . $v['model_name'] . "&page=" . $totalPages . "'>" . $totalPages . "</a> ";
-                                    echo '<div style="clear:both"></div>';
-                                }
-
-                                
-
-                            
-                                foreach($arr as $v) {
-                                    $avgPrice = $v['AVG_PRICE']; 
-                                    $year = $v['YEAR'];
-                                    $kpp = $v['KPP'];
-                                    $mileage = $v['MILEAGE'];
-                                    $color = $v['COLOR'];
-                                    $engine_value = $v['ENG_V'];
-                                    $name_car = $v['MODEL_NAME'];
-                                    list($img1, $img2) = explode('#', $v['IMAGES']);
-                                    
-                                    $img1 = str_replace("&h=50", "&w=320", $img1);
-                                
-                                    echo '<div class="animate p-4">
-                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                    <img class="" src=' . $img1. ' width="430" height="460" alt="вправо" >;
-                                    </a>
-                                    <div class="flex flex-col items-start gap-4 justify-between">
-                                        <div class="md:text-3xl text-xl font-medium pt-4">'.$name_car.'</div>
-                                        <div class="flex flex-row">
-                                            <div class="flex items-center">
-                                                <img class="" src="' . get_template_directory_uri() . '/src/img/icons/speed.svg " alt="" >
-                                                <p class="md:pr-3 pr-1  md:text-base text-xs">'.$engine_value.' '.$kpp.' '.$mileage.'</p>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <img class="pr-1 " src="' .get_template_directory_uri() . '/src/img/icons/color.svg" alt="" >
-                                                <p class="md:pr-3 pr-1  md:text-base text-xs">'.$color.'</p>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <img class="pr-1 " src="' .get_template_directory_uri() . '/src/img/icons/year.svg" alt="" >
-                                                <p class="md:pr-3 pr-1  md:text-base text-xs">'.$year.'</p>
+                                    <div class="p-3 animate">
+                                        <div class="md:w-auto w-full">
+                                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                                <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
+                                            </a>
+                                            <div class="flex flex-col items-start gap-4 justify-between">
+                                                <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('бренд'); ?> <?php the_field('модель'); ?></div>
+                                                <div class="flex flex-row">
+                                                    <div class="flex items-center">
+                                                        <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/speed.svg'; ?>" alt="" >
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('объем_двигателя');?> <?php get_field('трасмиссия');?> <?php get_field('пробег');?></p>
+                                                    </div>
+                                                    <div class="flex items-center">
+                                                        <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/color.svg'; ?>" alt="" >
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('цвет'); ?></p>
+                                                    </div>
+                                                    <div class="flex items-center">
+                                                        <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/year.svg'; ?>" alt="" >
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('год'); ?> год</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-row gap-4">
+                                                    <p class="md:text-xl text-base">
+                                                        <span class="font-bold"><?php the_field('сумма_в_рублях_с_пробелами'); ?> ₽</span> (<?php the_field('сумма_в_юанях_с_пробелами'); ?> ¥)
+                                                    </p>
+                                                    <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php the_permalink(); ?>">
+                                                        Заказать
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="flex flex-row gap-4">
-                                            <p class="md:text-xl text-base">
-                                                <span class="font-bold">937 061 ₽</span> ('.$avgPrice.' ¥)
-                                            </p>
-                                            <button class="up bg-red py-2 px-5 text-white rounded-lg ">
-                                                Заказать
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>';
-                                } 
-                                
-                                ?>                   
+                                    </div>    
+
+
+                                <?php
+                                    }
+                                    wp_reset_postdata();
+                                ?>          
                         </div>
                     </div>
-                </section> 
+                </section>
                 
 
                 <section id="popup1" class="popup">

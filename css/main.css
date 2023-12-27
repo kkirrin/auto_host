@@ -5,6 +5,10 @@
 /* Импорт кастомных стилей для компонентов */
 
 
+.wpcf7 form:nth-child(1) {
+  display: none;
+}
+
 video {
   height: 350px !important;
   width: 350px !important;

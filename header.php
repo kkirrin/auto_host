@@ -44,15 +44,15 @@
 
                             <ul class="flex flex-col text-white">
                                 <li class="px-4 mb-4">
-                                    <a class="hover:text-green transition-colors" href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто с аукционов Японии</a>
+                                    <a class="hover:text-green transition-colors" href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/">Авто с аукционов Японии</a>
                                 </li>
                                 <li class="px-4 mb-4">
-                                    <a class="hover:text-green transition-colors" href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто из Кореи</a></li>
+                                    <a class="hover:text-green transition-colors" href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/">Авто из Кореи</a></li>
                                 <!-- <li class="px-4 mb-4">
                                     <a class="hover:text-green transition-colors" href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Популярные авто</a></li> -->
         
                                 <li class="px-4 mb-4">
-                                    <a class="hover:text-green transition-colors" href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто в наличии</a></li>
+                                    <a class="hover:text-green transition-colors" href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/">Авто в наличии</a></li>
                             </ul>
                         </div>
 
@@ -73,16 +73,16 @@
                                     <p class="pb-2">Каталог</p>
                                     <ul class="text-gray md:text-base text-xs">
                                         <li class="pb-4">
-                                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто с аукционов Японии</a>
+                                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/">Авто с аукционов Японии</a>
                                         </li>  
                                         <li class="pb-4">
-                                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто с аукционов Кореи</a>
+                                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/">Авто с аукционов Кореи</a>
                                         </li>  
                                         <!-- <li class="pb-4">
                                             <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Популярные авто</a>
                                         </li>   -->
                                         <li class="pb-4">
-                                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Авто в наличии</a>
+                                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/">Авто в наличии</a>
                                         </li>  
                                         <li class="pb-4">
                                             <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Сейчас на аукционах</a>
@@ -113,7 +113,7 @@
                                     <ul class="flex items-center justify-center gap-4">
                                         <li class="pb-8 flex items-center gap-4">
                                         <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
-                                        <a href="tg://resolve?domain=YourTelegramUsername"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
+                                        <a href="t.me/avtopotencialdv"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
                                             <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
                                             <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
                                             <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>

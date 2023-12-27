@@ -8,10 +8,10 @@
                     <ul class="flex items-center justify-center gap-4">
                         <li class="pb-8 flex items-center gap-4">
                             <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
-                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
-                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
-                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
-                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
+                            <a href="https://t.me/avtopotencialdv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
+                            <a href="https://vk.com/avtopotencial_dv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
+                            <a href="https://instagram.com/avtopotencial"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
+                            <a href="https://www.youtube.com/channel/UCBKiXYVvi1ROscY2_ENwM-Q"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
                         </li>  
                     </ul>
                 </div>
@@ -19,17 +19,17 @@
                     <p class="pb-4">Каталог</p>
                     <ul class="text-gray md:text-base text-xs">
                         <li class="pb-8 hover:text-red transition-all">
-                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">С аукционов Японии</a>
+                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/">С аукционов Японии</a>
                         </li>
                     
                         <li class="pb-8 hover:text-red transition-all">
-                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/"> С аукционов Кореи</a>
+                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/"> С аукционов Кореи</a>
                         </li>  
                         <!-- <li class="pb-8 hover:text-red transition-all">
                             <a href="catalog.html">Популярные авто</a>
                         </li>   -->
                         <li class="pb-8 hover:text-red transition-all">
-                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">В наличии</a> 
+                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/">В наличии</a> 
                         </li>  
                         <li class="pb-8 hover:text-red transition-all">
                             <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Сейчас на аукционах</a>

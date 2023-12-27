@@ -13,7 +13,7 @@
             
             <section class="md:py-40 py-10 wow fadeInUp" data-wow-delay="0.2s"">
             <div class="absolute right-0 md:bottom-52 bottom-0">
-                <a href="#">
+                <a href="https://auc.avtopotencial-dv.ru/">
                             <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
                                 <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
