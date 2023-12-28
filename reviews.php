@@ -147,7 +147,8 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>  <d                        <div class="animate p-2">
+                        </div> 
+                        <div class="animate p-2">
                             <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
                                 <img class="" src="<?php echo get_template_directory_uri() . '/src/img/review/image_4.png'; ?>" width="440" height="380" alt="вправо" >
                             </a>

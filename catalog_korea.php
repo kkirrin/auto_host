@@ -308,6 +308,33 @@
 
 
                             </form>
+
+                            <div class="container" style="padding-bottom: 40px;">
+                                <div class="catalog-filter">
+                                    <?php echo do_shortcode( '[fe_widget]' ); ?>	
+                                    <div class="row category-grid">
+                                        <?php while ( have_posts() ) : the_post(); ?>
+                                    
+                                        <?php get_template_part('korea') ?>
+                                        
+                                        <?php endwhile; ?>	
+                                
+                                
+                                    </div>		 
+                                </div>
+                                <?php 
+                                the_posts_pagination( array(
+                                    'mid_size' => 2,
+                                    'prev_text'    => __('&#8592; Предыдущая'),
+                                    'next_text'    => __('Следующая &#8594;')
+                                ) );
+                                ?> 
+                                <div class="mobile-pagination">
+                                    <div class="navigation"><?php posts_nav_link(' ','&#8592; Предыдущая &nbsp;','&nbsp; Следующая &#8594;'); ?></div>
+                                </div>
+                            </div>	
+
+
                         </div>
                     </div>
                 </section>

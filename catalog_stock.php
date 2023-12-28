@@ -59,7 +59,7 @@
             
          
       
-                <section class="bg-black relative md:py-44 py-10 overflow-hidden wow fadeInUp" data-wow-delay="0.3s" style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
+                <section class="bg-black relative py-10 overflow-hidden wow fadeInUp" data-wow-delay="0.3s" style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
 
                     <!-- <div class="absolute md:-top-24 -top-0 right-0">
                         <img src="./src/img/main/catalog-bg.png" alt="">
@@ -98,7 +98,7 @@
                         </div>
 
                         <div class="w-full rounded-xl">
-                            <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
+                            <!-- <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
                                 <div class="mb-4">
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
                                         Выберите марку
@@ -307,7 +307,32 @@
                                 </div>
 
 
-                            </form>
+                            </form> -->
+                            
+                            <div class="container w-full rounded-xl">
+                                <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 uppercase ">
+                                    
+                                    <?php echo do_shortcode( '[fe_widget id=290]' ); ?>	
+                                    
+                                        <?php while ( have_posts() ) : the_post(); ?>
+                                    
+                                        <?php get_template_part('in_stock') ?>
+                                        
+                                        <?php endwhile; ?>	
+                                    
+                                    <?php 
+                                    the_posts_pagination( array(
+                                        'mid_size' => 2,
+                                        'prev_text'    => __('&#8592; Предыдущая'),
+                                        'next_text'    => __('Следующая &#8594;')
+                                    ) );
+                                    ?> 
+                                    <div class="mobile-pagination">
+                                        <div class="navigation"><?php posts_nav_link(' ','&#8592; Предыдущая &nbsp;','&nbsp; Следующая &#8594;'); ?></div>
+                                    </div>
+                                </form>
+                            </div>	
+
                         </div>
                     </div>
                 </section>
@@ -335,11 +360,11 @@
                                                 <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
                                             </a>
                                             <div class="flex flex-col items-start gap-4 justify-between">
-                                                <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('бренд'); ?> <?php the_field('модель'); ?></div>
+                                                <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('marka_name'); ?> <?php the_field('model_name'); ?></div>
                                                 <div class="flex flex-row">
                                                     <div class="flex items-center">
                                                         <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/speed.svg'; ?>" alt="" >
-                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('объем_двигателя');?>л, <?php the_field('трансмиссия');?>, <?php the_field('пробег');?>км</p>
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('value');?>л, <?php the_field('transmission');?>, <?php the_field('auto_mileage');?>км</p>
                                                     </div>
                                                     <div class="flex items-center">
                                                         <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/color.svg'; ?>" alt="" >
@@ -347,12 +372,12 @@
                                                     </div>
                                                     <div class="flex items-center">
                                                         <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/year.svg'; ?>" alt="" >
-                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('год'); ?> год</p>
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('year'); ?> год</p>
                                                     </div>
                                                 </div>
                                                 <div class="flex flex-row gap-4">
                                                     <p class="md:text-xl text-base">
-                                                        <span class="font-bold"><?php the_field('сумма_в_рублях_с_пробелами'); ?> ₽</span> (<?php the_field('сумма_в_юанях_с_пробелами');?> ¥)
+                                                        <span class="font-bold"><?php the_field('price'); ?> ₽</span> (<?php the_field('сумма_в_юанях_с_пробелами');?> ¥)
                                                     </p>
                                                     <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php the_permalink(); ?>">
                                                         Заказать

@@ -4,6 +4,8 @@
 add_action('wp_enqueue_scripts', 'theme_add_scripts');
 add_action('after_setup_theme', 'add_menu');
 
+add_filter('use_block_editor_for_post_type', '__return_false', 10);
+
 function theme_add_scripts()
 {
 

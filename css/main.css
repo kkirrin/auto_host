@@ -5,6 +5,78 @@
 /* Импорт кастомных стилей для компонентов */
 
 
+.wpc-filters-section {
+  margin-bottom: 10px;
+}
+
+
+.wpc-filters-section {
+  display: block;
+
+}
+
+
+div .wpc-filter-content select {
+  display: block;
+  appearance: none;
+  width: 250px;
+  border: 1px solid gray;
+  padding: 10px 4px;
+  border-radius: 5px;
+  
+}
+
+.wpc-filter-content input {
+  display: block;
+  appearance: none;
+  width: 50%;
+  border: 1px solid gray;
+  padding: 10px 4px;
+  border-radius: 5px;
+  
+}
+ 
+div .wpc-filters-section a.wpc-filters-submit-button{
+  background-color: #e40604 !important;
+  padding: 10px 4px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+div .wpc-filters-section a.wpc-filters-reset-button{
+  color: #fcbc40 !important;
+  background:transparent;
+  border: 0px solid;
+  text-decoration: underline;
+
+}
+
+
+.wpc-filters-submit-button {
+  font-weight: bold;
+  transition: all 0.6s ease-in-out;
+  z-index: 1;
+}
+
+.wpc-filters-submit-button:hover {
+  box-shadow: inset 0 -3.25em 0 0 #fcbc40;
+}
+
+
+.widget-title {
+  color: white;
+}
+
+.wpc-filters-widget-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  /* justify-content: center; */
+  width: 80vw;
+  gap: 10px;
+}
+
+
 #popup3 .wpcf7 form p:nth-child(2) {
   display: none;
 }

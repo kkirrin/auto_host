@@ -154,8 +154,8 @@ Template Name: autopotencial
                                             echo '  
                                             <div class="swiper-slide p-5 animate">
                                                 <div class="md:w-auto w-full">
-                                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                                        <img class="" src=' . $img1. ' width="430" height="460" alt="вправо" >;
+                                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                                        <img class="" src=' . $img1. ' width="430" height="460" alt="вправо" >
                                                     </a>
                                                     <div class="flex flex-col items-start gap-4 justify-between">
                                                         <div class="md:text-3xl text-xl font-medium pt-4">'.$name_car.'</div>
@@ -177,7 +177,7 @@ Template Name: autopotencial
                                                             <p class="md:text-xl text-base">
                                                                 <span class="font-bold">'. $priceRub .'  ₽</span> ('. $avgPrice .' ¥)
                                                             </p>
-                                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="the_permalink(); ?">
+                                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="'.the_permalink($name_car).'">
                                                                  Заказать
                                                             </a>
                                                         </div>
@@ -231,7 +231,7 @@ Template Name: autopotencial
                                
                                 <div class="swiper-slide p-5 animate">
                                     <div class="md:w-auto w-full">
-                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                                             <img class="" src="<?php echo get_template_directory_uri() .'/src/img/cars/car1.png'; ?>" alt="вправо" >
                                         </a>
                                         <div class="flex flex-col items-start gap-4 justify-between">
@@ -263,7 +263,7 @@ Template Name: autopotencial
                                 </div>    
                                 <div class="swiper-slide p-5 animate">
                                     <div class="md:w-auto w-full">
-                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                                             <img class="" src="<?php echo get_template_directory_uri() .'/src/img/cars/car1.png'; ?>" alt="вправо" >
                                         </a>
                                         <div class="flex flex-col items-start gap-4 justify-between">
@@ -295,7 +295,7 @@ Template Name: autopotencial
                                 </div>    
                                 <div class="swiper-slide p-5 animate">
                                     <div class="md:w-auto w-full">
-                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                                             <img class="" src="<?php echo get_template_directory_uri() .'/src/img/cars/car1.png'; ?>" alt="вправо" >
                                         </a>
                                         <div class="flex flex-col items-start gap-4 justify-between">
@@ -379,7 +379,7 @@ Template Name: autopotencial
                                 ?> 
                                     <div class="swiper-slide p-3 animate">
                                         <div class="md:w-auto w-full">
-                                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                                                 <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
                                             </a>
                                             <div class="flex flex-col items-start gap-4 justify-between">
@@ -888,7 +888,7 @@ Template Name: autopotencial
                                 
                                         <div class="swiper-slide p-5 animate">
                                             <div class="flex flex-col items-center justify-between md:w-auto w-full">
-                                                <div class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                                <div class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                                                     <video controls poster="<?php the_field('постер_отзыва'); ?>" alt="отзыв">
                                                         <source src="<?php the_field('видео_отзыва'); ?>" type="video/mp4"> 
                                                         <source src="<?php the_field('видео_отзыва'); ?>" type="video/webm"> 

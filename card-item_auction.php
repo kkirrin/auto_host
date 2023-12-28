@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: card item
+    Template Name: card item auction
     Template Post Type: post
 */
 
@@ -46,7 +46,7 @@
                                                         echo '</div>';
                                                     }
                                                 } else {
-                                                    echo 'No photos found.'; 
+                                                    echo 'No photos found.'; // Add a message for when there are no photos.
                                                 }
                                             ?>
                                             </div>
@@ -64,7 +64,7 @@
                                                         echo '</div>';
                                                     }
                                                 } else {
-                                                    echo 'No photos found.'; 
+                                                    echo 'No photos found.'; // Add a message for when there are no photos.
                                                 }
                                             ?>
                                               
@@ -77,7 +77,7 @@
 
                         <div class="w-full md:pt-0 pt-20">
                             <h3 class="font-bold md:text-4xl text-xl">
-                                <?php the_field('marka_name'); ?>
+                                <?php the_field('модель'); ?>
                             </h3>
                             <div class="flex justify-between items-center pt-10">
                                 <ul>
@@ -96,22 +96,22 @@
                                     <li class="md:text-base text-xs font-semibold pb-5">
                                         Объем двигателя
                                     </li>
-                                    <!-- <li class="md:text-base text-xs font-semibold pb-5">
+                                    <li class="md:text-base text-xs font-semibold pb-5">
                                         Аукцион
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
                                         Лот
-                                    </li> -->
+                                    </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Цена
+                                        Цена на аукционе
                                     </li>
                                 </ul>
                                 <ul>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('model_name'); ?>
+                                        <?php the_field('бренд'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('year'); ?>
+                                        <?php the_field('год'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
                                         <?php the_field('тип_кузова'); ?>
@@ -120,16 +120,16 @@
                                         <?php the_field('тип_двигателя'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('value'); ?> л
+                                        <?php the_field('объем_двигателя'); ?> л
                                     </li>
-                                    <!-- <li class="md:text-base text-xs font-semibold pb-5">
+                                    <li class="md:text-base text-xs font-semibold pb-5">
                                         <?php the_field('аукцион'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
                                         <?php the_field('лот'); ?>
-                                    </li> -->
+                                    </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('price'); ?>  ₽
+                                        <?php the_field('цена'); ?>
                                     </li>
                                 </ul>
                                
@@ -138,7 +138,7 @@
                             <div class="flex md:flex-row flex-col items-center justify-between gap-5">
                                 <div class="flex flex-1 gap-5 items-center ">
                                     <p class="font-bold md:text-2xl text-lg">
-                                        <?php the_field('сумма_в_рублях_с_пробелами'); ?>₽
+                                        <?php the_field('цена'); ?>
                                     </p>
                                     <p class="text-gray md:text-base text-xs">
                                         *Цена указана в РФ с ПТС
@@ -158,7 +158,7 @@
             </section>
             
 
-            <!-- <section class=" wow fadeInUp" data-wow-delay="0.4s"">
+            <section class=" wow fadeInUp" data-wow-delay="0.4s"">
                 <div class="container relative pb-10">
                     <h2 class="text-start text-black z-10 font-normal md:text-4xl text-xl uppercase pb-10">
                         Расшифровка цены
@@ -318,7 +318,7 @@
                           
                     </div>
                 </div>
-            </section> -->
+            </section>
 
 
             <section id="popup1" class="popup">
@@ -333,11 +333,11 @@
                         <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
                         <div class="flex items-center justify-between pb-10">
                             <div>
-                                <p class="text-white md:text-base text-sm"><?php the_field('бренд'); ?> <?php the_field('модель'); ?></p>
+                                <p class="text-white md:text-base text-sm">MAZDA CX-8</p>
                             </div>
                             
                             <div>
-                                <p class="text-yellow font-bold md:text-xl text-sm"><?php the_field("сумма_в_рублях_с_пробелами"); ?> ₽</p>
+                                <p class="text-yellow font-bold md:text-xl text-sm">1 799 975 ₽</p>
                             </div>
                         </div>
         
