@@ -98,13 +98,40 @@
                             </a>
                         </div>
 
+                        <?php 
+                            $arr = aj_get("select * from marka");
+                            $arr = aj_get("select marka_name from main group by marka_id order by marka_name ASC");
+
+                            echo '<label class="block text-white text-sm font-medium mb-2" for="make">Выберите марку</label>';
+                            echo '<select class="block appearance-none w-full border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="vendorSelect">';
+
+                            foreach($arr as $v) {
+                                echo '<option value="'.$v['MARKA_NAME'].'">'.$v['MARKA_NAME']."</option>";
+                            }
+
+                            echo '
+                            <label class="block text-white text-sm font-medium mb-2" for="make">
+                                Выберите модель
+                            </label>
+                            
+                            <select id="modelAuction" name="model" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                <option class="text-opacity-10">Выберите модель</option>
+                                <option class="text-opacity-10"></option>
+                            </select>
+                            
+                            ';
+
+                            echo '</select>';
+                        
+                        ?>
+
                         <div class="w-full rounded-xl">
                             <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
                                 <div class="mb-4">
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
                                         Выберите марку
                                     </label>
-                                    <select name="brand" id="brand" class="select input block appearance-none w-full border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <select name="brandAuction" id="brandAuction" class="select input block appearance-none w-full border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         <option class="text-opacity-10">Выберите марку</option>
                                         <option class="text-opacity-10"></option>
                                     </select>
@@ -113,7 +140,7 @@
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
                                         Выберите модель
                                     </label>
-                                    <select id="model" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <select id="modelAuction" name="model" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         <option class="text-opacity-10">Выберите модель</option>
                                         <option class="text-opacity-10"></option>
                                     </select>
@@ -122,7 +149,7 @@
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
                                         Выберите вид топлива
                                     </label>
-                                    <select id="fuel" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <select id="fueAuctionl" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         <option>Выберите вид топлива</option>
                                         <option>Бензин</option>
                                         <option>Дизель</option>
@@ -136,7 +163,7 @@
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
                                         Привод
                                     </label>
-                                    <select id="drive" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <select id="driveAuction" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         <option>Привод</option>
                                         <option>4WD</option>
                                         <option>Задний</option>
@@ -147,7 +174,7 @@
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
                                         Трансмиссия
                                     </label>
-                                    <select id="transmition" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <select id="transmitionAuction" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         <option>Трансмиссия</option>
                                         <option>АКПП</option>
                                         <option>Робот</option>
@@ -160,7 +187,7 @@
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
                                         Выберите комплектацию 
                                     </label>
-                                    <select id="complectation" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <select id="complectationAuction" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         <option>Выберите комплектацию</option>
                                         <option></option>
                                     </select>
@@ -173,7 +200,7 @@
                                     </label>
                                     <div class="flex gap-10">
                                         <div class="w-full">
-                                            <select id="year" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <select id="yearAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                                 <option>от</option>
                                                 <option>2001</option>
                                                 <option>2002</option>
@@ -201,7 +228,7 @@
                                             </select>
                                         </div>
                                         <div class="w-full">
-                                            <select id="year" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
+                                            <select id="yearAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
                                                 <option>до</option>
                                                 <option>2001</option>
                                                 <option>2002</option>
@@ -240,12 +267,12 @@
                                         </label>
                                         <div class="flex gap-10">
                                             <div class="w-1/2">
-                                                <input id="mileage" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
+                                                <input id="mileageAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
 
                                                 </input>
                                             </div>
                                             <div class="w-1/2">
-                                                <input id="7" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
+                                                <input id="mileageAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
 
                                                 </input>
                                             </div>
@@ -261,12 +288,12 @@
                                         </label>
                                         <div class="flex gap-10">
                                             <div class="w-1/2">
-                                                <input id="price" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
+                                                <input id="priceAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
 
                                                 </input>
                                             </div>
                                             <div class="w-1/2">
-                                                <input id="price" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
+                                                <input id="priceAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
 
                                                 </input>
                                             </div>
@@ -281,12 +308,12 @@
                                         </label>
                                         <div class="flex gap-10">
                                             <div class="w-1/2">
-                                                <input id="value" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
+                                                <input id="valueAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
 
                                                 </input>
                                             </div>
                                             <div class="w-1/2">
-                                                <input id="value" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
+                                                <input id="valueAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
 
                                                 </input>
                                             </div>
@@ -322,7 +349,7 @@
                                 // $arr = aj_get("select model_id,model_name from stats where marka_name='toyota'");
 
                                 $offset = ((int)$_GET['page']-1)*20;
-                                $arr = aj_get("select model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main group by model_id order by model_name limit 30");
+                                $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main group by model_id order by model_name limit 30");
                                 // echo '</tr></table>';
 
                                 $num_arr = aj_get("select count(*) from main");
@@ -358,6 +385,7 @@
                                     $color = $v['COLOR'];
                                     $engine_value = $v['ENG_V'];
                                     $name_car = $v['MODEL_NAME'];
+                                    $id = $v['ID'];
                                     list($img1, $img2) = explode('#', $v['IMAGES']);
                                     
                                     $img1 = str_replace("&h=50", "&w=320", $img1);
@@ -386,9 +414,9 @@
                                             <p class="md:text-xl text-base">
                                                 <span class="font-bold">937 061 ₽</span> ('.$avgPrice.' ¥)
                                             </p>
-                                            <button class="up bg-red py-2 px-5 text-white rounded-lg ">
-                                                Заказать
-                                            </button>
+                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="карточка-машины-с-аукциона?id='.$id.'">
+                                            Заказать
+                                            </a>
                                         </div>
                                     </div>
                                 </div>';

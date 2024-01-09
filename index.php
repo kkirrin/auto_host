@@ -52,7 +52,7 @@ Template Name: autopotencial
                         
                         <div class="swiper-wrapper h-auto">
                         <div class="absolute right-0 md:bottom-52 bottom-0">
-                <a href="https://auc.avtopotencial-dv.ru/">
+                    <a href="https://auc.avtopotencial-dv.ru/">
                             <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
                                 <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
@@ -137,7 +137,7 @@ Template Name: autopotencial
                                         $arr = aj_get("select model_id,model_name from stats where marka_name='toyota'");
 
                                         $offset = ((int)$_GET['page']-1)*20;
-                                        $arr = aj_get("select model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='toyota' group by model_id order by model_name limit 30");
+                                        $arr = aj_get("select id, model_id, model_name, marka_name, marka_id, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='toyota' group by model_id order by model_name limit 30");
 
                                         foreach ($arr as $v) {
                                             $avgPrice = $v['AVG_PRICE']; 
@@ -148,6 +148,11 @@ Template Name: autopotencial
                                             $color = $v['COLOR'];
                                             $engine_value = $v['ENG_V'];
                                             $name_car = $v['MODEL_NAME'];
+                                            $id_car = $v['MODEL_ID'];
+                                            $name_model = $v['MARKA_NAME'];
+                                            $id_model = $v['MARKA_ID'];
+                                            $id = $v['ID'];
+
                                             list($img1, $img2) = explode('#', $v['IMAGES']);
                                             $img1 = str_replace("&h=50", "&w=320", $img1);
                                         
@@ -177,8 +182,8 @@ Template Name: autopotencial
                                                             <p class="md:text-xl text-base">
                                                                 <span class="font-bold">'. $priceRub .'  ₽</span> ('. $avgPrice .' ¥)
                                                             </p>
-                                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="'.the_permalink($name_car).'">
-                                                                 Заказать
+                                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="карточка-машины-с-аукциона?id='.$id.'">
+                                                            Заказать
                                                             </a>
                                                         </div>
                                                     </div>
@@ -187,6 +192,37 @@ Template Name: autopotencial
                                                 ';
                                         }
                                     ?>    
+
+                                    <?php 
+
+                                        if(isset($_GET['id'])) {
+                                            $arr = aj_get("select * from main where id='".$id."'");
+                                        
+                                            echo '<div class=img_position>';
+                                            foreach (explode('#',$arr[0]['IMAGES']) as $key=>$img) {
+                                            ## AUCTION SHEET CAN BE BIG. OTHER PHOTOS SET TO 320PX
+                                            $img = $key==0 ? $img : $img.'&w=320';
+                                            echo "<a href='$img'><img src='$img' width=500px onload='image_nofoto(this);'></a>";
+                                            }
+                                            echo '</div>
+                                        
+                                            <table class=tb cellpadding=0 cellspacing=0>';
+                                            foreach($arr[0] as $key => $val) {
+                                            if ($key=='IMAGES'||$key=='AVG_STRING'||$key=='TIME') {continue;}
+                                            if ($key=='INFO' && is_array($val)) {$val=var_export($val,true);} ## if INFO array
+                                            echo "<tr><td class=h>$key</td><td style='width:320px'>$val</td></tr>\n";
+                                            }
+                                            echo '</table>
+                                        
+                                            <script>
+                                            function image_nofoto(el) {
+                                            if( (el.naturalWidth==319||el.naturalWidth==1) && /\.ajes\.com/.test(el.src)){
+                                                el.parentElement.style.display="none";
+                                            }
+                                            }</script>';
+                                        }
+
+                                    ?>
                             </div>
                         </div>
                     </div>

@@ -20,7 +20,25 @@ import { initFetchCars } from "./module/fetchCars.js";
 import { initFormMain } from "./module/formMain.js";
 
 
+// document.querySelector('.up').addEventListener('click', function(event) {
+//     event.preventDefault();
+
+//     const urlParams = new URLSearchParams(window.location.search);
+//     const id = urlParams.get('id');
+    
+//     console.log(id);
+    
+//     if (id) {
+//         window.open('card-item_auction.php?id=' + id, '_self');
+//     }
+// });
+
+
+
+
 window.addEventListener('DOMContentLoaded', () => {
+
+
     console.log('подключен скрипт main.js');
 
     initNav();
@@ -48,4 +66,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     
 
+    
 });
+

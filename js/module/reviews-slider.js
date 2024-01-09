@@ -7,9 +7,9 @@ export const initReviewsSlider = () => {
             
             swiper = new Swiper(item, {
                 loop: true,
-                autoplay: {
-                    delay: 3000
-                },
+                // autoplay: {
+                //     delay: 3000
+                // },
                 speed: 900,
                 direction: 'horizontal',
                 spaceBetween: 15,

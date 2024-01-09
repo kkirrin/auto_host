@@ -1,12 +1,48 @@
 <?php
 /*
     Template Name: card item auction
-    Template Post Type: post
 */
 
 ?>
 
 <?php get_header(); ?>
+
+
+<?php 
+    
+    function aj_get($sql) {
+        error_reporting(0);
+
+        ##----- CONFIG ---------
+        $code='APTnghDfD64KJ';       ## REQUIRED
+        $server='78.46.90.228'; ## optional :: $server='144.76.203.145'; 
+        $go='api';              ## optional :: $go='gzip'; // gzip work faster
+
+        ## SET IP,URL
+        $ip = $_SERVER['HTTP_CF_CONNECTING_IP']=='' ? $_SERVER['REMOTE_ADDR'] : $_SERVER['HTTP_CF_CONNECTING_IP'];
+        $url = 'http://'.$server.'/'.$go.'/?ip='.$ip.'&json&code='.$code.'&sql='.urlencode(preg_replace("/%25/","%",$sql));
+
+        ## DEBUG
+        // echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
+
+        ## API REQUEST
+        $s = file_get_contents($url);
+        //echo $s;
+
+        ## GZIP DECODE
+        if ($go=='gzip') {
+            $s = $server=='144.76.203.145' ? gzinflate(substr($s,10,-8)) : 
+                gzuncompress(preg_replace("/^\\x1f\\x8b\\x08\\x00\\x00\\x00\\x00\\x00/","",$s));
+        }
+
+        $arr = json_decode($s,true);  //die(var_export($arr));
+        // echo gettype($arr);
+        return $arr;
+    }
+?>
+
+
+
         <main>
             <h1 class="visually-hidden">Скрытый заголовок</h1>
             <section class="md:py-40 py-32 wow fadeInUp" data-wow-delay="0.2s"">
@@ -38,16 +74,14 @@
                                             <div class="swiper-wrapper">
                                                
                                             <?php
-                                                $photos = get_field('галерея');
-                                                if ($photos) {
-                                                    foreach ($photos as $photo) {
-                                                        echo '<div class="swiper-slide">';
-                                                        echo '<img class="md:w-[650px] md:h-[500px] w-[335px] h-[290px]" src="' . esc_url($photo['url']) . '" alt="">';
-                                                        echo '</div>';
-                                                    }
-                                                } else {
-                                                    echo 'No photos found.'; // Add a message for when there are no photos.
-                                                }
+                                                $arr = aj_get("select * from main where id='".$_GET['id']."'");
+                                                foreach (explode('#',$arr[0]['IMAGES']) as $key=>$img) {
+                                                    ## AUCTION SHEET CAN BE BIG. OTHER PHOTOS SET TO 320PX
+                                                    $img = $key==0 ? $img : $img.'&w=320';
+                                                    echo '<div class="swiper-slide">';
+                                                    echo "<a href='$img'><img src='$img' width=500px onload='image_nofoto(this);'></a>";
+                                                    echo '</div>';
+                                                  }
                                             ?>
                                             </div>
                                        
@@ -55,17 +89,17 @@
 
                                         <div class="swiper slider__thumb md:pt-10 pt-5 md:w-full w-80 md:relative absolute">
                                             <div class="swiper-wrapper">
+                                            
                                             <?php
-                                                $photos = get_field('галерея');
-                                                if ($photos) {
-                                                    foreach ($photos as $photo) {
-                                                        echo '<div class="swiper-slide">';
-                                                        echo '<img class="md:w-24 md:h-24 w-[60px] h-[60px]" src="' . esc_url($photo['url']) . '" alt="">';
-                                                        echo '</div>';
-                                                    }
-                                                } else {
-                                                    echo 'No photos found.'; // Add a message for when there are no photos.
-                                                }
+                                                 $arr = aj_get("select * from main where id='".$_GET['id']."'");
+                                                 foreach (explode('#',$arr[0]['IMAGES']) as $key=>$img) {
+                                                     ## AUCTION SHEET CAN BE BIG. OTHER PHOTOS SET TO 320PX
+                                                     $img = $key==0 ? $img : $img.'&w=320';
+                                                     echo '<div class="swiper-slide">';
+                                                     echo "<a href='$img'><img src='$img' width=500px onload='image_nofoto(this);'></a>";
+                                                     echo '</div>';
+                                                 }
+                                                    
                                             ?>
                                               
                                             </div>
@@ -75,82 +109,114 @@
                             </div>
                           </section>
 
-                        <div class="w-full md:pt-0 pt-20">
-                            <h3 class="font-bold md:text-4xl text-xl">
-                                <?php the_field('модель'); ?>
-                            </h3>
-                            <div class="flex justify-between items-center pt-10">
-                                <ul>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        Бренд
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        Год выпуска
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        Тип кузова
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        Тип двигателя
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        Объем двигателя
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        Аукцион
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        Лот
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        Цена на аукционе
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('бренд'); ?>
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('год'); ?>
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('тип_кузова'); ?>
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('тип_двигателя'); ?>
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('объем_двигателя'); ?> л
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('аукцион'); ?>
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('лот'); ?>
-                                    </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
-                                        <?php the_field('цена'); ?>
-                                    </li>
-                                </ul>
-                               
+                          <?php 
+                                $arr = aj_get("select * from main where id='".$_GET['id']."'");
+                                foreach ($arr as $v) {
+                                $avgPrice = $v['AVG_PRICE']; 
+                                $priceRub = round($avgPrice * 0.61, 2);
+                                $year = $v['YEAR'];
+                                $kpp = $v['KPP'];
+                                $mileage = $v['MILEAGE'];
+                                $color = $v['COLOR'];
+                                $engine_value = $v['ENG_V'];
+                                $name_car = $v['MODEL_NAME'];
+                                $id_car = $v['MODEL_ID'];
+                                $name_model = $v['MARKA_NAME'];
+                                $id_model = $v['MARKA_ID'];
+                                $id = $v['ID'];
+                                $lot = $v['LOT'];
+                                $auction = $v['AUCTION'];
+                                $kuzov = $v['KUZOV'];
+                                $grade = $v['GRADE'];
+                                $date_auction = $v['AUCTION_DATE'];
+
+
                                 
-                            </div>
-                            <div class="flex md:flex-row flex-col items-center justify-between gap-5">
-                                <div class="flex flex-1 gap-5 items-center ">
-                                    <p class="font-bold md:text-2xl text-lg">
-                                        <?php the_field('цена'); ?>
-                                    </p>
-                                    <p class="text-gray md:text-base text-xs">
-                                        *Цена указана в РФ с ПТС
-                                    </p>
-                                </div>
-                                <div>
-                                    <a class="bg-red up py-2 px-10 text-white rounded-lg popup-link"
-                                    href="#popup1">Заказать авто</a>
-                                </div>
-                                
-                                
-                            </div>
+
+                                list($img1, $img2) = explode('#', $v['IMAGES']);
+                                $img1 = str_replace("&h=50", "&w=320", $img1);
+                            
+                                echo ' 
+
+                                    <div class="w-full md:pt-0 pt-20">
+                                        <h3 class="font-bold md:text-4xl text-xl">
+                                            '.$name_model.'  '.$name_car.'
+                                        </h3>
+                                        <div class="flex justify-between items-center pt-10">
+                                        <ul>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Бренд
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Год выпуска
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Кузов
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Комлектация
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Объем двигателя
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Аукцион
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Лот
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Цена на аукционе
+                                            </li>
+                                        </ul>
+
+                                        <ul>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$name_model.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$year.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$kuzov.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$grade.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$engine_value.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$auction.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$lot.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$avgPrice.'
+                                            </li>
+                                        </ul>
+                                           
+                                        </div>
+                                        <div class="flex md:flex-row flex-col items-center justify-between gap-5">
+                                            <div class="flex flex-1 gap-5 items-center ">
+                                                <p class="font-bold md:text-2xl text-lg">
+                                                '.$priceRub.'
+                                                </p>
+                                                <p class="text-gray md:text-base text-xs">
+                                                    *Цена указана в РФ с ПТС
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <a class="bg-red up py-2 px-10 text-white rounded-lg popup-link"
+                                                href="#popup1">Заказать авто</a>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                ';
+                            }
+                        ?> 
                         </div>
                    </div>
                 </div>
@@ -173,16 +239,18 @@
                         <div class=" card__list md:p-10 p-5 md:order-1 order-2">
                             <form>          
                                 <div class="bg-yellow p-2 max-w-max mb-3">
-                                    ЛОТ № 12406
+                                    
+                                ЛОТ № 
+                                <?php echo "$lot"?>
                                 </div>
                                 <div>
                                     <p class="font-bold md:text-2xl text-base pb-3">
-                                        Toyota PRIUS 2019
+                                    <?php echo "$name_model  $name_car"?>
                                     </p>
         
                                     <div class="flex flex-col pb-5 md:text-base text-xs">
-                                        <p>Аукцион: TAA Yokohama</p>
-                                        <p>Дата: 30-09-2023</p>
+                                        <p>Аукцион: <?php echo "$auction"?></p>
+                                        <p>Дата: <?php echo "$date_auction"?></p>
                                     </div>
         
 
@@ -332,13 +400,19 @@
                         </button>
                         <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
                         <div class="flex items-center justify-between pb-10">
-                            <div>
-                                <p class="text-white md:text-base text-sm">MAZDA CX-8</p>
-                            </div>
+                            <?php 
                             
-                            <div>
-                                <p class="text-yellow font-bold md:text-xl text-sm">1 799 975 ₽</p>
-                            </div>
+                            echo '
+                            
+                                <div>
+                                    <p class="text-white md:text-base text-sm">'.$name_car.'</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="text-yellow font-bold md:text-xl text-sm">'.$priceRub.' ₽</p>
+                                </div>
+                                '
+                            ?>
                         </div>
         
                         <div class="form-wrapper">
