@@ -342,58 +342,72 @@
                 <section class=" w-full relative pt-20 pb-10 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="container">
                         <div class="flex items-start justify-start flex-wrap ">
+
+                        
                         <?php
-                                    $my_posts = get_posts(array(
-                                        'numberposts' => -1,
-                                        'category_name' => 'korea',
-                                        'order' => 'title',
-                                        'post_type' => 'post',
-                                        'suppress_filters' => true
-                                    ));
+                            $posts_per_page = 2;  
+                            // Текущая страница
+                            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
 
-                                    foreach( $my_posts as $post ){
+                            $args = array(
+                                'posts_per_page' => $posts_per_page,
+                                'paged' => $paged,
+                                'category_name' => 'korea',
+                                'order' => 'title',
+                                'post_type' => 'post',
+                                'suppress_filters' => true
+                            );
+                            $query = new WP_Query($args);
 
-                                        setup_postdata( $post );
-                            ?>  
-
-                                    <div class="p-3 animate">
-                                        <div class="md:w-auto w-full">
-                                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                                <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
-                                            </a>
-                                            <div class="flex flex-col items-start gap-4 justify-between">
-                                                <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('бренд'); ?> <?php the_field('модель'); ?></div>
-                                                <div class="flex flex-row">
-                                                    <div class="flex items-center">
-                                                        <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/speed.svg'; ?>" alt="" >
-                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('объем_двигателя');?> <?php get_field('трасмиссия');?> <?php get_field('пробег');?></p>
-                                                    </div>
-                                                    <div class="flex items-center">
-                                                        <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/color.svg'; ?>" alt="" >
-                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('цвет'); ?></p>
-                                                    </div>
-                                                    <div class="flex items-center">
-                                                        <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/year.svg'; ?>" alt="" >
-                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('год'); ?> год</p>
-                                                    </div>
-                                                </div>
-                                                <div class="flex flex-row gap-4">
-                                                    <p class="md:text-xl text-base">
-                                                        <span class="font-bold"><?php the_field('сумма_в_рублях_с_пробелами'); ?> ₽</span> (<?php the_field('сумма_в_юанях_с_пробелами'); ?> ¥)
-                                                    </p>
-                                                    <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php the_permalink(); ?>">
-                                                        Заказать
-                                                    </a>
-                                                </div>
+                            while ($query->have_posts()) {
+                                $query->the_post();
+                            ?>
+                            <div class="p-3 animate">
+                                <div class="md:w-auto w-full">
+                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                        <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
+                                    </a>
+                                    <div class="flex flex-col items-start gap-4 justify-between">
+                                        <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('marka_name'); ?> <?php the_field('model_name'); ?></div>
+                                        <div class="flex flex-row">
+                                            <div class="flex items-center">
+                                                <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/speed.svg'; ?>" alt="" >
+                                                <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('value');?>л, <?php the_field('transmission');?>, <?php the_field('auto_mileage');?>км</p>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/color.svg'; ?>" alt="" >
+                                                <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('цвет'); ?></p>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/year.svg'; ?>" alt="" >
+                                                <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('year'); ?> год</p>
                                             </div>
                                         </div>
-                                    </div>    
+                                        <div class="flex flex-row gap-4">
+                                            <p class="md:text-xl text-base">
+                                                <span class="font-bold"><?php the_field('price'); ?> ₽</span> (<?php the_field('сумма_в_юанях_с_пробелами');?> ¥)
+                                            </p>
+                                            <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php the_permalink(); ?>">
+                                                Заказать
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        <?php
+                    }
 
+                        $pag_args = array(
+                            'total' => $query->max_num_pages,
+                            'current' => max(1, $paged),
+                            'prev_text' => '&laquo;',
+                            'next_text' => '&raquo;',
+                        );
 
-                                <?php
-                                    }
-                                    wp_reset_postdata();
-                                ?>          
+                        echo paginate_links($pag_args);
+
+                        wp_reset_postdata(); 
+                    ?>
                         </div>
                     </div>
                 </section>

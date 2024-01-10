@@ -1,5 +1,5 @@
 export const initFetchCars = () => {
-    console.log('Working...')
+    
     // Запрашиваем данные с помощью fetch
     // fetch('http://78.46.90.228/api/?code=APTnghDfD64KJ&sql=select%20*%20from%20main%20limit%205')
     fetch("https://avtopotencial-dv.ru/wp-content/themes/autopotencial/js/japan.js")
@@ -81,4 +81,8 @@ export const initFetchCars = () => {
               model.hidden = false;
             });
           }
+
+
+
+       
 }

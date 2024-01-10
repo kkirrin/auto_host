@@ -98,43 +98,37 @@
                             </a>
                         </div>
 
-                        <?php 
-                            $arr = aj_get("select * from marka");
-                            $arr = aj_get("select marka_name from main group by marka_id order by marka_name ASC");
-
-                            echo '<label class="block text-white text-sm font-medium mb-2" for="make">Выберите марку</label>';
-                            echo '<select class="block appearance-none w-full border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="vendorSelect">';
-
-                            foreach($arr as $v) {
-                                echo '<option value="'.$v['MARKA_NAME'].'">'.$v['MARKA_NAME']."</option>";
-                            }
-
-                            echo '
-                            <label class="block text-white text-sm font-medium mb-2" for="make">
-                                Выберите модель
-                            </label>
-                            
-                            <select id="modelAuction" name="model" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option class="text-opacity-10">Выберите модель</option>
-                                <option class="text-opacity-10"></option>
-                            </select>
-                            
-                            ';
-
-                            echo '</select>';
-                        
-                        ?>
-
+                       
                         <div class="w-full rounded-xl">
                             <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
                                 <div class="mb-4">
+                                <?php 
+                                    $arr = aj_get("select * from marka");
+                                    $arr = aj_get("select marka_name from main group by marka_id order by marka_name ASC");
+
+                                    echo '<label class="block text-white text-sm font-medium mb-2" for="make">Выберите марку</label>';
+                                    echo '<select class="block appearance-none w-full border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="vendorSelect">';
+
+                                    foreach($arr as $v) {
+                                        echo '<option value="'.$v['MARKA_NAME'].'">'.$v['MARKA_NAME']."</option>";
+                                    }
+
+                                    echo '
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Выберите марку
+                                        Выберите модель
                                     </label>
-                                    <select name="brandAuction" id="brandAuction" class="select input block appearance-none w-full border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option class="text-opacity-10">Выберите марку</option>
+                                    
+                                    <select id="modelAuction" name="model" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                        <option class="text-opacity-10">Выберите модель</option>
                                         <option class="text-opacity-10"></option>
                                     </select>
+                                    
+                                    ';
+
+                                    echo '</select>';
+                        
+                        ?>
+
                                 </div>
                                 <div class="mb-4">
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
@@ -145,6 +139,30 @@
                                         <option class="text-opacity-10"></option>
                                     </select>
                                 </div>
+
+                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                <script>
+                                   $(function() {
+                                    $('#modelAuction').change(function() {
+                                        var selectedMake = $(this).val();
+                                        console.log(selectedMake);
+
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: 'fetchCarsFilter.php',  
+                                            data: { selectedMake: selectedMake },
+                                            success: function(response) {
+                                                var modelSelect = $('#modelAuction');
+                                                modelSelect.empty().append(response);
+                                            },
+                                            error: function(error) {
+                                                console.error('Ошибка:', error);
+                                            }
+                                        });
+                                    });
+                                });
+                                </script>
+
                                 <div class="mb-4">
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
                                         Выберите вид топлива
@@ -363,14 +381,14 @@
                                     $maxPages = 10;
 
                                     for ($i = 1; $i <= min($maxPages, $totalPages); $i++) {
-                                        echo "<a class=page_num href='?model=" . $v['model_name'] . "&page=" . $i . "'>" . $i . "</a> ";
+                                        echo "<a class=page_num href='" . "page=" . $i . "'>" . $i . "</a> ";
                                     }
 
                                     if ($maxPages < $totalPages) {
                                         echo "... ";
                                     }
 
-                                    echo "<a class=page_num href='?model=" . $v['model_name'] . "&page=" . $totalPages . "'>" . $totalPages . "</a> ";
+                                    echo "<a class=page_num href='" ."&page=" . $totalPages . "'>" . $totalPages . "</a> ";
                                     echo '<div style="clear:both"></div>';
                                 }
 

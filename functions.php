@@ -86,5 +86,10 @@ function theme_add_scripts()
              ));
      }
 
+
+     the_posts_pagination(array (
+        'end_size' => 2,
+     ) )
+
     
 ?>
