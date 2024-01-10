@@ -32,106 +32,60 @@
                     <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative">Выполненные заказы </h2>
                     
                     <div class="flex items-start justify-start flex-wrap">
-                        <div class="animate p-2">
-                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                <img class="" src="<?php echo get_template_directory_uri() . '/src/img/review/image_4.png'; ?>" width="440" height="380" alt="вправо" >
+                       
+                    <?php
+                            $posts_per_page = 2;  
+                            // Текущая страница
+                            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
+
+                            $args = array(
+                                'posts_per_page' => $posts_per_page,
+                                'paged' => $paged,
+                                'category_name' => 'finished',
+                                'order' => 'title',
+                                'post_type' => 'post',
+                                'suppress_filters' => true
+                            );
+                            $query = new WP_Query($args);
+
+                            while ($query->have_posts()) {
+                                $query->the_post();
+                            ?>
+                            <div class="animate p-2">
+                            <a href="<?php echo the_permalink(); ?>" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                <img class="" src="<?php echo the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
                             </a>
                             <div class="flex flex-col items-center md:items-start">
-                                <div class="font-bold pb-5">BMW 7-series 730 </div>
+                                <div class="font-bold pb-5"><?php echo the_field('название_машины'); ?></div>
                                 
                                 <div class="flex flex-col md:flex-row pb-5">
                                     <div class="flex items-center">
                                         <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-gray">12.02.2023</p>
+                                        <p class="pl-3 pr-5 text-gray"><?php echo the_field('дата'); ?></p>
                                     </div>
 
                                     <div class="flex items-center">
                                         <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-black font-bold">2 570 000 ₽</p>
+                                        <p class="pl-3 pr-5 text-black font-bold"><?php echo the_field('сумма_в_рублях_с_пробелами_выполнено'); ?></p>
                                     </div>
                                 </div>
                             </div>
                         </div>    
-                        <div class="animate p-2">
-                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                <img class="" src="<?php echo get_template_directory_uri() . '/src/img/review/image_4.png'; ?>" width="440" height="380" alt="вправо" >
-                            </a>
-                            <div class="flex flex-col items-center md:items-start">
-                                <div class="font-bold pb-5">BMW 7-series 730 </div>
-                                
-                                <div class="flex flex-col md:flex-row pb-5">
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-gray">12.02.2023</p>
-                                    </div>
+                        <?php
+                    }
 
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-black font-bold">2 570 000 ₽</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-                        <div class="animate p-2">
-                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                <img class="" src="<?php echo get_template_directory_uri() . '/src/img/review/image_4.png'; ?>" width="440" height="380" alt="вправо" >
-                            </a>
-                            <div class="flex flex-col items-center md:items-start">
-                                <div class="font-bold pb-5">BMW 7-series 730 </div>
-                                
-                                <div class="flex flex-col md:flex-row pb-5">
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-gray">12.02.2023</p>
-                                    </div>
+                        $pag_args = array(
+                            'total' => $query->max_num_pages,
+                            'current' => max(1, $paged),
+                            'prev_text' => '&laquo;',
+                            'next_text' => '&raquo;',
+                        );
 
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-black font-bold">2 570 000 ₽</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-                        <div class="animate p-2">
-                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                <img class="" src="<?php echo get_template_directory_uri() . '/src/img/review/image_4.png'; ?>" width="440" height="380" alt="вправо" >
-                            </a>
-                            <div class="flex flex-col items-center md:items-start">
-                                <div class="font-bold pb-5">BMW 7-series 730 </div>
-                                
-                                <div class="flex flex-col md:flex-row pb-5">
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-gray">12.02.2023</p>
-                                    </div>
+                        echo paginate_links($pag_args);
 
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-black font-bold">2 570 000 ₽</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-                        <div class="animate p-2">
-                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                <img class="" src=".<?php echo get_template_directory_uri() . '/src/img/review/image_4.png'; ?>" width="440" height="380" alt="вправо" >
-                            </a>
-                            <div class="flex flex-col items-center md:items-start">
-                                <div class="font-bold pb-5">BMW 7-series 730 </div>
-                                
-                                <div class="flex flex-col md:flex-row pb-5">
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-gray">12.02.2023</p>
-                                    </div>
-
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-black font-bold">2 570 000 ₽</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
+                        wp_reset_postdata(); 
+                    ?>
+                        
 
                     </div>     
                 </div>  

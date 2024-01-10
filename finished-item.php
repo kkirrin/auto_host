@@ -1,6 +1,7 @@
 <?php
 /*
     Template Name: finished item
+    Template Post Type: post
 */
 
 ?>
@@ -30,10 +31,10 @@
                 <div class="container">
                     <div class="flex md:flex-row flex-col items-center justify-center gap-10"> 
                         <div class="md:w-1/2 w-full">
-                            <img src="<?php echo get_template_directory_uri() . '/src/img/finished-item/image 8 (1).png'; ?>" alt="">
+                            <img src="<?php echo the_field('главное_фото'); ?>" alt="">
                         </div>
                         <div class="md:w-1/2 w-full">
-                            <img src="<?php echo get_template_directory_uri() . '/src/img/finished-item/image 11.png'; ?>" alt="">
+                            <img src="<?php echo the_field('второе_фото'); ?>" alt="">
                         </div>
                     </div>
                     <h3 class="font-bold md:text-4xl text-xl pt-20">
@@ -68,25 +69,25 @@
                                 </ul>
                                 <ul>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        TOYOTA WISH
+                                        <?php echo the_field('модель'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        S
+                                        <?php echo the_field('модификация'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        1 075 000 ¥
+                                        <?php echo the_field('год_выпуска'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        2019
+                                        <?php echo the_field('год_выпуска'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        34000 км
+                                        <?php echo the_field('пробег'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        AT
+                                        <?php echo the_field('трансмиссия'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        Silver
+                                        <?php echo the_field('цвет'); ?>
                                     </li>
                                 </ul>
                             </div> 
@@ -95,48 +96,48 @@
                             <div class="flex justify-between items-center md:pt-10 pt-0">
                                 <ul>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Модель:
+                                        Оценка:
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Модификация:
+                                        Двигатель:
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Цена на аукционе:
+                                        Объем двигателя:
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Год выпуска:
+                                        Мощность:
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Пробег:
+                                        Топливо:
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Трансмиссия:
+                                        Привод:
                                     </li>
                                     <li class="md:text-base text-xs font-semibold pb-5">
-                                        Цвет:
+                                        Оборудование:
                                     </li>
                                 </ul>
                                 <ul>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        TOYOTA WISH
+                                        <?php echo the_field('двигатель'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        S
+                                        <?php echo the_field('объем_двигателя'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        1 075 000 ¥
+                                        <?php echo the_field('объем_двигателя'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        2019
+                                        <?php echo the_field('Мощность'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        34000 км
+                                        <?php echo the_field('топливо'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        AT
+                                        <?php echo the_field('привод'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        Silver
+                                        <?php echo the_field('оборудование'); ?>
                                     </li>
                                 </ul>
                             </div> 
