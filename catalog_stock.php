@@ -59,7 +59,7 @@
             
          
       
-                <section class="bg-black relative py-10 overflow-hidden wow fadeInUp" data-wow-delay="0.3s" style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
+                <section class="pt-20 bg-black relative py-10 overflow-hidden wow fadeInUp" data-wow-delay="0.3s" style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
 
                     <!-- <div class="absolute md:-top-24 -top-0 right-0">
                         <img src="./src/img/main/catalog-bg.png" alt="">
@@ -97,218 +97,7 @@
                             </a>
                         </div>
 
-                        <div class="w-full rounded-xl">
-                            <!-- <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Выберите марку
-                                    </label>
-                                    <select name="brand" id="brand" class="select input block appearance-none w-full border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option class="text-opacity-10">Выберите марку</option>
-                                        <option class="text-opacity-10"></option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Выберите модель
-                                    </label>
-                                    <select id="model" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option class="text-opacity-10">Выберите модель</option>
-                                        <option class="text-opacity-10"></option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Выберите вид топлива
-                                    </label>
-                                    <select id="fuel" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>Выберите вид топлива</option>
-                                        <option>Бензин</option>
-                                        <option>Дизель</option>
-                                        <option>Газ</option>
-                                        <option>Электричество</option>
-                                        <option>Гибрид</option>
-
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Привод
-                                    </label>
-                                    <select id="drive" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>Привод</option>
-                                        <option>4WD</option>
-                                        <option>Задний</option>
-                                        <option>Передний</option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Трансмиссия
-                                    </label>
-                                    <select id="transmition" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>Трансмиссия</option>
-                                        <option>АКПП</option>
-                                        <option>Робот</option>
-                                        <option>Вариантор</option>
-                                        <option>Механика</option>
-
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Выберите комплектацию 
-                                    </label>
-                                    <select id="complectation" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>Выберите комплектацию</option>
-                                        <option></option>
-                                    </select>
-                                </div>
-
-                            
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Год 
-                                    </label>
-                                    <div class="flex gap-10">
-                                        <div class="w-full">
-                                            <select id="year" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                                <option>от</option>
-                                                <option>2001</option>
-                                                <option>2002</option>
-                                                <option>2003</option>
-                                                <option>2004</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
-                                                <option>2009</option>
-                                                <option>2010</option>
-                                                <option>2011</option>
-                                                <option>2012</option>
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                                <option>2015</option>
-                                                <option>2016</option>
-                                                <option>2017</option>
-                                                <option>2018</option>
-                                                <option>2019</option>
-                                                <option>2020</option>
-                                                <option>2021</option>
-                                                <option>2022</option>
-                                                <option>2023</option>
-                                            </select>
-                                        </div>
-                                        <div class="w-full">
-                                            <select id="year" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
-                                                <option>до</option>
-                                                <option>2001</option>
-                                                <option>2002</option>
-                                                <option>2003</option>
-                                                <option>2004</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
-                                                <option>2009</option>
-                                                <option>2010</option>
-                                                <option>2011</option>
-                                                <option>2012</option>
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                                <option>2015</option>
-                                                <option>2016</option>
-                                                <option>2017</option>
-                                                <option>2018</option>
-                                                <option>2019</option>
-                                                <option>2020</option>
-                                                <option>2021</option>
-                                                <option>2022</option>
-                                                <option>2023</option>
-                                            </select>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                
-                                
-                                <div class="flex flex-1 gap-10">
-                                    <div class="mb-4">
-                                        <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Пробег 
-                                        </label>
-                                        <div class="flex gap-10">
-                                            <div class="w-1/2">
-                                                <input id="mileage" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
-
-                                                </input>
-                                            </div>
-                                            <div class="w-1/2">
-                                                <input id="7" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
-
-                                                </input>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex flex-1 gap-10">
-                                    <div class="mb-4">
-                                        <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Цена 
-                                        </label>
-                                        <div class="flex gap-10">
-                                            <div class="w-1/2">
-                                                <input id="price" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
-
-                                                </input>
-                                            </div>
-                                            <div class="w-1/2">
-                                                <input id="price" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
-
-                                                </input>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex flex-1 gap-10">
-                                    <div class="mb-4">
-                                        <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Объем 
-                                        </label>
-                                        <div class="flex gap-10">
-                                            <div class="w-1/2">
-                                                <input id="value" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
-
-                                                </input>
-                                            </div>
-                                            <div class="w-1/2">
-                                                <input id="value" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
-
-                                                </input>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-center justify-center">
-                                    <button class="up bg-red py-2 px-10 text-white rounded-lg">
-                                        Получить расчёт
-                                    </button>
-                                </div>
-                               
-                                <div class="flex items-end justify-end">
-                                    <button class=" text-yellow hover:text-red transition-all py-2 px-10 underline">
-                                        Сбросить
-                                    </button>
-                                </div>
-
-
-                            </form> -->
-                            
+                        <div class="bg_search w-full w-full rounded-xl">
                             <div class="container w-full rounded-xl">
                                 <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 uppercase ">
                                     
@@ -393,14 +182,17 @@
                         <?php
                     }
 
-                        $pag_args = array(
-                            'total' => $query->max_num_pages,
-                            'current' => max(1, $paged),
-                            'prev_text' => '&laquo;',
-                            'next_text' => '&raquo;',
-                        );
+                    $pag_args = array(
+                        'total' => $query->max_num_pages,
+                        'current' => max(1, $paged),
+                        'prev_text' => '<',
+                        'next_text' => '>',
+                    );
+                    
+                    echo '<div class="pagination">';
+                    echo paginate_links($pag_args);
+                    echo '</div>';
 
-                        echo paginate_links($pag_args);
 
                         wp_reset_postdata(); 
                     ?>
@@ -421,11 +213,11 @@
                             <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
                             <div class="flex items-center justify-between pb-10">
                                 <div>
-                                    <p class="text-white md:text-base text-sm">MAZDA CX-8</p>
+                                    <p class="text-white md:text-base text-sm"></p>
                                 </div>
                                 
                                 <div>
-                                    <p class="text-yellow font-bold md:text-xl text-sm">1 799 975 ₽</p>
+                                    <p class="text-yellow font-bold md:text-xl text-sm"></p>
                                 </div>
                             </div>
             

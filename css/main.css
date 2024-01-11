@@ -4,6 +4,64 @@
 
 /* Импорт кастомных стилей для компонентов */
 
+option .wpc-dropdown-default {
+  text-transform: lowercase;
+}
+
+
+div .wpc-filter-content select,
+div .wpc-filter-content input   {
+  color: #868585;
+  border-radius: 6px;
+  background: #424242 !important;
+  padding: 10px;
+}
+
+.bg_search {
+  border-radius: 6px;
+  background: rgba(48, 48, 48, 0.80);
+  backdrop-filter: blur(15px);
+}
+.ui-slider-horizontal .ui-slider-range {
+  background-color: #262626 !important;
+}
+
+.reviews_body {
+  width: 350px;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 15px;
+  right: 170px;
+}
+
+.page-numbers {
+  list-style: none;
+  margin: 0;
+  display: inline;
+  margin-right: 5px;
+  background: #303030;;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: white;
+}
+
+
+.page-numbers li span,
+.page-numbers li a {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #ccc;
+}
+
+
+
+.page-numbers li a:hover {
+  background: #f2f2f2;
+}
+
 
 .wpc-filters-section {
   margin-bottom: 10px;
@@ -70,7 +128,7 @@ div .wpc-filters-section a.wpc-filters-reset-button{
 .wpc-filters-widget-wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
   /* justify-content: center; */
   width: 80vw;
   gap: 10px;
@@ -1000,9 +1058,10 @@ button.swiper-pagination-bullet{
 }
 
 .select {
-  background: #424242;
+  color: #868585;
+  border-radius: 6px;
+  background: #424242 !important;
   border: 1px solid #ccc;
-  border-radius: 5px;
   padding: 10px;
 }
 

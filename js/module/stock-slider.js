@@ -38,6 +38,16 @@ export const initStockSlider = () => {
             });
         }
     };
+    var elements = document.querySelectorAll('.widget-title.wpc-filter-title');
+
+    // Массив с текстовыми значениями для каждого элемента
+    var newTexts = ["Выберите марку", "Выберите модель", "Выберите вид топлива", "Привод", "Трансмиссию", "Год", "Пробег", "Цена", "Объем"];
+    
+    // Обходим каждый элемент и задаем ему новое значение
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].textContent = newTexts[i];
+    }
+
 
     itemSlider();
 }

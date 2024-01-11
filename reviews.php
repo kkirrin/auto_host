@@ -1,7 +1,6 @@
 <?php
 /*
     Template Name: reviews
-    Template Post Type: post
 */
 
 ?>
@@ -42,7 +41,7 @@
                                 'paged' => $paged,
                                 'category_name' => 'review',
                                 'order' => 'title',
-                                'post_type' => 'post',
+                                'post_type' => 'testimonial',
                                 'suppress_filters' => true
                             );
                             $query = new WP_Query($args);
@@ -50,70 +49,57 @@
                             while ($query->have_posts()) {
                                 $query->the_post();
                             ?>
-                            <div class="animate p-2">
-                            <a href="<?php echo the_permalink(); ?>" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                <img class="" src="<?php echo the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
-                            </a>
-                            <div class="flex flex-col items-center md:items-start">
-                                <div class="font-bold pb-5"><?php echo the_field('название_машины'); ?></div>
-                                
-                                <div class="flex flex-col md:flex-row pb-5">
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-gray"><?php echo the_field('дата'); ?></p>
-                                    </div>
-
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-black font-bold"><?php echo the_field('сумма_в_рублях_с_пробелами_выполнено'); ?></p>
+                            <div class="p-2 animate">
+                                <div class="flex flex-col items-center justify-between md:w-auto w-full">
+                                    <div class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                        <video controls poster="<?php the_field('постер_отзыва'); ?>" alt="отзыв">
+                                            <source src="<?php the_field('видео_отзыва'); ?>" type="video/mp4"> 
+                                            <source src="<?php the_field('видео_отзыва'); ?>" type="video/webm"> 
+                                        </video>
+                                        </a>
+                                        <div class="flex flex-col items-center md:items-start">
+                                            <div class="font-bold pb-5"><?php the_field('название_отзыва'); ?></div>
+                                            <div class="font-medium pb-5 reviews_body">
+                                                <?php the_field('текст_отзыва'); ?>
+                                            </div>
+                                            <div class="flex flex-col md:flex-row pb-5">
+                                                <div class="flex items-center">
+                                                    <p class="pr-2 text-gray"><?php the_field('автор_отзыва'); ?></p>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <p class="pr-2 text-gray"><?php the_field('дата_отзыва'); ?></p>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <p class="pr-2 text-gray"><?php the_field('город_отзыва'); ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col md:flex-row items-center justify-around">
+                                                <a href="reviews.php">
+                                                    <div>
+                                                        <a class="text-yellow hover:text-red" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">Смотреть оригинал</a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>    
+                            </div> 
                         <?php
                     }
 
-                        $pag_args = array(
-                            'total' => $query->max_num_pages,
-                            'current' => max(1, $paged),
-                            'prev_text' => '&laquo;',
-                            'next_text' => '&raquo;',
-                        );
-
-                        echo paginate_links($pag_args);
+                    $pag_args = array(
+                        'total' => $query->max_num_pages,
+                        'current' => max(1, $paged),
+                        'prev_text' => '<',
+                        'next_text' => '>',
+                    );
+                    
+                    echo '<div class="pagination">';
+                    echo paginate_links($pag_args);
+                    echo '</div>';
 
                         wp_reset_postdata(); 
-                    ?>
-        
-                        <div class="animate p-2">
-                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                <img class="" src="<?php echo get_template_directory_uri() . '/src/img/review/image_4.png'; ?>" width="440" height="380" alt="вправо" >
-                            </a>
-                            <div class="flex flex-col items-center md:items-start">
-                                <div class="font-bold pb-5">BMW 7-series 730 Ld прямиком из Южной Кореи</div>
-                                <div class="font-medium pb-5 max-w-md">
-                                    Обратился в Автопотенциал что бы приобрести авто из Южной кореи, поиск был не прост много вариантов пересмотрели, и вот нашли отличный вариант 2 месяца и машинка у меня, не маловажный момент по просьбе произвели ТО подготовили автомобиль для поездки до Оренбурга, спасибо Александру!
-                                </div>
-                                <div class="flex flex-col md:flex-row pb-5">
-                                    <div class="flex items-center">
-                                        <p class="pr-2 text-gray">Ренат</p>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <p class="pr-2 text-gray">10 апреля 2023 г</p>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <p class="pr-2 text-gray">г. Владивосток</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col md:flex-row items-center justify-around">
-                                    <a href="">
-                                        <div>
-                                            <p class="text-yellow hover:text-red">Смотреть оригинал</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>  
+                    ?>  
                     </div>     
                 </div>  
                 

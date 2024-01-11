@@ -432,7 +432,7 @@
                                             <p class="md:text-xl text-base">
                                                 <span class="font-bold">937 061 ₽</span> ('.$avgPrice.' ¥)
                                             </p>
-                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="карточка-машины-с-аукциона?id='.$id.'">
+                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="car_card?id='.$id.'">
                                             Заказать
                                             </a>
                                         </div>
@@ -458,11 +458,11 @@
                             <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
                             <div class="flex items-center justify-between pb-10">
                                 <div>
-                                    <p class="text-white md:text-base text-sm">MAZDA CX-8</p>
+                                    <p class="text-white md:text-base text-sm"></p>
                                 </div>
                                 
                                 <div>
-                                    <p class="text-yellow font-bold md:text-xl text-sm">1 799 975 ₽</p>
+                                    <p class="text-yellow font-bold md:text-xl text-sm"></p>
                                 </div>
                             </div>
             

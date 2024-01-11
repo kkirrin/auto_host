@@ -7,6 +7,39 @@
 
 <?php get_header(); ?>
 
+<?php 
+    
+    function aj_get($sql) {
+        error_reporting(0);
+
+        ##----- CONFIG ---------
+        $code='APTnghDfD64KJ';       ## REQUIRED
+        $server='78.46.90.228'; ## optional :: $server='144.76.203.145'; 
+        $go='api';              ## optional :: $go='gzip'; // gzip work faster
+
+        ## SET IP,URL
+        $ip = $_SERVER['HTTP_CF_CONNECTING_IP']=='' ? $_SERVER['REMOTE_ADDR'] : $_SERVER['HTTP_CF_CONNECTING_IP'];
+        $url = 'http://'.$server.'/'.$go.'/?ip='.$ip.'&json&code='.$code.'&sql='.urlencode(preg_replace("/%25/","%",$sql));
+
+        ## DEBUG
+        // echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
+
+        ## API REQUEST
+        $s = file_get_contents($url);
+        //echo $s;
+
+        ## GZIP DECODE
+        if ($go=='gzip') {
+            $s = $server=='144.76.203.145' ? gzinflate(substr($s,10,-8)) : 
+                gzuncompress(preg_replace("/^\\x1f\\x8b\\x08\\x00\\x00\\x00\\x00\\x00/","",$s));
+        }
+
+        $arr = json_decode($s,true);  //die(var_export($arr));
+        // echo gettype($arr);
+        return $arr;
+    }
+?>
+
 <main>
 
         <h1 class="visually-hidden">Скрытый заголовок</h1>
@@ -58,7 +91,7 @@
                     </p>
             </div>
         </section>
-        <section class="finished-swiper pb-10 wow fadeInUp" data-wow-delay="0.5s"">
+        <!-- <section class="finished-swiper pb-10 wow fadeInUp" data-wow-delay="0.5s"">
             
             <div class="container">
                 
@@ -160,7 +193,142 @@
 
 
             </div>
-        </section>
+        </section> -->
+
+        <section class="japan-swiper pb-20 wow fadeInUp " data-wow-delay="0.4s"">
+                <div class="container">
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative">сейчас на аукционах японии </h2>
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+                        <div class="md:flex flex-nowrap gap-5 hidden">
+                            <button
+                                class="up japan-prev rounded-lg shadow-md shadow-main-black -z-0 ">
+                                <img src="<?php echo get_template_directory_uri() .'/src/img/icons/arrow_prev.svg'; ?>" alt="влево">
+                            </button>
+                            <button
+                                class="up japan-next rounded-lg shadow-md shadow-main-black -z-0 ">
+                                <img src="<?php echo get_template_directory_uri() .'/src/img/icons/arrow_next.svg'; ?>" alt="вправо" >
+                            </button>
+                        </div>
+                        
+                    </div>
+
+                    <div class="japan-wrapper overflow-hidden">
+                        <div class="japan-item">
+                            <div class="swiper-wrapper">            
+     
+                                    <?php 
+
+                                        $arr = aj_get("select model_id,model_name from stats where marka_name='toyota'");
+
+                                        $offset = ((int)$_GET['page']-1)*20;
+                                        $arr = aj_get("select id, model_id, model_name, marka_name, marka_id, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='toyota' group by model_id order by model_name limit 30");
+
+                                        foreach ($arr as $v) {
+                                            $avgPrice = $v['AVG_PRICE']; 
+                                            $priceRub = round($avgPrice * 0.61, 2);
+                                            $year = $v['YEAR'];
+                                            $kpp = $v['KPP'];
+                                            $mileage = $v['MILEAGE'];
+                                            $color = $v['COLOR'];
+                                            $engine_value = $v['ENG_V'];
+                                            $name_car = $v['MODEL_NAME'];
+                                            $id_car = $v['MODEL_ID'];
+                                            $name_model = $v['MARKA_NAME'];
+                                            $id_model = $v['MARKA_ID'];
+                                            $id = $v['ID'];
+
+                                            list($img1, $img2) = explode('#', $v['IMAGES']);
+                                            $img1 = str_replace("&h=50", "&w=320", $img1);
+                                        
+                                            echo '  
+                                            <div class="swiper-slide p-5 animate">
+                                                <div class="md:w-auto w-full">
+                                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                                        <img class="" src=' . $img1. ' width="430" height="460" alt="вправо" >
+                                                    </a>
+                                                    <div class="flex flex-col items-start gap-4 justify-between">
+                                                        <div class="md:text-3xl text-xl font-medium pt-4">'.$name_car.'</div>
+                                                        <div class="flex flex-row">
+                                                            <div class="flex items-center">
+                                                                <img class="" src="' . get_template_directory_uri() . '/src/img/icons/speed.svg " alt="" >
+                                                                <p class="md:pr-3 pr-1  md:text-base text-xs">'.$engine_value.' '.$kpp.' '.$mileage.'</p>
+                                                            </div>
+                                                            <div class="flex items-center">
+                                                                <img class="pr-1 " src="' .get_template_directory_uri() . '/src/img/icons/color.svg" alt="" >
+                                                                <p class="md:pr-3 pr-1  md:text-base text-xs">'.$color.'</p>
+                                                            </div>
+                                                            <div class="flex items-center">
+                                                                <img class="pr-1 " src="' .get_template_directory_uri() . '/src/img/icons/year.svg" alt="" >
+                                                                <p class="md:pr-3 pr-1  md:text-base text-xs">'.$year.'</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex flex-row gap-4">
+                                                            <p class="md:text-xl text-base">
+                                                                <span class="font-bold">'. $priceRub .'  ₽</span> ('. $avgPrice .' ¥)
+                                                            </p>
+                                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="car_card?id='.$id.'">
+                                                            Заказать
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                                ';
+                                        }
+                                    ?>    
+
+                                    <?php 
+
+                                        if(isset($_GET['id'])) {
+                                            $arr = aj_get("select * from main where id='".$id."'");
+                                        
+                                            echo '<div class=img_position>';
+                                            foreach (explode('#',$arr[0]['IMAGES']) as $key=>$img) {
+                                            ## AUCTION SHEET CAN BE BIG. OTHER PHOTOS SET TO 320PX
+                                            $img = $key==0 ? $img : $img.'&w=320';
+                                            echo "<a href='$img'><img src='$img' width=500px onload='image_nofoto(this);'></a>";
+                                            }
+                                            echo '</div>
+                                        
+                                            <table class=tb cellpadding=0 cellspacing=0>';
+                                            foreach($arr[0] as $key => $val) {
+                                            if ($key=='IMAGES'||$key=='AVG_STRING'||$key=='TIME') {continue;}
+                                            if ($key=='INFO' && is_array($val)) {$val=var_export($val,true);} ## if INFO array
+                                            echo "<tr><td class=h>$key</td><td style='width:320px'>$val</td></tr>\n";
+                                            }
+                                            echo '</table>
+                                        
+                                            <script>
+                                            function image_nofoto(el) {
+                                            if( (el.naturalWidth==319||el.naturalWidth==1) && /\.ajes\.com/.test(el.src)){
+                                                el.parentElement.style.display="none";
+                                            }
+                                            }</script>';
+                                        }
+
+                                    ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:hidden flex-nowrap gap-5 flex items-center justify-center">
+                        <button
+                            class="up japan-prev rounded-lg shadow-md shadow-main-black -z-0 ">
+                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/arrow_prev.svg'; ?>" alt="влево">
+                        </button>
+                        <button
+                            class="up japan-next rounded-lg shadow-md shadow-main-black -z-0 ">
+                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/arrow_next.svg'; ?>" alt="вправо" >
+                        </button>
+                    </div>
+                </div>
+            </section> 
+
 
 
         <section id="popup1" class="popup">
@@ -175,11 +343,11 @@
                     <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
                     <div class="flex items-center justify-between pb-10">
                         <div>
-                            <p class="text-white md:text-base text-sm">MAZDA CX-8</p>
+                            <p class="text-white md:text-base text-sm"></p>
                         </div>
                         
                         <div>
-                            <p class="text-yellow font-bold md:text-xl text-sm">1 799 975 ₽</p>
+                            <p class="text-yellow font-bold md:text-xl text-sm"></p>
                         </div>
                     </div>
 

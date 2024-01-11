@@ -97,7 +97,7 @@
                             </a>
                         </div>
 
-                        <div class="w-full rounded-xl">
+                        <!-- <div class="w-full rounded-xl">
                             <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
                                 <div class="mb-4">
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
@@ -307,7 +307,7 @@
                                 </div>
 
 
-                            </form>
+                            </form> -->
 
                             <div class="container" style="padding-bottom: 40px;">
                                 <div class="catalog-filter">
@@ -397,19 +397,23 @@
                         <?php
                     }
 
-                        $pag_args = array(
-                            'total' => $query->max_num_pages,
-                            'current' => max(1, $paged),
-                            'prev_text' => '&laquo;',
-                            'next_text' => '&raquo;',
-                        );
+                    $pag_args = array(
+                        'total' => $query->max_num_pages,
+                        'current' => max(1, $paged),
+                        'prev_text' => '<',
+                        'next_text' => '>',
+                    );
+                    
+                    echo '<div class="pagination">';
+                    echo paginate_links($pag_args);
+                    echo '</div>';
 
-                        echo paginate_links($pag_args);
 
                         wp_reset_postdata(); 
                     ?>
                         </div>
                     </div>
+
                 </section>
                 
 

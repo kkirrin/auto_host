@@ -182,7 +182,7 @@ Template Name: autopotencial
                                                             <p class="md:text-xl text-base">
                                                                 <span class="font-bold">'. $priceRub .'  ₽</span> ('. $avgPrice .' ¥)
                                                             </p>
-                                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="карточка-машины-с-аукциона?id='.$id.'">
+                                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="car_card?id='.$id.'">
                                                             Заказать
                                                             </a>
                                                         </div>
@@ -264,103 +264,55 @@ Template Name: autopotencial
                     <div class="korea-wrapper overflow-hidden">
                         <div class="korea-item">
                             <div class="swiper-wrapper">
+                            <?php
+                                    $my_posts = get_posts(array(
+                                        'numberposts' => -1,
+                                        'category_name' => 'korea',
+                                        'order' => 'title',
+                                        'post_type' => 'post',
+                                        'suppress_filters' => true
+                                    ));
+
+                                    foreach ($my_posts as $post) : setup_postdata($post);
+                                ?> 
+                                    <div class="swiper-slide p-3 animate">
+                                        <div class="md:w-auto w-full">
+                                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                                <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
+                                            </a>
+                                            <div class="flex flex-col items-start gap-4 justify-between">
+                                                <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('marka_name'); ?> <?php the_field('model_name'); ?></div>
+                                                <div class="flex flex-row">
+                                                    <div class="flex items-center">
+                                                        <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/speed.svg'; ?>" alt="" >
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('value');?>л, <?php the_field('transmission');?>, <?php the_field('auto_mileage');?>км</p>
+                                                    </div>
+                                                    <div class="flex items-center">
+                                                        <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/color.svg'; ?>" alt="" >
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('цвет'); ?></p>
+                                                    </div>
+                                                    <div class="flex items-center">
+                                                        <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/year.svg'; ?>" alt="" >
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('year'); ?> год</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-row gap-4">
+                                                    <p class="md:text-xl text-base">
+                                                        <span class="font-bold"><?php the_field('price'); ?> ₽</span> (<?php the_field('');?> ¥)
+                                                    </p>
+                                                    <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php echo the_permalink(); ?>">
+                                                        Заказать
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>    
+
+                                <?php endforeach; ?>
+                                <?php wp_reset_postdata(); ?>
+   
+
                                
-                                <div class="swiper-slide p-5 animate">
-                                    <div class="md:w-auto w-full">
-                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                            <img class="" src="<?php echo get_template_directory_uri() .'/src/img/cars/car1.png'; ?>" alt="вправо" >
-                                        </a>
-                                        <div class="flex flex-col items-start gap-4 justify-between">
-                                            <div class="md:text-3xl text-xl font-medium pt-4">TOYOTA AQUA</div>
-                                            <div class="flex flex-row">
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/speed.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2.0, АКПП, 92 000 км.</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/color.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">grey</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/year.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2012 год</p>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-row gap-4">
-                                                <p class="md:text-xl text-base">
-                                                    <span class="font-bold">937 061 ₽</span> (673 000 ¥)
-                                                </p>
-                                                <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php get_permalink(); ?>">
-                                                    Заказать
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>    
-                                <div class="swiper-slide p-5 animate">
-                                    <div class="md:w-auto w-full">
-                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                            <img class="" src="<?php echo get_template_directory_uri() .'/src/img/cars/car1.png'; ?>" alt="вправо" >
-                                        </a>
-                                        <div class="flex flex-col items-start gap-4 justify-between">
-                                            <div class="md:text-3xl text-xl font-medium pt-4">TOYOTA AQUA</div>
-                                            <div class="flex flex-row">
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/speed.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2.0, АКПП, 92 000 км.</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/color.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">grey</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/year.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2012 год</p>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-row gap-4">
-                                                <p class="md:text-xl text-base">
-                                                    <span class="font-bold">937 061 ₽</span> (673 000 ¥)
-                                                </p>
-                                                <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php get_permalink(); ?>">
-                                                    Заказать
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>    
-                                <div class="swiper-slide p-5 animate">
-                                    <div class="md:w-auto w-full">
-                                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                            <img class="" src="<?php echo get_template_directory_uri() .'/src/img/cars/car1.png'; ?>" alt="вправо" >
-                                        </a>
-                                        <div class="flex flex-col items-start gap-4 justify-between">
-                                            <div class="md:text-3xl text-xl font-medium pt-4">TOYOTA AQUA</div>
-                                            <div class="flex flex-row">
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/speed.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2.0, АКПП, 92 000 км.</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/color.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">grey</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <img class="pr-1 " src="<?php echo get_template_directory_uri() .'/src/img/icons/year.svg'; ?>" alt="" >
-                                                    <p class="md:pr-3 pr-1  md:text-base text-xs">2012 год</p>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-row gap-4">
-                                                <p class="md:text-xl text-base">
-                                                    <span class="font-bold">937 061 ₽</span> (673 000 ¥)
-                                                </p>
-                                                <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php get_permalink(); ?>">
-                                                    Заказать
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>    
  
                             </div>
                         </div>

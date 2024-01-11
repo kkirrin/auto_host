@@ -138,7 +138,7 @@
                             <div class="flex md:flex-row flex-col items-center justify-between gap-5">
                                 <div class="flex flex-1 gap-5 items-center ">
                                     <p class="font-bold md:text-2xl text-lg">
-                                        <?php the_field('сумма_в_рублях_с_пробелами'); ?>₽
+                                        <?php the_field('price'); ?>₽
                                     </p>
                                     <p class="text-gray md:text-base text-xs">
                                         *Цена указана в РФ с ПТС
@@ -333,11 +333,11 @@
                         <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
                         <div class="flex items-center justify-between pb-10">
                             <div>
-                                <p class="text-white md:text-base text-sm"><?php the_field('бренд'); ?> <?php the_field('модель'); ?></p>
+                                <p class="text-white md:text-base text-sm"><?php the_field('marka_name'); ?> <?php the_field('model_name'); ?></p>
                             </div>
                             
                             <div>
-                                <p class="text-yellow font-bold md:text-xl text-sm"><?php the_field("сумма_в_рублях_с_пробелами"); ?> ₽</p>
+                                <p class="text-yellow font-bold md:text-xl text-sm"><?php the_field("price"); ?> ₽</p>
                             </div>
                         </div>
         

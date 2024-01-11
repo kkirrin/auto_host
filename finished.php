@@ -74,14 +74,17 @@
                         <?php
                     }
 
-                        $pag_args = array(
-                            'total' => $query->max_num_pages,
-                            'current' => max(1, $paged),
-                            'prev_text' => '&laquo;',
-                            'next_text' => '&raquo;',
-                        );
+                    $pag_args = array(
+                        'total' => $query->max_num_pages,
+                        'current' => max(1, $paged),
+                        'prev_text' => '<',
+                        'next_text' => '>',
+                    );
+                    
+                    echo '<div class="pagination">';
+                    echo paginate_links($pag_args);
+                    echo '</div>';
 
-                        echo paginate_links($pag_args);
 
                         wp_reset_postdata(); 
                     ?>
