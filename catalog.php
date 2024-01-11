@@ -374,27 +374,26 @@
 
                                 $num_arr = aj_get("select count(*) from main");
                                 $lots=$num_arr[0]['TAG0'];
-                                // echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
+                                echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
 
                                 $totalPages = ceil($lots / 20);
                                 $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
                                 if ($totalPages > 1) {
                                     $maxPages = 10;
-
+                                    
                                     for ($i = 1; $i <= min($maxPages, $totalPages); $i++) {
-                                        // echo "<a class=page_num href='" . "page=" . $i . "'>" . $i . "</a> ";
+                                        echo "<a class='page_num' href='marka_name=&model_name=&kuzov=&year%5Bfrom%5D=&year%5Bto%5D=&eng_v%5Bfrom%5D=&eng_v%5Bto%5D=&mileage%5Bfrom%5D=&mileage%5Bto%5D=&pw%5Bfrom%5D=&pw%5Bto%5D=&finish%5Bfrom%5D=&finish%5Bto%5D=&lot=&page=" . $i . "'>" . $i . "</a> ";
                                     }
-
+                                    
                                     if ($maxPages < $totalPages) {
                                         echo "... ";
                                     }
-
-                                    // echo "<a class=page_num href='" ."&page=" . $totalPages . "'>" . $totalPages . "</a> ";
-                                    // echo '<div style="clear:both"></div>';
+                                    
+                                    echo "<a class='page_num' href='marka_name=&model_name=&kuzov=&year%5Bfrom%5D=&year%5Bto%5D=&eng_v%5Bfrom%5D=&eng_v%5Bto%5D=&mileage%5Bfrom%5D=&mileage%5Bto%5D=&pw%5Bfrom%5D=&pw%5Bto%5D=&finish%5Bfrom%5D=&finish%5Bto%5D=&lot=&page=" . $totalPages . "'>" . $totalPages . "</a> ";
+                                    echo '<div style="clear:both"></div>'; // Чтобы очистить float
                                 }
 
-                                
 
                             
                                 foreach($arr as $v) {

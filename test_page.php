@@ -85,7 +85,7 @@ elseif (isset($_GET['model'])) {
   $lots=$num_arr[0]['TAG0'];
   echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
   for($i=1;$i<=ceil($lots/20);$i++) {
-    echo "<a class=page_num href='?model=".$_GET['model']."&page=".$i."'>".$i."</a> ";
+    echo "<a class='page_num' href='" . get_permalink() . "?model=" . esc_attr($_GET['model']) . "&page=" . $i . "'>" . $i . "</a>";
   } echo '<div style="clear:both"></div>';
 
   ## SELECT 20 ROWS
