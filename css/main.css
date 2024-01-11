@@ -4,6 +4,17 @@
 
 /* Импорт кастомных стилей для компонентов */
 
+.widget-title.wpc-filter-title {
+  font-size: 14px;
+}
+
+.wrapper_review--btn {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
 option .wpc-dropdown-default {
   text-transform: lowercase;
 }
@@ -1061,7 +1072,7 @@ button.swiper-pagination-bullet{
   color: #868585;
   border-radius: 6px;
   background: #424242 !important;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   padding: 10px;
 }
 

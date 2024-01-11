@@ -690,7 +690,7 @@ Template Name: autopotencial
                 <div class="container relative md:flex items-center">
                     <img class="bg-cover bg-center opacity-90 absolute md:block hidden -z-10" src="<?php echo get_template_directory_uri() . '/src/img/company/bg_company.png'; ?>" alt="">
                     <div class="md:w-1/2">
-                        <h2 class="text-white font-normal md:text-5xl text-xl uppercase pb-8">
+                        <h2 class="text-white font-normal md:text-3xl text-sm uppercase pb-8">
                             «Автопотенциал-ДВ»
                         </h2>
                         <div class="text-white md:text-2xl text-sm mb-7">
@@ -918,21 +918,28 @@ Template Name: autopotencial
                             </div>
                         </div>
                     </div>     
-
-                    <div>
-                        <a href="#">
-                            <div>
-                                <a class="text-yellow hover:text-red" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">Смотреть все отзывы</a>
-                            </div>
-                        </a>
+                 
+                    <div class="wrapper_review--btn">
+                        <div>
+                            <a href="#">
+                                <div>
+                                    <a class="bg-red up py-1 px-4 text-white rounded-lg" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">
+                                        Смотреть все отзывы
+                                    </a>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <div>
+                                    <a class="bg-red up py-1 px-4 text-white rounded-lg popup-link" href="popup2">
+                                        Добавить отзыв
+                                    </a>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div>
-                        <a href="#">
-                            <div>
-                                <a class="text-yellow hover:text-red popup-link" href="popup2">Добавить отзыв</a>
-                            </div>
-                        </a>
-                    </div>
+                    
 
                     <div class="md:hidden flex-nowrap gap-5 flex items-center justify-center">
                         <button
@@ -982,11 +989,11 @@ Template Name: autopotencial
                                     Пн-Пт 9:00-18:00
                             </li>
                             <li class="pb-8 flex items-center gap-4">
-                                <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
-                                <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
-                                <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
-                                <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
-                                <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
+                            <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
+                            <a href="https://t.me/avtopotencialdv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
+                            <a href="https://vk.com/avtopotencial_dv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
+                            <a href="https://instagram.com/avtopotencial"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
+                            <a href="https://www.youtube.com/channel/UCBKiXYVvi1ROscY2_ENwM-Q"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
                             </li>
                         </ul>
                     </div>

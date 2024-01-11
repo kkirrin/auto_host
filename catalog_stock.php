@@ -59,7 +59,7 @@
             
          
       
-                <section class="pt-20 bg-black relative py-10 overflow-hidden wow fadeInUp" data-wow-delay="0.3s" style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
+                <section class="md:py-44 py-10 bg-black relative overflow-hidden wow fadeInUp" data-wow-delay="0.3s" style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
 
                     <!-- <div class="absolute md:-top-24 -top-0 right-0">
                         <img src="./src/img/main/catalog-bg.png" alt="">
@@ -97,9 +97,9 @@
                             </a>
                         </div>
 
-                        <div class="bg_search w-full w-full rounded-xl">
+                        <div class="bg_search w-full rounded-xl">
                             <div class="container w-full rounded-xl">
-                                <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 uppercase ">
+                                <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 uppercase">
                                     
                                     <?php echo do_shortcode( '[fe_widget id=290]' ); ?>	
                                     
@@ -126,7 +126,7 @@
                     </div>
                 </section>
 
-                <section class=" w-full relative pt-20 pb-10 wow fadeInUp" data-wow-delay="0.4s">
+                <section class="w-full relative pt-20 pb-10 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="container">
                         <div class="flex items-start justify-start flex-wrap ">     
                         <?php
@@ -149,7 +149,7 @@
                             ?>
                             <div class="p-3 animate">
                                 <div class="md:w-auto w-full">
-                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                                         <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
                                     </a>
                                     <div class="flex flex-col items-start gap-4 justify-between">

@@ -58,11 +58,11 @@
                            <p class="pb-4 text-white">Мы в соц.сетях</p>
                            <ul class="mr-2 flex items-start justify-start gap-4">
                                 <li class="pb-8 flex items-start justify-start gap-4">
-                                    <img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/sap.svg'; ?>" alt="">
-                                    <img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt="">
-                                    <img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt="">
-                                    <img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt="">
-                                    <img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/youtube.svg'; ?>" alt="">
+                                    <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
+                                    <a href="https://t.me/avtopotencialdv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
+                                    <a href="https://vk.com/avtopotencial_dv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
+                                    <a href="https://instagram.com/avtopotencial"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
+                                    <a href="https://www.youtube.com/channel/UCBKiXYVvi1ROscY2_ENwM-Q"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
                                 </li>  
                             </ul>
                         </div>

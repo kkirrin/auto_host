@@ -99,261 +99,263 @@
                         </div>
 
                        
-                        <div class="w-full rounded-xl">
-                            <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
-                                <div class="mb-4">
-                                <?php 
-                                    $arr = aj_get("select * from marka");
-                                    $arr = aj_get("select marka_name from main group by marka_id order by marka_name ASC");
-
-                                    echo '<label class="block text-white text-sm font-medium mb-2" for="make">Выберите марку</label>';
-                                    echo '<select class="block appearance-none w-full border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="vendorSelect">';
-
-                                    foreach($arr as $v) {
-                                        echo '<option value="'.$v['MARKA_NAME'].'">'.$v['MARKA_NAME']."</option>";
-                                    }
-
-                                    echo '
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Выберите модель
-                                    </label>
-                                    
-                                    <select id="modelAuction" name="model" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option class="text-opacity-10">Выберите модель</option>
-                                        <option class="text-opacity-10"></option>
-                                    </select>
-                                    
-                                    ';
-
-                                    echo '</select>';
-                        
-                        ?>
-
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Выберите модель
-                                    </label>
-                                    <select id="modelAuction" name="model" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option class="text-opacity-10">Выберите модель</option>
-                                        <option class="text-opacity-10"></option>
-                                    </select>
-                                </div>
-
-                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                <script>
-                                   $(function() {
-                                    $('#modelAuction').change(function() {
-                                        var selectedMake = $(this).val();
-                                        console.log(selectedMake);
-
-                                        $.ajax({
-                                            type: 'POST',
-                                            url: 'fetchCarsFilter.php',  
-                                            data: { selectedMake: selectedMake },
-                                            success: function(response) {
-                                                var modelSelect = $('#modelAuction');
-                                                modelSelect.empty().append(response);
-                                            },
-                                            error: function(error) {
-                                                console.error('Ошибка:', error);
-                                            }
+                        <div class="bg_search">
+                            <div class="container w-full rounded-xl">
+                                <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
+                                    <div class="mb-4">
+                                    <?php 
+                                        $arr = aj_get("select * from marka");
+                                        $arr = aj_get("select marka_name from main group by marka_id order by marka_name ASC");
+    
+                                        echo '<label class="block text-white text-sm font-medium mb-2" for="make">Выберите марку</label>';
+                                        echo '<select class="block appearance-none w-full border  hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="vendorSelect">';
+    
+                                        foreach($arr as $v) {
+                                            echo '<option value="'.$v['MARKA_NAME'].'">'.$v['MARKA_NAME']."</option>";
+                                        }
+    
+                                        echo '
+                                        <label class="block text-white text-sm font-medium mb-2" for="make">
+                                            Выберите модель
+                                        </label>
+                                        
+                                        <select id="modelAuction" name="model" class="select input block appearance-none w-full  border hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <option class="text-opacity-10">Выберите модель</option>
+                                            <option class="text-opacity-10"></option>
+                                        </select>
+                                        
+                                        ';
+    
+                                        echo '</select>';
+                            
+                            ?>
+    
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="block text-white text-sm font-medium mb-2" for="make">
+                                            Выберите модель
+                                        </label>
+                                        <select id="modelAuction" name="model" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <option class="text-opacity-10">Выберите модель</option>
+                                            <option class="text-opacity-10"></option>
+                                        </select>
+                                    </div>
+    
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                       $(function() {
+                                        $('#modelAuction').change(function() {
+                                            var selectedMake = $(this).val();
+                                            console.log(selectedMake);
+    
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: 'fetchCarsFilter.php',  
+                                                data: { selectedMake: selectedMake },
+                                                success: function(response) {
+                                                    var modelSelect = $('#modelAuction');
+                                                    modelSelect.empty().append(response);
+                                                },
+                                                error: function(error) {
+                                                    console.error('Ошибка:', error);
+                                                }
+                                            });
                                         });
                                     });
-                                });
-                                </script>
-
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Выберите вид топлива
-                                    </label>
-                                    <select id="fueAuctionl" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>Выберите вид топлива</option>
-                                        <option>Бензин</option>
-                                        <option>Дизель</option>
-                                        <option>Газ</option>
-                                        <option>Электричество</option>
-                                        <option>Гибрид</option>
-
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Привод
-                                    </label>
-                                    <select id="driveAuction" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>Привод</option>
-                                        <option>4WD</option>
-                                        <option>Задний</option>
-                                        <option>Передний</option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Трансмиссия
-                                    </label>
-                                    <select id="transmitionAuction" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>Трансмиссия</option>
-                                        <option>АКПП</option>
-                                        <option>Робот</option>
-                                        <option>Вариантор</option>
-                                        <option>Механика</option>
-
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Выберите комплектацию 
-                                    </label>
-                                    <select id="complectationAuction" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>Выберите комплектацию</option>
-                                        <option></option>
-                                    </select>
-                                </div>
-
-                            
-                                <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Год 
-                                    </label>
-                                    <div class="flex gap-10">
-                                        <div class="w-full">
-                                            <select id="yearAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                                <option>от</option>
-                                                <option>2001</option>
-                                                <option>2002</option>
-                                                <option>2003</option>
-                                                <option>2004</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
-                                                <option>2009</option>
-                                                <option>2010</option>
-                                                <option>2011</option>
-                                                <option>2012</option>
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                                <option>2015</option>
-                                                <option>2016</option>
-                                                <option>2017</option>
-                                                <option>2018</option>
-                                                <option>2019</option>
-                                                <option>2020</option>
-                                                <option>2021</option>
-                                                <option>2022</option>
-                                                <option>2023</option>
-                                            </select>
-                                        </div>
-                                        <div class="w-full">
-                                            <select id="yearAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
-                                                <option>до</option>
-                                                <option>2001</option>
-                                                <option>2002</option>
-                                                <option>2003</option>
-                                                <option>2004</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
-                                                <option>2009</option>
-                                                <option>2010</option>
-                                                <option>2011</option>
-                                                <option>2012</option>
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                                <option>2015</option>
-                                                <option>2016</option>
-                                                <option>2017</option>
-                                                <option>2018</option>
-                                                <option>2019</option>
-                                                <option>2020</option>
-                                                <option>2021</option>
-                                                <option>2022</option>
-                                                <option>2023</option>
-                                            </select>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                
-                                
-                                <div class="flex flex-1 gap-10">
+                                    </script>
+    
                                     <div class="mb-4">
                                         <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Пробег 
+                                            Выберите вид топлива
+                                        </label>
+                                        <select id="fueAuctionl" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <option>Выберите вид топлива</option>
+                                            <option>Бензин</option>
+                                            <option>Дизель</option>
+                                            <option>Газ</option>
+                                            <option>Электричество</option>
+                                            <option>Гибрид</option>
+    
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="block text-white text-sm font-medium mb-2" for="make">
+                                            Привод
+                                        </label>
+                                        <select id="driveAuction" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <option>Привод</option>
+                                            <option>4WD</option>
+                                            <option>Задний</option>
+                                            <option>Передний</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="block text-white text-sm font-medium mb-2" for="make">
+                                            Трансмиссия
+                                        </label>
+                                        <select id="transmitionAuction" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <option>Трансмиссия</option>
+                                            <option>АКПП</option>
+                                            <option>Робот</option>
+                                            <option>Вариантор</option>
+                                            <option>Механика</option>
+    
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="block text-white text-sm font-medium mb-2" for="make">
+                                            Выберите комплектацию 
+                                        </label>
+                                        <select id="complectationAuction" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <option>Выберите комплектацию</option>
+                                            <option></option>
+                                        </select>
+                                    </div>
+    
+                                
+                                    <div class="mb-4">
+                                        <label class="block text-white text-sm font-medium mb-2" for="make">
+                                            Год 
                                         </label>
                                         <div class="flex gap-10">
-                                            <div class="w-1/2">
-                                                <input id="mileageAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
-
-                                                </input>
+                                            <div class="w-full">
+                                                <select id="yearAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                                    <option>от</option>
+                                                    <option>2001</option>
+                                                    <option>2002</option>
+                                                    <option>2003</option>
+                                                    <option>2004</option>
+                                                    <option>2005</option>
+                                                    <option>2006</option>
+                                                    <option>2007</option>
+                                                    <option>2008</option>
+                                                    <option>2009</option>
+                                                    <option>2010</option>
+                                                    <option>2011</option>
+                                                    <option>2012</option>
+                                                    <option>2013</option>
+                                                    <option>2014</option>
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                    <option>2023</option>
+                                                </select>
                                             </div>
-                                            <div class="w-1/2">
-                                                <input id="mileageAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
-
-                                                </input>
+                                            <div class="w-full">
+                                                <select id="yearAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
+                                                    <option>до</option>
+                                                    <option>2001</option>
+                                                    <option>2002</option>
+                                                    <option>2003</option>
+                                                    <option>2004</option>
+                                                    <option>2005</option>
+                                                    <option>2006</option>
+                                                    <option>2007</option>
+                                                    <option>2008</option>
+                                                    <option>2009</option>
+                                                    <option>2010</option>
+                                                    <option>2011</option>
+                                                    <option>2012</option>
+                                                    <option>2013</option>
+                                                    <option>2014</option>
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                    <option>2023</option>
+                                                </select>
                                             </div>
                                             
                                         </div>
                                     </div>
-                                </div>
-                                
-                                <div class="flex flex-1 gap-10">
-                                    <div class="mb-4">
-                                        <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Цена 
-                                        </label>
-                                        <div class="flex gap-10">
-                                            <div class="w-1/2">
-                                                <input id="priceAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
-
-                                                </input>
+                                    
+                                    
+                                    <div class="flex flex-1 gap-10">
+                                        <div class="mb-4">
+                                            <label class="block text-white text-sm font-medium mb-2" for="make">
+                                                Пробег 
+                                            </label>
+                                            <div class="flex gap-10">
+                                                <div class="w-1/2">
+                                                    <input id="mileageAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
+    
+                                                    </input>
+                                                </div>
+                                                <div class="w-1/2">
+                                                    <input id="mileageAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
+    
+                                                    </input>
+                                                </div>
+                                                
                                             </div>
-                                            <div class="w-1/2">
-                                                <input id="priceAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
-
-                                                </input>
-                                            </div>
-                                            
                                         </div>
                                     </div>
-                                </div>
-                                <div class="flex flex-1 gap-10">
-                                    <div class="mb-4">
-                                        <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Объем 
-                                        </label>
-                                        <div class="flex gap-10">
-                                            <div class="w-1/2">
-                                                <input id="valueAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
-
-                                                </input>
+                                    
+                                    <div class="flex flex-1 gap-10">
+                                        <div class="mb-4">
+                                            <label class="block text-white text-sm font-medium mb-2" for="make">
+                                                Цена 
+                                            </label>
+                                            <div class="flex gap-10">
+                                                <div class="w-1/2">
+                                                    <input id="priceAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
+    
+                                                    </input>
+                                                </div>
+                                                <div class="w-1/2">
+                                                    <input id="priceAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
+    
+                                                    </input>
+                                                </div>
+                                                
                                             </div>
-                                            <div class="w-1/2">
-                                                <input id="valueAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
-
-                                                </input>
-                                            </div>
-                                            
                                         </div>
                                     </div>
-                                </div>
-                                
-                                <div class="flex items-center justify-center">
-                                    <button class="up bg-red py-2 px-10 text-white rounded-lg">
-                                        Получить расчёт
-                                    </button>
-                                </div>
-                               
-                                <div class="flex items-end justify-end">
-                                    <button class=" text-yellow hover:text-red transition-all py-2 px-10 underline">
-                                        Сбросить
-                                    </button>
-                                </div>
-
-
-                            </form>
+                                    <div class="flex flex-1 gap-10">
+                                        <div class="mb-4">
+                                            <label class="block text-white text-sm font-medium mb-2" for="make">
+                                                Объем 
+                                            </label>
+                                            <div class="flex gap-10">
+                                                <div class="w-1/2">
+                                                    <input id="valueAuctionFrom" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
+    
+                                                    </input>
+                                                </div>
+                                                <div class="w-1/2">
+                                                    <input id="valueAuctionTo" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
+    
+                                                    </input>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-center">
+                                        <button class="up bg-red py-2 px-10 text-white rounded-lg">
+                                            Получить расчёт
+                                        </button>
+                                    </div>
+                                   
+                                    <div class="flex items-end justify-end">
+                                        <button class=" text-yellow hover:text-red transition-all py-2 px-10 underline">
+                                            Сбросить
+                                        </button>
+                                    </div>
+    
+    
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -372,7 +374,7 @@
 
                                 $num_arr = aj_get("select count(*) from main");
                                 $lots=$num_arr[0]['TAG0'];
-                                echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
+                                // echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
 
                                 $totalPages = ceil($lots / 20);
                                 $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -381,15 +383,15 @@
                                     $maxPages = 10;
 
                                     for ($i = 1; $i <= min($maxPages, $totalPages); $i++) {
-                                        echo "<a class=page_num href='" . "page=" . $i . "'>" . $i . "</a> ";
+                                        // echo "<a class=page_num href='" . "page=" . $i . "'>" . $i . "</a> ";
                                     }
 
                                     if ($maxPages < $totalPages) {
                                         echo "... ";
                                     }
 
-                                    echo "<a class=page_num href='" ."&page=" . $totalPages . "'>" . $totalPages . "</a> ";
-                                    echo '<div style="clear:both"></div>';
+                                    // echo "<a class=page_num href='" ."&page=" . $totalPages . "'>" . $totalPages . "</a> ";
+                                    // echo '<div style="clear:both"></div>';
                                 }
 
                                 
@@ -409,8 +411,8 @@
                                     $img1 = str_replace("&h=50", "&w=320", $img1);
                                 
                                     echo '<div class="animate p-4">
-                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                    <img class="" src=' . $img1. ' width="430" height="460" alt="вправо" >;
+                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                    <img class="" src=' . $img1. ' width="430" height="460" alt="вправо" >
                                     </a>
                                     <div class="flex flex-col items-start gap-4 justify-between">
                                         <div class="md:text-3xl text-xl font-medium pt-4">'.$name_car.'</div>

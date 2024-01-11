@@ -199,7 +199,7 @@
                                     foreach ($my_posts as $post) : setup_postdata($post);
                                 ?> 
                                     <div class="p-2 swiper-slide animate">
-                                    <a href="<?php the_permalink(); ?>" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                                    <a href="<?php the_permalink(); ?>">
                                         <img class="" src="<?php the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
                                     </a>
                                     <div class="flex flex-col items-center md:items-start">

@@ -52,7 +52,7 @@
                                 $query->the_post();
                             ?>
                             <div class="animate p-2">
-                            <a href="<?php echo the_permalink(); ?>" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
+                            <a href="<?php echo the_permalink(); ?>">
                                 <img class="" src="<?php echo the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
                             </a>
                             <div class="flex flex-col items-center md:items-start">
