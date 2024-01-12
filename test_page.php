@@ -41,7 +41,9 @@ function aj_get($sql) {
   }
 
   $arr = json_decode($s,true);  //die(var_export($arr));
+  print_r($arr);
   return $arr;
+
 }
 
 ## START PAGE

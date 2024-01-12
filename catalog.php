@@ -7,6 +7,7 @@
 <?php 
 
     function aj_get($sql) {
+        $_GET['page']=2;
         error_reporting(0);
 
         ##----- CONFIG ---------
@@ -33,6 +34,7 @@
 
         $arr = json_decode($s,true);  //die(var_export($arr));
         // echo gettype($arr);
+        // print_r($arr);
         return $arr;
     }
 ?>
@@ -112,20 +114,17 @@
     
                                         foreach($arr as $v) {
                                             echo '<option value="'.$v['MARKA_NAME'].'">'.$v['MARKA_NAME']."</option>";
+                                           
                                         }
-    
+                                        $marka_name = aj_get("select model_name from main where marka_name='".$v['MARKA_NAME']."'");
                                         echo '
                                         <label class="block text-white text-sm font-medium mb-2" for="make">
                                             Выберите модель
                                         </label>
                                         
                                         <select id="modelAuction" name="model" class="select input block appearance-none w-full  border hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                            <option class="text-opacity-10">Выберите модель</option>
-                                            <option class="text-opacity-10"></option>
                                         </select>
-                                        
                                         ';
-    
                                         echo '</select>';
                             
                             ?>
@@ -343,7 +342,7 @@
                                     
                                     <div class="flex items-center justify-center">
                                         <button class="up bg-red py-2 px-10 text-white rounded-lg">
-                                            Получить расчёт
+                                            Поиск
                                         </button>
                                     </div>
                                    
@@ -383,15 +382,20 @@
                                     $maxPages = 10;
                                     
                                     for ($i = 1; $i <= min($maxPages, $totalPages); $i++) {
-                                        echo "<a class='page_num' href='marka_name=&model_name=&kuzov=&year%5Bfrom%5D=&year%5Bto%5D=&eng_v%5Bfrom%5D=&eng_v%5Bto%5D=&mileage%5Bfrom%5D=&mileage%5Bto%5D=&pw%5Bfrom%5D=&pw%5Bto%5D=&finish%5Bfrom%5D=&finish%5Bto%5D=&lot=&page=" . $i . "'>" . $i . "</a> ";
+                                        echo "<a class='page_num' href='
+                                        https://avtopotencial-dv.ru/%D0%B0%D0%B2%D1%82%D0%BE-%D0%B8%D0%B7-%D1%8F%D0%BF%D0%BE%D0%BD%D0%B8%D0%B8?page/" . $i . "'>" . $i . "</a> ";
                                     }
                                     
                                     if ($maxPages < $totalPages) {
                                         echo "... ";
                                     }
                                     
-                                    echo "<a class='page_num' href='marka_name=&model_name=&kuzov=&year%5Bfrom%5D=&year%5Bto%5D=&eng_v%5Bfrom%5D=&eng_v%5Bto%5D=&mileage%5Bfrom%5D=&mileage%5Bto%5D=&pw%5Bfrom%5D=&pw%5Bto%5D=&finish%5Bfrom%5D=&finish%5Bto%5D=&lot=&page=" . $totalPages . "'>" . $totalPages . "</a> ";
-                                    echo '<div style="clear:both"></div>'; // Чтобы очистить float
+                                    echo "<a class='page_num' href='
+                                    https://avtopotencial-dv.ru/%D0%B0%D0%B2%D1%82%D0%BE-%D0%B8%D0%B7-%D1%8F%D0%BF%D0%BE%D0%BD%D0%B8%D0%B8?page/" . $totalPages . "'>" . $totalPages . "</a> ";
+                                    echo '<div style="clear:both"></div>'; 
+                                    // echo get_pagenum_link(2);
+                                    $current_page_number = get_query_var('paged') ?: 1;
+                                    echo $current_page_number; 
                                 }
 
 

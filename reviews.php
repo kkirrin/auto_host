@@ -32,7 +32,7 @@
                     
                     <div class="flex items-start justify-start flex-wrap">
                     <?php
-                            $posts_per_page = 2;  
+                            $posts_per_page = 8;  
                             // Текущая страница
                             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
 
