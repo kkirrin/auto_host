@@ -117,6 +117,12 @@
                                            
                                         }
                                         $marka_name = aj_get("select model_name from main where marka_name='".$v['MARKA_NAME']."'");
+                                        print_r($marka_name);
+                                        foreach($marka_name as $value) {
+                                            echo "<option value='$value'>$value</option>";
+                                           
+                                        }
+                                        
                                         echo '
                                         <label class="block text-white text-sm font-medium mb-2" for="make">
                                             Выберите модель
@@ -368,10 +374,14 @@
                                 // $arr = aj_get("select model_id,model_name from stats where marka_name='toyota'");
 
                                 $offset = ((int)$_GET['page']-1)*20;
-                                $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main group by model_id order by model_name limit 30");
+                                $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main group by model_id order by model_name limit 250");
                                 // echo '</tr></table>';
 
                                 $num_arr = aj_get("select count(*) from main");
+                                $all_arr = aj_get("select * from main");
+                                // print_r($all_arr);
+
+
                                 $lots=$num_arr[0]['TAG0'];
                                 echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
 
@@ -435,7 +445,7 @@
                                         </div>
                                         <div class="flex flex-row gap-4">
                                             <p class="md:text-xl text-base">
-                                                <span class="font-bold">937 061 ₽</span> ('.$avgPrice.' ¥)
+                                                <span class="font-bold">'.$avgPrice.'</span> ('.$avgPrice.' ¥)
                                             </p>
                                             <a class="up bg-red py-2 px-5 text-white rounded-lg" href="car_card?id='.$id.'">
                                             Заказать
