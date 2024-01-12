@@ -102,7 +102,7 @@
                                             <a href="%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d0%b5%d0%bd%d0%bd%d1%8b%d0%b5-%d0%b7%d0%b0%d0%ba%d0%b0%d0%b7%d1%8b/">Выполненные заказы</a>
                                          </li>  
                                         <li class="pb-4">
-                                        <a href="#">
+                                        <a href="https://avtopotencial-dv.ru/wp-content/uploads/2024/01/Договор-Автопотенциал.pdf" download>
                                             Скачать договор pdf
                                         </a>
                                         </li>  
