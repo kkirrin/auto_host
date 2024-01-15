@@ -17,7 +17,7 @@ $start_time = $mtime[1] + $mtime[0];
 
 ##### API REQUEST ##############
 function aj_get($sql) {
-
+  error_reporting(0);
   ##----- CONFIG ---------
   $code='APTnghDfD64KJ';       ## REQUIRED
   $server='78.46.90.228'; ## optional :: $server='144.76.203.145'; 
@@ -28,11 +28,11 @@ function aj_get($sql) {
   $url = 'http://'.$server.'/'.$go.'/?ip='.$ip.'&json&code='.$code.'&sql='.urlencode(preg_replace("/%25/","%",$sql));
 
   ## DEBUG
-  echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
+  // echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
 
   ## API REQUEST
   $s = file_get_contents($url);
-  echo $s;
+  // echo $s;
 
   ## GZIP DECODE
   if ($go=='gzip') {
@@ -41,7 +41,7 @@ function aj_get($sql) {
   }
 
   $arr = json_decode($s,true);  //die(var_export($arr));
-  print_r($arr);
+  // print_r($arr);
   return $arr;
 
 }
@@ -50,6 +50,7 @@ function aj_get($sql) {
 echo "<html>
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 <link rel=stylesheet href='https://ajes.com/api/style.css' type='text/css'>
+<style> body {background-color: black}</style>
 <body>";
 
 ##### 4. LOT BY ID #############
@@ -87,14 +88,18 @@ elseif (isset($_GET['model'])) {
   $lots=$num_arr[0]['TAG0'];
   echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
   for($i=1;$i<=ceil($lots/20);$i++) {
-    echo "<a class='page_num' href='" . get_permalink() . "?model=" . esc_attr($_GET['model']) . "&page=" . $i . "'>" . $i . "</a>";
-  } echo '<div style="clear:both"></div>';
+    echo "<a class=page_num href='?model=".$_GET['model']."page=".$i."'>".$i."</a> ";
+
+  //   echo "<a class='page_num' href='" . get_permalink() . "?model=" . esc_attr($_GET['model']) . "&page=" . $i . "'>" . $i . "</a>";
+  // } echo '<div style="clear:both"></div>';
+
+  };
 
   ## SELECT 20 ROWS
   $offset = ((int)$_GET['page']-1)*20;
   $arr = aj_get("select * from main where model_name='".$_GET['model']."' 
-                 order by year desc, mileage desc 
-                 limit ".($offset<0?0:$offset).",20");
+    order by year desc, mileage desc 
+    limit ".($offset<0?0:$offset).",20");
   echo '
   <table class=tb cellpadding=0 cellspacing=0>
   <tr class=h><td>'.implode("</td><td>\n",array_keys($arr[0])).'</td></tr>';

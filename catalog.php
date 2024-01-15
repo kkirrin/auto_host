@@ -41,7 +41,7 @@
 
 
 
-<?php get_header(); ?>
+<!-- <?php get_header(); ?> -->
 
         <main>
             <h1 class="visually-hidden">Скрытый заголовок</h1>
@@ -393,8 +393,10 @@
                                     
                                     for ($i = 1; $i <= min($maxPages, $totalPages); $i++) {
                                         echo "<a class='page_num' href='
-                                        https://avtopotencial-dv.ru/%D0%B0%D0%B2%D1%82%D0%BE-%D0%B8%D0%B7-%D1%8F%D0%BF%D0%BE%D0%BD%D0%B8%D0%B8?page/" . $i . "'>" . $i . "</a> ";
+                                        https://avtopotencial-dv.ru/%D0%B0%D0%B2%D1%82%D0%BE-%D0%B8%D0%B7-%D1%8F%D0%BF%D0%BE%D0%BD%D0%B8%D0%B8&page/" . $i . "'>" . $i . "</a> ";
                                     }
+
+                                    print_r($_GET);
                                     
                                     if ($maxPages < $totalPages) {
                                         echo "... ";

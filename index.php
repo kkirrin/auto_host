@@ -796,7 +796,7 @@ Template Name: autopotencial
                             </div>
 
                             <div class="flex items-center max-h-max justify-center pt-10">
-                                <a class="absolute bottom-6 bg-yellow py-2 px-10 text-white rounded-lg" href="#">
+                                <a class="absolute bottom-6 bg-yellow py-2 px-10 text-white rounded-lg" href="https://avtopotencial-dv.ru/wp-content/uploads/2024/01/Договор.pdf" download>
                                     Скачать договор pdf
                                 </a>
                             </div>

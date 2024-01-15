@@ -45,6 +45,26 @@ function theme_add_scripts()
     
 }
 
+    add_filter( 'redirect_canonical', 'my_redirect_canonical_filter', 10, 2 );
+
+    /**
+     * Function for <code>redirect_canonical</code> filter-hook.
+     * 
+     * @param string $redirect_url  The redirect URL.
+     * @param string $requested_url The requested URL.
+     *
+     * @return string
+     */
+    function my_redirect_canonical_filter( $redirect_url, $requested_url ){
+
+        if (str_ends_with($requested_url,"=")) {
+        return false;
+        }
+        return $redirect_url;
+    }
+
+
+
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
     add_theme_support('custom-logo');
@@ -56,6 +76,29 @@ function theme_add_scripts()
     }
     add_action( 'wp_enqueue_scripts', 'add_jivo_script' );
 
+
+    // function rewrite_rules() {
+    //     add_rewrite_tag( '%model%', '([^&]+)' ); // Указание использования %model% в URL
+    //     add_rewrite_tag( '%paged%', '([0-9]+)'); // Указание использования %paged% в URL
+    
+    //     // Обновленное правило переписывания URL
+    //     add_rewrite_rule(
+    //         '^taxonomy/term/([^/]*)/?/([^/]*)/page/([^/]*)',
+    //         'index.php?pagename=%d1%82%d0%b5%d1%81%d1%82%d0%be%d0%b2%d0%b0%d1%8f&model=$matches[1]&paged=$matches[3]',
+    //         'top'
+    //     );
+    
+    //     add_filter( 'query_vars', function( $vars ) {
+    //         $vars[] = 'model';
+    //         $vars[] = 'paged';
+    //         return $vars;
+    //     });
+    // }
+
+
+    
+
+    // flush_rewrite_rules();
 
 
     function add_menu() {
@@ -91,5 +134,4 @@ function theme_add_scripts()
         'end_size' => 2,
      ) )
 
-    
 ?>
