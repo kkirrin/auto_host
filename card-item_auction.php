@@ -265,7 +265,7 @@
                                     <div class="md:text-base text-xs pb-5">
                                         Стоимость авто на аукционе: ("пришло" в долларах -> переведено в рубли)
                                         <p class="font-bold md:text-base text-xs pt-4">
-                                            <input class="dollar__price" placeholder="..." value="2">
+                                            <input class="dollar__price" placeholder="..." value="<?php echo "$avgPrice" ?>">
                                         </p>
                                     </div>
         
@@ -280,19 +280,19 @@
                                         Фиксированные расходы по Японии и до Владивостока (любой аукцион покупки, любой порт отправки) ("пришло" в долларах -> переведено в рубли):
                                         <ul class="list-disc md:p-5 p-3 md:text-base text-xs">
                                             <li>
-                                                Комиссии аукциона -  <input class="dollar__price" value="5">
+                                                Комиссии аукциона -  <input class="dollar__price" value="50000">
                                             </li>
                                             <li>
-                                                Комиссии аукциона -  <input class="dollar__price" value="5">
+                                                Комиссии аукциона -  <input class="dollar__price" value="50000">
                                             </li>
                                             <li>
-                                                Комиссии аукциона -  <input class="dollar__price" value="5">
+                                                Комиссии аукциона -  <input class="dollar__price" value="50000">
                                             </li>
                                             <li>
-                                                Комиссии аукциона -  <input class="dollar__price" value="5">
+                                                Комиссии аукциона -  <input class="dollar__price" value="50000">
                                             </li>
                                             <li>
-                                                Комиссии аукциона -  <input class="dollar__price" value="5">
+                                                Комиссии аукциона -  <input class="dollar__price" value="50000">
                                             </li>
                                         </ul>
                                     </div>

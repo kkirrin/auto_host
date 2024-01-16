@@ -18,7 +18,7 @@ import { initSum } from "./module/calculator.js";
 import { initCardItemSlider } from './module/card-item-slider.js';
 import { initFetchCars } from "./module/fetchCars.js";
 import { initFormMain } from "./module/formMain.js";
-import { initFetchCarsFilter } from "./module/fetchCarsFilter.js";
+// import { initFetchCarsFilter } from "./module/fetchCarsFilter.js";
 
 
 // document.querySelector('.up').addEventListener('click', function(event) {
@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initCardItemSlider();
     initFetchCars();
     initFormMain();
-    initFetchCarsFilter();
+    // initFetchCarsFilter();
 
 });
 

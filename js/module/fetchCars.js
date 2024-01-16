@@ -35,38 +35,42 @@ export const initFetchCars = () => {
 
         })
 
-        document.getElementById("brand").addEventListener('change', function () {
-            let value = this.value;
-            let relevantModels = document.querySelectorAll('option[data-id="' + value + '"]');
-            console.log(relevantModels)
-            let modelSelect = document.getElementById('model');
-           
-            // Отвечает за добавление в option новых моделей,в нем же удаление тех, которые не соот.
-            Array.from(relevantModels).forEach(model => {
-                modelSelect.appendChild(model.cloneNode(true));
-                model.removeAttribute('hidden');
-            });
-
-            // Фиксит баг с отображением моделей после определенного числа
-            // Array.from(modelSelect.options).forEach(model => {
-                
-            //     if (!relevantModels.includes(model)) {
-            //         modelSelect.innerHTML = ''
-                    
-            //         model.remove();
-            //     }
-            // });
-
-            // Отображение первой модели соот
-            let firstVisibleModel = modelSelect.querySelector('option:not([hidden])');
-            if (firstVisibleModel) {
-                firstVisibleModel.selected = true;  
-                
-            };
-            showModelsForBrand(value); 
-        });
-
-
+        document.addEventListener('DOMContentLoaded', function() {
+          // Убеждаемся, что код будет выполнен только после полной загрузки страницы
+          let brandSelect = document.getElementById("brand");
+          if (brandSelect) {
+              brandSelect.addEventListener('change', function () {
+                  let value = this.value;
+                  let relevantModels = document.querySelectorAll('option[data-id="' + value + '"]');
+                  console.log(relevantModels)
+                  let modelSelect = document.getElementById('model');
+      
+                  if(modelSelect) {
+                      // Очищаем текущие опции перед добавлением новых
+                      modelSelect.innerHTML = '';
+      
+                      // Добавляем новые опции в пустой select
+                      Array.from(relevantModels).forEach(model => {
+                          modelSelect.appendChild(model.cloneNode(true));
+                          model.removeAttribute('hidden');
+                      });
+      
+                      // Выбираем первую видимую модель после обновления списка
+                      let firstVisibleModel = modelSelect.querySelector('option:not([hidden])');
+                      if (firstVisibleModel) {
+                          firstVisibleModel.selected = true;  
+                      }
+      
+                      // Показываем модели для выбранного бренда
+                      showModelsForBrand(value); 
+                  } else {
+                      console.error("Элемент 'model' не найден. Убедитесь, что он существует на странице.");
+                  }
+              });
+          } else {
+              console.error("Элемент 'brand' не найден. Убедитесь, что он существует на странице.");
+          }
+      });
 
 
         function showModelsForBrand(brandname) {
@@ -94,13 +98,10 @@ export const initFetchCars = () => {
               console.error('There has been a problem with your fetch operation:', error);
             }
           }
-          
-          
-          const url = 'http://78.46.90.228/model';
-          fetchData(url)
-            .then(data => console.log(data)) 
-            .catch(error => console.error(error)); 
+        
 
+
+           
 
         
 

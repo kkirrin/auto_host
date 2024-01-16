@@ -106,7 +106,8 @@
         <div class="scroll-top">
             <img src="<?php echo get_template_directory_uri() .'/src/img/up-arrow.svg'; ?>" alt="стрелка вверх">
         </div>
-
+        
+        <script type="module"></script>
         <script src="<?php echo get_template_directory_uri(); ?>/js/swiper-bundle.min.js"></script>
         <script src="<?php echo get_template_directory_uri(); ?>/js/japan.js"></script>
         <script src="<?php echo get_template_directory_uri(); ?>/js/wow.js"></script>

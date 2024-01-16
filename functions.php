@@ -38,7 +38,10 @@ function theme_add_scripts()
     // Подключаем japan файл
     wp_enqueue_script('japan', get_template_directory_uri() . '/js/japan.js', array(), null, true);
 
-   
+    function my_scripts() {
+        wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array(), '1.0', true );
+    }
+    add_action( 'wp_enqueue_scripts', 'my_scripts' );
 
 
    
@@ -64,42 +67,26 @@ function theme_add_scripts()
     }
 
 
+    // Делает редирект disable
+    function page_disable_redirect_canonical($redirect_url) {
+        if(is_page())
+            $redirect_url = false;
+
+        return $redirect_url;
+    }
+
+    remove_action('template_redirect', 'redirect_canonical');
+
+
 
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
-    add_theme_support('custom-logo');
-    
-
+    add_theme_support('custom-logo');    
 
     function add_jivo_script() {
         wp_enqueue_script( 'jivo_script', '//code.jivo.ru/widget/3S3KXnJwwC', array(), null, true );
     }
     add_action( 'wp_enqueue_scripts', 'add_jivo_script' );
-
-
-    // function rewrite_rules() {
-    //     add_rewrite_tag( '%model%', '([^&]+)' ); // Указание использования %model% в URL
-    //     add_rewrite_tag( '%paged%', '([0-9]+)'); // Указание использования %paged% в URL
-    
-    //     // Обновленное правило переписывания URL
-    //     add_rewrite_rule(
-    //         '^taxonomy/term/([^/]*)/?/([^/]*)/page/([^/]*)',
-    //         'index.php?pagename=%d1%82%d0%b5%d1%81%d1%82%d0%be%d0%b2%d0%b0%d1%8f&model=$matches[1]&paged=$matches[3]',
-    //         'top'
-    //     );
-    
-    //     add_filter( 'query_vars', function( $vars ) {
-    //         $vars[] = 'model';
-    //         $vars[] = 'paged';
-    //         return $vars;
-    //     });
-    // }
-
-
-    
-
-    // flush_rewrite_rules();
-
 
     function add_menu() {
         register_nav_menu('top-left', 'левое меню шапки');
@@ -107,7 +94,6 @@ function theme_add_scripts()
         register_nav_menu('menu-catalog', 'меню-каталога');
     }
 
-    
      // Добавляет вкладку "отзывы" для меню админки Wordpress"
      add_action('init', 'create_post_type');
      function create_post_type()

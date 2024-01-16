@@ -13,6 +13,41 @@ export const initFormMain = () => {
     const input12 = document.getElementById('value_from');
     const input13 = document.getElementById('value_to');
 
+
+
+
+    // Бля AJAX запрос 
+    const selectElement = document.getElementById('markaAuc');
+    const selectedValue = selectElement.value;
+
+    const xhr = new XMLHttpRequest();
+
+    const url = 'catalog.php';
+    const params = 'selectedValue=' + selectedValue;
+
+    xhr.open('POST', url, true);
+
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+        }
+    };
+
+    xhr.send(params);
+
+    // Я закончился
+
+    selectElement.onchange = function() {
+      // Перезаписываем значение переменной selectedValue1 при выборе нового Option
+      const markaValue = selectElement.options[selectElement.selectedIndex].value;
+      console.log('Текущее значение selectElement:', markaValue);
+      document.getElementById('formMainMarka').value = markaValue;
+    };
+
+
+    console.log('Я ТУТ ТУТ ТУТ ТУТ ТУТ ТУТ ТУТ ТУТ ТУТ ТУТ ТУТ ТУТ ТУТ ТУТ ТУ')
+
     select1.onchange = function() {
         // Перезаписываем значение переменной selectedValue1 при выборе нового Option
         const selectedValue1 = select1.options[select1.selectedIndex].value;

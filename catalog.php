@@ -106,68 +106,48 @@
                                 <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase">
                                     <div class="mb-4">
                                     <?php 
-                                        $arr = aj_get("select * from marka");
+                                       
                                         $arr = aj_get("select marka_name from main group by marka_id order by marka_name ASC");
     
                                         echo '<label class="block text-white text-sm font-medium mb-2" for="make">Выберите марку</label>';
-                                        echo '<select class="block appearance-none w-full border  hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="vendorSelect">';
+                                        echo '<select class="block appearance-none w-full border  hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="markaAuc">';
     
                                         foreach($arr as $v) {
                                             echo '<option value="'.$v['MARKA_NAME'].'">'.$v['MARKA_NAME']."</option>";
                                            
                                         }
-                                        $marka_name = aj_get("select model_name from main where marka_name='".$v['MARKA_NAME']."'");
-                                        print_r($marka_name);
-                                        foreach($marka_name as $value) {
-                                            echo "<option value='$value'>$value</option>";
-                                           
-                                        }
+                                    
                                         
-                                        echo '
-                                        <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Выберите модель
-                                        </label>
-                                        
-                                        <select id="modelAuction" name="model" class="select input block appearance-none w-full  border hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        </select>
-                                        ';
+                             
                                         echo '</select>';
                             
                             ?>
     
                                     </div>
                                     <div class="mb-4">
-                                        <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Выберите модель
-                                        </label>
-                                        <select id="modelAuction" name="model" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                            <option class="text-opacity-10">Выберите модель</option>
-                                            <option class="text-opacity-10"></option>
-                                        </select>
+                                        <?php 
+
+                                            $selectedValue = $_POST['selectedValue'];
+                                            print_r($selectedValue);
+
+                                            $arr_models= aj_get("SELECT model_name FROM main WHERE marka_name='$selectedValue' GROUP BY model_id ORDER BY model_name");
+                                        
+                                            echo json_encode($arr_models);
+
+                                            echo '<label class="block text-white text-sm font-medium mb-2" for="make">Выберите модель</label>';
+                                            echo '<select class="block appearance-none w-full border  hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="markaAuc">';
+        
+                                            foreach($arr_models as $v) {
+                                                echo '<option value="'.$v['MODEL_NAME'].'">'.$v['MODEL_NAME']."</option>";
+                                                
+                                            }
+                                    
+                                        
+                                            echo '</select>';
+                            
+                                        ?>
+
                                     </div>
-    
-                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                    <script>
-                                       $(function() {
-                                        $('#modelAuction').change(function() {
-                                            var selectedMake = $(this).val();
-                                            console.log(selectedMake);
-    
-                                            $.ajax({
-                                                type: 'POST',
-                                                url: 'fetchCarsFilter.php',  
-                                                data: { selectedMake: selectedMake },
-                                                success: function(response) {
-                                                    var modelSelect = $('#modelAuction');
-                                                    modelSelect.empty().append(response);
-                                                },
-                                                error: function(error) {
-                                                    console.error('Ошибка:', error);
-                                                }
-                                            });
-                                        });
-                                    });
-                                    </script>
     
                                     <div class="mb-4">
                                         <label class="block text-white text-sm font-medium mb-2" for="make">
@@ -371,10 +351,11 @@
 
                             <?php 
 
-                                // $arr = aj_get("select model_id,model_name from stats where marka_name='toyota'");
-
                                 $offset = ((int)$_GET['page']-1)*20;
                                 $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main group by model_id order by model_name limit 250");
+
+                                $models_arr = aj_get("select model_name from main where marka_name=''");
+                                print_r($models_arr);
                                 // echo '</tr></table>';
 
                                 $num_arr = aj_get("select count(*) from main");
@@ -392,8 +373,7 @@
                                     $maxPages = 10;
                                     
                                     for ($i = 1; $i <= min($maxPages, $totalPages); $i++) {
-                                        echo "<a class='page_num' href='
-                                        https://avtopotencial-dv.ru/%D0%B0%D0%B2%D1%82%D0%BE-%D0%B8%D0%B7-%D1%8F%D0%BF%D0%BE%D0%BD%D0%B8%D0%B8&page/" . $i . "'>" . $i . "</a> ";
+                                        echo "<a class='page_num' href='?page=".$i."'>".$i."</a> ";
                                     }
 
                                     print_r($_GET);
@@ -402,8 +382,7 @@
                                         echo "... ";
                                     }
                                     
-                                    echo "<a class='page_num' href='
-                                    https://avtopotencial-dv.ru/%D0%B0%D0%B2%D1%82%D0%BE-%D0%B8%D0%B7-%D1%8F%D0%BF%D0%BE%D0%BD%D0%B8%D0%B8?page/" . $totalPages . "'>" . $totalPages . "</a> ";
+                                    echo "<a class='page_num' href='?page".$i."'>".$i."</a> ";
                                     echo '<div style="clear:both"></div>'; 
                                     // echo get_pagenum_link(2);
                                     $current_page_number = get_query_var('paged') ?: 1;

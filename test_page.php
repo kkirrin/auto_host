@@ -88,10 +88,7 @@ elseif (isset($_GET['model'])) {
   $lots=$num_arr[0]['TAG0'];
   echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
   for($i=1;$i<=ceil($lots/20);$i++) {
-    echo "<a class=page_num href='?model=".$_GET['model']."page=".$i."'>".$i."</a> ";
-
-  //   echo "<a class='page_num' href='" . get_permalink() . "?model=" . esc_attr($_GET['model']) . "&page=" . $i . "'>" . $i . "</a>";
-  // } echo '<div style="clear:both"></div>';
+    echo "<a class='page_num' href='?model=".$_GET['model']."&page=".$i."'>".$i."</a> ";
 
   };
 
@@ -160,11 +157,16 @@ function aj_get_cached($sql,$minutes=30) { ## 30 for main; 1440 for stats;
 
                 <?php 
 
-                    $arr = aj_get("select model_id,model_name from stats where marka_name='toyota'");
-
+                    // Получаем значение страницы из параметра GET
+                    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                    echo $page;
                     $offset = ((int)$_GET['page']-1)*20;
-                    $arr = aj_get("select model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='toyota' group by model_id order by model_name limit 30");
+                    $arr = aj_get("select model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='toyota' group by model_id order by model_name limit 30 offset $offset");
                     // echo '</tr></table>';
+
+                    // Возвращаем данные в формате JSON
+                    header('Content-Type: application/json');
+                    echo json_encode($arr);
 
                     $num_arr = aj_get("select count(*) from main");
                     $lots=$num_arr[0]['TAG0'];
