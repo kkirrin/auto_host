@@ -49,36 +49,34 @@
                             while ($query->have_posts()) {
                                 $query->the_post();
                             ?>
-                            <div class="p-2 animate">
+                            <div class="p-2 animate review_item">
                                 <div class="flex flex-col items-center justify-between md:w-auto w-full">
                                     <div class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                        <video controls poster="<?php the_field('постер_отзыва'); ?>" alt="отзыв">
-                                            <source src="<?php the_field('видео_отзыва'); ?>" type="video/mp4"> 
-                                            <source src="<?php the_field('видео_отзыва'); ?>" type="video/webm"> 
-                                        </video>
-                                        </a>
+                                    
+                                        <img class="img_review" src="<?php the_field('постер_отзыва'); ?>">
+                                   
                                         <div class="flex flex-col items-center md:items-start">
                                             <div class="font-bold pb-5"><?php the_field('название_отзыва'); ?></div>
-                                            <div class="font-medium pb-5 reviews_body">
+                                            <div class="font-medium pb-5 body_review">
                                                 <?php the_field('текст_отзыва'); ?>
                                             </div>
                                             <div class="flex flex-col md:flex-row pb-5">
-                                                <div class="flex items-center">
-                                                    <p class="pr-2 text-gray"><?php the_field('автор_отзыва'); ?></p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <p class="pr-2 text-gray"><?php the_field('дата_отзыва'); ?></p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <p class="pr-2 text-gray"><?php the_field('город_отзыва'); ?></p>
-                                                </div>
-                                            </div>
+                                                            <div class="flex items-center">
+                                                                <p class="author_review pr-2 text-gray"><?php the_field('автор_отзыва'); ?></p>
+                                                            </div>
+                                                            <div class="flex items-center">
+                                                                <p class="data_review pr-2 text-gray"><?php the_field('дата_отзыва'); ?></p>
+                                                            </div>
+                                                            <div class="flex items-center">
+                                                                <p class="city_review pr-2 text-gray"><?php the_field('город_отзыва'); ?></p>
+                                                            </div>
+                                                        </div>
                                             <div class="flex flex-col md:flex-row items-center justify-around">
-                                                <a href="reviews.php">
+                                                <!-- <a href="reviews.php">
                                                     <div>
                                                         <a class="text-yellow hover:text-red" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">Смотреть оригинал</a>
                                                     </div>
-                                                </a>
+                                                </a> -->
                                             </div>
                                         </div>
                                     </div>

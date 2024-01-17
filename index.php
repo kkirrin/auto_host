@@ -159,7 +159,7 @@ Template Name: autopotencial
                                             echo '  
                                             <div class="swiper-slide p-5 animate">
                                                 <div class="md:w-auto w-full">
-                                                    <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                                    <a href="car_card?id='.$id.'" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                                                         <img class="" src=' . $img1. ' width="430" height="460" alt="вправо" >
                                                     </a>
                                                     <div class="flex flex-col items-start gap-4 justify-between">
@@ -654,7 +654,7 @@ Template Name: autopotencial
                                 Компания <span class="text-yellow">«Автопотенциал-ДВ»</span> предоставляет Вам полный спектр профессиональных услуг по покупке автомобилей, транспортировке и таможенному оформлению ТС из Японии, Южной Кореи.  Благодаря многолетнему опыту в автомобильной сфере (с 2010 года) нами было импортировано более 1000 единиц ТС в РФ.
                             </div>
                             
-                            <div class="text-white md:text-lg text-sm bg-bg-gray bg-opacity-50 relative md:p-10 md:pr-28 p-5 pr-2">
+                            <div class="text-white md:text-lg text-sm bg-bg-gray bg-opacity-50 relative md:p-10 md:pr-28 p-5 pr-2 about_index">
                                 <span class="font-bold">Наша задача</span> – исключить риски покупки битых, аварийных, ржавых, утопленных автомобилей. Мы работаем только с проверенными и надежными поставщиками Японии и Южной Кореи. При заказе в нашей компании автомобиля для иногородних клиентов мы оказываем дополнительные услуги: детейлинг авто, замена тех.жидкостей, масла, покупка дополнительных фильтров, расходников.
 
                                 <p class="text-yellow md:text-lg text-xs mt-5">Почему выбирают нас:</p>
@@ -681,7 +681,7 @@ Template Name: autopotencial
                                 <img class="absolute right-0 top-10 wow fadeInRight"  data-wow-delay="0.2s"" src="<?php echo get_template_directory_uri() . '/src/img/icons/quot.svg'; ?>" alt="">
                             </div>
                         </div>
-                        <img class="md:hidden block w-full z-10 wow fadeInRight"  data-wow-delay="0.2s"" src="<?php echo get_template_directory_uri() . '/src/img/about/car_about.png'; ?>" alt="" >
+                        <img class="about_img md:hidden block w-full z-10 wow fadeInRight"  data-wow-delay="0.2s"" src="<?php echo get_template_directory_uri() . '/src/img/about/car_about.png'; ?>" alt="" >
                     </div>
                 </div>
             </section>
@@ -877,29 +877,31 @@ Template Name: autopotencial
                                         <div class="swiper-slide p-5 animate">
                                             <div class="flex flex-col items-center justify-between md:w-auto w-full">
                                                 <div class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                                    <video controls poster="<?php the_field('постер_отзыва'); ?>" alt="отзыв">
+                                                    <!-- <video controls poster="<?php the_field('постер_отзыва'); ?>" alt="отзыв">
                                                         <source src="<?php the_field('видео_отзыва'); ?>" type="video/mp4"> 
                                                         <source src="<?php the_field('видео_отзыва'); ?>" type="video/webm"> 
-                                                    </video>
-                                                    </a>
+                                                    </video> -->
+
+                                                    <img class="img_review" src="<?php the_field('постер_отзыва'); ?>">
+                                                    
                                                     <div class="flex flex-col items-center md:items-start">
                                                         <div class="font-bold pb-5"><?php the_field('название_отзыва'); ?></div>
-                                                        <div class="font-medium pb-5">
+                                                        <div class="font-medium pb-5 body_review">
                                                             <?php the_field('текст_отзыва'); ?>
                                                         </div>
                                                         <div class="flex flex-col md:flex-row pb-5">
                                                             <div class="flex items-center">
-                                                                <p class="pr-2 text-gray"><?php the_field('автор_отзыва'); ?></p>
+                                                                <p class="author_review pr-2 text-gray"><?php the_field('автор_отзыва'); ?></p>
                                                             </div>
                                                             <div class="flex items-center">
-                                                                <p class="pr-2 text-gray"><?php the_field('дата_отзыва'); ?></p>
+                                                                <p class="data_review pr-2 text-gray"><?php the_field('дата_отзыва'); ?></p>
                                                             </div>
                                                             <div class="flex items-center">
-                                                                <p class="pr-2 text-gray"><?php the_field('город_отзыва'); ?></p>
+                                                                <p class="city_review pr-2 text-gray"><?php the_field('город_отзыва'); ?></p>
                                                             </div>
                                                         </div>
                                                         <div class="flex flex-col md:flex-row items-center justify-around">
-                                                            <a href="reviews.php">
+                                                            <a href="reviews.php" class="link_review">
                                                                 <div>
                                                                     <a class="text-yellow hover:text-red" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">Смотреть оригинал</a>
                                                                 </div>
@@ -1011,7 +1013,7 @@ Template Name: autopotencial
                                 </svg>
                         </button>
                         <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
-                        <div class="flex items-center justify-between pb-10">
+                        <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-white md:text-base text-sm"></p>
                             </div>

@@ -44,15 +44,15 @@
 
                             <ul class="flex flex-col text-white">
                                 <li class="px-4 mb-4">
-                                    <a class="hover:text-green transition-colors" href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/">Авто с аукционов Японии</a>
+                                    <a class="hover:text-green transition-colors" href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/">Авто с аукционов Японии</a>
                                 </li>
                                 <li class="px-4 mb-4">
-                                    <a class="hover:text-green transition-colors" href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/">Авто из Кореи</a></li>
+                                    <a class="hover:text-green transition-colors" href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/">Авто из Кореи</a></li>
                                 <!-- <li class="px-4 mb-4">
                                     <a class="hover:text-green transition-colors" href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Популярные авто</a></li> -->
         
                                 <li class="px-4 mb-4">
-                                    <a class="hover:text-green transition-colors" href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/">Авто в наличии</a></li>
+                                    <a class="hover:text-green transition-colors" href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/">Авто в наличии</a></li>
                             </ul>
                         </div>
 
@@ -73,19 +73,19 @@
                                     <p class="pb-2">Каталог</p>
                                     <ul class="text-gray md:text-base text-xs">
                                         <li class="pb-4">
-                                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/">Авто с аукционов Японии</a>
+                                            <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/">Авто с аукционов Японии</a>
                                         </li>  
                                         <li class="pb-4">
-                                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/">Авто с аукционов Кореи</a>
+                                            <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/">Авто с аукционов Кореи</a>
                                         </li>  
                                         <!-- <li class="pb-4">
                                             <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Популярные авто</a>
                                         </li>   -->
                                         <li class="pb-4">
-                                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/">Авто в наличии</a>
+                                            <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/">Авто в наличии</a>
                                         </li>  
                                         <li class="pb-4">
-                                            <a href="%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Сейчас на аукционах</a>
+                                            <a href="/%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Сейчас на аукционах</a>
                                         </li>  
                                     </ul>
                                 </div>
@@ -93,13 +93,13 @@
                                     <p class="pb-2">Клиентам</p>
                                     <ul class="text-gray md:text-base text-xs"> 
                                         <li class="pb-4">
-                                            <a href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b/">Отзывы</a>
+                                            <a href="/%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b/">Отзывы</a>
                                         </li>  
                                         <li class="pb-4">
-                                            <a href="%d0%b4%d0%be%d1%81%d1%82%d0%b0%d0%b2%d0%ba%d0%b0/">Доставка</a>
+                                            <a href="/%d0%b4%d0%be%d1%81%d1%82%d0%b0%d0%b2%d0%ba%d0%b0/">Доставка</a>
                                         </li>  
                                         <li class="pb-4">
-                                            <a href="%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d0%b5%d0%bd%d0%bd%d1%8b%d0%b5-%d0%b7%d0%b0%d0%ba%d0%b0%d0%b7%d1%8b/">Выполненные заказы</a>
+                                            <a href="/%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d0%b5%d0%bd%d0%bd%d1%8b%d0%b5-%d0%b7%d0%b0%d0%ba%d0%b0%d0%b7%d1%8b/">Выполненные заказы</a>
                                          </li>  
                                         <li class="pb-4">
                                         <a href="https://avtopotencial-dv.ru/wp-content/uploads/2024/01/Договор.pdf" download>

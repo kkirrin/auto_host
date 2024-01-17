@@ -13,7 +13,7 @@ export const initReviewsSlider = () => {
                 speed: 900,
                 direction: 'horizontal',
                 spaceBetween: 15,
-                slidesPerView: 3,
+                slidesPerView: 4,
                 equalHeight: true,
 
                 // If we need pagination
@@ -31,7 +31,7 @@ export const initReviewsSlider = () => {
                       spaceBetween: 15
                     },
                     767: {
-                      slidesPerView: 3,
+                      slidesPerView: 4,
                       spaceBetween: 15
                     }
                   }

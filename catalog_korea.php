@@ -86,13 +86,13 @@
                         </h2>      
 
                         <div class="flex flex-wrap items-start justify-start gap-10 pb-10">
-                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/" class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
+                            <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/" class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
                                 Авто с аукционов
                             </a>
-                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/" class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
+                            <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/" class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
                                 Авто из Кореи
                             </a>
-                            <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/" class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
+                            <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/" class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
                                 Авто в наличии
                             </a>
                         </div>
@@ -152,7 +152,7 @@
                             while ($query->have_posts()) {
                                 $query->the_post();
                             ?>
-                            <div class="p-3 animate">
+                            <div class="p-3 animate body_car_wp">
                                 <div class="md:w-auto w-full">
                                     <a href="#">
                                         <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
@@ -170,7 +170,7 @@
                                             </div>
                                             <div class="flex items-center">
                                                 <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/year.svg'; ?>" alt="" >
-                                                <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('year'); ?> год</p>
+                                                <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('year'); ?> г.</p>
                                             </div>
                                         </div>
                                         <div class="flex flex-row gap-4">

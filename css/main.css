@@ -3,6 +3,76 @@
 /* Импорт шрифтов */
 
 /* Импорт кастомных стилей для компонентов */
+.about_index {
+  z-index: 2;
+}
+
+.about_img {
+  z-index: 1;
+}
+
+p span .wpcf7-form-control-wrap input .wpcf7-form-control {
+  color: #868585;
+  margin-bottom: 10px;
+}
+
+#formName, #formPhone {
+  color: #868585;
+  margin-bottom: 10px;
+}
+
+.wpcf7 form .wpcf7-response-output  {
+  color: #868585;
+  margin: -1em 0.5em 1em
+}
+
+.wpcf7-form-control {
+  color: #868585;
+  margin-bottom: 10px;
+}
+
+.review_item {
+  max-width: 350px;
+}
+
+.body_car_wp {
+  max-width: 460px;
+  padding: 5px;
+}
+
+@media (max-width:767px) {
+  .car__progress {
+    display: none;
+  }
+}
+
+.body_review {
+  width: 350px;
+}
+
+.img_review {
+  width: 350px;
+}
+
+/* .body_review {
+  height: 50%;
+} */
+
+.img_review, .body_review, .city_review, .data_review, .author_review, .link_review {
+  padding: 10px;
+}
+
+@media (max-width:767px) {
+  .img_review {
+    height: 300px;
+    width: 300px;
+
+  }
+}
+
+input .wpcf7-form-control ::placeholder {
+  color: #D1D618;
+}
 
 .widget-title.wpc-filter-title {
   font-size: 14px;
@@ -37,9 +107,7 @@ div .wpc-filter-content input   {
   background-color: #262626 !important;
 }
 
-.reviews_body {
-  width: 350px;
-}
+
 
 .pagination {
   position: absolute;
