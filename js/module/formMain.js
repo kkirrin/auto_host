@@ -50,22 +50,70 @@ export const initFormMain = () => {
     //   });
     // });
 
-    selectElement.addEventListener('change', function (event) {
-      const selectedValue = selectElement.value;
-      const url = "https://avtopotencial-dv.ru/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/?marka=";
-      console.log(selectedValue);
-      location.href = url + selectedValue;
-      event.preventDefault();
+//  selectElement.addEventListener('change', function (event) {
+//   const selectedValue = selectElement.value;
+//   const url = "https://avtopotencial-dv.ru/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/?marka=" + selectedValue;
+
+//   // Выполняем GET-запрос при помощи Fetch API
+//   fetch(url)
+//     .then(function(response) {
+//       // Обработка успешного ответа
+//       console.log("Успешный ответ:", response);
+//       // Можно вставить обработку данных, возвращаемых в ответе
+//     })
+//     .catch(function(error) {
+//       // Обработка ошибки
+//       console.log("Произошла ошибка:", error);
+//     });
+
+//   event.preventDefault(); // В данном случае этот вызов не нужен
+// });
+
+
+
+// selectElement.addEventListener('change', function (event) {
+//   const selectedValue = selectElement.value;
+//   const url = "https://avtopotencial-dv.ru/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/?marka=";
+//   console.log(selectedValue);
+//   location.href = url + selectedValue;
+//   event.preventDefault();
+// })
+
+
+  selectElement.addEventListener('change', async function (event) {
+    const selectedValue = selectElement.value;
+    const url = '/avtopotencial-dv.ru/wp-content/themes/autopotencial/';
+    const data = { marka: selectedValue };
+
+    console.log(data)
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
     })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      console.log(data); // Содержимое ответа от сервера
+    })
+    .catch(function(error) {
+      // Обработка ошибок, если необходимо
+    });
+  });
+
+
 
     // Кнопка фильтрации
 
-    const searchButton = document.getElementById('filterButton');
+    // const searchButton = document.getElementById('filterButton');
 
-    searchButton.addEventListener('click', function(event) {
-      const url = "https://avtopotencial-dv.ru/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/?marka=";
-      event.preventDefault();
-    })
+    // searchButton.addEventListener('click', function(event) {
+    //   const url = "https://avtopotencial-dv.ru/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/?marka=";
+    //   event.preventDefault();
+    // })
 
     // Я закончился
 

@@ -38,11 +38,17 @@ function theme_add_scripts()
     // Подключаем japan файл
     wp_enqueue_script('japan', get_template_directory_uri() . '/js/japan.js', array(), null, true);
 
+    wp_enqueue_script('filterCars', get_template_directory_uri() . '/filterCars.js', array(), null, true);
+
+
+
+
     function my_scripts() {
         wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array(), '1.0', true );
     }
-    add_action( 'wp_enqueue_scripts', 'my_scripts' );
 
+
+    add_action( 'wp_enqueue_scripts', 'my_scripts' );
 
    
     

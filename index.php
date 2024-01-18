@@ -72,7 +72,7 @@ Template Name: autopotencial
                                     <img class="wheel absolute top-28 right-0 z-10 md:w-80 w-48" src="<?php echo get_template_directory_uri() . '/src/img/main/japan.png'; ?>" alt="">
                                     <img class="oblaco absolute top-1/2 right-0 z-10 md:w-[1130px] w-96" src="<?php echo get_template_directory_uri() . '/src/img/main/oblaco.svg'; ?>" alt="">
                                 </div>
-                                <div class="container text-5xl md:text-9xl pt-24 relative z-10">
+                                <div class="container text-4xl md:text-5xl pt-24 relative z-10">
                                     <h2 class="text-center text-white z-10 font-normal md:text-6xl text-xl uppercase">
                                         Автомобили <span class="text-yellow">из Японии</span> с доставкой во владивосток
                                     </h2>
@@ -266,9 +266,10 @@ Template Name: autopotencial
                             <div class="swiper-wrapper">
                             <?php
                                     $my_posts = get_posts(array(
-                                        'numberposts' => -1,
+                                        'numberposts' => 25,
                                         'category_name' => 'korea',
                                         'order' => 'title',
+                                        'orderby' => 'rand',
                                         'post_type' => 'post',
                                         'suppress_filters' => true
                                     ));
@@ -356,9 +357,10 @@ Template Name: autopotencial
                             <div class="swiper-wrapper">
                                 <?php
                                     $my_posts = get_posts(array(
-                                        'numberposts' => -1,
+                                        'numberposts' => 25,
                                         'category_name' => 'in_stock',
                                         'order' => 'title',
+                                        'orderby' => 'rand',
                                         'post_type' => 'post',
                                         'suppress_filters' => true
                                     ));
@@ -862,9 +864,10 @@ Template Name: autopotencial
                                 
                             <?php
                                     $my_posts = get_posts(array(
-                                        'numberposts' => -1,
+                                        'numberposts' => 10,
                                         'category_name' => 'review',
                                         'order' => 'title',
+                                        'orderby' => 'rand',
                                         'post_type' => 'testimonial',
                                         'suppress_filters' => true
                                     ));

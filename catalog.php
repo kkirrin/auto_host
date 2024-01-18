@@ -85,6 +85,8 @@ if (isset($_GET['brand'])) {
 
 
 
+
+
 <!-- <?php get_header(); ?> -->
 
 <main>
@@ -134,15 +136,15 @@ if (isset($_GET['brand'])) {
             </h2>
 
             <div class="flex flex-wrap items-start justify-start gap-10 pb-10">
-                <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/"
+                <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/"
                     class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
                     Авто с аукционов
                 </a>
-                <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/"
+                <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d0%ba%d0%be%d1%80%d0%b5%d0%b8/"
                     class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
                     Авто из Кореи
                 </a>
-                <a href="%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/"
+                <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/"
                     class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
                     Авто в наличии
                 </a>
@@ -168,6 +170,16 @@ if (isset($_GET['brand'])) {
 
                         <div class="mb-4">
                             <?php
+
+                                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                    $selectedValue = json_decode(file_get_contents('php://input'), true);
+                                    echo $selectedValue;
+                                    // Логика обработки $selectedValue
+                                    $response = json_encode(array('message' => 'Данные успешно получены!'));
+                                    header('Content-Type: application/json');
+                                    echo $response;
+                                }
+
                                 $arr_model = aj_get("select model_name from main where marka_name='" . $_GET['marka'] . "' group by model_name order by model_name");
 
                                 echo '<label class="block text-white text-sm font-medium mb-2" for="model_name">Выберите модель</label>';
@@ -181,12 +193,8 @@ if (isset($_GET['brand'])) {
                                 echo '</select>';
                             ?>
 
-                            <?php
-                                $arr_filter = aj_get("select marka_name, model_name, kpp_type, year_from, year_to, eng_v_from, eng_v_to, mileage_from, mileage_to from main where marka_name='".$_GET['marka_name']."&model_name='".$_GET['model_name']."'&kpp_type='".$_GET['kpp_type']."'");
 
-                                echo($arr_filter);
-                            ?>
-
+    
                         </div>
                         <div class="mb-4">
                             <label class="block text-white text-sm font-medium mb-2" for="kpp_type">
@@ -203,12 +211,12 @@ if (isset($_GET['brand'])) {
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="block text-white text-sm font-medium mb-2" for="year_from">
+                            <label class="block text-white text-sm font-medium mb-2" for="year">
                                 Год
                             </label>
                             <div class="flex gap-10">
                                 <div class="w-full">
-                                    <select id="yearAuctionFrom" name="make"
+                                    <select id="yearAuctionFrom" name="year"
                                         class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         <option>от</option>
                                         <option>2001</option>
@@ -237,7 +245,7 @@ if (isset($_GET['brand'])) {
                                     </select>
                                 </div>
                                 <div class="w-full">
-                                    <select id="yearAuctionTo" name="year_to"
+                                    <select id="yearAuctionTo" name="year"
                                         class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         <option>до</option>
                                         <option>2001</option>
@@ -277,14 +285,14 @@ if (isset($_GET['brand'])) {
                                 </label>
                                 <div class="flex gap-10">
                                     <div class="w-1/2">
-                                        <input id="mileageAuctionFrom" name="mileage_from"
+                                        <input id="mileageAuctionFrom" name="mileage"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="от">
 
                                         </input>
                                     </div>
                                     <div class="w-1/2">
-                                        <input id="mileageAuctionTo" name="mileage_to"
+                                        <input id="mileageAuctionTo" name="mileage"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="до">
 
@@ -294,22 +302,21 @@ if (isset($_GET['brand'])) {
                                 </div>
                             </div>
                         </div>
-
                         <div class="flex flex-1 gap-10">
                             <div class="mb-4">
-                                <label class="block text-white text-sm font-medium mb-2" for="price">
+                                <label class="block text-white text-sm font-medium mb-2" for="finish">
                                     Цена
                                 </label>
                                 <div class="flex gap-10">
                                     <div class="w-1/2">
-                                        <input id="priceAuctionFrom" name="price_from"
+                                        <input id="priceAuctionFrom" name="finish[from]"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="от">
 
                                         </input>
                                     </div>
                                     <div class="w-1/2">
-                                        <input id="priceAuctionTo" name="price_to"
+                                        <input id="priceAuctionTo" name="finish[to]"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="до">
 
@@ -326,14 +333,14 @@ if (isset($_GET['brand'])) {
                                 </label>
                                 <div class="flex gap-10">
                                     <div class="w-1/2">
-                                        <input id="valueAuctionFrom" name="value_from"
+                                        <input id="valueAuctionFrom" name="eng_v[from]"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="от">
 
                                         </input>
                                     </div>
                                     <div class="w-1/2">
-                                        <input id="valueAuctionTo" name="value_to"
+                                        <input id="valueAuctionTo" name="eng_v[to]"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="до">
 
@@ -345,7 +352,7 @@ if (isset($_GET['brand'])) {
                         </div>
 
                         <div class="flex items-center justify-center">
-                            <button class="up bg-red py-2 px-10 text-white rounded-lg" type="submit" onclick="">
+                            <button class="up bg-red py-2 px-10 text-white rounded-lg" type="submit" >
                                 Фильтр
                             </button>
                         </div>
@@ -386,6 +393,11 @@ if (isset($_GET['brand'])) {
 
                 $totalPages = ceil($lots / 20);
                 $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+
+
+                $arr_filter = aj_get("select marka_name, model_name, kpp_type, year_from, year_to, eng_v_from, eng_v_to, mileage_from, mileage_to from main where marka_name='".$_GET['marka_name']."&model_name='".$_GET['model_name']."'&kpp_type='".$_GET['kpp_type']."'");
+
+                echo($arr_filter);
 
                 if ($totalPages > 1) {
                     $maxPages = 10;
@@ -446,7 +458,7 @@ if (isset($_GET['brand'])) {
                                             <p class="md:text-xl text-base">
                                                 <span class="font-bold">' . $avgPrice . '</span> (' . $avgPrice . ' ¥)
                                             </p>
-                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="car_card?id=' . $id . '">
+                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="/car_card?id=' . $id . '">
                                             Заказать
                                             </a>
                                         </div>
