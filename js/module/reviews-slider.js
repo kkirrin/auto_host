@@ -12,7 +12,7 @@ export const initReviewsSlider = () => {
                 // },
                 speed: 900,
                 direction: 'horizontal',
-                spaceBetween: 15,
+                spaceBetween: 5,
                 slidesPerView: 3,
                 equalHeight: true,
 
@@ -26,13 +26,17 @@ export const initReviewsSlider = () => {
                       slidesPerView: 1,
                       spaceBetween: 15
                     },
-                    480: {
-                      slidesPerView: 3,
+                    600: {
+                      slidesPerView: 2,
                       spaceBetween: 15
                     },
                     767: {
-                      slidesPerView: 3,
+                      slidesPerView: 2,
                       spaceBetween: 15
+                    },
+                    1200: {
+                      slidesPerView: 3,
+                      spaceBetween:10
                     }
                   }
             });

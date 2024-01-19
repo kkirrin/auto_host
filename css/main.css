@@ -3,6 +3,143 @@
 /* Импорт шрифтов */
 
 /* Импорт кастомных стилей для компонентов */
+
+/*  */
+.contact_div2 {
+  display: none;
+}
+
+@media (max-width:767px) {
+  .contact_div2 {
+    display:block
+  }
+}
+
+.contact_div {
+  width: 427px;
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
+}
+
+@media (max-width:767px) {
+    .contact_div {
+      display: none;
+
+    }
+}
+
+
+
+@media (max-width:767px) {
+  .section_map {
+    background-image: none;
+  }
+}
+
+.review_btn {
+  width: 150px;
+  height: 45px;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.review_padding {
+  margin-right: 30px;
+}
+
+.get {
+  text-transform:none;
+  font-weight: 700;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 6px !important;
+}
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+}
+
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 20px;
+}
+
+/* Ниже пример стилизации для открытого select */
+
+.select-arrow.open {
+  transform: translateY(-50%) rotate(180deg); 
+}
+
+.wpc-filters-range-wrapper input {
+  width: 80% !important;
+}
+
+div .wpc-filter-content select, .wpc-filter-content input  {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;  
+  border-radius: 6px !important;
+
+  border: none !important;
+}
+.select {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;  
+  border-radius: 6px !important;
+}
+.title_slider {
+  padding-bottom: 25px;
+}
+
+.img_car {
+  /* border-radius: 4px; */
+}
+
+.order_btn {
+  padding: 8px 14px;
+}
+
+.catalog svg {
+  padding-left: 14px;
+}
+.catalog {
+  padding-left: 50px;
+  padding-right: 20px;
+}
+.header {
+  border-bottom: 1px solid #4C4C4C;;
+  padding: 20px 0;
+}
+
+@media (max-width:767px) {
+  .wheel {
+    top: 200px !important;
+  }
+}
+
+.flag img:first-child, .flag2 img:first-child {
+  height: 76vh !important;
+}
+
+
+
 .about_index {
   z-index: 2;
 }
@@ -32,11 +169,11 @@ p span .wpcf7-form-control-wrap input .wpcf7-form-control {
 }
 
 .review_item {
-  max-width: 350px;
+  max-width: 410px !important;
 }
 
 .body_car_wp {
-  max-width: 460px;
+  max-width: 410px !important;
   padding: 5px;
 }
 
@@ -47,19 +184,50 @@ p span .wpcf7-form-control-wrap input .wpcf7-form-control {
 }
 
 .body_review {
-  width: 350px;
+  width: 410px !important;
+  
 }
 
+.body_review.truncate {
+  margin: 0; 
+  -webkit-line-clamp: 6; 
+  display: -webkit-box; 
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
+ }
+
 .img_review {
-  width: 350px;
+  width: 410px !important;
+  border-radius: 6px;
+  height: 430px;
+  object-fit: cover;
+  
+}
+
+@media (max-width:1020px) {
+  .img_review, .body_review {
+    width: 350px !important;
+    
+  }
+}
+
+
+@media (max-width:767px) {
+  .img_review, .body_review {
+    width: 330px !important;
+  }
 }
 
 /* .body_review {
   height: 50%;
 } */
 
-.img_review, .body_review, .city_review, .data_review, .author_review, .link_review {
-  padding: 10px;
+.body_review, .city_review, .data_review, .author_review {
+  padding: 20px;
+}
+.link_review  {
+  padding-left: 10px;
+  text-decoration: underline;
 }
 
 @media (max-width:767px) {
@@ -253,9 +421,13 @@ video {
 .nav_left {
   padding-left: 220px;
 }
-.logo {
-  margin-left: 120px !important;
+
+@media (min-width:1024px) {
+  .logo {
+    margin-left: 120px !important;
+  }
 }
+
 
 
 @media (max-width: 767px) {
@@ -265,13 +437,19 @@ video {
 }
 
 .slide2 {
-  top: -250px !important;
+  top: -90px !important;
   z-index: -1000 !important;
 }
 
+/* @media(max-width:1200px) {
+  .slide2 {
+    width: 800px;
+  }
+} */
+
 @media (max-width:767px) {
   .slide2 {
-    top: 0px !important;
+    top: -10px !important;
   }
 }
 
@@ -1046,6 +1224,8 @@ button.swiper-pagination-bullet{
   pointer-events:auto
 }
 
+
+
 .swiper-cube .swiper-slide-active,.swiper-cube .swiper-slide-next,.swiper-cube .swiper-slide-next+.swiper-slide,.swiper-cube .swiper-slide-prev{
   pointer-events:auto;
   visibility:visible
@@ -1782,6 +1962,7 @@ Remove the inheritance of text transform in Edge and Firefox.
 button,
 select {
   text-transform: none;
+
 }
 
 /*
@@ -2587,8 +2768,12 @@ span.counter-items,
   border-radius: 0.75rem;
 }
 
-.border{
-  border-width: 1px;
+.border {
+  /* border-width: 1px; */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .border-b-8{

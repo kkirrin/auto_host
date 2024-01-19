@@ -73,7 +73,7 @@ Template Name: autopotencial
                                     <img class="oblaco absolute top-1/2 right-0 z-10 md:w-[1130px] w-96" src="<?php echo get_template_directory_uri() . '/src/img/main/oblaco.svg'; ?>" alt="">
                                 </div>
                                 <div class="container text-4xl md:text-5xl pt-24 relative z-10">
-                                    <h2 class="text-center text-white z-10 font-normal md:text-6xl text-xl uppercase">
+                                    <h2 class="text-center text-white z-10 font-normal md:text-5xl text-xl uppercase">
                                         Автомобили <span class="text-yellow">из Японии</span> с доставкой во владивосток
                                     </h2>
                                     <p class="pt-10 z-10 text-center font-bold md:text-xl text-base text-white">Подберем под Ваш бюджет, привезем в РФ, растаможим, оформим документы и доставим до Вас</p>
@@ -90,7 +90,7 @@ Template Name: autopotencial
                                     <img class="oblaco absolute top-1/2 right-0 z-10 md:w-[1130px] w-96" src="<?php echo get_template_directory_uri() . '/src/img/main/oblaco.svg'; ?>" alt="">
                                 </div>
                                 <div class="container text-5xl md:text-9xl pt-24 relative z-10">
-                                    <h2 class="text-center text-white z-10 font-normal md:text-6xl text-xl uppercase">
+                                    <h2 class="text-center text-white z-10 font-normal md:text-5xl text-xl uppercase">
                                         Автомобили <span class="text-yellow">из кореи</span> с доставкой во владивосток
                                     </h2>
                                     <p class="pt-10 z-10 text-center font-bold md:text-xl text-base text-white">Подберем под Ваш бюджет, привезем в РФ, растаможим, оформим документы и доставим до Вас</p>
@@ -106,12 +106,12 @@ Template Name: autopotencial
                 </div>
             </section>
 
-            <section class="japan-swiper md:pt-40 pt-20 wow fadeInUp " data-wow-delay="0.4s"">
+            <section class="japan-swiper pt-20 wow fadeInUp " data-wow-delay="0.4s"">
                 <div class="container">
 
                     <div class="flex items-center justify-between">
                         <div>
-                            <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative">сейчас на аукционах японии </h2>
+                            <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative  title_slider">сейчас на аукционах японии </h2>
                         </div>
 
                         <div class="swiper-pagination"></div>
@@ -160,7 +160,7 @@ Template Name: autopotencial
                                             <div class="swiper-slide p-5 animate">
                                                 <div class="md:w-auto w-full">
                                                     <a href="car_card?id='.$id.'" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                                        <img class="" src=' . $img1. ' width="430" height="460" alt="вправо" >
+                                                        <img class="img_car" src=' . $img1. ' width="430" height="460" alt="вправо" >
                                                     </a>
                                                     <div class="flex flex-col items-start gap-4 justify-between">
                                                         <div class="md:text-3xl text-xl font-medium pt-4">'.$name_car.'</div>
@@ -245,7 +245,7 @@ Template Name: autopotencial
 
                     <div class="flex items-center justify-between">
                         <div>
-                            <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative">Автомобили из Кореи </h2>
+                            <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative title_slider">Автомобили из Кореи </h2>
                         </div>
 
                         <div class="swiper-pagination"></div>
@@ -278,8 +278,8 @@ Template Name: autopotencial
                                 ?> 
                                     <div class="swiper-slide p-3 animate">
                                         <div class="md:w-auto w-full">
-                                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                                <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
+                                            <a href="<?php echo the_permalink(); ?>" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                                <img class="img_car" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
                                             </a>
                                             <div class="flex flex-col items-start gap-4 justify-between">
                                                 <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('marka_name'); ?> <?php the_field('model_name'); ?></div>
@@ -299,7 +299,7 @@ Template Name: autopotencial
                                                 </div>
                                                 <div class="flex flex-row gap-4">
                                                     <p class="md:text-xl text-base">
-                                                        <span class="font-bold"><?php the_field('price'); ?> ₽</span> (<?php the_field('');?> ¥)
+                                                        <span class="font-bold"><?php the_field('price'); ?> ₽</span> (<?php the_field('');?>
                                                     </p>
                                                     <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php echo the_permalink(); ?>">
                                                         Заказать
@@ -336,7 +336,7 @@ Template Name: autopotencial
 
                     <div class="flex items-center justify-between">
                         <div>
-                            <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative">автомобили в наличии </h2>
+                            <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative title_slider">автомобили в наличии </h2>
                         </div>
 
                         <div class="swiper-pagination"></div>
@@ -369,8 +369,8 @@ Template Name: autopotencial
                                 ?> 
                                     <div class="swiper-slide p-3 animate">
                                         <div class="md:w-auto w-full">
-                                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                                <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
+                                            <a href="<?php echo the_permalink(); ?>" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                                <img class="img_car" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
                                             </a>
                                             <div class="flex flex-col items-start gap-4 justify-between">
                                                 <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('бренд'); ?> <?php the_field('модель'); ?></div>
@@ -390,7 +390,7 @@ Template Name: autopotencial
                                                 </div>
                                                 <div class="flex flex-row gap-4">
                                                     <p class="md:text-xl text-base">
-                                                        <span class="font-bold"><?php the_field('сумма_в_рублях_с_пробелами'); ?> ₽</span> (<?php the_field('сумма_в_юанях_с_пробелами');?> ¥)
+                                                        <span class="font-bold"><?php the_field('сумма_в_рублях_с_пробелами'); ?> ₽</span> (<?php the_field('сумма_в_юанях_с_пробелами');?>
                                                     </p>
                                                     <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php echo the_permalink(); ?>">
                                                         Заказать
@@ -489,16 +489,6 @@ Template Name: autopotencial
 
                                     </select>
                                 </div>
-                                <!-- <div class="mb-4">
-                                    <label class="block text-white text-sm font-medium mb-2" for="make">
-                                        Выберите комплектацию 
-                                    </label>
-                                    <select id="complectation" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>Выберите комплектацию</option>
-                                        <option></option>
-                                    </select>
-                                </div> -->
-
                             
                                 <div class="mb-4">
                                     <label class="block text-white text-sm font-medium mb-2" for="make">
@@ -566,75 +556,121 @@ Template Name: autopotencial
                                 </div>
                                 
                                 
-                                <div class="flex flex-1 gap-10">
-                                    <div class="mb-4">
-                                        <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Пробег 
-                                        </label>
-                                        <div class="flex gap-10">
-                                            <div class="w-1/2">
-                                                <input id="mileage_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
-
-                                                </input>
-                                            </div>
-                                            <div class="w-1/2">
-                                                <input id="mileage_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
-
-                                                </input>
-                                            </div>
-                                            
+                                <div class="mb-4">
+                                    <label class="block text-white text-sm font-medium mb-2" for="make">
+                                        Пробег 
+                                    </label>
+                                    <div class="flex gap-10">
+                                        <div class="w-full">
+                                            <select id="mileage_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                                <option>от</option>
+                                                <option>2001</option>
+                                                <option>2002</option>
+                                                <option>2003</option>
+                                                <option>2004</option>
+                                                <option>2005</option>
+                                                <option>2006</option>
+                                                <option>2007</option>
+                                                <option>2008</option>
+                                            </select>
                                         </div>
+                                        <div class="w-full">
+                                            <select id="mileage_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
+                                                <option>до</option>
+                                                <option>2001</option>
+                                                <option>2002</option>
+                                                <option>2003</option>
+                                                <option>2004</option>
+                                                <option>2005</option>
+                                                <option>2006</option>
+                                                <option>2007</option>
+                                                <option>2008</option>
+                                            </select>
+                                        </div>
+                                    
                                     </div>
                                 </div>
                                 
-                                <div class="flex flex-1 gap-10">
-                                    <div class="mb-4">
-                                        <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Цена 
-                                        </label>
-                                        <div class="flex gap-10">
-                                            <div class="w-1/2">
-                                                <input id="price_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
-
-                                                </input>
-                                            </div>
-                                            <div class="w-1/2">
-                                                <input id="price_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
-
-                                                </input>
-                                            </div>
-                                            
-                                        </div>
+                                <div class="mb-4">
+                                    <label class="block text-white text-sm font-medium mb-2" for="make">
+                                        Цена 
+                                    </label>
+                                    <div class="flex gap-10">
+                                    <div class="w-full">
+                                        <select id="price_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <option>от</option>
+                                            <option>2001</option>
+                                            <option>2002</option>
+                                            <option>2003</option>
+                                            <option>2004</option>
+                                            <option>2005</option>
+                                            <option>2006</option>
+                                            <option>2007</option>
+                                            <option>2008</option>
+                                        </select>
+                                    </div>
+                                    <div class="w-full">
+                                        <select id="price_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
+                                            <option>до</option>
+                                            <option>2001</option>
+                                            <option>2002</option>
+                                            <option>2003</option>
+                                            <option>2004</option>
+                                            <option>2005</option>
+                                            <option>2006</option>
+                                            <option>2007</option>
+                                            <option>2008</option>
+                                        </select>
+                                    </div>
                                     </div>
                                 </div>
-                                <div class="flex flex-1 gap-10">
-                                    <div class="mb-4">
-                                        <label class="block text-white text-sm font-medium mb-2" for="make">
-                                            Объем 
-                                        </label>
-                                        <div class="flex gap-10">
-                                            <div class="w-1/2">
-                                                <input id="value_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="от">
-
-                                                </input>
-                                            </div>
-                                            <div class="w-1/2">
-                                                <input id="value_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="до">
-
-                                                </input>
-                                            </div>
-                                            
+                                <div class="mb-4">
+                                    <label class="block text-white text-sm font-medium mb-2" for="make">
+                                        Объем 
+                                    </label>
+                                    <div class="flex gap-10">
+                                        <div class="w-full">
+                                            <select id="value_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                                <option>от</option>
+                                                <option>2001</option>
+                                                <option>2002</option>
+                                                <option>2003</option>
+                                                <option>2004</option>
+                                                <option>2005</option>
+                                                <option>2006</option>
+                                                <option>2007</option>
+                                                <option>2008</option>
+                                            </select>
                                         </div>
+                                        <div class="w-full custom-select">
+                                            <select id="value_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
+                                                <option>до</option>
+                                                <option>2001</option>
+                                                <option>2002</option>
+                                                <option>2003</option>
+                                                <option>2004</option>
+                                                <option>2005</option>
+                                                <option>2006</option>
+                                                <option>2007</option>
+                                                <option>2008</option>
+                                            </select>   
+                                            
+                                            <svg class="select-arrow" xmlns="http://www.w3.org/2000/svg" width="21" height="9" viewBox="0 0 21 9" fill="none">
+                                                <path d="M20 0.5L10.8519 7.5L1 0.5" stroke="white"/>
+                                            </svg>
+                                        </div>
+                                    
                                     </div>
                                 </div>
                                 
-                                <div class="flex items-center justify-center">
-                                    <a class="up bg-red py-2 px-10 text-white rounded-lg popup-link" href="#popup3">
+                                
+                                <div class="flex items-center justify-center pt-2">
+                                    <a class="get up bg-red text-white rounded-lg popup-link" href="#popup3">
                                         Получить расчёт
                                 </a>
                                 </div>
                                 
-                                <div class="flex items-end justify-end">
+                                <div class="flex items-center justify-center">
                                     <button class=" text-yellow py-2 px-10 underline">
                                         Сбросить
                                     </button>
@@ -713,8 +749,8 @@ Template Name: autopotencial
                     <img class="bg-cover bg-center opacity-90 absolute bottom-0 md:hidden block -z-10" src="<?php echo get_template_directory_uri() . '/src/img/company/bg_company.png'; ?>" alt="">
                 </div>
                 <div class="container">
-                    <ul class="flex items-center md:justify-center justify-start flex-wrap gap-10 counter-list">
-                        <li class="py-3 px-2 sm:py-7 sm:px-10">
+                    <ul class="flex items-start md:justify-between justify-start flex-wrap gap-10 counter-list">
+                        <li class="py-3 pr-2 sm:py-7">
                             <svg xmlns="http://www.w3.org/2000/svg" width="73" height="4" viewBox="0 0 73 4" fill="none">
                                 <path d="M0 2H72.5" stroke="#FCBC40" stroke-width="4"/>
                             </svg>
@@ -724,7 +760,7 @@ Template Name: autopotencial
                                 </p>
                             <p class="md:text-xl text-sm text-white">опыт в автомобильной сфере</p>
                         </li>
-                        <li class="py-3 px-2 sm:py-7 sm:px-10">
+                        <li class="py-3 pr-2 sm:py-7">
                             <svg xmlns="http://www.w3.org/2000/svg" width="73" height="4" viewBox="0 0 73 4" fill="none">
                                 <path d="M0 2H72.5" stroke="#FCBC40" stroke-width="4"/>
                             </svg>
@@ -732,9 +768,9 @@ Template Name: autopotencial
                                 <span class="ml-2 mr-4">более</span>
                                 <span class="counter-items md:text-5xl text-3xl text-yellow uppercase pt-4 pb-4 w-8 sm:w-16"></span>
                                 </p>
-                            <p class="md:text-xl text-sm text-white">опыт в автомобильной сфере</p>
+                            <p class="md:text-xl text-sm text-white">единиц ТС в РФ</p>
                         </li>
-                        <li class="py-3 px-2 sm:py-7 sm:px-10">
+                        <li class="py-3 pr-2 sm:py-7">
                             <svg xmlns="http://www.w3.org/2000/svg" width="73" height="4" viewBox="0 0 73 4" fill="none">
                                 <path d="M0 2H72.5" stroke="#FCBC40" stroke-width="4"/>
                             </svg>
@@ -742,7 +778,7 @@ Template Name: autopotencial
                                 <span class="ml-2 mr-4">более</span>
                                 <span class="counter-client md:text-5xl text-3xl text-yellow uppercase pt-4 pb-4 w-8 sm:w-16"></span>
                                 </p>
-                            <p class="md:text-xl text-sm text-white">опыт в автомобильной сфере</p>
+                            <p class="md:text-xl text-sm text-white">довольных клиентов по всей России</p>
                         </li>
                     </ul>
                 </div>
@@ -842,6 +878,27 @@ Template Name: autopotencial
                     <div class="flex items-center justify-between">
                         <div>
                             <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative">Отзывы клиентов </h2>
+
+                            <div class="wrapper_review--btn">
+                                <div>
+                                    <a href="#">
+                                        <div>
+                                            <a class="review_btn bg-red up text-white" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">
+                                                Смотреть все отзывы
+                                            </a>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#">
+                                        <div>
+                                            <a class="review_btn bg-red up text-white popup-link" href="popup2">
+                                                Добавить отзыв
+                                            </a>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="swiper-pagination"></div>
@@ -855,6 +912,9 @@ Template Name: autopotencial
                             <img src="<?php echo get_template_directory_uri() . '/src/img/icons/arrow_next.svg'; ?>" alt="вправо" >
                         </button>
                     </div>   
+                    
+
+                  
                     
                 </div>
                     <div class="review-wrapper overflow-hidden">
@@ -877,19 +937,29 @@ Template Name: autopotencial
                                         setup_postdata( $post );
                                     ?>  
                                 
-                                        <div class="swiper-slide p-5 animate">
+                                        <div class="swiper-slide p-5">
                                             <div class="flex flex-col items-center justify-between md:w-auto w-full">
                                                 <div class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                                    <!-- <video controls poster="<?php the_field('постер_отзыва'); ?>" alt="отзыв">
-                                                        <source src="<?php the_field('видео_отзыва'); ?>" type="video/mp4"> 
-                                                        <source src="<?php the_field('видео_отзыва'); ?>" type="video/webm"> 
-                                                    </video> -->
-
-                                                    <img class="img_review" src="<?php the_field('постер_отзыва'); ?>">
+                
                                                     
-                                                    <div class="flex flex-col items-center md:items-start">
+                                                    <?php
+                                                        $poster = get_field('постер_отзыва');
+                                                        $video = get_field('видео_отзыва');
+
+                                                        if ($poster && $video) {
+                                                    ?>
+                                                        <video class="" controls poster="<?php echo $poster; ?>" alt="отзыв">
+                                                            <source src="<?php echo $video; ?>" type="video/mp4"> 
+                                                            <source src="<?php echo $video; ?>" type="video/webm"> 
+                                                        </video>
+                                                        <?php
+                                                        }
+                                                    ?>
+                                                    <img class="img_review img_car" src="<?php the_field('фото_отзыва'); ?>">
+                                                    
+                                                    <div class="flex flex-col items-center md:items-start" style="background-color: #F6F6F6;">
                                                         <div class="font-bold pb-5"><?php the_field('название_отзыва'); ?></div>
-                                                        <div class="font-medium pb-5 body_review">
+                                                        <div class="textFull font-medium pb-5 body_review truncate">
                                                             <?php the_field('текст_отзыва'); ?>
                                                         </div>
                                                         <div class="flex flex-col md:flex-row pb-5">
@@ -905,10 +975,15 @@ Template Name: autopotencial
                                                         </div>
                                                         <div class="flex flex-col md:flex-row items-center justify-around">
                                                             <a href="reviews.php" class="link_review">
-                                                                <div>
-                                                                    <a class="text-yellow hover:text-red" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">Смотреть оригинал</a>
+                                                                <div class="pt-4 pb-4">
+                                                                    <a class="text-yellow hover:text-red" href="<?php the_field('ссылка_на_отзыв'); ?>">Смотреть оригинал</a>
                                                                 </div>
                                                             </a>
+                                                            
+                                                            <div class="pt-4 pb-4">
+                                                                <button id="watchFull" class="text-yellow hover:text-red">Посмотреть полностью</buton>
+                                                            </div>
+                                                          
                                                         </div>
                                                     </div>
                                                 </div>
@@ -924,26 +999,7 @@ Template Name: autopotencial
                         </div>
                     </div>     
                  
-                    <div class="wrapper_review--btn">
-                        <div>
-                            <a href="#">
-                                <div>
-                                    <a class="bg-red up py-1 px-4 text-white rounded-lg" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">
-                                        Смотреть все отзывы
-                                    </a>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div>
-                                    <a class="bg-red up py-1 px-4 text-white rounded-lg popup-link" href="popup2">
-                                        Добавить отзыв
-                                    </a>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                  
                     
 
                     <div class="md:hidden flex-nowrap gap-5 flex items-center justify-center">
@@ -961,47 +1017,85 @@ Template Name: autopotencial
                 </div>
             </section>
 
-            <section class="pt-20 wow fadeInUp" data-wow-delay="0.2s"">
-                <div class="container relative">
-                    <div class="flex justify-center">
-                        <img class="bg-cover bg-center opacity-90 absolute bottom-0 -z-10 md:block hidden" src="<?php echo get_template_directory_uri() . '/src/img/map/map2.png'; ?>" alt="" > 
+            <div class="flex justify-center relative">
+                <img class="bg-cover bg-center opacity-90  -z-10 md:block hidden" src="<?php echo get_template_directory_uri() . '/src/img/map/map2.png'; ?>" alt="" > 
+                
+                <div class="contact_div bg-white max-w-xl md:ml-10 ml-0 p-10">
+                    <div class="pb-5">
+                        <h2 class="text-xl md:text-4xl text-jost font-extrabold line uppercase relative">Контакты </h2>
                     </div>
-                    
-                    <div class="bg-white max-w-xl md:ml-10 ml-0 p-10">
-                        <div class="pb-5">
-                            <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative">Контакты </h2>
-                        </div>
-                        <ul>
-                            <li class="pb-8">
-                                <img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/phonw.svg'; ?>" alt="">
-                                <a href="tel:79020607575">
-                                    +79020607575,
-                                </a>
-                                <a href="tel:+79020605757">
-                                    +79020605757,
-                                </a>
-                            </li>
-                            <li class="pb-8">
-                                <a href="mailto:Avtopotencial-DV@mail.ru"><img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/email.svg'; ?>" alt="">
-                                    Avtopotencial-DV@mail.ru</a>
-                            </li>
-                            <li class="pb-8">
-                                <img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/geo.svg'; ?>" alt="">
-                                    г.  Владивосток, ул. Тухачевского 35 , 2 этаж, т/ц Тухачевский
-                            </li>
-                            <li class="pb-8">
-                                <img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/clock.svg'; ?>" alt="">
-                                    Пн-Пт 9:00-18:00
-                            </li>
-                            <li class="pb-8 flex items-center gap-4">
-                            <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
-                            <a href="https://t.me/avtopotencialdv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
-                            <a href="https://vk.com/avtopotencial_dv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
-                            <a href="https://instagram.com/avtopotencial"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
-                            <a href="https://www.youtube.com/channel/UCBKiXYVvi1ROscY2_ENwM-Q"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
-                            </li>
-                        </ul>
+                    <ul>
+                        <li class="pb-8">
+                            <img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/phonw.svg'; ?>" alt="">
+                            <a href="tel:79020607575">
+                                +79020607575,
+                            </a>
+                            <a href="tel:+79020605757">
+                                +79020605757,
+                            </a>
+                        </li>
+                        <li class="pb-8">
+                            <a href="mailto:Avtopotencial-DV@mail.ru"><img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/email.svg'; ?>" alt="">
+                                Avtopotencial-DV@mail.ru</a>
+                        </li>
+                        <li class="pb-8">
+                            <img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/geo.svg'; ?>" alt="">
+                                г.  Владивосток, ул. Тухачевского 35 , 2 этаж, т/ц Тухачевский
+                        </li>
+                        <li class="pb-8">
+                            <img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/clock.svg'; ?>" alt="">
+                                Пн-Пт 9:00-18:00
+                        </li>
+                        <li class="pb-8 flex items-center gap-4">
+                        <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
+                        <a href="https://t.me/avtopotencialdv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
+                        <a href="https://vk.com/avtopotencial_dv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
+                        <a href="https://instagram.com/avtopotencial"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
+                        <a href="https://www.youtube.com/channel/UCBKiXYVvi1ROscY2_ENwM-Q"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="contact_div2 bg-white max-w-xl md:ml-10 ml-0 p-10">
+                    <div class="pb-5">
+                        <h2 class="text-xl lg:text-4xl text-jost font-extrabold line uppercase relative">Контакты </h2>
                     </div>
+                    <ul>
+                        <li class="pb-8">
+                            <img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/phonw.svg'; ?>" alt="">
+                            <a href="tel:79020607575">
+                                +79020607575,
+                            </a>
+                            <a href="tel:+79020605757">
+                                +79020605757,
+                            </a>
+                        </li>
+                        <li class="pb-8">
+                            <a href="mailto:Avtopotencial-DV@mail.ru"><img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/email.svg'; ?>" alt="">
+                                Avtopotencial-DV@mail.ru</a>
+                        </li>
+                        <li class="pb-8">
+                            <img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/geo.svg'; ?>" alt="">
+                                г.  Владивосток, ул. Тухачевского 35 , 2 этаж, т/ц Тухачевский
+                        </li>
+                        <li class="pb-8">
+                            <img class="pb-2" src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/clock.svg'; ?>" alt="">
+                                Пн-Пт 9:00-18:00
+                        </li>
+                        <li class="pb-8 flex items-center gap-4">
+                        <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
+                        <a href="https://t.me/avtopotencialdv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
+                        <a href="https://vk.com/avtopotencial_dv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
+                        <a href="https://instagram.com/avtopotencial"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
+                        <a href="https://www.youtube.com/channel/UCBKiXYVvi1ROscY2_ENwM-Q"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
                     <img class="bg-cover bg-center opacity-90 h-full w-full md:hidden block" src="<?php echo get_template_directory_uri() . '/src/img/map/map2.png'; ?>" alt="" > 
                 </div>
             </section>  
@@ -1109,7 +1203,7 @@ Template Name: autopotencial
                                 <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#FCBC40"/>
                                 </svg>
                         </button>
-                        <h2 class="text-start text-white z-10 font-normal md:text-3xl text-xl uppercase pb-10 ">Получить расчет</h2>
+                        <h2 class="text-start text-white z-10 font-normal md:text-3xl text-xl uppercase pb-10 ">Получить расчёт</h2>
                         <div class="flex items-center justify-between pb-10">
                             <div>
                                 <p class="text-white md:text-base text-sm"><span class="text-yellow">Это бесплатно</span> для вас и ни к чему не обязывает</p>

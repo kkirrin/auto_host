@@ -436,7 +436,7 @@ if (isset($_GET['brand'])) {
 
                     echo '<div class="animate p-4">
                                     <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                    <img class="" src=' . $img1 . ' width="430" height="460" alt="вправо" >
+                                    <img class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
                                     </a>
                                     <div class="flex flex-col items-start gap-4 justify-between">
                                         <div class="md:text-3xl text-xl font-medium pt-4">' . $name_car . '</div>

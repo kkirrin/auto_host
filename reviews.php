@@ -49,15 +49,27 @@
                             while ($query->have_posts()) {
                                 $query->the_post();
                             ?>
-                            <div class="p-2 animate review_item">
+                            <div class="p-2 review_item review_padding" style="padding-right: 15px;">
                                 <div class="flex flex-col items-center justify-between md:w-auto w-full">
                                     <div class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                    
-                                        <img class="img_review" src="<?php the_field('постер_отзыва'); ?>">
+                                        <?php
+                                            $poster = get_field('постер_отзыва');
+                                            $video = get_field('видео_отзыва');
+
+                                            if ($poster && $video) {
+                                        ?>
+                                            <video class="" controls poster="<?php echo $poster; ?>" alt="отзыв">
+                                                <source src="<?php echo $video; ?>" type="video/mp4"> 
+                                                <source src="<?php echo $video; ?>" type="video/webm"> 
+                                            </video>
+                                            <?php
+                                            }
+                                        ?>
+                                        <img class="img_review" src="<?php the_field('фото_отзыва'); ?>">
                                    
-                                        <div class="flex flex-col items-center md:items-start">
+                                        <div class="flex flex-col items-center md:items-start" style="background-color: #F6F6F6;">
                                             <div class="font-bold pb-5"><?php the_field('название_отзыва'); ?></div>
-                                            <div class="font-medium pb-5 body_review">
+                                            <div class="font-medium pb-5 body_review truncate">
                                                 <?php the_field('текст_отзыва'); ?>
                                             </div>
                                             <div class="flex flex-col md:flex-row pb-5">
@@ -72,11 +84,9 @@
                                                             </div>
                                                         </div>
                                             <div class="flex flex-col md:flex-row items-center justify-around">
-                                                <!-- <a href="reviews.php">
-                                                    <div>
-                                                        <a class="text-yellow hover:text-red" href="%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b">Смотреть оригинал</a>
-                                                    </div>
-                                                </a> -->
+                                                <div class="pt-4 pb-4">
+                                                    <button id="watchFull" class="text-yellow hover:text-red">Посмотреть полностью</buton>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -101,6 +111,16 @@
                     </div>     
                 </div>  
                 
+                <script>
+                        const allImages = document.querySelectorAll('img');
+                        // Перебрать все найденные изображения
+                        allImages.forEach(function(img) {
+                        // Проверить, имеет ли изображение непустой src
+                        if (!img.getAttribute('src')) {
+                            img.style.display = 'none'; // Скрыть изображение, если src пустой
+                        }
+                        });
+                </script>
             </section>
 
             <section id="popup1" class="popup">

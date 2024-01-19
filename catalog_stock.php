@@ -150,7 +150,7 @@
                             <div class="p-3 animate body_car_wp">
                                 <div class="md:w-auto w-full">
                                     <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                        <img class="" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
+                                        <img class="img_car" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">
                                     </a>
                                     <div class="flex flex-col items-start gap-4 justify-between body_stock">
                                         <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('marka_name'); ?> <?php the_field('model_name'); ?></div>

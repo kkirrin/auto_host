@@ -15,13 +15,13 @@
 <body>
     
     <div class="wrapper">
-        <header class="border-b-8 z-10 w-full md-28 transition-colors bg-black fixed py-4">
-            <div class="container md:gap-5 items-center justify-between flex md:pt-2">
+        <header class="z-10 w-full md-28 transition-colors bg-black fixed pt-4">
+            <div class="header container md:gap-5 items-center justify-between flex">
 
                 <div class="flex items-center justify-center">
                         <!-- Меню кнопка -->
                         <div class="btn__menu up rounded-xl shadow-md shadow-main-black md:flex hidden">
-                            <button class="flex up items-center gap-2 bg-red pl-10 pr-2 py-1 rounded">
+                            <button class="catalog flex up items-center gap-2 bg-red py-1 rounded">
                                 <svg class="h-6 w-6" viewBox="0 0 64 48">
                                     <path d="M19,15 L45,15 C70,15 58,-2 49.0177126,7 L19,37"></path>
                                     <path d="M19,24 L45,24 C61.2371586,24 57,49 41,33 L32,24"></path>
@@ -143,7 +143,7 @@
                                         </li>
                                         
                                         
-                                            <a class="bg-red up py-2 px-10 text-white rounded-lg popup-link" href="#popup1">
+                                            <a class="bg-red up order text-white rounded-lg popup-link" href="#popup1">
                                                 Заказать авто
                                             </a>
                                         
@@ -180,7 +180,7 @@
                             data-goto=""><img class="bg-bg-gray p-2 rounded-md up" src="<?php echo get_template_directory_uri() .'/src/img/icons/sap.svg'; ?>" alt="" ></a></li>
                     <li class="mr-4"><a class="text-main-black hover:bg-red transition-colors nav-link" href="tel:+79020607575"
                             data-goto=""><img class="bg-bg-gray p-2 rounded-md up" src="<?php echo get_template_directory_uri() .'/src/img/icons/tg.svg'; ?>" alt="" ></a></li>
-                            <a class="text-white up bg-bg-gray p-2 rounded-md up popup-link"
+                            <a class="text-white up bg-bg-gray order_btn rounded-md up popup-link"
                             href="#popup1">Заказать авто</a>
                     
                 </ul>

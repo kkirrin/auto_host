@@ -6,6 +6,8 @@ add_action('after_setup_theme', 'add_menu');
 
 add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
+show_admin_bar(false);
+
 function theme_add_scripts()
 {
 

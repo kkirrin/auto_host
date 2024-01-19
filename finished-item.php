@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: finished item
+    Template Name: выполненные машины
     Template Post Type: post
 */
 
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <h3 class="font-bold md:text-4xl text-xl pt-20">
-                        TOYOTA WISH
+                        <?php echo the_field('название_машины'); ?>
                     </h3>
                     <div class="flex md:flex-row flex-col md:gap-10 gap-0">
                         
@@ -51,9 +51,9 @@
                                     <li class="md:text-base text-xs font-semibold pb-5">
                                         Модификация:
                                     </li>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
+                                    <!-- <li class="md:text-base text-xs font-semibold pb-5">
                                         Цена на аукционе:
-                                    </li>
+                                    </li> -->
                                     <li class="md:text-base text-xs font-semibold pb-5">
                                         Год выпуска:
                                     </li>
@@ -74,9 +74,9 @@
                                     <li class="md:text-base text-xs font-medium pb-5">
                                         <?php echo the_field('модификация'); ?>
                                     </li>
-                                    <li class="md:text-base text-xs font-medium pb-5">
+                                    <!-- <li class="md:text-base text-xs font-medium pb-5">
                                         <?php echo the_field('год_выпуска'); ?>
-                                    </li>
+                                    </li> -->
                                     <li class="md:text-base text-xs font-medium pb-5">
                                         <?php echo the_field('год_выпуска'); ?>
                                     </li>
@@ -95,9 +95,9 @@
                         <div class="md:w-1/2">
                             <div class="flex justify-between items-center md:pt-10 pt-0">
                                 <ul>
-                                    <li class="md:text-base text-xs font-semibold pb-5">
+                                    <!-- <li class="md:text-base text-xs font-semibold pb-5">
                                         Оценка:
-                                    </li>
+                                    </li> -->
                                     <li class="md:text-base text-xs font-semibold pb-5">
                                         Двигатель:
                                     </li>
@@ -118,6 +118,9 @@
                                     </li>
                                 </ul>
                                 <ul>
+                                    <!-- <li class="md:text-base text-xs font-medium pb-5">
+                                        <?php echo the_field('двигатель'); ?>
+                                    </li> -->
                                     <li class="md:text-base text-xs font-medium pb-5">
                                         <?php echo the_field('двигатель'); ?>
                                     </li>
@@ -125,10 +128,7 @@
                                         <?php echo the_field('объем_двигателя'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
-                                        <?php echo the_field('объем_двигателя'); ?>
-                                    </li>
-                                    <li class="md:text-base text-xs font-medium pb-5">
-                                        <?php echo the_field('Мощность'); ?>
+                                        <?php echo the_field('мощность'); ?>
                                     </li>
                                     <li class="md:text-base text-xs font-medium pb-5">
                                         <?php echo the_field('топливо'); ?>
@@ -150,7 +150,7 @@
                                 Итоговая стоимость: 
                             </p>
                             <p>
-                                1 799 975 ₽
+                                <?php the_field('сумма_в_рублях_с_пробелами_выполнено'); ?> ₽
                             </p>
                         </div>
                         
@@ -254,11 +254,11 @@
                         <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
                         <div class="flex items-center justify-between pb-10">
                             <div>
-                                <p class="text-white md:text-base text-sm">MAZDA CX-8</p>
+                                <p class="text-white md:text-base text-sm"><?php echo the_field('название_машины'); ?></p>
                             </div>
                             
                             <div>
-                                <p class="text-yellow font-bold md:text-xl text-sm">1 799 975 ₽</p>
+                                <p class="text-yellow font-bold md:text-xl text-sm"> <?php the_field('сумма_в_рублях_с_пробелами_выполнено'); ?> ₽</p>
                             </div>
                         </div>
         
