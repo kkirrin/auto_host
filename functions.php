@@ -6,7 +6,58 @@ add_action('after_setup_theme', 'add_menu');
 
 add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
-show_admin_bar(false);
+add_theme_support('custom-templates');
+
+
+// show_admin_bar(false);
+
+// Добавление метабокса для выбора шаблона
+// function add_template_metabox_for_finished_post_type() {
+//     add_meta_box(
+//         'template_metabox', // Идентификатор метабокса
+//         'Шаблон', // Заголовок метабокса
+//         'render_template_metabox_for_finished_post_type', // Функция для отображения содержимого метабокса
+//         'finished', // Тип записи, для которой добавляется метабокс
+//         'side', // Местоположение метабокса (например, right, left, или side)
+//         'default' // Приоритет метабокса
+//     );
+// }
+// add_action('add_meta_boxes', 'add_template_metabox_for_finished_post_type');
+
+// // Отображение содержимого метабокса
+// function render_template_metabox_for_finished_post_type($post) {
+//     $template = get_post_meta($post->ID, '_selected_template', true);
+//     // Вывод выпадающего списка шаблонов
+//     echo '<label for="selected_template">Выберите шаблон:</label>';
+//     echo '<option value="single_finished" ' . selected('single_finished', $template, false) . '>Выполненные</option>';
+//     };
+
+// Добавление метабокса для выбора шаблона
+// function add_template_metabox_for_korea_post_type() {
+//     add_meta_box(
+//         'template_metabox', // Идентификатор метабокса
+//         'Шаблон', // Заголовок метабокса
+//         'render_template_metabox_for_korea_post_type', // Функция для отображения содержимого метабокса
+//         'korea', // Тип записи, для которой добавляется метабокс
+//         'side', // Местоположение метабоксаW
+//         'default' // Приоритет метабокса
+//     );
+// }
+// add_action('add_meta_boxes', 'add_template_metabox_for_korea_post_type');
+
+// // // Отображение содержимого метабокса
+// function render_template_metabox_for_korea_post_type($post) {
+//     $template = get_post_meta($post->ID, '_selected_template', true);
+//     // Вывод выпадающего списка шаблонов
+//     echo '<label for="selected_template">Выберите шаблон:</label>';
+//     echo '<select id="selected_template" name="selected_template">';
+//     echo '<option value="default">По умолчанию</option>'; // Значение шаблона по умолчанию
+//     echo '<option value="korea_single" ' . selected('korea_single', $template, false) . '>Шаблон корейских авто</option>'; // Замените "template1" на реальные значения шаблонов
+//     echo '<option value="template2" ' . selected('template2', $template, false) . '>Шаблон 2</option>'; // Замените "template2" на реальные значения шаблонов
+    
+//     };
+
+
 
 function theme_add_scripts()
 {
@@ -122,6 +173,47 @@ function theme_add_scripts()
                  'taxonomies' => array('category'),
              ));
      }
+     // Добавляет вкладку "Корейские" для меню админки Wordpress"
+    //  add_action('init', 'create_korea_post_type');
+    // function create_korea_post_type()
+    // {
+    //     register_post_type('korea',
+    //         array(
+    //             'public' => true,
+    //             'has_archive' => true,
+    //             'exclude_from_search' => false,
+    //             'publicly_queryable' => true,
+    //             'labels' => array(
+    //                 'name' => 'Корейские',
+    //                 'singular_name' => 'Корейские',
+    //                 'menu_name' => 'Корейские',
+    //                 'all_items' => 'Все корейские' // Если требуется, можно настроить соответствующие названия
+    //             ),
+    //             'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes'),
+    //             'taxonomies' => array('category'), // Если хотите использовать рубрики для "finished"
+    //         ));
+    // }
+
+    //  Как добавить шаблон для этой хуиты
+    //  add_action('init', 'create_finished_post_type');
+    // function create_finished_post_type()
+    // {
+    //     register_post_type('finished',
+    //         array(
+    //             'public' => true,
+    //             'has_archive' => true,
+    //             'exclude_from_search' => false,
+    //             'publicly_queryable' => true,
+    //             'labels' => array(
+    //                 'name' => 'Выполненные',
+    //                 'singular_name' => 'Выполненные',
+    //                 'menu_name' => 'Выполненные',
+    //                 'all_items' => 'Все выполненные' // Если требуется, можно настроить соответствующие названия
+    //             ),
+    //             'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes'),
+    //             'taxonomies' => array('category'), // Если хотите использовать рубрики для "finished"
+    //         ));
+    // }
 
 
      the_posts_pagination(array (

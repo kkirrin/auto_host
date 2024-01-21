@@ -8,7 +8,7 @@ export const initStockSlider = () => {
             swiper = new Swiper(item, {
                 loop: true,
                 autoplay: {
-                    delay: 3000
+                    delay: 9000
                 },
                 speed: 900,
                 direction: 'horizontal',

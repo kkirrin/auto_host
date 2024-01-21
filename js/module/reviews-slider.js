@@ -10,7 +10,7 @@ export const initReviewsSlider = () => {
                 // autoplay: {
                 //     delay: 3000
                 // },
-                speed: 900,
+                speed: 1000,
                 direction: 'horizontal',
                 spaceBetween: 5,
                 slidesPerView: 3,

@@ -45,7 +45,7 @@
 
         <main>
             <h1 class="visually-hidden">Скрытый заголовок</h1>
-            <section class="md:py-40 py-32 wow fadeInUp" data-wow-delay="0.2s"">
+            <section class="md:py-40 py-32">
                 <div class="container">
                     <div class="absolute right-0 md:bottom-52 bottom-0">
                         <a href="https://auc.avtopotencial-dv.ru/">
@@ -79,7 +79,7 @@
                                                     ## AUCTION SHEET CAN BE BIG. OTHER PHOTOS SET TO 320PX
                                                     $img = $key==0 ? $img : $img.'&w=320';
                                                     echo '<div class="swiper-slide">';
-                                                    echo "<a href='$img'><img src='$img' width=500px onload='image_nofoto(this);'></a>";
+                                                    echo "<a href='$img'><img class='img_car--auc' src='$img' width=500px onload='image_nofoto(this);'></a>";
                                                     echo '</div>';
                                                   }
                                             ?>
@@ -96,7 +96,7 @@
                                                      ## AUCTION SHEET CAN BE BIG. OTHER PHOTOS SET TO 320PX
                                                      $img = $key==0 ? $img : $img.'&w=320';
                                                      echo '<div class="swiper-slide">';
-                                                     echo "<a href='$img'><img src='$img' width=500px onload='image_nofoto(this);'></a>";
+                                                     echo "<a href='$img'><img class='' src='$img' width=500px onload='image_nofoto(this);'></a>";
                                                      echo '</div>';
                                                  }
                                                     
@@ -129,6 +129,9 @@
                                 $kuzov = $v['KUZOV'];
                                 $grade = $v['GRADE'];
                                 $date_auction = $v['AUCTION_DATE'];
+                                $pw = $v['PW'];
+                                $rate = $v['RATE'];
+                                $serial = $v['SERIAL'];
 
 
                                 
@@ -144,6 +147,22 @@
                                         </h3>
                                         <div class="flex justify-between items-center pt-10">
                                         <ul>
+                                        
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Аукцион
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Дата аукциона
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Оценка
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Лот
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Серийный номер
+                                            </li>
                                             <li class="md:text-base text-xs font-semibold pb-5">
                                                 Бренд
                                             </li>
@@ -157,20 +176,39 @@
                                                 Комлектация
                                             </li>
                                             <li class="md:text-base text-xs font-semibold pb-5">
+                                                Цвет
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Трансмиссия
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                Пробег
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
                                                 Объем двигателя
                                             </li>
-                                            <li class="md:text-base text-xs font-semibold pb-5">
-                                                Аукцион
-                                            </li>
-                                            <li class="md:text-base text-xs font-semibold pb-5">
-                                                Лот
-                                            </li>
+
                                             <li class="md:text-base text-xs font-semibold pb-5">
                                                 Цена на аукционе
                                             </li>
                                         </ul>
 
                                         <ul>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$auction.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$date_auction.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$rate.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$lot.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$serial.'
+                                            </li>
                                             <li class="md:text-base text-xs font-semibold pb-5">
                                                 '.$name_model.'
                                             </li>
@@ -184,10 +222,16 @@
                                                 '.$grade.'
                                             </li>
                                             <li class="md:text-base text-xs font-semibold pb-5">
-                                                '.$engine_value.'
+                                                '.$color.'
                                             </li>
                                             <li class="md:text-base text-xs font-semibold pb-5">
-                                                '.$auction.'
+                                                '.$kpp.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$mileage.'
+                                            </li>
+                                            <li class="md:text-base text-xs font-semibold pb-5">
+                                                '.$engine_value.'
                                             </li>
                                             <li class="md:text-base text-xs font-semibold pb-5">
                                                 '.$lot.'
@@ -209,7 +253,7 @@
                                             </div>
                                             <div>
                                                 <a class="bg-red up py-2 px-10 text-white rounded-lg popup-link"
-                                                href="#popup1">Заказать авто</a>
+                                                href="#popup2">Заказать авто</a>
                                             </div>
                                             
                                             
@@ -272,7 +316,7 @@
                                     <div class="md:text-base text-xs pb-5">
                                         Доставка авто до Владивостока ("пришло" в долларах -> переведено в рубли)
                                         <p class="font-bold md:text-base text-xs pt-4">
-                                            <input class="dollar__price" placeholder="..." value="10">
+                                            <input class="dollar__price" placeholder="..." value="50000">
                                         </p>
                                     </div>
 
@@ -308,10 +352,10 @@
                                                 Выгрузка, хранение на СВХ первые 5 суток, таможенное оформление, СБКТС, услуга брокера, вывоз из порта до стоянки компании, фотоотчёт: <input value="10" class="partPayment" >
                                             </li>
                                             <li>
-                                                Расходы, связанные с лабораторией: <input value="10" class="partPayment" >
+                                                Расходы, связанные с лабораторией: <input value="50000" class="partPayment" >
                                             </li>
                                             <li>
-                                                Комиссия Япония-Трейд: <input value="10" class="partPayment" > 
+                                                Комиссия Япония-Трейд: <input value="50000" class="partPayment" > 
                                             </li>
                                         </ul>
 
@@ -413,6 +457,49 @@
                                 </div>
                                 '
                             ?>
+                        </div>
+        
+                        <div class="form-wrapper">
+                            <form action="#" id="form" class="form validate-form flex-col">
+                                <div class="form__item">
+                                    <input id="formName" type="text" name="name" class="form__input _req w-full"
+                                        placeholder="Ваше имя">
+                                </div>
+        
+                                <div class="form__item">
+                                    <input id="formPhone" type="tel" name="phone" class="form__input _req w-full"
+                                        placeholder="Ваш телефон">
+                                </div>
+        
+                                <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
+                            </form>
+                        </div>
+                        <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
+                                class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
+                                данных</a></p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="popup2" class="popup">
+                <div class="popup__body">
+                    <div class="popup__content">
+                        <button class="popup__btn close-popup" aria-label="Закрыть" tabindex="4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
+                                <path d="M4 1.45508L19.9099 17.365" stroke="#FCBC40"/>
+                                <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#FCBC40"/>
+                                </svg>
+                        </button>
+                        <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
+                        <div class="flex items-center justify-between pb-10">
+                            <div>
+                                <p class="text-white md:text-base text-sm"><?php echo "$name_model  $name_car"?></p>
+                            </div>
+                            
+                            <div>
+                                <p class="text-yellow font-bold md:text-xl text-sm"><?php echo "$priceRub"?> ₽</p>
+                            </div>
                         </div>
         
                         <div class="form-wrapper">

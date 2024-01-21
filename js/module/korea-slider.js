@@ -8,7 +8,7 @@ export const initKoreaSlider = () => {
             swiper = new Swiper(item, {
                 loop: true,
                 autoplay: {
-                    delay: 3000
+                    delay: 10000
                 },
                 speed: 800,
                 direction: 'horizontal',

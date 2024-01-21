@@ -8,7 +8,7 @@ export const initJapanSlider = () => {
             swiper = new Swiper(item, {
                 loop: true,
                 autoplay: {
-                    delay: 3000
+                    delay: 10000
                 },
                 speed: 700,
                 direction: 'horizontal',

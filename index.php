@@ -42,7 +42,7 @@ Template Name: autopotencial
     <main>
             <h1 class="visually-hidden">Скрытый заголовок</h1>
 
-            <section class="main-swiper overflow-hidden h-screen pt-20 md:max-h-full max-h-[600px] wow fadeInUp" data-wow-delay="0.2s"">
+            <section class="main-swiper overflow-hidden h-screen pt-20 md:max-h-full max-h-[600px]">
                 <div class="main-wrapper">
                     <div class="main-item relative">
 
@@ -106,7 +106,7 @@ Template Name: autopotencial
                 </div>
             </section>
 
-            <section class="japan-swiper pt-20 wow fadeInUp " data-wow-delay="0.4s"">
+            <section class="japan-swiper pt-20">
                 <div class="container">
 
                     <div class="flex items-center justify-between">
@@ -294,13 +294,12 @@ Template Name: autopotencial
                                                     </div>
                                                     <div class="flex items-center">
                                                         <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/year.svg'; ?>" alt="" >
-                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('year'); ?> год</p>
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('year'); ?> </p>
                                                     </div>
                                                 </div>
                                                 <div class="flex flex-row gap-4">
                                                     <p class="md:text-xl text-base">
-                                                        <span class="font-bold"><?php the_field('price'); ?> ₽</span> (<?php the_field('');?>
-                                                    </p>
+                                                        <span class="font-bold"><?php the_field('price'); ?> ₽</span></p>
                                                     <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php echo the_permalink(); ?>">
                                                         Заказать
                                                     </a>
@@ -385,7 +384,7 @@ Template Name: autopotencial
                                                     </div>
                                                     <div class="flex items-center">
                                                         <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/year.svg'; ?>" alt="" >
-                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('год'); ?> год</p>
+                                                        <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('год'); ?> </p>
                                                     </div>
                                                 </div>
                                                 <div class="flex flex-row gap-4">

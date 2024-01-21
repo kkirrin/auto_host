@@ -12,7 +12,7 @@
             <h1 class="visually-hidden">Скрытый заголовок</h1>
 
         
-            <section class="wow fadeInUp md:py-40 py-10" data-wow-delay="0.3s"">
+            <section class="md:py-40 py-10">
                 <div class="container py-20">
                 <div class="absolute right-0 md:bottom-52 bottom-0">
                 <a href="https://auc.avtopotencial-dv.ru/">
@@ -34,7 +34,7 @@
                     <div class="flex items-start justify-start flex-wrap">
                        
                     <?php
-                            $posts_per_page = 2;  
+                            $posts_per_page = 10;  
                             // Текущая страница
                             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
 
@@ -53,10 +53,10 @@
                             ?>
                             <div class="animate p-2">
                             <a href="<?php echo the_permalink(); ?>">
-                                <img class="" src="<?php echo the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
+                                <img class="brd" src="<?php echo the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
                             </a>
                             <div class="flex flex-col items-center md:items-start">
-                                <div class="font-bold pb-5"><?php echo the_field('название_машины'); ?></div>
+                                <div class="md:text-3xl text-xl font-medium pt-4 font-bold pb-5"><?php echo the_field('marka_name'); ?> <?php echo the_field('модель'); ?></div>
                                 
                                 <div class="flex flex-col md:flex-row pb-5">
                                     <div class="flex items-center">
@@ -66,7 +66,7 @@
 
                                     <div class="flex items-center">
                                         <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-black font-bold"><?php echo the_field('сумма_в_рублях_с_пробелами_выполнено'); ?></p>
+                                        <p class="pl-3 pr-5 text-black font-bold"><?php echo the_field('сумма_в_рублях_с_пробелами_выполнено'); ?> ₽</p>
                                     </div>
                                 </div>
                             </div>

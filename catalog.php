@@ -108,7 +108,7 @@ if (isset($_GET['brand'])) {
 
 
 
-    <section class="bg-black relative md:py-44 py-10 overflow-hidden wow fadeInUp" data-wow-delay="0.3s"
+    <section class="bg-black relative md:py-44 py-10 overflow-hidden"
         style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
 
         <!-- <div class="absolute md:-top-24 -top-0 right-0">

@@ -11,7 +11,7 @@
 
             <h1 class="visually-hidden">Скрытый заголовок</h1>
         
-            <section class="h-auto md:pt-40 py-10 relative wow fadeInUp" data-wow-delay="0.2s"">
+            <section class="h-auto md:pt-40 py-10 relative">
             <div class="absolute right-0 md:bottom-52 bottom-0">
                 <a href="https://auc.avtopotencial-dv.ru/">
                             <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  

@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: выполненные машины
+    Template Name: single_finished
     Template Post Type: post
 */
 
@@ -12,7 +12,7 @@
             <h1 class="visually-hidden">Скрытый заголовок</h1>
 
             
-            <section class="md:py-40 py-32">
+            <section class="md:py-40 py-10 wow fadeInUp" data-wow-delay="0.2s"">
             <div class="absolute right-0 md:bottom-52 bottom-0">
                 <a href="https://auc.avtopotencial-dv.ru/">
                             <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <h3 class="font-bold md:text-4xl text-xl pt-20">
-                        <?php echo the_field('marka_name'); ?> <?php echo the_field('модель'); ?>
+                        <?php echo the_field('название_машины'); ?>
                     </h3>
                     <div class="flex md:flex-row flex-col md:gap-10 gap-0">
                         
@@ -156,7 +156,7 @@
                         
                         
                         <a class="bg-red up py-2 px-10 text-white rounded-lg popup-link"
-                        href="#popup2">Заказать авто</a>
+                        href="#popup1">Заказать авто</a>
                         
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                                         <img class="" src="<?php the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
                                     </a>
                                     <div class="flex flex-col items-center md:items-start">
-                                        <div class="md:text-3xl text-xl font-medium pt-4 font-bold pb-5"><?php echo the_field('marka_name'); ?> <?php  echo the_field('модель'); ?></div>
+                                        <div class="font-bold pb-5"><?php the_field('название_машины'); ?></div>
                                         
                                         <div class="flex flex-col md:flex-row pb-5">
                                             <div class="flex items-center">
@@ -283,50 +283,6 @@
                     </div>
                 </div>
             </section>
-
-            <section id="popup2" class="popup">
-                <div class="popup__body">
-                    <div class="popup__content">
-                        <button class="popup__btn close-popup" aria-label="Закрыть" tabindex="4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
-                                <path d="M4 1.45508L19.9099 17.365" stroke="#FCBC40"/>
-                                <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#FCBC40"/>
-                                </svg>
-                        </button>
-                        <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
-                        <div class="flex items-center justify-between pb-10">
-                            <div>
-                                <p class="text-white md:text-base text-sm"><?php echo the_field('marka_name'); ?> <?php  echo the_field('модель'); ?></p>
-                            </div>
-                            
-                            <div>
-                                <p class="text-yellow font-bold md:text-xl text-sm"><?php the_field("сумма_в_рублях_с_пробелами_выполнено"); ?> ₽</p>
-                            </div>
-                        </div>
-        
-                        <div class="form-wrapper">
-                            <form action="#" id="form" class="form validate-form flex-col">
-                                <div class="form__item">
-                                    <input id="formName" type="text" name="name" class="form__input _req w-full"
-                                        placeholder="Ваше имя">
-                                </div>
-        
-                                <div class="form__item">
-                                    <input id="formPhone" type="tel" name="phone" class="form__input _req w-full"
-                                        placeholder="Ваш телефон">
-                                </div>
-        
-                                <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
-                            </form>
-                        </div>
-                        <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
-                                class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
-                                данных</a></p>
-                    </div>
-                </div>
-            </section>
-
-
         </main>
 
 <?php get_footer(); ?>

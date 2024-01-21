@@ -44,7 +44,7 @@
 
         <h1 class="visually-hidden">Скрытый заголовок</h1>
 
-        <section class="order bg-black h-auto md:pt-40 py-10 relative wow fadeInUp" data-wow-delay="0.2s">
+        <section class="order bg-black h-auto md:pt-40 py-10 relative">
         <!-- <img class=" -z-10" src="<?php echo get_template_directory_uri() . '/src/img/contact/bg2.png'; ?>" alt=""> -->
             <div class="absolute right-0 md:bottom-52 bottom-6 z-10">
                 <a href="https://auc.avtopotencial-dv.ru/">
@@ -91,109 +91,6 @@
                     </p>
             </div>
         </section>
-        <!-- <section class="finished-swiper pb-10 wow fadeInUp" data-wow-delay="0.5s"">
-            
-            <div class="container">
-                
-                <div class="flex items-center justify-between">
-                    <div>
-                    <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative">Похожие автомобили </h2>
-                </div>
-
-                <div class="swiper-pagination"></div>
-                <div class="md:flex flex-nowrap gap-5 hidden">
-                    <button
-                        class="up finished-prev rounded-lg shadow-md shadow-main-black -z-0 ">
-                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/arrow_prev.svg'; ?>" alt="влево">
-                    </button>
-                    <button
-                        class="up finished-next rounded-lg shadow-md shadow-main-black -z-0 ">
-                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/arrow_next.svg'; ?>" alt="вправо" >
-                    </button>
-                </div>
-                
-            </div>
-                <div class="finished-wrapper overflow-hidden">
-                    <div class="finished-item">
-                        <div class="swiper-wrapper">
-                            <div class="p-2 swiper-slide animate">
-                                <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                    <img class="" src="<?php echo get_template_directory_uri() . '/src/img/review/image_4.png'; ?>" width="440" height="380" alt="вправо" >
-                                </a>
-                                <div class="flex flex-col items-center md:items-start">
-                                    <div class="font-bold pb-5">BMW 7-series 730 </div>
-                                    
-                                    <div class="flex flex-col md:flex-row pb-5">
-                                        <div class="flex items-center">
-                                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="">
-                                            <p class="pl-3 pr-5 text-gray">12.02.2023</p>
-                                        </div>
-
-                                        <div class="flex items-center">
-                                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                            <p class="pl-3 pr-5 text-black font-bold">2 570 000 ₽</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-                            <div class="p-2 swiper-slide animate">
-                                <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                    <img class="" src="<?php echo get_template_directory_uri() . '/src/img/review/image_4.png'; ?>" width="440" height="380" alt="вправо" >
-                                </a>
-                                <div class="flex flex-col items-center md:items-start">
-                                    <div class="font-bold pb-5">BMW 7-series 730 </div>
-                                    
-                                    <div class="flex flex-col md:flex-row pb-5">
-                                        <div class="flex items-center">
-                                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="">
-                                            <p class="pl-3 pr-5 text-gray">12.02.2023</p>
-                                        </div>
-
-                                        <div class="flex items-center">
-                                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                            <p class="pl-3 pr-5 text-black font-bold">2 570 000 ₽</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-                            <div class="p-2 swiper-slide animate">
-                                <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black p-2 right-5 md:bottom-6 bottom-2">
-                                    <img class="" src="<?php echo get_template_directory_uri() . '/src/img/review/image_4.png'; ?>" width="440" height="380" alt="вправо" >
-                                </a>
-                                <div class="flex flex-col items-center md:items-start">
-                                    <div class="font-bold pb-5">BMW 7-series 730 </div>
-                                    
-                                    <div class="flex flex-col md:flex-row pb-5">
-                                        <div class="flex items-center">
-                                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="">
-                                            <p class="pl-3 pr-5 text-gray">12.02.2023</p>
-                                        </div>
-
-                                        <div class="flex items-center">
-                                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                            <p class="pl-3 pr-5 text-black font-bold">2 570 000 ₽</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>
-                </div>       
-
-                <div class="md:hidden flex-nowrap gap-5 flex items-center justify-center">
-                    <button
-                        class="up finished-prev rounded-lg shadow-md shadow-main-black -z-0 ">
-                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/arrow_prev.svg'; ?>" alt="влево">
-                    </button>
-                    <button
-                        class="up finished-next rounded-lg shadow-md shadow-main-black -z-0 ">
-                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/arrow_next.svg'; ?>" alt="вправо" >
-                    </button>
-                </div>
-
-
-            </div>
-        </section> -->
 
         <section class="japan-swiper pb-20 wow fadeInUp " data-wow-delay="0.4s"">
                 <div class="container">
