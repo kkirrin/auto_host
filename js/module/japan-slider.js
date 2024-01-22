@@ -2,13 +2,13 @@ export const initJapanSlider = () => {
     const itemSlider = function () {
         const item = document.querySelector('.japan-item');
         let swiper;
-        console.log('Подключился')
+        // console.log('Подключился')
         if (item) {
             
             swiper = new Swiper(item, {
                 loop: true,
                 autoplay: {
-                    delay: 3000
+                    delay: 10000
                 },
                 speed: 700,
                 direction: 'horizontal',

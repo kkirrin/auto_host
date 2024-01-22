@@ -8,6 +8,7 @@
     <title>Автопотенциал</title>
     <!-- <script src="//code.jivo.ru/widget/1BFYas96i1" async></script>
     <script src="//code.jivo.ru/widget/3S3KXnJwwC" async></script> -->
+    
     <?php wp_head(); ?>
     
 </head>
@@ -112,11 +113,11 @@
                                     <p class="pb-4">Мы в соц.сетях</p>
                                     <ul class="flex items-center justify-center gap-4">
                                         <li class="pb-8 flex items-center gap-4">
-                                        <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
-                                        <a href="t.me/avtopotencialdv"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
-                                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
-                                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
-                                            <a href="tel:+79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
+                                            <a href="https://api.whatsapp.com/send?phone=79020607575"><img src="<?php echo get_template_directory_uri() .'/src/img/icons_nav/sap.svg'; ?>" alt=""></a>
+                                            <a href="https://t.me/avtopotencialdv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/tg.svg'; ?>" alt=""></a>
+                                            <a href="https://vk.com/avtopotencial_dv"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/vk.svg'; ?>" alt=""></a>
+                                            <a href="https://instagram.com/avtopotencial"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/inst.svg'; ?>" alt=""></a>
+                                            <a href="https://www.youtube.com/channel/UCBKiXYVvi1ROscY2_ENwM-Q"><img src="<?php echo get_template_directory_uri() . '/src/img/icons_nav/youtube.svg'; ?>" alt=""></a>
                                         </li>  
                                     </ul>
                                 </div>
@@ -143,7 +144,7 @@
                                         </li>
                                         
                                         
-                                            <a class="bg-red up order text-white rounded-lg popup-link" href="#popup1">
+                                            <a id="orderSmall" class="bg-red up order--small text-white rounded-lg popup-link" href="#popup1">
                                                 Заказать авто
                                             </a>
                                         
@@ -187,6 +188,47 @@
 
                 
             </div>
+            <section id="popup1" class="popup">
+                    <div class="popup__body">
+                        <div class="popup__content">
+                            <button class="popup__btn close-popup" aria-label="Закрыть" tabindex="4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
+                                    <path d="M4 1.45508L19.9099 17.365" stroke="#FCBC40"/>
+                                    <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#FCBC40"/>
+                                    </svg>
+                            </button>
+                            <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
+                            <div class="flex items-center justify-between pb-10">
+                                <!-- <div>
+                                    <p class="text-white md:text-base text-sm">Б,</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="text-yellow font-bold md:text-xl text-sm">1 799 975 ₽</p>
+                                </div> -->
+                            </div>
+            
+                            <div class="form-wrapper">
+                                <form action="#" id="form" class="form validate-form flex-col">
+                                    <div class="form__item">
+                                        <input id="formName" type="text" name="name" class="form__input _req w-full"
+                                            placeholder="Ваше имя">
+                                    </div>
+            
+                                    <div class="form__item">
+                                        <input id="formPhone" type="tel" name="phone" class="form__input _req w-full"
+                                            placeholder="Ваш телефон">
+                                    </div>
+            
+                                    <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
+                                </form>
+                            </div>
+                            <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
+                                    class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
+                                    данных</a></p>
+                        </div>
+                    </div>
+                </section>
         </header>
 
 

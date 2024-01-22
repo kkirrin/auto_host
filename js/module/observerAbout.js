@@ -1,6 +1,6 @@
 export const initObserverAbout = () => {
     const about = document.querySelectorAll('.about'); 
-    console.log(about);
+    // console.log(about);
     if (about.length) {
         const options = {
             root: null,
@@ -10,7 +10,7 @@ export const initObserverAbout = () => {
 
         about.forEach(section => {
             const spin = section.querySelector('.car');
-            console.log(spin);
+            // console.log(spin);
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {

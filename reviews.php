@@ -11,9 +11,9 @@
             <h1 class="visually-hidden">Скрытый заголовок</h1>
 
         
-            <section class="md:py-40 py-10 wow fadeInUp" data-wow-delay="0.2">
+            <section class="md:py-40 py-10">
                 <div class="container py-20">
-                <div class="absolute right-0 md:bottom-52 bottom-0">
+                <div class="absolute right-0 md:bottom-52 bottom-0 padding_auc">
                 <a href="https://auc.avtopotencial-dv.ru/">
                             <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
@@ -32,7 +32,7 @@
                     
                     <div class="flex items-start justify-start flex-wrap">
                     <?php
-                            $posts_per_page = 8;  
+                            $posts_per_page = 9;  
                             // Текущая страница
                             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
 
@@ -84,8 +84,8 @@
                                                             </div>
                                                         </div>
                                             <div class="flex flex-col md:flex-row items-center justify-around">
-                                                <div class="pt-4 pb-4">
-                                                    <button id="watchFull" class="text-yellow hover:text-red">Посмотреть полностью</buton>
+                                                <div class="pt-4 pb-4 pr-3 pl-3">
+                                                    <button class="watchFull text-yellow hover:text-red">Посмотреть полностью</buton>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,17 +95,7 @@
                         <?php
                     }
 
-                    $pag_args = array(
-                        'total' => $query->max_num_pages,
-                        'current' => max(1, $paged),
-                        'prev_text' => '<',
-                        'next_text' => '>',
-                    );
                     
-                    echo '<div class="pagination">';
-                    echo paginate_links($pag_args);
-                    echo '</div>';
-
                         wp_reset_postdata(); 
                     ?>  
                     </div>     
@@ -122,6 +112,8 @@
                         });
                 </script>
             </section>
+
+          
 
             <section id="popup1" class="popup">
                 <div class="popup__body">
@@ -164,6 +156,20 @@
                     </div>
                 </div>
             </section>
+
+            <?php 
+                $pag_args = array(
+                    'total' => $query->max_num_pages,
+                    'current' => max(1, $paged),
+                    'prev_text' => '<',
+                    'next_text' => '>',
+                );
+                
+                echo '<div class="pagination">';
+                echo paginate_links($pag_args);
+                echo '</div>';
+
+            ?>
 
 
         </main>

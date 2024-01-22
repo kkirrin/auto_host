@@ -1,6 +1,6 @@
 export const initPopup = () => {
     const popupLinks = document.querySelectorAll('.popup-link');
-    console.log(popupLinks)
+    // console.log(popupLinks)
     const body = document.querySelector('body');
     const lockPadding = document.querySelectorAll(".lock-padding");
     let unlock = true;
@@ -12,11 +12,11 @@ export const initPopup = () => {
         for (let index = 0; index < popupLinks.length; index++) {
             
             const popupLink = popupLinks[index];
-            console.log(popupLink)
+            // console.log(popupLink)
             popupLink.addEventListener("click", function (e) {
                 const popupName = popupLink.getAttribute('href').replace('#', '');
                 const currentPopup = document.getElementById(popupName);
-                console.log(currentPopup)
+                // console.log(currentPopup)
                 popupOpen(currentPopup);
                 e.preventDefault();
                 

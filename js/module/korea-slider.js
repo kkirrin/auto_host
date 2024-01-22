@@ -2,13 +2,13 @@ export const initKoreaSlider = () => {
     const itemSlider = function () {
         const item = document.querySelector('.korea-item');
         let swiper;
-        console.log('Подключился')
+        // console.log('Подключился')
         if (item) {
             
             swiper = new Swiper(item, {
                 loop: true,
                 autoplay: {
-                    delay: 3000
+                    delay: 10000
                 },
                 speed: 800,
                 direction: 'horizontal',

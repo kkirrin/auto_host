@@ -10,11 +10,14 @@ export const initNav = () => {
     const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
     const menuLinks = document.querySelectorAll('.menu a');
 
+    const orderBtn = document.querySelector('#orderSmall');
+    // console.log(orderBtn);
+
     menuButton.addEventListener('click', e => {
         menuButton.classList.toggle('active');
         menu.classList.toggle('is-active');
         // body.classList.toggle('lock');
-        console.log('клик')
+        // console.log('клик')
     });
 
     mobileMenuLinks.forEach(link => {
@@ -38,6 +41,10 @@ export const initNav = () => {
             body.classList.remove('lock');
         });
     });
+
+    orderBtn.addEventListener('click', function() {
+        mobileMenu.classList.remove('is-active'); 
+    })
 
   
 

@@ -18,28 +18,12 @@ import { initSum } from "./module/calculator.js";
 import { initCardItemSlider } from './module/card-item-slider.js';
 import { initFetchCars } from "./module/fetchCars.js";
 import { initFormMain } from "./module/formMain.js";
-// import { initFetchCarsFilter } from "./module/fetchCarsFilter.js";
-
-
-// document.querySelector('.up').addEventListener('click', function(event) {
-//     event.preventDefault();
-
-//     const urlParams = new URLSearchParams(window.location.search);
-//     const id = urlParams.get('id');
-    
-//     console.log(id);
-    
-//     if (id) {
-//         window.open('card-item_auction.php?id=' + id, '_self');
-//     }
-// });
-
-
+import { initWatchFullReview } from "./module/watchFullReview.js";
+import { initFetchCarsFilter } from "./module/fetchCarsFilter.js";
 
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    console.log('подключен скрипт main.js');
 
     initNav();
     // initSlider();
@@ -59,11 +43,12 @@ window.addEventListener('DOMContentLoaded', () => {
     initFinishedSlider();
     initStickyHeader();
     initSum();
-    // initCurrency();
     initCardItemSlider();
     initFetchCars();
     initFormMain();
-    // initFetchCarsFilter();
+    initWatchFullReview();
+    initFetchCarsFilter();
+
 
 });
 

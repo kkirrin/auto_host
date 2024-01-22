@@ -2,7 +2,7 @@ export const initReviewsSlider = () => {
     const itemSlider = function () {
         const item = document.querySelector('.review-item');
         let swiper;
-        console.log('Подключился')
+        // console.log('Подключился')
         if (item) {
             
             swiper = new Swiper(item, {
@@ -10,7 +10,7 @@ export const initReviewsSlider = () => {
                 // autoplay: {
                 //     delay: 3000
                 // },
-                speed: 900,
+                speed: 1000,
                 direction: 'horizontal',
                 spaceBetween: 5,
                 slidesPerView: 3,

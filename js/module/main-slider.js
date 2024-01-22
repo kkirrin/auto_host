@@ -1,7 +1,7 @@
 export const initMainSlider = () => {
     const itemSlider = function () {
         const item = document.querySelector('.main-item');
-        console.log('Я тут')
+        // console.log('Я тут')
         let swiper;
         if (item) {
             swiper = new Swiper(item, {

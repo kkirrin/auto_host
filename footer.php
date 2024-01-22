@@ -32,7 +32,7 @@
                             <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/">В наличии</a> 
                         </li>  
                         <li class="pb-8 hover:text-red transition-all">
-                            <a href="/%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/">Сейчас на аукционах</a>
+                            <a href="https://auc.avtopotencial-dv.ru/">Сейчас на аукционах</a>
                         </li>  
                     </ul>
                 </div>
@@ -87,12 +87,12 @@
                 </div>  
             </div>
 
-            <div class="container">
+            <div class="container pb-10">
                 <div class="flex items-center justify-between text-gray pt-10">
                     <div class="md:text-sm text-xs">
                         Компания «Автопотенциал-ДВ»
                     </div>
-                    <a href= https://avtopotencial-dv.ru/policy/" class="md:text-sm text-xs underline">
+                    <a href="https://avtopotencial-dv.ru/policy/" class="md:text-sm text-xs underline">
                         Политика конфиденциальности
                     </a>
                     </div>    
@@ -104,7 +104,7 @@
     <?php wp_footer(); ?>
 
         <div class="scroll-top">
-            <img src="<?php echo get_template_directory_uri() .'/src/img/up-arrow.svg'; ?>" alt="стрелка вверх">
+            <img class="arrow-up" src="<?php echo get_template_directory_uri() .'/src/img/up-arrow.png'; ?>" alt="стрелка вверх">
         </div>
         
         <script type="module"></script>

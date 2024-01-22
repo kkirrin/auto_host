@@ -42,7 +42,7 @@ Template Name: autopotencial
     <main>
             <h1 class="visually-hidden">Скрытый заголовок</h1>
 
-            <section class="main-swiper overflow-hidden h-screen pt-20 md:max-h-full max-h-[600px] wow fadeInUp" data-wow-delay="0.2s"">
+            <section class="main-swiper limit_main overflow-hidden h-screen pt-20 md:max-h-full max-h-[600px]">
                 <div class="main-wrapper">
                     <div class="main-item relative">
 
@@ -51,22 +51,22 @@ Template Name: autopotencial
 
                         
                         <div class="swiper-wrapper h-auto">
-                        <div class="absolute right-0 md:bottom-52 bottom-0">
-                    <a href="https://auc.avtopotencial-dv.ru/">
-                            <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
-                                <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
-                                <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
-                            </div>
-                        </a>
+                        <div class="absolute right-0 md:bottom-52 bottom-0 padding__cosu">
+                            <a href="https://auc.avtopotencial-dv.ru/">
+                                    <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
+                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
+                                        <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
+                                    </div>
+                                </a>
 
-                        <a href="#" class="hidden">
-                            <div class="flex flex-col items-center bg-bg-gray bg-opacity-50 rounded-md p-2">
-                                <img src="<?php echo get_template_directory_uri() . '/src/img/icons/chat.svg'; ?>" alt="">
-                                <p class="text-white md:text-base text-xs">Онлайн-чат</p>
-                            </div>
-                        </a>
-                </div>
-                            <div class="swiper-slide relative bg-black -z-10 max-h-screen">
+                                <a href="#" class="hidden">
+                                    <div class="flex flex-col items-center bg-bg-gray bg-opacity-50 rounded-md p-2">
+                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/chat.svg'; ?>" alt="">
+                                        <p class="text-white md:text-base text-xs">Онлайн-чат</p>
+                                    </div>
+                                </a>
+                        </div>
+                            <div class="swiper-slide autoheight relative bg-black -z-10 max-h-screen">
                                 <div class="flag relative">
                                     <img class="absolute top-0 right-0 z-10 sm:w-full sm:h-auto" src="<?php echo get_template_directory_uri() . '/src/img/main/bg-slide1.png'; ?>" alt="">
                                     <img class="wheel absolute top-28 right-0 z-10 md:w-80 w-48" src="<?php echo get_template_directory_uri() . '/src/img/main/japan.png'; ?>" alt="">
@@ -78,12 +78,12 @@ Template Name: autopotencial
                                     </h2>
                                     <p class="pt-10 z-10 text-center font-bold md:text-xl text-base text-white">Подберем под Ваш бюджет, привезем в РФ, растаможим, оформим документы и доставим до Вас</p>
                                     <div class="relative">
-                                        <img class="slide2 absolute right-0 z-10" src="<?php echo get_template_directory_uri() . '/src/img/main/slide1.png'; ?>" alt="">
+                                        <img class="slide2 absolute right-0 z-10" src="<?php echo get_template_directory_uri() . '/src/img/main/slide1.webp'; ?>" alt="">
                                     </div>
                                     
                                 </div>
                             </div>
-                            <div class="swiper-slide bg-black -z-10">
+                            <div class="swiper-slide autoheight bg-black -z-10">
                                 <div class="flag2 relative">
                                     <img class="absolute top-0  right-0 z-10 sm:w-full sm:h-auto" src="<?php echo get_template_directory_uri() . '/src/img/main/bg-slide2.png'; ?>" alt="">
                                     <img class="wheel absolute top-16 right-0 z-10 md:w-96 w-48" src="<?php echo get_template_directory_uri() . '/src/img/main/korea.png'; ?>" alt="">
@@ -95,7 +95,7 @@ Template Name: autopotencial
                                     </h2>
                                     <p class="pt-10 z-10 text-center font-bold md:text-xl text-base text-white">Подберем под Ваш бюджет, привезем в РФ, растаможим, оформим документы и доставим до Вас</p>
                                     <div class="relative">
-                                        <img class="slide2 absolute right-0 z-10" src="<?php echo get_template_directory_uri() . '/src/img/main/slide2.png'; ?>" alt="">
+                                        <img class="slide2 absolute right-0 z-10" src="<?php echo get_template_directory_uri() . '/src/img/main/slide2.webp'; ?>" alt="">
                                     </div>
                                 
                                 </div>
@@ -183,7 +183,7 @@ Template Name: autopotencial
                                                                 <span class="font-bold">'. $priceRub .'  ₽</span> ('. $avgPrice .' ¥)
                                                             </p>
                                                             <a class="up bg-red py-2 px-5 text-white rounded-lg" href="car_card?id='.$id.'">
-                                                            Заказать
+                                                                Заказать
                                                             </a>
                                                         </div>
                                                     </div>
@@ -299,7 +299,7 @@ Template Name: autopotencial
                                                 </div>
                                                 <div class="flex flex-row gap-4">
                                                     <p class="md:text-xl text-base">
-                                                        <span class="font-bold"><?php the_field('price'); ?> ₽</span> (<?php the_field('');?>
+                                                        <span class="font-bold"><?php the_field('price'); ?> ₽</span>
                                                     </p>
                                                     <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php echo the_permalink(); ?>">
                                                         Заказать
@@ -390,7 +390,7 @@ Template Name: autopotencial
                                                 </div>
                                                 <div class="flex flex-row gap-4">
                                                     <p class="md:text-xl text-base">
-                                                        <span class="font-bold"><?php the_field('сумма_в_рублях_с_пробелами'); ?> ₽</span> (<?php the_field('сумма_в_юанях_с_пробелами');?>
+                                                        <span class="font-bold"><?php the_field('сумма_в_рублях_с_пробелами'); ?> ₽</span>
                                                     </p>
                                                     <a class="up bg-red py-2 px-5 text-white rounded-lg " href="<?php echo the_permalink(); ?>">
                                                         Заказать
@@ -564,27 +564,71 @@ Template Name: autopotencial
                                         <div class="w-full">
                                             <select id="mileage_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                                 <option>от</option>
-                                                <option>2001</option>
-                                                <option>2002</option>
-                                                <option>2003</option>
-                                                <option>2004</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
+                                                <option>10 000</option>
+                                                <option>20 000</option>
+                                                <option>30 000</option>
+                                                <option>40 000</option>
+                                                <option>50 000</option>
+                                                <option>60 000</option>
+                                                <option>70 000</option>
+                                                <option>80 000</option>
+                                                <option>90 000</option>
+                                                <option>100 000</option>
+                                                <option>110 000</option>
+                                                <option>120 000</option>
+                                                <option>130 000</option>
+                                                <option>140 000</option>
+                                                <option>150 000</option>
+                                                <option>160 000</option>
+                                                <option>170 000</option>
+                                                <option>180 000</option>
+                                                <option>190 000</option>
+                                                <option>200 000</option>
+                                                <option>210 000</option>
+                                                <option>220 000</option>
+                                                <option>230 000</option>
+                                                <option>240 000</option>
+                                                <option>250 000</option>
+                                                <option>260 000</option>
+                                                <option>270 000</option>
+                                                <option>280 000</option>
+                                                <option>290 000</option>
+                                                <option>300 000</option>
                                             </select>
                                         </div>
                                         <div class="w-full">
                                             <select id="mileage_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
                                                 <option>до</option>
-                                                <option>2001</option>
-                                                <option>2002</option>
-                                                <option>2003</option>
-                                                <option>2004</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
+                                                <option>10 000</option>
+                                                <option>20 000</option>
+                                                <option>30 000</option>
+                                                <option>40 000</option>
+                                                <option>50 000</option>
+                                                <option>60 000</option>
+                                                <option>70 000</option>
+                                                <option>80 000</option>
+                                                <option>90 000</option>
+                                                <option>100 000</option>
+                                                <option>110 000</option>
+                                                <option>120 000</option>
+                                                <option>130 000</option>
+                                                <option>140 000</option>
+                                                <option>150 000</option>
+                                                <option>160 000</option>
+                                                <option>170 000</option>
+                                                <option>180 000</option>
+                                                <option>190 000</option>
+                                                <option>200 000</option>
+                                                <option>210 000</option>
+                                                <option>220 000</option>
+                                                <option>230 000</option>
+                                                <option>240 000</option>
+                                                <option>250 000</option>
+                                                <option>260 000</option>
+                                                <option>270 000</option>
+                                                <option>280 000</option>
+                                                <option>290 000</option>
+                                                <option>300 000</option>
                                             </select>
                                         </div>
                                     
@@ -599,27 +643,45 @@ Template Name: autopotencial
                                     <div class="w-full">
                                         <select id="price_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                             <option>от</option>
-                                            <option>2001</option>
-                                            <option>2002</option>
-                                            <option>2003</option>
-                                            <option>2004</option>
-                                            <option>2005</option>
-                                            <option>2006</option>
-                                            <option>2007</option>
-                                            <option>2008</option>
+                                            <option>100 000</option>
+                                            <option>250 000</option>
+                                            <option>500 000</option>
+                                            <option>750 000</option>
+                                            <option>1 000 000</option>
+                                            <option>1 500 000</option>
+                                            <option>2 000 000</option>
+                                            <option>2 500 000</option>
+                                            <option>3 000 000</option>
+                                            <option>3 500 000</option>
+                                            <option>4 500 000</option>
+                                            <option>5 000 000</option>
+                                            <option>5 500 000</option>
+                                            <option>6 000 000</option>
+                                            <option>6 500 000</option>
+                                            <option>7 000 000</option>
+                                            <option>8 000 000</option>
                                         </select>
                                     </div>
                                     <div class="w-full">
                                         <select id="price_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
                                             <option>до</option>
-                                            <option>2001</option>
-                                            <option>2002</option>
-                                            <option>2003</option>
-                                            <option>2004</option>
-                                            <option>2005</option>
-                                            <option>2006</option>
-                                            <option>2007</option>
-                                            <option>2008</option>
+                                            <option>100 000</option>
+                                            <option>250 000</option>
+                                            <option>500 000</option>
+                                            <option>750 000</option>
+                                            <option>1 000 000</option>
+                                            <option>1 500 000</option>
+                                            <option>2 000 000</option>
+                                            <option>2 500 000</option>
+                                            <option>3 000 000</option>
+                                            <option>3 500 000</option>
+                                            <option>4 500 000</option>
+                                            <option>5 000 000</option>
+                                            <option>5 500 000</option>
+                                            <option>6 000 000</option>
+                                            <option>6 500 000</option>
+                                            <option>7 000 000</option>
+                                            <option>8 000 000</option>
                                         </select>
                                     </div>
                                     </div>
@@ -632,32 +694,126 @@ Template Name: autopotencial
                                         <div class="w-full">
                                             <select id="value_from" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                                 <option>от</option>
-                                                <option>2001</option>
-                                                <option>2002</option>
-                                                <option>2003</option>
-                                                <option>2004</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
+                                                <option>600</option>
+                                                <option>700</option>
+                                                <option>800</option>
+                                                <option>900</option>
+                                                <option>1000</option>
+                                                <option>1100</option>
+                                                <option>1200</option>
+                                                <option>1300</option>
+                                                <option>1400</option>
+                                                <option>1500</option>
+                                                <option>1600</option>
+                                                <option>1700</option>
+                                                <option>1800</option>
+                                                <option>1900</option>
+                                                <option>2000</option>
+                                                <option>2100</option>
+                                                <option>2200</option>
+                                                <option>2300</option>
+                                                <option>2400</option>
+                                                <option>2500</option>
+                                                <option>2600</option>
+                                                <option>2700</option>
+                                                <option>2800</option>
+                                                <option>2900</option>
+                                                <option>3000</option>
+                                                <option>3100</option>
+                                                <option>3200</option>
+                                                <option>3200</option>
+                                                <option>3300</option>
+                                                <option>3400</option>
+                                                <option>3500</option>
+                                                <option>3600</option>
+                                                <option>3700</option>
+                                                <option>3800</option>
+                                                <option>3900</option>
+                                                <option>4000</option>
+                                                <option>4100</option>
+                                                <option>4200</option>
+                                                <option>4300</option>
+                                                <option>4400</option>
+                                                <option>4500</option>
+                                                <option>4600</option>
+                                                <option>4700</option>
+                                                <option>4800</option>
+                                                <option>4900</option>
+                                                <option>5000</option>
+                                                <option>5200</option>
+                                                <option>5300</option>
+                                                <option>5400</option>
+                                                <option>5500</option>
+                                                <option>5600</option>
+                                                <option>5700</option>
+                                                <option>5800</option>
+                                                <option>5900</option>
+                                                <option>6000</option>
                                             </select>
                                         </div>
                                         <div class="w-full custom-select">
                                             <select id="value_to" name="make" class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500" > 
                                                 <option>до</option>
-                                                <option>2001</option>
-                                                <option>2002</option>
-                                                <option>2003</option>
-                                                <option>2004</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
+                                                <option>600</option>
+                                                <option>700</option>
+                                                <option>800</option>
+                                                <option>900</option>
+                                                <option>1000</option>
+                                                <option>1100</option>
+                                                <option>1200</option>
+                                                <option>1300</option>
+                                                <option>1400</option>
+                                                <option>1500</option>
+                                                <option>1600</option>
+                                                <option>1700</option>
+                                                <option>1800</option>
+                                                <option>1900</option>
+                                                <option>2000</option>
+                                                <option>2100</option>
+                                                <option>2200</option>
+                                                <option>2300</option>
+                                                <option>2400</option>
+                                                <option>2500</option>
+                                                <option>2600</option>
+                                                <option>2700</option>
+                                                <option>2800</option>
+                                                <option>2900</option>
+                                                <option>3000</option>
+                                                <option>3100</option>
+                                                <option>3200</option>
+                                                <option>3200</option>
+                                                <option>3300</option>
+                                                <option>3400</option>
+                                                <option>3500</option>
+                                                <option>3600</option>
+                                                <option>3700</option>
+                                                <option>3800</option>
+                                                <option>3900</option>
+                                                <option>4000</option>
+                                                <option>4100</option>
+                                                <option>4200</option>
+                                                <option>4300</option>
+                                                <option>4400</option>
+                                                <option>4500</option>
+                                                <option>4600</option>
+                                                <option>4700</option>
+                                                <option>4800</option>
+                                                <option>4900</option>
+                                                <option>5000</option>
+                                                <option>5200</option>
+                                                <option>5300</option>
+                                                <option>5400</option>
+                                                <option>5500</option>
+                                                <option>5600</option>
+                                                <option>5700</option>
+                                                <option>5800</option>
+                                                <option>5900</option>
+                                                <option>6000</option>
                                             </select>   
                                             
-                                            <svg class="select-arrow" xmlns="http://www.w3.org/2000/svg" width="21" height="9" viewBox="0 0 21 9" fill="none">
+                                            <!-- <svg class="select-arrow" xmlns="http://www.w3.org/2000/svg" width="21" height="9" viewBox="0 0 21 9" fill="none">
                                                 <path d="M20 0.5L10.8519 7.5L1 0.5" stroke="white"/>
-                                            </svg>
+                                            </svg> -->
                                         </div>
                                     
                                     </div>
@@ -741,14 +897,32 @@ Template Name: autopotencial
                         </div>
                     </div>
                     <div class="md:w-1/2 relative">
-                        <img class="md:block hidden" src="<?php echo get_template_directory_uri() . '/src/img/company/people.png'; ?>" alt="">
+                        <img class="md:block hidden" src="<?php echo get_template_directory_uri() . '/src/img/company/people.webp'; ?>" alt="">
                     </div>
                 </div>
                 <div class="relative md:w-1/2">
-                    <img class="md:hidden block" src="<?php echo get_template_directory_uri() . '/src/img/company/people.png'; ?>" alt="">
+                    <img class="md:hidden block" src="<?php echo get_template_directory_uri() . '/src/img/company/people.webp'; ?>" alt="">
                     <img class="bg-cover bg-center opacity-90 absolute bottom-0 md:hidden block -z-10" src="<?php echo get_template_directory_uri() . '/src/img/company/bg_company.png'; ?>" alt="">
                 </div>
                 <div class="container">
+                <h2 class="text-white font-normal md:text-3xl text-sm uppercase pb-8">
+                            Наши специалисты
+                        </h2>
+                <ul class="flex items-start md:justify-between justify-start flex-wrap gap-10 counter-list">
+                        <li class="py-3 pr-2 sm:py-7">
+                                <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик1.webp'; ?>" alt="" >
+                            <p class="md:text-xl text-sm text-white pt-2">Менеджер</p>
+                        </li>
+                        <li class="py-3 pr-2 sm:py-7">
+                            <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик2.webp'; ?>" alt="" >     
+                            <p class="md:text-xl text-sm text-white pt-3">Менеджер</p>
+                        </li>
+                        <li class="py-3 pr-2 sm:py-7">
+                            <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик3.webp'; ?>" alt="" >     
+                            <p class="md:text-xl text-sm text-white pt-2">Директор</p>
+                        </li>
+                    </ul>
+
                     <ul class="flex items-start md:justify-between justify-start flex-wrap gap-10 counter-list">
                         <li class="py-3 pr-2 sm:py-7">
                             <svg xmlns="http://www.w3.org/2000/svg" width="73" height="4" viewBox="0 0 73 4" fill="none">
@@ -974,14 +1148,14 @@ Template Name: autopotencial
                                                             </div>
                                                         </div>
                                                         <div class="flex flex-col md:flex-row items-center justify-around">
-                                                            <a href="reviews.php" class="link_review">
+                                                            <a href="<?php echo the_field('review_link'); ?>" class="link_review">
                                                                 <div class="pt-4 pb-4">
                                                                     <a class="text-yellow hover:text-red" href="<?php the_field('ссылка_на_отзыв'); ?>">Смотреть оригинал</a>
                                                                 </div>
                                                             </a>
                                                             
-                                                            <div class="pt-4 pb-4">
-                                                                <button id="watchFull" class="text-yellow hover:text-red">Посмотреть полностью</buton>
+                                                            <div class="pt-4 pb-4 pr-3 pl-3">
+                                                                <button class="watchFull text-yellow hover:text-red">Посмотреть полностью</buton>
                                                             </div>
                                                           
                                                         </div>

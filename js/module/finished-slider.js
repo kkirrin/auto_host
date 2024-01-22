@@ -2,7 +2,7 @@ export const initFinishedSlider = () => {
     const itemSlider = function () {
         const item = document.querySelector('.finished-item');
         let swiper;
-        console.log('Подключился')
+        // console.log('Подключился')
         if (item) {
             
             swiper = new Swiper(item, {

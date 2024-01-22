@@ -2,13 +2,13 @@ export const initStockSlider = () => {
     const itemSlider = function () {
         const item = document.querySelector('.stock-item');
         let swiper;
-        console.log('Подключился')
+        // console.log('Подключился')
         if (item) {
             
             swiper = new Swiper(item, {
                 loop: true,
                 autoplay: {
-                    delay: 3000
+                    delay: 9000
                 },
                 speed: 900,
                 direction: 'horizontal',
