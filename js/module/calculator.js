@@ -84,6 +84,9 @@ export const initSum = () => {
           // console.log(inputsPayment.textContent);
         }
 
+
+
+
         let totalSum = 0; 
         const updateTotalSum = () => {
           totalSum = [...inputs, ...inputsDollar, ...partInputsPayment, ...partInputsСustoms].reduce((acc, input) => {
@@ -113,12 +116,37 @@ export const initSum = () => {
       
     
       }
-    })
+    }).then(() => {
+      updateTotalSum();
 
+      const inputs = document.querySelectorAll('.price');
+      const partInputsСustoms = document.querySelectorAll('.partCustoms');
+      const partInputsPayment = document.querySelectorAll('.partPayment');
+      const inputsDollar = document.querySelectorAll('.dollar__price');
+      
+      inputs.forEach(input => {
+          input.addEventListener('input', updateTotalSum); 
+          input.addEventListener('change', updateTotalSum); 
+      });
 
-  }
- 
-     
+      partInputsСustoms.forEach(input => {
+          input.addEventListener('input', updateTotalCustomsSum); 
+          input.addEventListener('change', updateTotalCustomsSum); 
+      });
+
+      partInputsPayment.forEach(input => {
+          input.addEventListener('input', updateTotalPaymentSum); 
+          input.addEventListener('change', updateTotalPaymentSum); 
+      });
+  })
+  .catch(error => {
+      console.error('Произошла ошибка при загрузке данных:', error);
+  });
 }
+};
 
+// Вызов initSum при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+initSum();
+});
 

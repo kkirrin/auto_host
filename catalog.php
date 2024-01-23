@@ -3,39 +3,39 @@
 Template Name: catalog
 */
 ?>
-
 <?php
-    function aj_get($sql)
-    {
-        error_reporting(0);
 
-        ##----- CONFIG ---------
-        $code = 'APTnghDfD64KJ';       ## REQUIRED
-        $server = '78.46.90.228'; ## optional :: $server='144.76.203.145'; 
-        $go = 'api';              ## optional :: $go='gzip'; // gzip work faster
+function aj_get($sql)
+{
+    error_reporting(0);
 
-        ## SET IP,URL
-        $ip = $_SERVER['HTTP_CF_CONNECTING_IP'] == '' ? $_SERVER['REMOTE_ADDR'] : $_SERVER['HTTP_CF_CONNECTING_IP'];
-        $url = 'http://' . $server . '/' . $go . '/?ip=' . $ip . '&json&code=' . $code . '&sql=' . urlencode(preg_replace("/%25/", "%", $sql));
+    ##----- CONFIG ---------
+    $code = 'APTnghDfD64KJ';       ## REQUIRED
+    $server = '78.46.90.228'; ## optional :: $server='144.76.203.145'; 
+    $go = 'api';              ## optional :: $go='gzip'; // gzip work faster
 
-        ## DEBUG
-        // echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
+    ## SET IP,URL
+    $ip = $_SERVER['HTTP_CF_CONNECTING_IP'] == '' ? $_SERVER['REMOTE_ADDR'] : $_SERVER['HTTP_CF_CONNECTING_IP'];
+    $url = 'http://' . $server . '/' . $go . '/?ip=' . $ip . '&json&code=' . $code . '&sql=' . urlencode(preg_replace("/%25/", "%", $sql));
 
-        ## API REQUEST
-        $s = file_get_contents($url);
-        //echo $s;
+    ## DEBUG
+    // echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
 
-        ## GZIP DECODE
-        if ($go == 'gzip') {
-            $s = $server == '144.76.203.145' ? gzinflate(substr($s, 10, -8)) :
-                gzuncompress(preg_replace("/^\\x1f\\x8b\\x08\\x00\\x00\\x00\\x00\\x00/", "", $s));
-        }
+    ## API REQUEST
+    $s = file_get_contents($url);
+    //echo $s;
 
-        $arr = json_decode($s, true);  //die(var_export($arr));
-        // echo gettype($arr);
-        // print_r($arr);
-        return $arr;
+    ## GZIP DECODE
+    if ($go == 'gzip') {
+        $s = $server == '144.76.203.145' ? gzinflate(substr($s, 10, -8)) :
+            gzuncompress(preg_replace("/^\\x1f\\x8b\\x08\\x00\\x00\\x00\\x00\\x00/", "", $s));
     }
+
+    $arr = json_decode($s, true);  //die(var_export($arr));
+    // echo gettype($arr);
+    // print_r($arr);
+    return $arr;
+}
 ?>
 <?php get_header(); ?>
 
@@ -58,10 +58,10 @@ Template Name: catalog
 
 
 
-    <section class="bg-black relative md:py-44 py-10 overflow-hidden"
+    <section id="catalog" class="bg-black relative md:py-44 py-10 overflow-hidden"
         style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
 
-        <div class="absolute right-0 md:bottom-52 bottom-0 z-10">
+        <div class="absolute right-0 md:bottom-52 bottom-0">
             <a href="https://auc.avtopotencial-dv.ru/">
                 <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">
                     <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
@@ -83,7 +83,7 @@ Template Name: catalog
             </h2>
 
             <div class="flex flex-wrap items-start justify-start gap-10 pb-10">
-                <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/"
+                <a href="/japancar/"
                     class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
                     Авто с аукционов
                 </a>
@@ -99,13 +99,14 @@ Template Name: catalog
 
             <div class="bg_search">
                 <div class="container w-full rounded-xl">
-                    <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase" action="/" method="get">
+                    <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase" action="/japancar"
+                        method="get">
                         <!-- ВЫБЕРИТЕ МАРКУ -->
                         <div class="mb-4">
-                            <label class="block text-white text-sm font-medium mb-2" for="make">
+                            <label class="block text-white text-sm font-medium mb-2" for="vendor">
                                 Выберите марку
                             </label>
-                            <select id="markaAuc"
+                            <select id="markaAuc" name="vendor"
                                 class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                 <?php
                                 $arr = aj_get("select marka_name from main group by marka_id order by marka_name ASC");
@@ -122,10 +123,10 @@ Template Name: catalog
 
                         <!-- ВЫБЕРИТЕ МОДЕЛЬ -->
                         <div class="mb-4">
-                            <label class="block text-white text-sm font-medium mb-2" for="make">
+                            <label class="block text-white text-sm font-medium mb-2" for="MODEL_NAME">
                                 Выберите модель
                             </label>
-                            <select id="modelAuc"
+                            <select id="modelAuc" name="MODEL_NAME"
                                 class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                 <option value='any'>Любая</option>
                             </select>
@@ -133,15 +134,14 @@ Template Name: catalog
 
                         <!-- ВЫБЕРИТЕ КУЗОВ -->
                         <div class="mb-4">
-                            <label class="block text-white text-sm font-medium mb-2" for="make">
+                            <label class="block text-white text-sm font-medium mb-2" for="KUZOV">
                                 Выберите кузов
                             </label>
-                            <select id="kuzovAuction" name="make"
+                            <select id="kuzovAuction" name="KUZOV"
                                 class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option value='any'>Любой</option>
+                                <option value=''>Любой</option>
                             </select>
                         </div>
-
 
                         <div class="mb-4">
                             <label class="block text-white text-sm font-medium mb-2" for="kpp_type">
@@ -149,16 +149,13 @@ Template Name: catalog
                             </label>
                             <select id="transmitionAuction" name="kpp_type"
                                 class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option>Трансмиссия</option>
-                                <option>АКПП</option>
-                                <option>Робот</option>
-                                <option>Вариантор</option>
-                                <option>Механика</option>
-
+                                <option value="">Любая</option>
+                                <option value="1">Механическая</option>
+                                <option value="2">Автоматическая</option>
                             </select>
                         </div>
 
-                        <div class="mb-4">
+                        <!-- <div class="mb-4">
                             <label class="block text-white text-sm font-medium mb-2" for="year">
                                 Год
                             </label>
@@ -166,80 +163,104 @@ Template Name: catalog
                                 <div class="w-full">
                                     <select id="yearAuctionFrom" name="year"
                                         class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>от</option>
-                                        <option>2001</option>
-                                        <option>2002</option>
-                                        <option>2003</option>
-                                        <option>2004</option>
-                                        <option>2005</option>
-                                        <option>2006</option>
-                                        <option>2007</option>
-                                        <option>2008</option>
-                                        <option>2009</option>
-                                        <option>2010</option>
-                                        <option>2011</option>
-                                        <option>2012</option>
-                                        <option>2013</option>
-                                        <option>2014</option>
-                                        <option>2015</option>
-                                        <option>2016</option>
-                                        <option>2017</option>
-                                        <option>2018</option>
-                                        <option>2019</option>
-                                        <option>2020</option>
-                                        <option>2021</option>
-                                        <option>2022</option>
-                                        <option>2023</option>
+                                        <option value="">От</option>
+                                        <option value="1990">1990</option>
+                                        <option value="1991">1991</option>
+                                        <option value="1992">1992</option>
+                                        <option value="1993">1993</option>
+                                        <option value="1994">1994</option>
+                                        <option value="1995">1995</option>
+                                        <option value="1996">1996</option>
+                                        <option value="1997">1997</option>
+                                        <option value="1998">1998</option>
+                                        <option value="1999">1999</option>
+                                        <option value="2000">2000</option>
+                                        <option value="2001">2001</option>
+                                        <option value="2002">2002</option>
+                                        <option value="2003">2003</option>
+                                        <option value="2004">2004</option>
+                                        <option value="2005">2005</option>
+                                        <option value="2006">2006</option>
+                                        <option value="2007">2007</option>
+                                        <option value="2008">2008</option>
+                                        <option value="2009">2009</option>
+                                        <option value="2010">2010</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2012">2012</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
                                     </select>
                                 </div>
                                 <div class="w-full">
                                     <select id="yearAuctionTo" name="year"
                                         class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                        <option>до</option>
-                                        <option>2001</option>
-                                        <option>2002</option>
-                                        <option>2003</option>
-                                        <option>2004</option>
-                                        <option>2005</option>
-                                        <option>2006</option>
-                                        <option>2007</option>
-                                        <option>2008</option>
-                                        <option>2009</option>
-                                        <option>2010</option>
-                                        <option>2011</option>
-                                        <option>2012</option>
-                                        <option>2013</option>
-                                        <option>2014</option>
-                                        <option>2015</option>
-                                        <option>2016</option>
-                                        <option>2017</option>
-                                        <option>2018</option>
-                                        <option>2019</option>
-                                        <option>2020</option>
-                                        <option>2021</option>
-                                        <option>2022</option>
-                                        <option>2023</option>
+                                        <option value="">До</option>
+                                        <option value="1990">1990</option>
+                                        <option value="1991">1991</option>
+                                        <option value="1992">1992</option>
+                                        <option value="1993">1993</option>
+                                        <option value="1994">1994</option>
+                                        <option value="1995">1995</option>
+                                        <option value="1996">1996</option>
+                                        <option value="1997">1997</option>
+                                        <option value="1998">1998</option>
+                                        <option value="1999">1999</option>
+                                        <option value="2000">2000</option>
+                                        <option value="2001">2001</option>
+                                        <option value="2002">2002</option>
+                                        <option value="2003">2003</option>
+                                        <option value="2004">2004</option>
+                                        <option value="2005">2005</option>
+                                        <option value="2006">2006</option>
+                                        <option value="2007">2007</option>
+                                        <option value="2008">2008</option>
+                                        <option value="2009">2009</option>
+                                        <option value="2010">2010</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2012">2012</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
                                     </select>
                                 </div>
 
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="flex flex-1 gap-10">
+                        <!-- <div class="flex flex-1 gap-10">
                             <div class="mb-4">
                                 <label class="block text-white text-sm font-medium mb-2" for="mileage">
                                     Пробег
                                 </label>
                                 <div class="flex gap-10">
                                     <div class="w-1/2">
-                                        <input id="mileageAuctionFrom" name="mileage"
+                                        <input type="number" id="mileageAuctionFrom" name="mileage"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="от">
 
                                         </input>
                                     </div>
                                     <div class="w-1/2">
-                                        <input id="mileageAuctionTo" name="mileage"
+                                        <input type="number" id="mileageAuctionTo" name="mileage"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="до">
 
@@ -248,7 +269,9 @@ Template Name: catalog
 
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+
+                        <!-- 
                         <div class="flex flex-1 gap-10">
                             <div class="mb-4">
                                 <label class="block text-white text-sm font-medium mb-2" for="finish">
@@ -296,7 +319,7 @@ Template Name: catalog
 
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="flex items-center justify-center">
                             <button class="up bg-red py-2 px-10 text-white rounded-lg" type="submit">
@@ -316,54 +339,65 @@ Template Name: catalog
         </div>
     </section>
 
-    <section class=" w-full relative pt-20 pb-10 wow fadeInUp" data-wow-delay="0.4s">
+    <!-- $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main group by model_id order by model_name limit 10"); -->
+
+    <section class=" w-full relative pt-20 pb-10">
         <div class="container">
             <div class="flex items-start justify-start flex-wrap ">
-
                 <?php
 
-                $offset = ((int) $_GET['page'] - 1) * 20;
-                $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main group by model_id order by model_name limit 5");
-
-                $models_arr = aj_get("select model_name from main where marka_name=''");
-                print_r($models_arr);
-                // echo '</tr></table>';
+                // if (isset($_GET['vendor']) && isset($_GET['MODEL_NAME']) && !empty($_GET['MODEL_NAME'])) {
+                //     $arr = aj_get("select * from main where model_name='" . $_GET['MODEL_NAME'] . "' order by year desc, mileage desc");
+                // } elseif (isset($_GET['vendor']) && (empty($_GET['MODEL_NAME']))) {
+                //     $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='" . $_GET['vendor'] . "' group by model_name order by model_name");
+                // }
+                // модель/марка ===============================================================
                 
-                $num_arr = aj_get("select count(*) from main");
-                $all_arr = aj_get("select * from main");
-                // print_r($all_arr);
-                
-
-                $lots = $num_arr[0]['TAG0'];
-                echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
-
-                $totalPages = ceil($lots / 20);
-                $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-
-
-                $arr_filter = aj_get("select marka_name, model_name, kpp_type, year_from, year_to, eng_v_from, eng_v_to, mileage_from, mileage_to from main where marka_name='" . $_GET['marka_name'] . "&model_name='" . $_GET['model_name'] . "'&kpp_type='" . $_GET['kpp_type'] . "'");
-
-                echo ($arr_filter);
-
-                if ($totalPages > 1) {
-                    $maxPages = 10;
-
-                    for ($i = 1; $i <= min($maxPages, $totalPages); $i++) {
-                        echo "<a class='page_num' href='?page=" . $i . "'>" . $i . "</a> ";
+                // модель/марка/кузов ===============================================================
+                if (!empty($_GET['MODEL_NAME'])) {
+                    $kuzovCondition = "";
+                    if (!empty($_GET['KUZOV'])) {
+                        $kuzovCondition = " and kuzov='" . $_GET['KUZOV'] . "'";
                     }
+                    $arr = aj_get("select * from main where model_name='" . $_GET['MODEL_NAME'] . "'" . $kuzovCondition . " order by year desc, mileage desc");
 
-                    print_r($_GET);
-
-                    if ($maxPages < $totalPages) {
-                        echo "... ";
+                } elseif (!empty($_GET['vendor'])) {
+                    $kuzovCondition = "";
+                    if (!empty($_GET['KUZOV'])) {
+                        $kuzovCondition = " and kuzov='" . $_GET['KUZOV'] . "'";
                     }
-
-                    echo "<a class='page_num' href='?page" . $i . "'>" . $i . "</a> ";
-                    echo '<div style="clear:both"></div>';
-                    // echo get_pagenum_link(2);
-                    $current_page_number = get_query_var('paged') ?: 1;
-                    echo $current_page_number;
+                    $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='" . $_GET['vendor'] . "'" . $kuzovCondition . " group by model_name order by model_name");
                 }
+
+                // $arr = aj_get("select * from main limit 10");
+
+
+                $conditions = array();  // Создаем пустой массив для хранения условий
+
+// Проверяем каждый элемент в $_GET
+// foreach ($_GET as $key => $value) {
+//     // Проверяем, должен ли параметр быть включен в SQL-запрос
+//     if (!empty($value) && in_array($key, array('MODEL_NAME', 'vendor', 'KUZOV'))) {
+//         // Выполняем необходимые операции, в зависимости от того, какие параметры у нас есть
+//         // Например, можно добавить условие в массив
+//         $conditions[] = "$key='$value'";
+//     }
+// }
+
+// // Собираем SQL-запрос
+// $sql = "SELECT * FROM main";
+
+// if (!empty($conditions)) {
+//     $sql .= " WHERE " . implode(" AND ", $conditions);
+// }
+
+                ?>
+                <pre>
+                    <?php
+                    // print_r($arr);
+                    ?>
+                </pre>
+                <?php
 
 
 
@@ -381,35 +415,35 @@ Template Name: catalog
                     $img1 = str_replace("&h=50", "&w=320", $img1);
 
                     echo '<div class="animate p-4">
-                                    <a href="/car_card?id=' . $id . '" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                    <img class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
-                                    </a>
-                                    <div class="flex flex-col items-start gap-4 justify-between">
-                                        <div class="md:text-3xl text-xl font-medium pt-4">' . $name_car . '</div>
-                                        <div class="flex flex-row">
-                                            <div class="flex items-center">
-                                                <img class="" src="' . get_template_directory_uri() . '/src/img/icons/speed.svg " alt="" >
-                                                <p class="md:pr-3 pr-1  md:text-base text-xs">' . $engine_value . ' ' . $kpp . ' ' . $mileage . '</p>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <img class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/color.svg" alt="" >
-                                                <p class="md:pr-3 pr-1  md:text-base text-xs">' . $color . '</p>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <img class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/year.svg" alt="" >
-                                                <p class="md:pr-3 pr-1  md:text-base text-xs">' . $year . '</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-row gap-4">
-                                            <p class="md:text-xl text-base">
-                                                <span class="font-bold">' . $avgPrice . '</span> (' . $avgPrice . ' ¥)
-                                            </p>
-                                            <a class="up bg-red py-2 px-5 text-white rounded-lg" href="/car_card?id=' . $id . '">
+                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                            <img class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
+                        </a>
+                         <div class="flex flex-col items-start gap-4 justify-between">
+                            <div class="md:text-3xl text-xl font-medium pt-4">' . $name_car . '</div>
+                            <div class="flex flex-row">
+                                <div class="flex items-center">
+                                    <img class="" src="' . get_template_directory_uri() . '/src/img/icons/speed.svg " alt="" >
+                                    <p class="md:pr-3 pr-1  md:text-base text-xs">' . $engine_value . ' ' . $kpp . ' ' . $mileage . '</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <img class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/color.svg" alt="" >
+                                    <p class="md:pr-3 pr-1  md:text-base text-xs">' . $color . '</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <img class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/year.svg" alt="" >
+                                    <p class="md:pr-3 pr-1  md:text-base text-xs">' . $year . '</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-row gap-4">
+                                <p class="md:text-xl text-base">
+                                    <span class="font-bold">' . $avgPrice . '</span> (' . $avgPrice . ' ¥)
+                                </p>
+                                <a class="up bg-red py-2 px-5 text-white rounded-lg" href="/car_card?id=' . $id . '">
                                             Заказать
                                             </a>
-                                        </div>
-                                    </div>
-                                </div>';
+                            </div>
+                            </div>
+                        </div>';
                 }
 
                 ?>

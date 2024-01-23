@@ -4,6 +4,7 @@ export const initWatchFullReview = () => {
 
     textFullElements.forEach(function(textFull) {
         const button = document.querySelectorAll('.watchFull');
+        // console.log(button)
         button.forEach(function(btn) {
             btn.addEventListener('click', function(event) {
                 const currentButton = event.currentTarget;

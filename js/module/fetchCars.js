@@ -26,8 +26,10 @@ export const initFetchCars = () => {
         });
 
         // Заполняем выпадающие списки на странице данными
-        document.getElementById('model').innerHTML = model;
-        document.getElementById('brand').innerHTML = brand;
+       
+            document.getElementById('model').innerHTML = model;
+            document.getElementById('brand').innerHTML = brand;
+        
 
         showModelsForBrand("AC");
         
@@ -38,7 +40,7 @@ export const initFetchCars = () => {
                     document.getElementById("brand").addEventListener('change', function () {
                         let value = this.value;
                         let relevantModels = document.querySelectorAll('option[data-id="' + value + '"]');
-                        console.log(relevantModels)
+                        // console.log(relevantModels)
                         let modelSelect = document.getElementById('model');
                        
                         // Отвечает за добавление в option новых моделей,в нем же удаление тех, которые не соот.
@@ -60,7 +62,7 @@ export const initFetchCars = () => {
     
                 function showModelsForBrand(brandname) {
                     let options = document.querySelectorAll('option[data-id]');
-                    console.log(options)
+                    // console.log(options)
                     options.forEach(option => {
                       option.hidden = true;
                     });

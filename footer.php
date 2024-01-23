@@ -19,7 +19,7 @@
                     <p class="pb-4">Каталог</p>
                     <ul class="text-gray md:text-base text-xs">
                         <li class="pb-8 hover:text-red transition-all">
-                            <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/">С аукционов Японии</a>
+                            <a href="/japancar/">С аукционов Японии</a>
                         </li>
                     
                         <li class="pb-8 hover:text-red transition-all">

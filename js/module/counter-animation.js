@@ -32,7 +32,7 @@ export const initCounterAnimation = () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 counterAnimation(document.querySelector('.counter-years'), 0, 13);
-                counterAnimation(document.querySelector('.counter-items'), 960, 1000);
+                counterAnimation(document.querySelector('.counter-items'), 2960, 3000);
                 counterAnimation(document.querySelector('.counter-client'), 7950, 8000);
                 observer.unobserve(entry.target)
             }

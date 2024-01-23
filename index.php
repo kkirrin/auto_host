@@ -845,7 +845,7 @@ Template Name: autopotencial
                                 О компании
                             </h2>
                             <div class="text-white md:text-xl text-sm mb-7">
-                                Компания <span class="text-yellow">«Автопотенциал-ДВ»</span> предоставляет Вам полный спектр профессиональных услуг по покупке автомобилей, транспортировке и таможенному оформлению ТС из Японии, Южной Кореи.  Благодаря многолетнему опыту в автомобильной сфере (с 2010 года) нами было импортировано более 1000 единиц ТС в РФ.
+                                Компания <span class="text-yellow">«Автопотенциал-ДВ»</span> предоставляет Вам полный спектр профессиональных услуг по покупке автомобилей, транспортировке и таможенному оформлению ТС из Японии, Южной Кореи.  Благодаря многолетнему опыту в автомобильной сфере (с 2010 года) нами было импортировано более 3000 единиц ТС в РФ.
                             </div>
                             
                             <div class="text-white md:text-lg text-sm bg-bg-gray bg-opacity-50 relative md:p-10 md:pr-28 p-5 pr-2 about_index">
@@ -905,13 +905,13 @@ Template Name: autopotencial
                     <img class="bg-cover bg-center opacity-90 absolute bottom-0 md:hidden block -z-10" src="<?php echo get_template_directory_uri() . '/src/img/company/bg_company.png'; ?>" alt="">
                 </div>
                 <div class="container">
-                <h2 class="text-white font-normal md:text-3xl text-sm uppercase pb-8">
+                <h2 class="text-white font-normal md:text-3xl text-sm uppercase pt-4 pb-8">
                             Наши специалисты
                         </h2>
                 <ul class="flex items-start md:justify-between justify-start flex-wrap gap-10 counter-list">
                         <li class="py-3 pr-2 sm:py-7">
                                 <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик1.webp'; ?>" alt="" >
-                            <p class="md:text-xl text-sm text-white pt-2">Менеджер</p>
+                            <p class="md:text-xl text-sm text-white pt-3">Менеджер</p>
                         </li>
                         <li class="py-3 pr-2 sm:py-7">
                             <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик2.webp'; ?>" alt="" >     
@@ -919,7 +919,7 @@ Template Name: autopotencial
                         </li>
                         <li class="py-3 pr-2 sm:py-7">
                             <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик3.webp'; ?>" alt="" >     
-                            <p class="md:text-xl text-sm text-white pt-2">Директор</p>
+                            <p class="md:text-xl text-sm text-white pt-3">Директор</p>
                         </li>
                     </ul>
 

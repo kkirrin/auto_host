@@ -132,9 +132,11 @@
                                 $pw = $v['PW'];
                                 $rate = $v['RATE'];
                                 $serial = $v['SERIAL'];
-
-
                                 
+
+                                if(!$avgPrice) {
+                                    $avgPrice = 'Отсутствует...';
+                                }
 
                                 list($img1, $img2) = explode('#', $v['IMAGES']);
                                 $img1 = str_replace("&h=50", "&w=320", $img1);
@@ -160,9 +162,8 @@
                                             <li class="md:text-base text-xs font-semibold pb-5">
                                                 Лот
                                             </li>
-                                            <li class="md:text-base text-xs font-semibold pb-5">
-                                                Серийный номер
-                                            </li>
+                             
+                                       
                                             <li class="md:text-base text-xs font-semibold pb-5">
                                                 Бренд
                                             </li>
@@ -206,9 +207,8 @@
                                             <li class="md:text-base text-xs font-semibold pb-5">
                                                 '.$lot.'
                                             </li>
-                                            <li class="md:text-base text-xs font-semibold pb-5">
-                                                '.$serial.'
-                                            </li>
+                            
+                                           
                                             <li class="md:text-base text-xs font-semibold pb-5">
                                                 '.$name_model.'
                                             </li>
@@ -232,9 +232,6 @@
                                             </li>
                                             <li class="md:text-base text-xs font-semibold pb-5">
                                                 '.$engine_value.'
-                                            </li>
-                                            <li class="md:text-base text-xs font-semibold pb-5">
-                                                '.$lot.'
                                             </li>
                                             <li class="md:text-base text-xs font-semibold pb-5">
                                                 '.$avgPrice.'
@@ -354,7 +351,7 @@
                                                 Расходы, связанные с лабораторией: <input value="50000" class="partPayment" > ₽
                                             </li>
                                             <li>
-                                                Комиссия Япония-Трейд: <input value="50000" class="partPayment" > ₽
+                                                Комиссия Автопотенциал-ДВ: <input value="50000" class="partPayment" > ₽
                                             </li>
                                         </ul>
 

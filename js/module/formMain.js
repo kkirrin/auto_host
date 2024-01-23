@@ -27,8 +27,8 @@ export const initFormMain = () => {
         arrow.classList.remove('open');
       });
     });
-
-    select1.onchange = function() {
+    if(select1) {
+      select1.onchange = function() {
         // Перезаписываем значение переменной selectedValue1 при выборе нового Option
         const selectedValue1 = select1.options[select1.selectedIndex].value;
         // console.log('Текущее значение selectedValue1:', selectedValue1);
@@ -134,6 +134,8 @@ export const initFormMain = () => {
         img.style.display = 'none'; // Скрыть изображение, если src пустой
       }
     });
+    }
+   
 
     // Найти все теги video
     // const allVideos = document.querySelectorAll('video');

@@ -20,6 +20,8 @@ import { initFetchCars } from "./module/fetchCars.js";
 import { initFormMain } from "./module/formMain.js";
 import { initWatchFullReview } from "./module/watchFullReview.js";
 import { initFetchCarsFilter } from "./module/fetchCarsFilter.js";
+import { initFilters } from "./module/filter-cars.js";
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -48,6 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initFormMain();
     initWatchFullReview();
     initFetchCarsFilter();
+    initFilters();
 
 
 });

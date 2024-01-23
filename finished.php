@@ -53,24 +53,24 @@
                             ?>
                             <div class="animate p-2 img_car--finish">
                             <a href="<?php echo the_permalink(); ?>">
-                                <img class="brd" src="<?php echo the_field('главное_фото'); ?>" alt="вправо" >
+                                <img class="brd" src="<?php echo the_field('главное_фото'); ?>" alt="<?php echo the_field('модель'); ?>">
                             </a>
-                            <div class="flex flex-col items-center md:items-start">
+                            <div class="ml-2 md:ml-0 flex flex-col items-center md:items-start">
                                 <div class="md:text-3xl text-xl font-medium pt-4 font-bold pb-5"><?php echo the_field('marka_name'); ?> <?php echo the_field('модель'); ?></div>
                                 
-                                <div class="flex flex-col md:flex-row pb-5">
-                                    <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-gray"><?php echo the_field('дата'); ?></p>
+                                <div class="flex flex-col md:flex-row pb-5 items-start md:items-center">
+                                    <div class="flex items-center pr-5 mb-2 md:mb-0">
+                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/Frame.svg'; ?>" alt="Дата">
+                                        <p class="pl-3 text-gray"><?php echo the_field('дата'); ?></p>
                                     </div>
 
                                     <div class="flex items-center">
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="">
-                                        <p class="pl-3 pr-5 text-black font-bold"><?php echo the_field('сумма_в_рублях_с_пробелами_выполнено'); ?> ₽</p>
+                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/icon.svg'; ?>" alt="Сумма">
+                                        <p class="pl-3 text-black font-bold"><?php echo the_field('сумма_в_рублях_с_пробелами_выполнено'); ?> ₽</p>
                                     </div>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                         <?php
                     }
 

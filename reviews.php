@@ -69,24 +69,26 @@
                                    
                                         <div class="flex flex-col items-center md:items-start" style="background-color: #F6F6F6;">
                                             <div class="font-bold pb-5"><?php the_field('название_отзыва'); ?></div>
-                                            <div class="font-medium pb-5 body_review truncate">
+                                            <div class="textFull font-medium pb-5 body_review">
                                                 <?php the_field('текст_отзыва'); ?>
                                             </div>
                                             <div class="flex flex-col md:flex-row pb-5">
-                                                            <div class="flex items-center">
-                                                                <p class="author_review pr-2 text-gray"><?php the_field('автор_отзыва'); ?></p>
-                                                            </div>
-                                                            <div class="flex items-center">
-                                                                <p class="data_review pr-2 text-gray"><?php the_field('дата_отзыва'); ?></p>
-                                                            </div>
-                                                            <div class="flex items-center">
-                                                                <p class="city_review pr-2 text-gray"><?php the_field('город_отзыва'); ?></p>
-                                                            </div>
-                                                        </div>
-                                            <div class="flex flex-col md:flex-row items-center justify-around">
-                                                <div class="pt-4 pb-4 pr-3 pl-3">
-                                                    <button class="watchFull text-yellow hover:text-red">Посмотреть полностью</buton>
+                                                <div class="flex items-center">
+                                                    <p class="author_review pr-2 text-gray"><?php the_field('автор_отзыва'); ?></p>
                                                 </div>
+                                                <div class="flex items-center">
+                                                    <p class="data_review pr-2 text-gray"><?php the_field('дата_отзыва'); ?></p>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <p class="city_review pr-2 text-gray"><?php the_field('город_отзыва'); ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col md:flex-row items-center justify-around">
+                                                <a href="<?php echo the_field('review_link'); ?>" class="link_review">
+                                                    <div class="pt-4 pb-4">
+                                                        <a class="text-yellow hover:text-red" href="<?php the_field('ссылка_на_отзыв'); ?>">Смотреть оригинал</a>
+                                                    </div>
+                                                </a>                                      
                                             </div>
                                         </div>
                                     </div>

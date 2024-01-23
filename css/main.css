@@ -6,24 +6,115 @@
 
 /*  */
 
+.spec {
+  padding-bottom: 10px;
+}
+.img_car--finish img {
+  max-width: 100%;
+  height: auto !important; 
+}
 
-@media (max-width:1366px) {
+
+
+.img_car--finish {
+  object-fit: cover;
+}
+
+@media (max-width:1920px) {
   .img_car--finish {
-    width: 450px !important;
+    width: 430px !important;
+  }
+}
+@media (max-width:1333px) {
+  .img_car--finish {
+    width: 420px !important;
+  }
+}
+@media (max-width:1307px) {
+  .img_car--finish {
+    width: 400px !important;
   }
 }
 
-@media (min-width:1206px) {
+@media (max-width:1240px) {
+  .img_car--finish {
+    width: 370px !important;
+  }
+}
+
+@media (max-width:1157px) {
+  .img_car--finish {
+    width: 350px !important;
+  }
+}
+
+@media (max-width:1093px) {
+  .img_car--finish {
+    width: 330px !important;
+  }
+}
+
+@media (max-width:1029px) {
+  .img_car--finish {
+    width: 300px !important;
+  }
+}
+
+
+@media (max-width:937px) {
   .img_car--finish {
     width: 440px !important;
   }
 }
-
-@media (max-width:1100px) {
+@media (max-width:920px) {
   .img_car--finish {
-    width: 410px !important;
+    width: 400px !important;
   }
 }
+
+@media (max-width:845px) {
+  .img_car--finish {
+    width: 370px !important;
+  }
+}
+
+@media (max-width:785px) {
+  .img_car--finish {
+    width: 350px !important;
+  }
+}
+
+
+@media (max-width:741px) {
+  .img_car--finish {
+    width: 330px !important;
+  }
+}
+
+
+@media (max-width:701px) {
+  .img_car--finish {
+    width: 320px !important;
+  }
+}
+@media (max-width:685px) {
+  .img_car--finish {
+    width: 300px !important;
+  }
+}
+
+@media (max-width:641px) {
+  .img_car--finish {
+    width: 290px !important;
+  }
+}
+@media (max-width:627px) {
+  .img_car--finish {
+    width: 420px !important;
+  }
+}
+
+
 .spec {
   width: 350px !important;
   object-fit: cover;
