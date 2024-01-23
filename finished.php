@@ -12,7 +12,7 @@
             <h1 class="visually-hidden">Скрытый заголовок</h1>
 
         
-            <section class="md:py-40 py-10">
+            <section class="md:pt-40 md:pb-20 py-10">
                 <div class="container py-20">
                 <div class="absolute right-0 md:bottom-52 bottom-0 padding_auc">
                 <a href="https://auc.avtopotencial-dv.ru/">
@@ -34,7 +34,7 @@
                     <div class="flex items-start justify-start flex-wrap">
                        
                     <?php
-                            $posts_per_page = 10;  
+                            $posts_per_page = 9;  
                             // Текущая страница
                             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
 

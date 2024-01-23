@@ -57,7 +57,13 @@ show_admin_bar(false);
     
 //     };
 
-
+    // add_action( 'template_redirect', 'redirect_catalog_page' );
+    // function redirect_catalog_page() {
+    //     if ( is_page( 'japancar' ) ) {
+    //         wp_redirect(  home_url('/sale/?paged=' ) );
+    //         exit;
+    //     }
+    // }
 
 function theme_add_scripts()
 {

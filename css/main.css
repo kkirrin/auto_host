@@ -6,6 +6,8 @@
 
 /*  */
 
+
+
 .spec {
   padding-bottom: 10px;
 }
@@ -20,7 +22,7 @@
   object-fit: cover;
 }
 
-@media (max-width:1920px) {
+@media (max-width:3000px) {
   .img_car--finish {
     width: 430px !important;
   }
@@ -508,6 +510,7 @@ div .wpc-filter-content input   {
   /* bottom: 15px; */
   right: 170px;
   margin: -50px;
+  margin-top: -110px;
 }
 
 .page-numbers {

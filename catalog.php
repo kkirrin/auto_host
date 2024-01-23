@@ -366,30 +366,67 @@ function aj_get($sql)
                     if (!empty($_GET['KUZOV'])) {
                         $kuzovCondition = " and kuzov='" . $_GET['KUZOV'] . "'";
                     }
-                    $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='" . $_GET['vendor'] . "'" . $kuzovCondition . " group by model_name order by model_name");
+                    $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='" . $_GET['vendor'] . "'" . $kuzovCondition . " group by model_name order by model_name ");
                 }
+
+                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                    $records_per_page = 30;
+                    $starting_position = ($page - 1) * $records_per_page;
+
+                    $query = "select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images 
+                            from main 
+                            where marka_name='" . $_GET['vendor'] . "'" . $kuzovCondition . " 
+                            group by model_name 
+                            order by model_name 
+                            LIMIT :10, :records_per_page";
+
+
+                    // ПАГИНАЦИЯ
+ 
+                    $num_arr = aj_get("SELECT COUNT(*) FROM main WHERE marka_name='" . $_GET['vendor'] . "'");
+                    
+                    echo "SELECT COUNT(*) FROM main WHERE marka_name='" . $_GET['vendor'] . "'";
+
+                    $lots=$num_arr[0]['TAG0'];
+                    echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
+
+                    $totalPages = ceil($lots / 20);
+                    $currentPage = isset($_GET['paged']) ? (int)$_GET['paged'] : 1;
+
+                    if ($totalPages > 1) {
+                        $maxPages = 10;
+
+                        for ($i = 1; $i <= min($maxPages, $totalPages); $i++) {
+                            
+                            echo "<a class='page_num' href='japancar?vendor=" . $v['vendor'] . "&paged=" . $i . "'>" . $i . "</a> ";
+
+
+                            $page = isset($_GET['paged']) ? $_GET['paged'] : 1;
+
+
+                            $query = aj_get("SELECT id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images 
+                                            FROM main 
+                                            WHERE marka_name = '" . $_GET['vendor'] . "' 
+                                            ORDER BY model_name 
+                                            LIMIT $starting_position, $records_per_page");
+
+                                // Обработка результата запроса и вывод данных на странице
+                                foreach ($query as $row) {
+                                    // Здесь выполняется вывод данных на странице
+                                }
+                        }
+
+                        if ($maxPages < $totalPages) {
+                            echo "... ";
+                        }
+
+                        echo "<a class=page_num href='japancar?vendor=" . $v['vendor'] . "&paged=" . $totalPages . "'>" . $totalPages . "</a> ";
+                        echo '<div style="clear:both"></div>';
+                    }
 
                 // $arr = aj_get("select * from main limit 10");
 
-
-                $conditions = array();  // Создаем пустой массив для хранения условий
-
-// Проверяем каждый элемент в $_GET
-// foreach ($_GET as $key => $value) {
-//     // Проверяем, должен ли параметр быть включен в SQL-запрос
-//     if (!empty($value) && in_array($key, array('MODEL_NAME', 'vendor', 'KUZOV'))) {
-//         // Выполняем необходимые операции, в зависимости от того, какие параметры у нас есть
-//         // Например, можно добавить условие в массив
-//         $conditions[] = "$key='$value'";
-//     }
-// }
-
-// // Собираем SQL-запрос
-// $sql = "SELECT * FROM main";
-
-// if (!empty($conditions)) {
-//     $sql .= " WHERE " . implode(" AND ", $conditions);
-// }
+                    
 
                 ?>
                 <pre>

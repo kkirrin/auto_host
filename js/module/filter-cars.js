@@ -109,5 +109,8 @@ export const initFilters = () => {
                 selectElementModel.appendChild(option);
             }
         }
+
     }
+
+    
 }
