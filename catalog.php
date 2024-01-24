@@ -524,7 +524,7 @@ function aj_get($sql)
 
                         $img1 = str_replace("&h=50", "&w=320", $img1);
 
-                        echo '<div class="animate p-4">
+                        echo '<div class="animate p-4 img_car--finish">
                         <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                             <img class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
                         </a>

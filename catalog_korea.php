@@ -152,7 +152,7 @@
                             while ($query->have_posts()) {
                                 $query->the_post();
                             ?>
-                             <div class="p-3 animate">
+                             <div class="p-3 animate img__korea">
                                 <div class="md:w-auto w-full">
                                     <a href="<?php the_permalink(); ?>" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                                         <img class="img_car" src="<?php the_field('фото_машины'); ?>?>" alt="вправо"  width="430" height="460">

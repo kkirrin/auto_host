@@ -110,7 +110,7 @@
                           </section>
 
                           <?php 
-                                $arr = aj_get("select * from main where id='".$_GET['id']."'");
+                                $arr = aj_get("select * from main where id='".$_GET['id']."' limit 25");
                                 foreach ($arr as $v) {
                                 $avgPrice = $v['AVG_PRICE']; 
                                 $priceRub = round($avgPrice * 0.61, 2);

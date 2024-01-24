@@ -137,7 +137,7 @@ Template Name: autopotencial
                                         $arr = aj_get("select model_id,model_name from stats where marka_name='toyota'");
                                         $_GET['page']=2;
                                         $offset = ((int)$_GET['page']-1)*20;
-                                        $arr = aj_get("select id, model_id, model_name, marka_name, marka_id, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='toyota' group by model_id order by model_name limit 40");
+                                        $arr = aj_get("select id, model_id, model_name, marka_name, marka_id, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='toyota' group by model_id order by model_name limit 20");
 
                                         foreach ($arr as $v) {
                                             $avgPrice = $v['AVG_PRICE']; 
