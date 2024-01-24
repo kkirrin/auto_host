@@ -51,9 +51,9 @@ Template Name: autopotencial
 
                         
                         <div class="swiper-wrapper h-auto">
-                        <div class="absolute right-0 md:bottom-52 bottom-0 padding__cosu">
+                        <div class="absolute right-0 md:bottom-52 bottom-0 main__auc">
                             <a href="https://auc.avtopotencial-dv.ru/">
-                                    <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
+                                    <div class="flex flex-col items-center mb-2 bg-bg-gray rounded-md p-2">  
                                         <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
                                         <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
                                     </div>
@@ -910,16 +910,16 @@ Template Name: autopotencial
                         </h2>
                 <ul class="flex items-start md:justify-between justify-start flex-wrap gap-10 counter-list">
                         <li class="py-3 pr-2 sm:py-7">
+                            <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик3.webp'; ?>" alt="" >     
+                            <p class="md:text-xl text-sm text-white pt-3">Директор Иванушко Роман Сергеевич</p>
+                        </li>
+                        <li class="py-3 pr-2 sm:py-7">
                                 <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик1.webp'; ?>" alt="" >
-                            <p class="md:text-xl text-sm text-white pt-3">Менеджер</p>
+                            <p class="md:text-xl text-sm text-white pt-3"> Менеджер Корябкин Виктор Дмитриевич</p>
                         </li>
                         <li class="py-3 pr-2 sm:py-7">
                             <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик2.webp'; ?>" alt="" >     
-                            <p class="md:text-xl text-sm text-white pt-3">Менеджер</p>
-                        </li>
-                        <li class="py-3 pr-2 sm:py-7">
-                            <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик3.webp'; ?>" alt="" >     
-                            <p class="md:text-xl text-sm text-white pt-3">Директор</p>
+                            <p class="md:text-xl text-sm text-white pt-3"> Менеджер Истомина Анна Сергеевна</p>
                         </li>
                     </ul>
 

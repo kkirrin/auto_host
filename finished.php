@@ -16,7 +16,7 @@
                 <div class="container py-20">
                 <div class="absolute right-0 md:bottom-52 bottom-0 padding_auc">
                 <a href="https://auc.avtopotencial-dv.ru/">
-                            <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
+                            <div class="flex flex-col items-center mb-2 bg-bg-gray rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
                                 <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
                             </div>
@@ -51,7 +51,7 @@
                             while ($query->have_posts()) {
                                 $query->the_post();
                             ?>
-                            <div class="animate p-2 img_car--finish">
+                            <div class="animate p-2 img_car--finish brd">
                             <a href="<?php echo the_permalink(); ?>">
                                 <img class="brd" src="<?php echo the_field('главное_фото'); ?>" alt="<?php echo the_field('модель'); ?>">
                             </a>

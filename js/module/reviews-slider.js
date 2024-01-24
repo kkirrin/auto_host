@@ -26,8 +26,8 @@ export const initReviewsSlider = () => {
                       slidesPerView: 1,
                       spaceBetween: 15
                     },
-                    600: {
-                      slidesPerView: 2,
+                    695: {
+                      slidesPerView: 1,
                       spaceBetween: 15
                     },
                     767: {

@@ -15,7 +15,7 @@
             <section class="md:py-40 py-32">
             <div class="absolute right-0 md:bottom-52 bottom-0 padding_auc">
                 <a href="https://auc.avtopotencial-dv.ru/">
-                            <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
+                            <div class="flex flex-col items-center mb-2 bg-bg-gray rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
                                 <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
                             </div>
@@ -31,10 +31,10 @@
                 <div class="container">
                     <div class="flex md:flex-row flex-col items-center justify-center gap-10"> 
                         <div class="md:w-1/2 w-full">
-                            <img src="<?php echo the_field('главное_фото'); ?>" alt="">
+                            <img class="brd" src="<?php echo the_field('главное_фото'); ?>" alt="">
                         </div>
                         <div class="md:w-1/2 w-full">
-                            <img src="<?php echo the_field('второе_фото'); ?>" alt="">
+                            <img class="brd" src="<?php echo the_field('второе_фото'); ?>" alt="">
                         </div>
                     </div>
                     <h3 class="font-bold md:text-4xl text-xl pt-20">
@@ -200,7 +200,7 @@
                                 ?> 
                                     <div class="p-2 swiper-slide animate">
                                     <a href="<?php the_permalink(); ?>">
-                                        <img class="" src="<?php the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
+                                        <img class="brd" src="<?php the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
                                     </a>
                                     <div class="flex flex-col items-center md:items-start">
                                         <div class="md:text-3xl text-xl font-medium pt-4 font-bold pb-5"><?php echo the_field('marka_name'); ?> <?php  echo the_field('модель'); ?></div>
