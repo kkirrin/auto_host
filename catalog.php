@@ -58,7 +58,7 @@ function aj_get($sql)
 
 
 
-    <section id="catalog" class="bg-black relative md:py-44 py-10 overflow-hidden"
+    <section class="bg-black relative md:py-44 py-10 overflow-hidden"
         style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
 
         <div class="absolute right-0 md:bottom-52 bottom-0">
@@ -83,7 +83,7 @@ function aj_get($sql)
             </h2>
 
             <div class="flex flex-wrap items-start justify-start gap-10 pb-10">
-                <a href="/japancar/"
+                <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/"
                     class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
                     Авто с аукционов
                 </a>
@@ -99,8 +99,8 @@ function aj_get($sql)
 
             <div class="bg_search">
                 <div class="container w-full rounded-xl">
-                    <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase" action="/japancar"
-                        method="get">
+                    <form id="api-filter-form" class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-4 gap-4 uppercase"
+                        action="/japancar" method="get">
                         <!-- ВЫБЕРИТЕ МАРКУ -->
                         <div class="mb-4">
                             <label class="block text-white text-sm font-medium mb-2" for="vendor">
@@ -112,7 +112,7 @@ function aj_get($sql)
                                 $arr = aj_get("select marka_name from main group by marka_id order by marka_name ASC");
                                 $json = json_encode($arr);
                                 ?>
-                                <option value='any'>Любая</option>
+                                <option value=''>Любая</option>
                                 <?php
                                 foreach ($arr as $v) {
                                     echo '<option value="' . $v['MARKA_NAME'] . '">' . $v['MARKA_NAME'] . "</option>";
@@ -128,7 +128,7 @@ function aj_get($sql)
                             </label>
                             <select id="modelAuc" name="MODEL_NAME"
                                 class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option value='any'>Любая</option>
+                                <option value=''>Любая</option>
                             </select>
                         </div>
 
@@ -143,6 +143,7 @@ function aj_get($sql)
                             </select>
                         </div>
 
+                        <!-- ВЫБЕРИТЕ kpp_type -->
                         <div class="mb-4">
                             <label class="block text-white text-sm font-medium mb-2" for="kpp_type">
                                 Трансмиссия
@@ -155,13 +156,14 @@ function aj_get($sql)
                             </select>
                         </div>
 
-                        <!-- <div class="mb-4">
-                            <label class="block text-white text-sm font-medium mb-2" for="year">
+                        <!-- ВЫБОР ГОДА ВЫПУСКА -->
+                        <div class="mb-4">
+                            <label class="block text-white text-sm font-medium mb-2" for="year-from">
                                 Год
                             </label>
                             <div class="flex gap-10">
                                 <div class="w-full">
-                                    <select id="yearAuctionFrom" name="year"
+                                    <select id="yearAuctionFrom" name="year>="
                                         class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         <option value="">От</option>
                                         <option value="1990">1990</option>
@@ -202,7 +204,7 @@ function aj_get($sql)
                                     </select>
                                 </div>
                                 <div class="w-full">
-                                    <select id="yearAuctionTo" name="year"
+                                    <select id="yearAuctionTo" name="year<="
                                         class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         <option value="">До</option>
                                         <option value="1990">1990</option>
@@ -242,51 +244,49 @@ function aj_get($sql)
                                         <option value="2024">2024</option>
                                     </select>
                                 </div>
-
                             </div>
-                        </div> -->
+                        </div>
 
-                        <!-- <div class="flex flex-1 gap-10">
+                        <!-- ВЫБОР ПРОБЕГ -->
+                        <div class="flex flex-1 gap-10">
                             <div class="mb-4">
                                 <label class="block text-white text-sm font-medium mb-2" for="mileage">
                                     Пробег
                                 </label>
                                 <div class="flex gap-10">
                                     <div class="w-1/2">
-                                        <input type="number" id="mileageAuctionFrom" name="mileage"
+                                        <input type="number" id="mileageAuctionFrom" name="mileage>=" step="10000"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="от">
 
                                         </input>
                                     </div>
                                     <div class="w-1/2">
-                                        <input type="number" id="mileageAuctionTo" name="mileage"
+                                        <input type="number" id="mileageAuctionTo" name="mileage<=" step="10000"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="до">
-
                                         </input>
                                     </div>
-
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
-                        <!-- 
+                        <!-- ВЫБОР ЦЕНЫ -->
                         <div class="flex flex-1 gap-10">
                             <div class="mb-4">
-                                <label class="block text-white text-sm font-medium mb-2" for="finish">
+                                <label class="block text-white text-sm font-medium mb-2" for="finish>=">
                                     Цена
                                 </label>
                                 <div class="flex gap-10">
                                     <div class="w-1/2">
-                                        <input id="priceAuctionFrom" name="finish[from]"
+                                        <input id="priceAuctionFrom" name="finish>="
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="от">
 
                                         </input>
                                     </div>
                                     <div class="w-1/2">
-                                        <input id="priceAuctionTo" name="finish[to]"
+                                        <input id="priceAuctionTo" name="finish<="
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="до">
 
@@ -296,6 +296,8 @@ function aj_get($sql)
                                 </div>
                             </div>
                         </div>
+
+                        <!-- ВЫБОР ОБЪЕМ -->
                         <div class="flex flex-1 gap-10">
                             <div class="mb-4">
                                 <label class="block text-white text-sm font-medium mb-2" for="value">
@@ -303,14 +305,14 @@ function aj_get($sql)
                                 </label>
                                 <div class="flex gap-10">
                                     <div class="w-1/2">
-                                        <input id="valueAuctionFrom" name="eng_v[from]"
+                                        <input id="valueAuctionFrom" name="eng_v>=" type="number" step="100"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="от">
 
                                         </input>
                                     </div>
                                     <div class="w-1/2">
-                                        <input id="valueAuctionTo" name="eng_v[to]"
+                                        <input id="valueAuctionTo" name="eng_v<=" type="number" step="100"
                                             class="select input block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             placeholder="до">
 
@@ -319,7 +321,7 @@ function aj_get($sql)
 
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
                         <div class="flex items-center justify-center">
                             <button class="up bg-red py-2 px-10 text-white rounded-lg" type="submit">
@@ -343,145 +345,256 @@ function aj_get($sql)
 
     <section class=" w-full relative pt-20 pb-10">
         <div class="container">
-            <div class="flex items-start justify-start flex-wrap ">
+            <div class="flex items-start justify-start flex-wrap" style="margin-bottom: 80px;">
                 <?php
-
-                // if (isset($_GET['vendor']) && isset($_GET['MODEL_NAME']) && !empty($_GET['MODEL_NAME'])) {
-                //     $arr = aj_get("select * from main where model_name='" . $_GET['MODEL_NAME'] . "' order by year desc, mileage desc");
-                // } elseif (isset($_GET['vendor']) && (empty($_GET['MODEL_NAME']))) {
-                //     $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='" . $_GET['vendor'] . "' group by model_name order by model_name");
-                // }
-                // модель/марка ===============================================================
+                    $conditions = [];
+                ############### ПАГИНАЦИЯ ВСЕХ ЛОТОВ###############
                 
-                // модель/марка/кузов ===============================================================
-                if (!empty($_GET['MODEL_NAME'])) {
-                    $kuzovCondition = "";
-                    if (!empty($_GET['KUZOV'])) {
-                        $kuzovCondition = " and kuzov='" . $_GET['KUZOV'] . "'";
-                    }
-                    $arr = aj_get("select * from main where model_name='" . $_GET['MODEL_NAME'] . "'" . $kuzovCondition . " order by year desc, mileage desc");
-
-                } elseif (!empty($_GET['vendor'])) {
-                    $kuzovCondition = "";
-                    if (!empty($_GET['KUZOV'])) {
-                        $kuzovCondition = " and kuzov='" . $_GET['KUZOV'] . "'";
-                    }
-                    $arr = aj_get("select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images from main where marka_name='" . $_GET['vendor'] . "'" . $kuzovCondition . " group by model_name order by model_name ");
-                }
-
-                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                    $records_per_page = 30;
-                    $starting_position = ($page - 1) * $records_per_page;
-
-                    $query = "select id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images 
-                            from main 
-                            where marka_name='" . $_GET['vendor'] . "'" . $kuzovCondition . " 
-                            group by model_name 
-                            order by model_name 
-                            LIMIT :10, :records_per_page";
-
-
-                    // ПАГИНАЦИЯ
- 
-                    $num_arr = aj_get("SELECT COUNT(*) FROM main WHERE marka_name='" . $_GET['vendor'] . "'");
+                    $full_array= aj_get("select count(*) from main");
+                    $lots = $full_array[0]['TAG0'];
                     
-                    echo "SELECT COUNT(*) FROM main WHERE marka_name='" . $_GET['vendor'] . "'";
-
-                    $lots=$num_arr[0]['TAG0'];
-                    echo "<div style='float:left;margin-right:10px'>LOTS: $lots</div>";
-
-                    $totalPages = ceil($lots / 20);
-                    $currentPage = isset($_GET['paged']) ? (int)$_GET['paged'] : 1;
-
-                    if ($totalPages > 1) {
-                        $maxPages = 10;
-
-                        for ($i = 1; $i <= min($maxPages, $totalPages); $i++) {
-                            
-                            echo "<a class='page_num' href='japancar?vendor=" . $v['vendor'] . "&paged=" . $i . "'>" . $i . "</a> ";
-
-
-                            $page = isset($_GET['paged']) ? $_GET['paged'] : 1;
-
-
-                            $query = aj_get("SELECT id, model_id, model_name, color, mileage, eng_v, kpp, avg_price, year, images 
-                                            FROM main 
-                                            WHERE marka_name = '" . $_GET['vendor'] . "' 
-                                            ORDER BY model_name 
-                                            LIMIT $starting_position, $records_per_page");
-
-                                // Обработка результата запроса и вывод данных на странице
-                                foreach ($query as $row) {
-                                    // Здесь выполняется вывод данных на странице
-                                }
-                        }
-
-                        if ($maxPages < $totalPages) {
-                            echo "... ";
-                        }
-
-                        echo "<a class=page_num href='japancar?vendor=" . $v['vendor'] . "&paged=" . $totalPages . "'>" . $totalPages . "</a> ";
-                        echo '<div style="clear:both"></div>';
-                    }
-
-                // $arr = aj_get("select * from main limit 10");
-
+                    $totalPages = ceil($lots / 20); 
+                    $currentPage = isset($_GET['paged']) ? $_GET['paged'] : 1; 
                     
 
-                ?>
-                <pre>
-                    <?php
-                    // print_r($arr);
-                    ?>
-                </pre>
-                <?php
+                    $getQueryParams = $_GET;
+                    unset($getQueryParams['paged']); 
+
+                    $queryString = http_build_query($getQueryParams);
 
 
+                    $currentPage = isset($_GET['paged']) ? $_GET['paged'] : 1; 
+                    $startPage = max(1, $currentPage - 5); 
+                    $endPage = min($startPage + 9, $totalPages); 
+                    
+                    // Проверка
+                    // $queryString = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
+                    
+                    
+                    echo '<div class="pagination--catalog ">';
+                    echo "<div style='float:left;margin-top:10px; margin-right:10px;'>Всего лотов в данной категории: $lots</div>";
+                    for ($i = $startPage; $i <= $endPage; $i++) {
+                       
+                        $updatedParams = $getQueryParams;
+                        
+                        // Это чтобы обновить paged
+                        unset($updatedParams['paged']);
+                        $updatedParams['paged'] = $i;
+                    
+                        $newUrl = 'japancar?' . http_build_query($updatedParams);
+                    
+                        
+                        echo "<a class='page-num' href='" . $newUrl . "'>" . $i . "</a> ";
+                    }
+                    
+                    
+                    echo '</div>';
+                
+                
+                    ## SELECT 20 ROWS
+                    $offset = ((int)$_GET['paged']-1)*20;
+                    $arr_pagination = aj_get("select * from main 
+                    order by year desc, mileage desc 
+                    limit ".($offset<0?0:$offset).",20");
+                    ############### ПАГИНАЦИЯ ВСЕХ ЛОТОВ КОНЕЦ ###############
 
-                foreach ($arr as $v) {
-                    $avgPrice = $v['AVG_PRICE'];
-                    $year = $v['YEAR'];
-                    $kpp = $v['KPP'];
-                    $mileage = $v['MILEAGE'];
-                    $color = $v['COLOR'];
-                    $engine_value = $v['ENG_V'];
-                    $name_car = $v['MODEL_NAME'];
-                    $id = $v['ID'];
-                    list($img1, $img2) = explode('#', $v['IMAGES']);
 
-                    $img1 = str_replace("&h=50", "&w=320", $img1);
+                    # СОБИРАЕМ ВСЕ АКТИВНЫЕ GET ПАРАМЕТРЫ #
+                    $vendor = !empty($_GET['vendor']) ? $_GET['vendor'] : null;    
+                    $model = !empty($_GET['MODEL_NAME']) ? $_GET['MODEL_NAME'] : null;
+                    $kuzov = !empty($_GET['KUZOV']) ? $_GET['KUZOV'] : null;                
+                    $kpp = !empty($_GET['kpp_type']) ? $_GET['kpp_type'] : null;                
+                    $year_from = !empty($_GET['year>=']) ? $_GET['year>='] : null;
+                    $year_to = !empty($_GET['year<=']) ? $_GET['year<='] : null;
+                    $mileage_from = !empty($_GET['mileage>=']) ? $_GET['mileage>='] : null;
+                    $mileage_to = !empty($_GET['mileage<=']) ? $_GET['mileage<='] : null;
+                    $finish_from = !empty($_GET['finish>=']) ? $_GET['finish>='] : null;
+                    $finish_to = !empty($_GET['finish<=']) ? $_GET['finish<='] : null;
+                    $eng_v_from = !empty($_GET['eng_v>=']) ? $_GET['eng_v>='] : null;
+                    $eng_v_to = !empty($_GET['eng_v<=']) ? $_GET['eng_v<='] : null;
 
-                    echo '<div class="animate p-4">
-                        <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                            <img class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
-                        </a>
-                         <div class="flex flex-col items-start gap-4 justify-between">
-                            <div class="md:text-3xl text-xl font-medium pt-4">' . $name_car . '</div>
-                            <div class="flex flex-row">
-                                <div class="flex items-center">
-                                    <img class="" src="' . get_template_directory_uri() . '/src/img/icons/speed.svg " alt="" >
-                                    <p class="md:pr-3 pr-1  md:text-base text-xs">' . $engine_value . ' ' . $kpp . ' ' . $mileage . '</p>
+                    // print_r($conditions);
+                    if ($vendor) {
+                        $marka_name = "marka_name='" . $vendor . "'";
+                    }
+                    if ($model) {
+                        $model_name = "model_name='" . $model . "'";
+                    }
+                    if ($kuzov) {
+                        $kuzov_name = "kuzov='" . $kuzov . "'";
+                    }
+                    if ($kpp) {
+                        $kpp_name = "kpp_type='" . $kpp . "'";
+                    }
+                    if ($year_from) {
+                        $year_from_name = "year>='" . $year_from . "'";
+                    }
+                    if ($year_to) {
+                        $year_to_name = "year<='" . $year_to . "'";
+                    }
+                    if ($mileage_from) {
+                        $mileage_from_name = "mileage>='" . $mileage_from . "'";
+                    }
+                    if ($mileage_to) {
+                        $mileage_to_name = "mileage<='" . $mileage_to . "'";
+                    }
+                    if ($finish_from) {
+                        $finish_from_name = "finish>='" . $finish_from . "'";
+                    }
+                    if ($finish_to) {
+                        $finish_to_name = "finish<='" . $finish_to . "'";
+                    }
+                    if ($eng_v_from) {
+                        $eng_v_from_name = "eng_v>='" . $eng_v_from . "'";
+                    }
+                    if ($eng_v_to) {
+                        $eng_v_to_name = "eng_v<='" . $eng_v_to . "'";
+                    }
+
+                    
+
+                    if (!empty($marka_name)) {
+                        $conditions[] = $marka_name;
+                    }
+                    if (!empty($model_name)) {
+                        $conditions[] = $model_name;
+                    }
+                    if (!empty($kuzov_name)) {
+                        $conditions[] = $kuzov_name;
+                    }
+                    if (!empty($kpp_name)) {
+                        $conditions[] = $kpp_name;
+                    }
+                    if (!empty($year_from_name)) {
+                        $conditions[] = $year_from_name;
+                    }
+                    if (!empty($year_to_name)) {
+                        $conditions[] = $year_to_name;
+                    }
+                    if (!empty($mileage_from)) {
+                        $conditions[] = $mileage_from_name;
+                    }
+                    if (!empty($mileage_to)) {
+                        $conditions[] = $mileage_to_name;
+                    }
+                    if (!empty($finish_from)) {
+                        $conditions[] = $finish_from_name;
+                    }
+                    if (!empty($finish_to)) {
+                        $conditions[] = $finish_to_name;
+                    }
+                    if (!empty($eng_v_from)) {
+                        $conditions[] = $eng_v_from_name;
+                    }
+                    if (!empty($eng_v_to)) {
+                        $conditions[] = $eng_v_to_name;
+                    }
+                    $whereClause = '';
+                    if (!empty($conditions)) {
+                        $whereClause = " WHERE " . implode(' AND ', $conditions);
+                    }
+
+
+                       // Финальный запрос ПО ФИЛЬТРАМ
+                    $query = "SELECT * FROM main" . $whereClause . " ORDER BY year DESC, mileage DESC";
+                    $arr_filter = aj_get($query);
+
+                if(count($conditions) == 0) {
+                    foreach ($arr_pagination as $v) {
+                        $avgPrice = $v['AVG_PRICE'];
+                        $year = $v['YEAR'];
+                        $kpp = $v['KPP'];
+                        $mileage = $v['MILEAGE'];
+                        $color = $v['COLOR'];
+                        $engine_value = $v['ENG_V'];
+                        $name_car = $v['MODEL_NAME'];
+                        $id = $v['ID'];
+                        list($img1, $img2) = explode('#', $v['IMAGES']);
+    
+                        $img1 = str_replace("&h=50", "&w=320", $img1);
+    
+                        echo '<div class="animate p-4">
+                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                <img lazy="loading" class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
+                            </a>
+                             <div class="flex flex-col items-start gap-4 justify-between">
+                                <div class="md:text-3xl text-xl font-medium pt-4">' . $name_car . '</div>
+                                <div class="flex flex-row">
+                                    <div class="flex items-center">
+                                        <img lazy="loading" class="" src="' . get_template_directory_uri() . '/src/img/icons/speed.svg " alt="" >
+                                        <p class="md:pr-3 pr-1  md:text-base text-xs">' . $engine_value . ' ' . $kpp . ' ' . $mileage . '</p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <img lazy="loading" class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/color.svg" alt="" >
+                                        <p class="md:pr-3 pr-1  md:text-base text-xs">' . $color . '</p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <img lazy="loading" class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/year.svg" alt="" >
+                                        <p class="md:pr-3 pr-1  md:text-base text-xs">' . $year . '</p>
+                                    </div>
                                 </div>
-                                <div class="flex items-center">
-                                    <img class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/color.svg" alt="" >
-                                    <p class="md:pr-3 pr-1  md:text-base text-xs">' . $color . '</p>
+                                <div class="flex flex-row gap-4">
+                                    <p class="md:text-xl text-base">
+                                        <span class="font-bold">' . $avgPrice . '</span> (' . $avgPrice . ' ¥)
+                                    </p>
+                                    <a class="up bg-red py-2 px-5 text-white rounded-lg" href="/car_card?id=' . $id . '">
+                                                Заказать
+                                                </a>
                                 </div>
-                                <div class="flex items-center">
-                                    <img class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/year.svg" alt="" >
-                                    <p class="md:pr-3 pr-1  md:text-base text-xs">' . $year . '</p>
                                 </div>
-                            </div>
-                            <div class="flex flex-row gap-4">
-                                <p class="md:text-xl text-base">
-                                    <span class="font-bold">' . $avgPrice . '</span> (' . $avgPrice . ' ¥)
-                                </p>
-                                <a class="up bg-red py-2 px-5 text-white rounded-lg" href="/car_card?id=' . $id . '">
-                                            Заказать
-                                            </a>
-                            </div>
-                            </div>
-                        </div>';
+                            </div>';
+                    }
                 }
+
+               print_r($conditions);
+                if(!empty($conditions)) {
+                    foreach ($arr_filter as $v) {
+                        $avgPrice = $v['AVG_PRICE'];
+                        $year = $v['YEAR'];
+                        $kpp = $v['KPP'];
+                        $mileage = $v['MILEAGE'];
+                        $color = $v['COLOR'];
+                        $engine_value = $v['ENG_V'];
+                        $name_car = $v['MODEL_NAME'];
+                        $id = $v['ID'];
+                        list($img1, $img2) = explode('#', $v['IMAGES']);
+    
+                        $img1 = str_replace("&h=50", "&w=320", $img1);
+    
+                        echo '<div class="animate p-4">
+                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                <img lazy="loading" class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
+                            </a>
+                             <div class="flex flex-col items-start gap-4 justify-between">
+                                <div class="md:text-3xl text-xl font-medium pt-4">' . $name_car . '</div>
+                                <div class="flex flex-row">
+                                    <div class="flex items-center">
+                                        <img lazy="loading" class="" src="' . get_template_directory_uri() . '/src/img/icons/speed.svg " alt="" >
+                                        <p class="md:pr-3 pr-1  md:text-base text-xs">' . $engine_value . ' ' . $kpp . ' ' . $mileage . '</p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <img lazy="loading" class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/color.svg" alt="" >
+                                        <p class="md:pr-3 pr-1  md:text-base text-xs">' . $color . '</p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <img lazy="loading" class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/year.svg" alt="" >
+                                        <p class="md:pr-3 pr-1  md:text-base text-xs">' . $year . '</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row gap-4">
+                                    <p class="md:text-xl text-base">
+                                        <span class="font-bold">' . $avgPrice . '</span> (' . $avgPrice . ' ¥)
+                                    </p>
+                                    <a class="up bg-red py-2 px-5 text-white rounded-lg" href="/car_card?id=' . $id . '">
+                                                Заказать
+                                                </a>
+                                </div>
+                                </div>
+                            </div>';
+                    }
+
+                }
+                
 
                 ?>
             </div>
