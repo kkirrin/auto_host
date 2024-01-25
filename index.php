@@ -1388,69 +1388,7 @@ Template Name: autopotencial
                             </div>
                         </div>
 
-                        <!-- <div class="form-wrapper">
-                            <form action="#" id="formMain" class="form validate-form flex-col">
-
-                            
-                                <div class="form__item">
-                                    <input id="formName" type="text" name="name" class="form__input _req w-full"
-                                        placeholder="Ваше имя">
-                                </div>
-
-                                <div class="form__item">
-                                    <input id="formPhone" type="tel" name="phone" class="form__input _req w-full"
-                                        placeholder="Ваш телефон">
-                                </div>
-
-
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainMarka" type="text" name="marka">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainModel" type="text" name="model">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainFuel" type="text" name="fuel">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainPrivod" type="text" name="privod">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainKpp" type="text" name="kpp">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainYearFrom" type="tel" name="phone">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainYearTo" type="tel" name="phone">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainMileageFrom" type="tel" name="phone">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainMileageTo" type="tel" name="phone">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainPriceFrom" type="tel" name="phone">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainPriceTo" type="tel" name="phone">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainValueFrom" type="tel" name="phone">
-                                </div>
-                                <div class="form__item hidden">
-                                    <input type='hidden' id="formMainValueTo" type="tel" name="phone">
-                                </div>
-
-                                <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
-                            </form>
-
-                        </div> -->
-
-
                         <?php echo do_shortcode('[contact-form-7 id="493fe64" title="Заявка на получение расчета"]'); ?>
-
 
                         <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
                                 class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных

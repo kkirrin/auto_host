@@ -294,38 +294,33 @@
                                 </svg>
                         </button>
                         <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
+                       
                         <div class="flex items-center justify-between pb-10">
                             <div>
                                 <p class="text-white md:text-base text-sm"><?php echo the_field('marka_name'); ?> <?php  echo the_field('модель'); ?></p>
                             </div>
-                            
+                        
                             <div>
                                 <p class="text-yellow font-bold md:text-xl text-sm"><?php the_field("сумма_в_рублях_с_пробелами_выполнено"); ?> ₽</p>
                             </div>
                         </div>
+
+
         
-                        <div class="form-wrapper">
-                            <form action="#" id="form" class="form validate-form flex-col">
-                                <div class="form__item">
-                                    <input id="formName" type="text" name="name" class="form__input _req w-full"
-                                        placeholder="Ваше имя">
-                                </div>
-        
-                                <div class="form__item">
-                                    <input id="formPhone" type="tel" name="phone" class="form__input _req w-full"
-                                        placeholder="Ваш телефон">
-                                </div>
-        
-                                <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
-                            </form>
+                        <div class="form-wrapper form validate-form flex-col">      
+                            <?php echo do_shortcode('[contact-form-7 id="db5b26d" title="Заявка авто определенное"]');?>
                         </div>
                         <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
-                                class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
+                        class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
                                 данных</a></p>
                     </div>
                 </div>
             </section>
 
+            <script type="text/javascript">
+                jQuery('#order_name').attr('value', "<?php echo get_field('marka_name') . ' ' . get_field('модель'); ?>");
+                jQuery('#order_price').attr('value', "<?php echo get_field('сумма_в_рублях_с_пробелами_выполнено'); ?>");
+            </script>
 
         </main>
 

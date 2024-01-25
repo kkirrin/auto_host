@@ -21,6 +21,7 @@ import { initFormMain } from "./module/formMain.js";
 import { initWatchFullReview } from "./module/watchFullReview.js";
 import { initFetchCarsFilter } from "./module/fetchCarsFilter.js";
 import { initFilters } from "./module/filter-cars.js";
+import { initAppendGetField } from "./module/appendGetField.js";
 
 
 
@@ -51,6 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initWatchFullReview();
     initFetchCarsFilter();
     initFilters();
+    initAppendGetField();
 
 
 });

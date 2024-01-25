@@ -197,7 +197,7 @@
                                     <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#FCBC40"/>
                                     </svg>
                             </button>
-                            <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">Заказать авто</h2>
+                            <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-4 ">Заказать авто</h2>
                             <div class="flex items-center justify-between pb-10">
                                 <!-- <div>
                                     <p class="text-white md:text-base text-sm">Б,</p>
@@ -208,20 +208,8 @@
                                 </div> -->
                             </div>
             
-                            <div class="form-wrapper">
-                                <form action="#" id="form" class="form validate-form flex-col">
-                                    <div class="form__item">
-                                        <input id="formName" type="text" name="name" class="form__input _req w-full"
-                                            placeholder="Ваше имя">
-                                    </div>
-            
-                                    <div class="form__item">
-                                        <input id="formPhone" type="tel" name="phone" class="form__input _req w-full"
-                                            placeholder="Ваш телефон">
-                                    </div>
-            
-                                    <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
-                                </form>
+                            <div class="form-wrapper form validate-form flex-col">         
+                                <?php echo do_shortcode('[contact-form-7 id="d806c55" title="Заявка заказать авто"]'); ?>
                             </div>
                             <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
                                     class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
