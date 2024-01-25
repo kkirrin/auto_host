@@ -347,72 +347,75 @@ function aj_get($sql)
         <div class="container">
             <div class="flex items-start justify-start flex-wrap" style="margin-bottom: 80px;">
                 <?php
-                    $conditions = [];
                 ############### ПАГИНАЦИЯ ВСЕХ ЛОТОВ###############
                 
-                    $full_array= aj_get("select count(*) from main");
-                    $lots = $full_array[0]['TAG0'];
-                    
-                    $totalPages = ceil($lots / 20); 
-                    $currentPage = isset($_GET['paged']) ? $_GET['paged'] : 1; 
-                    
-
-                    $getQueryParams = $_GET;
-                    unset($getQueryParams['paged']); 
-
+                $full_array= aj_get("select count(*) from main");
+                $lots = $full_array[0]['TAG0'];
+                
+                $totalPages = ceil($lots / 20); 
+                $currentPage = isset($_GET['paged']) ? $_GET['paged'] : 1; 
+                
+                
+                $getQueryParams = $_GET;
+                unset($getQueryParams['paged']); 
+                
                     $queryString = http_build_query($getQueryParams);
-
-
+                    
+                    
                     $currentPage = isset($_GET['paged']) ? $_GET['paged'] : 1; 
                     $startPage = max(1, $currentPage - 5); 
                     $endPage = min($startPage + 9, $totalPages); 
                     
                     // Проверка
                     // $queryString = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
+                    print_r($currentPage);
                     
                     
-                    echo '<div class="pagination--catalog ">';
-                    echo "<div style='float:left;margin-top:10px; margin-right:10px;'>Всего лотов в данной категории: $lots</div>";
-                    for ($i = $startPage; $i <= $endPage; $i++) {
-                       
-                        $updatedParams = $getQueryParams;
+                    // echo '<div class="pagination--catalog ">';
+                    // echo "<div style='float:left;margin-top:10px; margin-right:10px;'>Всего лотов в данной категории: $lots</div>";
+                    
+                    
+                    // for ($i = $startPage; $i <= $endPage; $i++) {
                         
-                        // Это чтобы обновить paged
-                        unset($updatedParams['paged']);
-                        $updatedParams['paged'] = $i;
-                    
-                        $newUrl = 'japancar?' . http_build_query($updatedParams);
-                    
+                        //     $updatedParams = $getQueryParams;
                         
-                        echo "<a class='page-num' href='" . $newUrl . "'>" . $i . "</a> ";
-                    }
-                    
-                    
-                    echo '</div>';
-                
-                
-                    ## SELECT 20 ROWS
-                    $offset = ((int)$_GET['paged']-1)*20;
-                    $arr_pagination = aj_get("select * from main 
-                    order by year desc, mileage desc 
-                    limit ".($offset<0?0:$offset).",20");
-                    ############### ПАГИНАЦИЯ ВСЕХ ЛОТОВ КОНЕЦ ###############
-
-
-                    # СОБИРАЕМ ВСЕ АКТИВНЫЕ GET ПАРАМЕТРЫ #
-                    $vendor = !empty($_GET['vendor']) ? $_GET['vendor'] : null;    
-                    $model = !empty($_GET['MODEL_NAME']) ? $_GET['MODEL_NAME'] : null;
-                    $kuzov = !empty($_GET['KUZOV']) ? $_GET['KUZOV'] : null;                
-                    $kpp = !empty($_GET['kpp_type']) ? $_GET['kpp_type'] : null;                
-                    $year_from = !empty($_GET['year>=']) ? $_GET['year>='] : null;
-                    $year_to = !empty($_GET['year<=']) ? $_GET['year<='] : null;
-                    $mileage_from = !empty($_GET['mileage>=']) ? $_GET['mileage>='] : null;
-                    $mileage_to = !empty($_GET['mileage<=']) ? $_GET['mileage<='] : null;
-                    $finish_from = !empty($_GET['finish>=']) ? $_GET['finish>='] : null;
-                    $finish_to = !empty($_GET['finish<=']) ? $_GET['finish<='] : null;
+                        //     // Это чтобы обновить paged
+                        //     unset($updatedParams['paged']);
+                        //     $updatedParams['paged'] = $i;
+                        
+                        //     $newUrl = 'japancar?' . http_build_query($updatedParams);
+                        
+                            
+                        //     echo "<a class='page-num' href='" . $newUrl . "'>" . $i . "</a> ";
+                        // }
+                        // echo '</div>';
+                        
+                        
+                        
+                        
+                        
+                        ## SELECT 20 ROWS
+                        $offset = ((int)$_GET['paged']-1)*20;
+                        $arr_pagination = aj_get("select * from main 
+                        order by year desc, mileage desc 
+                        limit ".($offset<0?0:$offset).",20");
+                        ############### ПАГИНАЦИЯ ВСЕХ ЛОТОВ КОНЕЦ ###############
+                        
+                        
+                        # СОБИРАЕМ ВСЕ АКТИВНЫЕ GET ПАРАМЕТРЫ #
+                        $vendor = !empty($_GET['vendor']) ? $_GET['vendor'] : null;    
+                        $model = !empty($_GET['MODEL_NAME']) ? $_GET['MODEL_NAME'] : null;
+                        $kuzov = !empty($_GET['KUZOV']) ? $_GET['KUZOV'] : null;                
+                        $kpp = !empty($_GET['kpp_type']) ? $_GET['kpp_type'] : null;                
+                        $year_from = !empty($_GET['year>=']) ? $_GET['year>='] : null;
+                        $year_to = !empty($_GET['year<=']) ? $_GET['year<='] : null;
+                        $mileage_from = !empty($_GET['mileage>=']) ? $_GET['mileage>='] : null;
+                        $mileage_to = !empty($_GET['mileage<=']) ? $_GET['mileage<='] : null;
+                        $finish_from = !empty($_GET['finish>=']) ? $_GET['finish>='] : null;
+                        $finish_to = !empty($_GET['finish<=']) ? $_GET['finish<='] : null;
                     $eng_v_from = !empty($_GET['eng_v>=']) ? $_GET['eng_v>='] : null;
                     $eng_v_to = !empty($_GET['eng_v<=']) ? $_GET['eng_v<='] : null;
-
+                    
                     // print_r($conditions);
                     if ($vendor) {
                         $marka_name = "marka_name='" . $vendor . "'";
@@ -450,8 +453,9 @@ function aj_get($sql)
                     if ($eng_v_to) {
                         $eng_v_to_name = "eng_v<='" . $eng_v_to . "'";
                     }
-
                     
+                    
+                    $conditions = [];
 
                     if (!empty($marka_name)) {
                         $conditions[] = $marka_name;
@@ -499,55 +503,82 @@ function aj_get($sql)
                     $query = "SELECT * FROM main" . $whereClause . " ORDER BY year DESC, mileage DESC";
                     $arr_filter = aj_get($query);
 
-                if(count($conditions) == 0) {
-                    foreach ($arr_pagination as $v) {
-                        $avgPrice = $v['AVG_PRICE'];
-                        $year = $v['YEAR'];
-                        $kpp = $v['KPP'];
-                        $mileage = $v['MILEAGE'];
-                        $color = $v['COLOR'];
-                        $engine_value = $v['ENG_V'];
-                        $name_car = $v['MODEL_NAME'];
-                        $id = $v['ID'];
-                        list($img1, $img2) = explode('#', $v['IMAGES']);
-    
-                        $img1 = str_replace("&h=50", "&w=320", $img1);
-    
-                        echo '<div class="animate p-4">
-                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
-                                <img lazy="loading" class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
-                            </a>
-                             <div class="flex flex-col items-start gap-4 justify-between">
-                                <div class="md:text-3xl text-xl font-medium pt-4">' . $name_car . '</div>
-                                <div class="flex flex-row">
-                                    <div class="flex items-center">
-                                        <img lazy="loading" class="" src="' . get_template_directory_uri() . '/src/img/icons/speed.svg " alt="" >
-                                        <p class="md:pr-3 pr-1  md:text-base text-xs">' . $engine_value . ' ' . $kpp . ' ' . $mileage . '</p>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <img lazy="loading" class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/color.svg" alt="" >
-                                        <p class="md:pr-3 pr-1  md:text-base text-xs">' . $color . '</p>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <img lazy="loading" class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/year.svg" alt="" >
-                                        <p class="md:pr-3 pr-1  md:text-base text-xs">' . $year . '</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-row gap-4">
-                                    <p class="md:text-xl text-base">
-                                        <span class="font-bold">' . $avgPrice . '</span> (' . $avgPrice . ' ¥)
-                                    </p>
-                                    <a class="up bg-red py-2 px-5 text-white rounded-lg" href="/car_card?id=' . $id . '">
-                                                Заказать
-                                                </a>
-                                </div>
-                                </div>
-                            </div>';
-                    }
-                }
+                    if(empty($conditions)) {
 
-               print_r($conditions);
-                if(!empty($conditions)) {
+                        echo '<div class="pagination--catalog ">';
+                        echo "<div style='float:left;margin-top:10px; margin-right:10px;'>Всего лотов в данной категории: $lots</div>";
+    
+                        
+                        for ($i = $startPage; $i <= $endPage; $i++) {
+                           
+                            $updatedParams = $getQueryParams;
+                            
+                            // Это чтобы обновить paged
+                            unset($updatedParams['paged']);
+                            $updatedParams['paged'] = $i;
+                        
+                            // $newUrl = 'japancar?' . http_build_query($updatedParams);
+                            $newUrl = '?' . http_build_query($updatedParams);
+                        
+                            
+                            echo "<a class='page-num' href='" . $newUrl . "'>" . $i . "</a> ";
+                        }
+                        echo '</div>';
+
+                    }
+
+                    if(count($conditions) == 0) {
+
+                        foreach ($arr_pagination as $v) {
+                            $avgPrice = $v['AVG_PRICE'];
+                            $year = $v['YEAR'];
+                            $kpp = $v['KPP'];
+                            $mileage = $v['MILEAGE'];
+                            $color = $v['COLOR'];
+                            $engine_value = $v['ENG_V'];
+                            $name_car = $v['MODEL_NAME'];
+                            $id = $v['ID'];
+                            list($img1, $img2) = explode('#', $v['IMAGES']);
+        
+                            $img1 = str_replace("&h=50", "&w=320", $img1);
+        
+                            echo '<div class="animate p-4">
+                                <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                    <img lazy="loading" class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
+                                </a>
+                                 <div class="flex flex-col items-start gap-4 justify-between">
+                                    <div class="md:text-3xl text-xl font-medium pt-4">' . $name_car . '</div>
+                                    <div class="flex flex-row">
+                                        <div class="flex items-center">
+                                            <img lazy="loading" class="" src="' . get_template_directory_uri() . '/src/img/icons/speed.svg " alt="" >
+                                            <p class="md:pr-3 pr-1  md:text-base text-xs">' . $engine_value . ' ' . $kpp . ' ' . $mileage . '</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img lazy="loading" class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/color.svg" alt="" >
+                                            <p class="md:pr-3 pr-1  md:text-base text-xs">' . $color . '</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img lazy="loading" class="pr-1 " src="' . get_template_directory_uri() . '/src/img/icons/year.svg" alt="" >
+                                            <p class="md:pr-3 pr-1  md:text-base text-xs">' . $year . '</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-row gap-4">
+                                        <p class="md:text-xl text-base">
+                                            <span class="font-bold">' . $avgPrice . '</span> (' . $avgPrice . ' ¥)
+                                        </p>
+                                        <a class="up bg-red py-2 px-5 text-white rounded-lg" href="/car_card?id=' . $id . '">
+                                                    Заказать
+                                                    </a>
+                                    </div>
+                                    </div>
+                                </div>';
+                        }
+
+                    }
+                    
+            
+
+                 if(!empty($conditions)) {
                     foreach ($arr_filter as $v) {
                         $avgPrice = $v['AVG_PRICE'];
                         $year = $v['YEAR'];
