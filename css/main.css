@@ -11,6 +11,10 @@
   }
 }
 
+.page-numbers.current {
+  background: #e40604;
+}
+
 
 .page-num {
   
@@ -27,7 +31,7 @@
 
 .pagination--catalog {
   position: absolute;
-  bottom: 60px;
+  bottom: 130px;
   right: 170px;
   margin: -50px;
   margin-top: -44px;
@@ -39,12 +43,17 @@
   .pagination--catalog {
     right: 50px;
     padding-left: 50px;
+    bottom: 52px;
     
   }
   .pagination--catalog a {
     line-height: 4 !important;
   }
  
+}
+
+.page-num.active {
+  background: #e40604 !important;
 }
 
 .spec {
@@ -593,6 +602,10 @@ div .wpc-filter-content input   {
   padding: 10px 15px;
   border-radius: 5px;
   color: white;
+}
+
+.page-numbers.active {
+  background: #e40604;
 }
 
 

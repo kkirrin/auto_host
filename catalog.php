@@ -63,7 +63,7 @@ function aj_get($sql)
 
         <div class="absolute right-0 md:bottom-52 bottom-0">
             <a href="https://auc.avtopotencial-dv.ru/">
-                <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">
+                <div class="flex flex-col items-center mb-2 bg-bg-gray rounded-md p-2">
                     <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
                     <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
                 </div>
@@ -360,8 +360,8 @@ function aj_get($sql)
                 
                 $queryString = http_build_query($getQueryParams);
                 
-                $startPage = max(1, $currentPage - 5); 
-                $endPage = min($startPage + 9, $totalPages); 
+                $startPage = max(1, $currentPage - 1); 
+                $endPage = min($startPage + 2, $totalPages); 
                 
                     
                 ## SELECT 20 ROWS
@@ -476,7 +476,7 @@ function aj_get($sql)
 
                     echo '<div class="pagination--catalog ">';
                     // echo "<div style='float:left;margin-top:10px; margin-right:10px;'>Всего лотов в данной категории: $lots</div>"
-                    
+                    echo "<a class='page-num" . ($currentPage == 1 ? ' active' : '') . "' href='?paged=1'>" . 1 . "</a>";
                     for ($i = $startPage; $i <= $endPage; $i++) {
                         
                         $updatedParams = $getQueryParams;
@@ -487,9 +487,10 @@ function aj_get($sql)
 
                         // $newUrl = 'japancar?' . http_build_query($updatedParams);
                         $newUrl = '?' . http_build_query($updatedParams);
-                    
+                        
                         echo "<a class='page-num" . ($currentPage == $i ? ' active' : '') . "' href='" . $newUrl . "'>" . $i . "</a> ";
                     }
+                    echo "<a class='page-num" . ($currentPage == $totalPages ? ' active' : '') . "' href='?paged=" . $totalPages . "'>" . $totalPages . "</a>";
                     echo '</div>';
 
                 }
@@ -510,7 +511,7 @@ function aj_get($sql)
                             $img1 = str_replace("&h=50", "&w=320", $img1);
         
                             echo '<div class="animate p-4">
-                                <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                                <a href="/car_card?id=' . $id . '" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                                     <img lazy="loading" class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
                                 </a>
                                  <div class="flex flex-col items-start gap-4 justify-between">
@@ -560,7 +561,7 @@ function aj_get($sql)
                         $img1 = str_replace("&h=50", "&w=320", $img1);
     
                         echo '<div class="animate p-4">
-                            <a href="#" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
+                            <a href="/car_card?id=' . $id . '" class="bg-green md:rounded-lg rounded-2xl shadow-md shadow-main-black right-5 md:bottom-6 bottom-2">
                                 <img lazy="loading" class="img_car" src=' . $img1 . ' width="430" height="460" alt="вправо" >
                             </a>
                              <div class="flex flex-col items-start gap-4 justify-between">
