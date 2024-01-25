@@ -83,7 +83,7 @@ function aj_get($sql)
             </h2>
 
             <div class="flex flex-wrap items-start justify-start gap-10 pb-10">
-                <a href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b8%d0%b7-%d1%8f%d0%bf%d0%be%d0%bd%d0%b8%d0%b8/"
+                <a href="/japancar/"
                     class="up py-3 px-8 text-white rounded-md text-opacity-50 bg-bg-gray">
                     Авто с аукционов
                 </a>
@@ -355,177 +355,144 @@ function aj_get($sql)
                 $totalPages = ceil($lots / 20); 
                 $currentPage = isset($_GET['paged']) ? $_GET['paged'] : 1; 
                 
-                
                 $getQueryParams = $_GET;
                 unset($getQueryParams['paged']); 
                 
-                    $queryString = http_build_query($getQueryParams);
+                $queryString = http_build_query($getQueryParams);
+                
+                $startPage = max(1, $currentPage - 5); 
+                $endPage = min($startPage + 9, $totalPages); 
+                
                     
+                ## SELECT 20 ROWS
+                $offset = ((int)$_GET['paged']-1)*20;
+                $arr_pagination = aj_get("select * from main 
+                order by year desc, mileage desc 
+                limit ".($offset<0?0:$offset).",20");
+                ############### ПАГИНАЦИЯ ВСЕХ ЛОТОВ КОНЕЦ ###############
+                
+                
+                # СОБИРАЕМ ВСЕ АКТИВНЫЕ GET ПАРАМЕТРЫ #
+                $vendor = !empty($_GET['vendor']) ? $_GET['vendor'] : null;    
+                $model = !empty($_GET['MODEL_NAME']) ? $_GET['MODEL_NAME'] : null;
+                $kuzov = !empty($_GET['KUZOV']) ? $_GET['KUZOV'] : null;                
+                $kpp = !empty($_GET['kpp_type']) ? $_GET['kpp_type'] : null;                
+                $year_from = !empty($_GET['year>=']) ? $_GET['year>='] : null;
+                $year_to = !empty($_GET['year<=']) ? $_GET['year<='] : null;
+                $mileage_from = !empty($_GET['mileage>=']) ? $_GET['mileage>='] : null;
+                $mileage_to = !empty($_GET['mileage<=']) ? $_GET['mileage<='] : null;
+                $finish_from = !empty($_GET['finish>=']) ? $_GET['finish>='] : null;
+                $finish_to = !empty($_GET['finish<=']) ? $_GET['finish<='] : null;
+                $eng_v_from = !empty($_GET['eng_v>=']) ? $_GET['eng_v>='] : null;
+                $eng_v_to = !empty($_GET['eng_v<=']) ? $_GET['eng_v<='] : null;
                     
-                    $currentPage = isset($_GET['paged']) ? $_GET['paged'] : 1; 
-                    $startPage = max(1, $currentPage - 5); 
-                    $endPage = min($startPage + 9, $totalPages); 
-                    
-                    // Проверка
-                    // $queryString = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
-                    print_r($currentPage);
-                    
-                    
-                    // echo '<div class="pagination--catalog ">';
-                    // echo "<div style='float:left;margin-top:10px; margin-right:10px;'>Всего лотов в данной категории: $lots</div>";
-                    
-                    
-                    // for ($i = $startPage; $i <= $endPage; $i++) {
-                        
-                        //     $updatedParams = $getQueryParams;
-                        
-                        //     // Это чтобы обновить paged
-                        //     unset($updatedParams['paged']);
-                        //     $updatedParams['paged'] = $i;
-                        
-                        //     $newUrl = 'japancar?' . http_build_query($updatedParams);
-                        
-                            
-                        //     echo "<a class='page-num' href='" . $newUrl . "'>" . $i . "</a> ";
-                        // }
-                        // echo '</div>';
-                        
-                        
-                        
-                        
-                        
-                        ## SELECT 20 ROWS
-                        $offset = ((int)$_GET['paged']-1)*20;
-                        $arr_pagination = aj_get("select * from main 
-                        order by year desc, mileage desc 
-                        limit ".($offset<0?0:$offset).",20");
-                        ############### ПАГИНАЦИЯ ВСЕХ ЛОТОВ КОНЕЦ ###############
-                        
-                        
-                        # СОБИРАЕМ ВСЕ АКТИВНЫЕ GET ПАРАМЕТРЫ #
-                        $vendor = !empty($_GET['vendor']) ? $_GET['vendor'] : null;    
-                        $model = !empty($_GET['MODEL_NAME']) ? $_GET['MODEL_NAME'] : null;
-                        $kuzov = !empty($_GET['KUZOV']) ? $_GET['KUZOV'] : null;                
-                        $kpp = !empty($_GET['kpp_type']) ? $_GET['kpp_type'] : null;                
-                        $year_from = !empty($_GET['year>=']) ? $_GET['year>='] : null;
-                        $year_to = !empty($_GET['year<=']) ? $_GET['year<='] : null;
-                        $mileage_from = !empty($_GET['mileage>=']) ? $_GET['mileage>='] : null;
-                        $mileage_to = !empty($_GET['mileage<=']) ? $_GET['mileage<='] : null;
-                        $finish_from = !empty($_GET['finish>=']) ? $_GET['finish>='] : null;
-                        $finish_to = !empty($_GET['finish<=']) ? $_GET['finish<='] : null;
-                    $eng_v_from = !empty($_GET['eng_v>=']) ? $_GET['eng_v>='] : null;
-                    $eng_v_to = !empty($_GET['eng_v<=']) ? $_GET['eng_v<='] : null;
-                    
-                    // print_r($conditions);
-                    if ($vendor) {
-                        $marka_name = "marka_name='" . $vendor . "'";
-                    }
-                    if ($model) {
-                        $model_name = "model_name='" . $model . "'";
-                    }
-                    if ($kuzov) {
-                        $kuzov_name = "kuzov='" . $kuzov . "'";
-                    }
-                    if ($kpp) {
-                        $kpp_name = "kpp_type='" . $kpp . "'";
-                    }
-                    if ($year_from) {
-                        $year_from_name = "year>='" . $year_from . "'";
-                    }
-                    if ($year_to) {
-                        $year_to_name = "year<='" . $year_to . "'";
-                    }
-                    if ($mileage_from) {
-                        $mileage_from_name = "mileage>='" . $mileage_from . "'";
-                    }
-                    if ($mileage_to) {
-                        $mileage_to_name = "mileage<='" . $mileage_to . "'";
-                    }
-                    if ($finish_from) {
-                        $finish_from_name = "finish>='" . $finish_from . "'";
-                    }
-                    if ($finish_to) {
-                        $finish_to_name = "finish<='" . $finish_to . "'";
-                    }
-                    if ($eng_v_from) {
-                        $eng_v_from_name = "eng_v>='" . $eng_v_from . "'";
-                    }
-                    if ($eng_v_to) {
-                        $eng_v_to_name = "eng_v<='" . $eng_v_to . "'";
-                    }
-                    
-                    
-                    $conditions = [];
+                // print_r($conditions);
+                if ($vendor) {
+                    $marka_name = "marka_name='" . $vendor . "'";
+                }
+                if ($model) {
+                    $model_name = "model_name='" . $model . "'";
+                }
+                if ($kuzov) {
+                    $kuzov_name = "kuzov='" . $kuzov . "'";
+                }
+                if ($kpp) {
+                    $kpp_name = "kpp_type='" . $kpp . "'";
+                }
+                if ($year_from) {
+                    $year_from_name = "year>='" . $year_from . "'";
+                }
+                if ($year_to) {
+                    $year_to_name = "year<='" . $year_to . "'";
+                }
+                if ($mileage_from) {
+                    $mileage_from_name = "mileage>='" . $mileage_from . "'";
+                }
+                if ($mileage_to) {
+                    $mileage_to_name = "mileage<='" . $mileage_to . "'";
+                }
+                if ($finish_from) {
+                    $finish_from_name = "finish>='" . $finish_from . "'";
+                }
+                if ($finish_to) {
+                    $finish_to_name = "finish<='" . $finish_to . "'";
+                }
+                if ($eng_v_from) {
+                    $eng_v_from_name = "eng_v>='" . $eng_v_from . "'";
+                }
+                if ($eng_v_to) {
+                    $eng_v_to_name = "eng_v<='" . $eng_v_to . "'";
+                }
+                
+                
+                $conditions = [];
 
-                    if (!empty($marka_name)) {
-                        $conditions[] = $marka_name;
-                    }
-                    if (!empty($model_name)) {
-                        $conditions[] = $model_name;
-                    }
-                    if (!empty($kuzov_name)) {
-                        $conditions[] = $kuzov_name;
-                    }
-                    if (!empty($kpp_name)) {
-                        $conditions[] = $kpp_name;
-                    }
-                    if (!empty($year_from_name)) {
-                        $conditions[] = $year_from_name;
-                    }
-                    if (!empty($year_to_name)) {
-                        $conditions[] = $year_to_name;
-                    }
-                    if (!empty($mileage_from)) {
-                        $conditions[] = $mileage_from_name;
-                    }
-                    if (!empty($mileage_to)) {
-                        $conditions[] = $mileage_to_name;
-                    }
-                    if (!empty($finish_from)) {
-                        $conditions[] = $finish_from_name;
-                    }
-                    if (!empty($finish_to)) {
-                        $conditions[] = $finish_to_name;
-                    }
-                    if (!empty($eng_v_from)) {
-                        $conditions[] = $eng_v_from_name;
-                    }
-                    if (!empty($eng_v_to)) {
-                        $conditions[] = $eng_v_to_name;
-                    }
-                    $whereClause = '';
-                    if (!empty($conditions)) {
-                        $whereClause = " WHERE " . implode(' AND ', $conditions);
-                    }
+                if (!empty($marka_name)) {
+                    $conditions[] = $marka_name;
+                }
+                if (!empty($model_name)) {
+                    $conditions[] = $model_name;
+                }
+                if (!empty($kuzov_name)) {
+                    $conditions[] = $kuzov_name;
+                }
+                if (!empty($kpp_name)) {
+                    $conditions[] = $kpp_name;
+                }
+                if (!empty($year_from_name)) {
+                    $conditions[] = $year_from_name;
+                }
+                if (!empty($year_to_name)) {
+                    $conditions[] = $year_to_name;
+                }
+                if (!empty($mileage_from)) {
+                    $conditions[] = $mileage_from_name;
+                }
+                if (!empty($mileage_to)) {
+                    $conditions[] = $mileage_to_name;
+                }
+                if (!empty($finish_from)) {
+                    $conditions[] = $finish_from_name;
+                }
+                if (!empty($finish_to)) {
+                    $conditions[] = $finish_to_name;
+                }
+                if (!empty($eng_v_from)) {
+                    $conditions[] = $eng_v_from_name;
+                }
+                if (!empty($eng_v_to)) {
+                    $conditions[] = $eng_v_to_name;
+                }
+                $whereClause = '';
+                if (!empty($conditions)) {
+                    $whereClause = " WHERE " . implode(' AND ', $conditions);
+                }
 
+                // Финальный запрос ПО ФИЛЬТРАМ
+                $query = "SELECT * FROM main" . $whereClause . " ORDER BY year DESC, mileage DESC";
+                $arr_filter = aj_get($query);
 
-                       // Финальный запрос ПО ФИЛЬТРАМ
-                    $query = "SELECT * FROM main" . $whereClause . " ORDER BY year DESC, mileage DESC";
-                    $arr_filter = aj_get($query);
+                if(empty($conditions)) {
 
-                    if(empty($conditions)) {
-
-                        echo '<div class="pagination--catalog ">';
-                        echo "<div style='float:left;margin-top:10px; margin-right:10px;'>Всего лотов в данной категории: $lots</div>";
-    
+                    echo '<div class="pagination--catalog ">';
+                    // echo "<div style='float:left;margin-top:10px; margin-right:10px;'>Всего лотов в данной категории: $lots</div>"
+                    
+                    for ($i = $startPage; $i <= $endPage; $i++) {
                         
-                        for ($i = $startPage; $i <= $endPage; $i++) {
-                           
-                            $updatedParams = $getQueryParams;
-                            
-                            // Это чтобы обновить paged
-                            unset($updatedParams['paged']);
-                            $updatedParams['paged'] = $i;
+                        $updatedParams = $getQueryParams;
                         
-                            // $newUrl = 'japancar?' . http_build_query($updatedParams);
-                            $newUrl = '?' . http_build_query($updatedParams);
-                        
-                            
-                            echo "<a class='page-num' href='" . $newUrl . "'>" . $i . "</a> ";
-                        }
-                        echo '</div>';
+                        // Это чтобы обновить paged
+                        unset($updatedParams['paged']);
+                        $updatedParams['paged'] = $i;
 
+                        // $newUrl = 'japancar?' . http_build_query($updatedParams);
+                        $newUrl = '?' . http_build_query($updatedParams);
+                    
+                        echo "<a class='page-num" . ($currentPage == $i ? ' active' : '') . "' href='" . $newUrl . "'>" . $i . "</a> ";
                     }
+                    echo '</div>';
+
+                }
 
                     if(count($conditions) == 0) {
 
