@@ -265,7 +265,7 @@
             </section>
             
 
-            <section class=" wow fadeInUp" data-wow-delay="0.4s" id="calculator">
+            <section class=" wow fadeInUp" data-wow-delay="0.4s" tel id="calculator">
                 <div class="container relative pb-10">
                     <h2 class="text-start text-black z-10 font-normal md:text-4xl text-xl uppercase pb-10">
                         Расшифровка цены
@@ -318,22 +318,22 @@
                                     </div>
 
                                     <div class="md:text-base text-xs">
-                                        Фиксированные расходы по Японии и до Владивостока (любой аукцион покупки, любой порт отправки) ("пришло" в долларах -> переведено в рубли):
+                                        Фиксированные расходы по Японии и до Владивостока (любой аукцион покупки, любой порт отправки):
                                         <ul class="list-disc md:p-5 p-3 md:text-base text-xs">
                                             <li>
                                                 Комиссии аукциона -  <input class="dollar__price" value="50000"> ₽
                                             </li>
                                             <li>
-                                                Комиссии аукциона -  <input class="dollar__price" value="50000"> ₽
+                                                Доставка по Японии, любой аукцион -  <input class="dollar__price" value="60000"> ₽
                                             </li>
                                             <li>
-                                                Комиссии аукциона -  <input class="dollar__price" value="50000"> ₽
+                                                Комиссия агента в Японии за покупку, любая аукционная стоимость -  <input class="dollar__price" value="50000"> ₽
                                             </li>
                                             <li>
-                                                Комиссии аукциона -  <input class="dollar__price" value="50000"> ₽
+                                                Фрахт из любого порта -  <input class="dollar__price" value="70000"> ₽
                                             </li>
                                             <li>
-                                                Комиссии аукциона -  <input class="dollar__price" value="50000"> ₽
+                                                Гарантия от повреждений -  <input class="dollar__price" value="50000"> ₽
                                             </li>
                                         </ul>
                                     </div>
@@ -345,13 +345,13 @@
                                         </p> -->
                                         <ul class="list-disc md:p-5 p-3">
                                             <li>
-                                                Выгрузка, хранение на СВХ первые 5 суток, таможенное оформление, СБКТС, услуга брокера, вывоз из порта до стоянки компании, фотоотчёт: <input value="20000" class="partPayment" >
+                                                Выгрузка, хранение на СВХ первые 5 суток, таможенное оформление, СБКТС, услуга брокера, вывоз из порта до стоянки компании, фотоотчёт: <input value="75000" class="partPayment" >
                                             </li>
                                             <li>
-                                                Расходы, связанные с лабораторией: <input value="50000" class="partPayment" > ₽
+                                                Расходы, связанные с лабораторией: <input value="4000" class="partPayment" > ₽
                                             </li>
                                             <li>
-                                                Комиссия Автопотенциал-ДВ: <input value="50000" class="partPayment" > ₽
+                                                Комиссия Автопотенциал-ДВ: <input value="30 000" class="partPayment" > ₽
                                             </li>
                                         </ul>
 
@@ -360,13 +360,13 @@
                                        
                                 
                                     <div class="md:text-base text-xs pb-5">
-                                        Таможенные платежи: (обратитесь к таможенному калькулятору)
+                                        Таможенные платежи: <a href="https://www.tks.ru/auto/calc/">(обратитесь к таможенному калькулятору)</a>
                                         <ul class="list-disc md:p-5 p-3">
                                             <li>
-                                                Сборы за таможенное оформление: <input class="partCustoms" value="3000"> ₽
+                                                Сборы за таможенное оформление: <input class="partCustoms price" value="3100"> ₽
                                             </li>
                                             <li>
-                                                Пошлина (на физ.лицо):  <input class="partCustoms" value="450000"> ₽
+                                                Пошлина (на физ.лицо):  <input class="partCustoms price" value="447991"> ₽
                                             </li>
                                         </ul>
                                     </div>

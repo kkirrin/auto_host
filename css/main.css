@@ -195,6 +195,21 @@ div .wpc-filter-content select {
   background-color: transparent;
 }
 
+@media (max-width: 767px) {
+  .dollar__price, .partPayment, .partCustoms, #sum, #sum2, .y , .price  {
+    outline: 0;
+    width: 10vw;
+    background-color: transparent;
+  }
+}
+@media (max-width: 420px) {
+  .dollar__price, .partPayment, .partCustoms, #sum, #sum2, .y , .price  {
+    outline: 0;
+    width: 14vw;
+    background-color: transparent;
+  }
+}
+
 .arrow-up {
   padding-left: 5px;
 }

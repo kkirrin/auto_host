@@ -55,5 +55,13 @@ window.addEventListener('DOMContentLoaded', () => {
     initAppendGetField();
 
 
+    const wow = new WOW(
+        {
+        mobile: false,     
+      }
+      )
+      wow.init();
+
+
 });
 
