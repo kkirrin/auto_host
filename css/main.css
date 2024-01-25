@@ -5,8 +5,47 @@
 /* Импорт кастомных стилей для компонентов */
 
 /*  */
+@media (max-width: 1029px) {
+  .main__auc {
+    margin-bottom: 170px;
+  }
+}
 
 
+.page-num {
+  
+  list-style: none !important;
+  margin: 0 !important;
+  display: inline !important;
+  margin-right: 5px !important;
+  background: #303030 !important;
+  padding: 10px 15px !important;
+  border-radius: 5px !important;
+  color: white !important;
+
+}
+
+.pagination--catalog {
+  position: absolute;
+  bottom: 60px;
+  right: 170px;
+  margin: -50px;
+  margin-top: -44px;
+}
+
+
+@media (max-width:767px) {
+ 
+  .pagination--catalog {
+    right: 50px;
+    padding-left: 50px;
+    
+  }
+  .pagination--catalog a {
+    line-height: 4 !important;
+  }
+ 
+}
 
 .spec {
   padding-bottom: 10px;
@@ -23,96 +62,108 @@
 }
 
 @media (max-width:3000px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
+    width: 465px !important;
+  }
+}
+@media (max-width:1430px) {
+  .img_car--finish, .img__korea {
+    width: 450px !important;
+  }
+}
+@media (max-width:1390px) {
+  .img_car--finish, .img__korea {
     width: 430px !important;
   }
 }
 @media (max-width:1333px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 420px !important;
   }
 }
 @media (max-width:1307px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 400px !important;
   }
 }
 
 @media (max-width:1240px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 370px !important;
   }
 }
 
 @media (max-width:1157px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 350px !important;
   }
 }
 
 @media (max-width:1093px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 330px !important;
   }
 }
 
 @media (max-width:1029px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 300px !important;
   }
 }
 
 
 @media (max-width:937px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 440px !important;
   }
 }
 @media (max-width:920px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 400px !important;
   }
 }
 
 @media (max-width:845px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 370px !important;
   }
 }
 
 @media (max-width:785px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 350px !important;
   }
 }
 
 
 @media (max-width:741px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 330px !important;
   }
 }
 
 
 @media (max-width:701px) {
-  .img_car--finish {
-    width: 320px !important;
-  }
-}
-@media (max-width:685px) {
-  .img_car--finish {
-    width: 300px !important;
+  .img_car--finish, .img__korea {
+    width: 345px !important;
   }
 }
 
 @media (max-width:641px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 290px !important;
   }
 }
 @media (max-width:627px) {
-  .img_car--finish {
+  .img_car--finish, .img__korea {
     width: 420px !important;
+  }
+}
+
+
+@media (max-width:420px) {
+  .img_car {
+    width: 345px !important;
   }
 }
 
@@ -225,7 +276,7 @@ div .wpc-filter-content select {
   display: none;
 }
 
-@media (max-width:767px) {
+@media (max-width:1100px) {
   .contact_div2 {
     display:block
   }
@@ -238,7 +289,27 @@ div .wpc-filter-content select {
   left: 100px;
 }
 
-@media (max-width:767px) {
+@media (max-width: 1600px) {
+  .contact_div {
+    width: 427px;
+    position: absolute;
+    top: 20px;
+  }
+}
+
+@media (max-width: 1480px) {
+  .contact_div {
+    width: 427px;
+    position: absolute;
+    top: 20px;
+  }
+  .contact_div ul li {
+    padding-bottom: 4px;
+  }
+}
+
+
+@media (max-width:1100px) {
     .contact_div {
       display: none;
 

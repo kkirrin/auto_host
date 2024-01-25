@@ -22,19 +22,23 @@ export const initKoreaSlider = () => {
                     prevEl: ".korea-prev",
                 },
                 breakpoints: {
-                    320: {
-                      slidesPerView: 1,
-                      spaceBetween: 15
-                    },
-                    480: {
-                      slidesPerView: 2,
-                      spaceBetween: 15
-                    },
-                    767: {
-                      slidesPerView: 3,
-                      spaceBetween: 15
-                    }
+                  320: {
+                    slidesPerView: 1,
+                    spaceBetween: 15
+                  },
+                  695: {
+                    slidesPerView: 1,
+                    spaceBetween: 15
+                  },
+                  767: {
+                    slidesPerView: 2,
+                    spaceBetween: 15
+                  },
+                  1200: {
+                    slidesPerView: 3,
+                    spaceBetween:10
                   }
+                }
             });
         }
     };

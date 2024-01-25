@@ -31,10 +31,10 @@
                 <div class="container">
                     <div class="flex md:flex-row flex-col items-center justify-center gap-10"> 
                         <div class="md:w-1/2 w-full">
-                            <img src="<?php echo the_field('главное_фото'); ?>" alt="">
+                            <img class="brd" src="<?php echo the_field('главное_фото'); ?>" alt="">
                         </div>
                         <div class="md:w-1/2 w-full">
-                            <img src="<?php echo the_field('второе_фото'); ?>" alt="">
+                            <img class="brd" src="<?php echo the_field('второе_фото'); ?>" alt="">
                         </div>
                     </div>
                     <h3 class="font-bold md:text-4xl text-xl pt-20">
@@ -200,7 +200,7 @@
                                 ?> 
                                     <div class="p-2 swiper-slide animate">
                                     <a href="<?php the_permalink(); ?>">
-                                        <img class="" src="<?php the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
+                                        <img class="brd" src="<?php the_field('главное_фото'); ?>" width="440" height="380" alt="вправо" >
                                     </a>
                                     <div class="flex flex-col items-center md:items-start">
                                         <div class="md:text-3xl text-xl font-medium pt-4 font-bold pb-5"><?php echo the_field('marka_name'); ?> <?php  echo the_field('модель'); ?></div>

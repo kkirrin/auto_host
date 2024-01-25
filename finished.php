@@ -51,7 +51,7 @@
                             while ($query->have_posts()) {
                                 $query->the_post();
                             ?>
-                            <div class="animate p-2 img_car--finish">
+                            <div class="animate p-2 img_car--finish brd">
                             <a href="<?php echo the_permalink(); ?>">
                                 <img class="brd" src="<?php echo the_field('главное_фото'); ?>" alt="<?php echo the_field('модель'); ?>">
                             </a>
