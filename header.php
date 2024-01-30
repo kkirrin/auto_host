@@ -72,7 +72,7 @@
                             <div class="container flex md:justify-between justify-evenly md:flex-nowrap flex-wrap text-white">
                                 <div>
                                     <p class="pb-2">Каталог</p>
-                                    <ul class="text-gray md:text-base text-xs">
+                                    <ul class="text-gray md:text-base text-xs mobile_ul">
                                         <li class="pb-4">
                                             <a href="/japancar/">Авто с аукционов Японии</a>
                                         </li>  
@@ -92,7 +92,7 @@
                                 </div>
                                 <div>
                                     <p class="pb-2">Клиентам</p>
-                                    <ul class="text-gray md:text-base text-xs"> 
+                                    <ul class="text-gray md:text-base text-xs mobile_ul"> 
                                         <li class="pb-4">
                                             <a href="/%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d1%8b/">Отзывы</a>
                                         </li>  

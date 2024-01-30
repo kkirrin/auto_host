@@ -4,7 +4,11 @@
 
 /* Импорт кастомных стилей для компонентов */
 
-/*  */
+/*  */  
+
+.mobile_ul {
+  max-width: 145px;
+}
 @media (max-width: 1029px) {
   .main__auc {
     margin-bottom: 170px;
