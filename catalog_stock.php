@@ -4,40 +4,6 @@
     */
 ?>
 
-<?php 
-
-    function aj_get($sql) {
-
-        ##----- CONFIG ---------
-        $code='APTnghDfD64KJ';       ## REQUIRED
-        $server='78.46.90.228'; ## optional :: $server='144.76.203.145'; 
-        $go='api';              ## optional :: $go='gzip'; // gzip work faster
-
-        ## SET IP,URL
-        $ip = $_SERVER['HTTP_CF_CONNECTING_IP']=='' ? $_SERVER['REMOTE_ADDR'] : $_SERVER['HTTP_CF_CONNECTING_IP'];
-        $url = 'http://'.$server.'/'.$go.'/?ip='.$ip.'&json&code='.$code.'&sql='.urlencode(preg_replace("/%25/","%",$sql));
-
-        ## DEBUG
-        echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
-
-        ## API REQUEST
-        $s = file_get_contents($url);
-        //echo $s;
-
-        ## GZIP DECODE
-        if ($go=='gzip') {
-            $s = $server=='144.76.203.145' ? gzinflate(substr($s,10,-8)) : 
-                gzuncompress(preg_replace("/^\\x1f\\x8b\\x08\\x00\\x00\\x00\\x00\\x00/","",$s));
-        }
-
-        $arr = json_decode($s,true);  //die(var_export($arr));
-        // echo gettype($arr);
-        return $arr;
-    }
-?>
-
-
-
 <?php get_header(); ?>
 
         <main>
@@ -60,10 +26,6 @@
          
       
                 <section class="md:py-44 py-10 bg-black relative overflow-hidden" style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
-
-                    <!-- <div class="absolute md:-top-24 -top-0 right-0">
-                        <img src="./src/img/main/catalog-bg.png" alt="">
-                    </div> -->
                     <div class="absolute right-0 md:bottom-52 bottom-0 z-10">
                     <a href="https://auc.avtopotencial-dv.ru/">
                             <div class="flex flex-col items-center mb-2 bg-bg-gray rounded-md p-2">  
@@ -99,26 +61,8 @@
 
                         <div class="bg_search w-full rounded-xl">
                             <div class="container w-full rounded-xl">
-                                <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 uppercase">
-                                    
+                                <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 uppercase">     
                                     <?php echo do_shortcode( '[fe_widget id=290]' ); ?>	
-                                    
-                                        <?php while ( have_posts() ) : the_post(); ?>
-                                    
-                                        <?php get_template_part('in_stock') ?>
-                                        
-                                        <?php endwhile; ?>	
-                                    
-                                    <?php 
-                                    the_posts_pagination( array(
-                                        'mid_size' => 2,
-                                        'prev_text'    => __('&#8592; Предыдущая'),
-                                        'next_text'    => __('Следующая &#8594;')
-                                    ) );
-                                    ?> 
-                                    <div class="mobile-pagination">
-                                        <div class="navigation"><?php posts_nav_link(' ','&#8592; Предыдущая &nbsp;','&nbsp; Следующая &#8594;'); ?></div>
-                                    </div>
                                 </form>
                             </div>	
 

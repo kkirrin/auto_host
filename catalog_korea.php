@@ -4,39 +4,6 @@
     */
 ?>
 
-<?php 
-
-    function aj_get($sql) {
-
-        ##----- CONFIG ---------
-        $code='APTnghDfD64KJ';       ## REQUIRED
-        $server='78.46.90.228'; ## optional :: $server='144.76.203.145'; 
-        $go='api';              ## optional :: $go='gzip'; // gzip work faster
-
-        ## SET IP,URL
-        $ip = $_SERVER['HTTP_CF_CONNECTING_IP']=='' ? $_SERVER['REMOTE_ADDR'] : $_SERVER['HTTP_CF_CONNECTING_IP'];
-        $url = 'http://'.$server.'/'.$go.'/?ip='.$ip.'&json&code='.$code.'&sql='.urlencode(preg_replace("/%25/","%",$sql));
-
-        ## DEBUG
-        echo "<hr><a style='font-size:12px' href='$url'>".$url."</a><hr>";
-
-        ## API REQUEST
-        $s = file_get_contents($url);
-        //echo $s;
-
-        ## GZIP DECODE
-        if ($go=='gzip') {
-            $s = $server=='144.76.203.145' ? gzinflate(substr($s,10,-8)) : 
-                gzuncompress(preg_replace("/^\\x1f\\x8b\\x08\\x00\\x00\\x00\\x00\\x00/","",$s));
-        }
-
-        $arr = json_decode($s,true);  //die(var_export($arr));
-        // echo gettype($arr);
-        return $arr;
-    }
-?>
-
-
 
 <?php get_header(); ?>
 
@@ -99,26 +66,9 @@
 
                         <div class="bg_search w-full rounded-xl">
                             <div class="container w-full rounded-xl">
-                                <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 uppercase">
-                                    
-                                    <?php echo do_shortcode( '[fe_widget id=280]' ); ?>	
-                                    
-                                        <?php while ( have_posts() ) : the_post(); ?>
-                                    
-                                        <?php get_template_part('korea') ?>
-                                        
-                                        <?php endwhile; ?>	
-                                    
-                                    <?php 
-                                    the_posts_pagination( array(
-                                        'mid_size' => 2,
-                                        'prev_text'    => __('&#8592; Предыдущая'),
-                                        'next_text'    => __('Следующая &#8594;')
-                                    ) );
-                                    ?> 
-                                    <div class="mobile-pagination">
-                                        <div class="navigation"><?php posts_nav_link(' ','&#8592; Предыдущая &nbsp;','&nbsp; Следующая &#8594;'); ?></div>
-                                    </div>
+                                <form class="pt-10 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 uppercase">      
+                                <!-- Фильтры через плагин -->
+                                    <?php echo do_shortcode( '[fe_widget id=280]' ); ?>	    
                                 </form>
                             </div>	
 
@@ -132,8 +82,6 @@
                 <section class=" w-full relative pt-20 pb-10 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="container">
                         <div class="flex items-start justify-start flex-wrap ">
-
-                        
                         <?php
                             $posts_per_page = 10;  
                             // Текущая страница
@@ -186,9 +134,6 @@
                             </div>  
                         <?php
                     }
-
-                   
-
                         wp_reset_postdata(); 
                     ?>
                         </div>
@@ -196,9 +141,6 @@
 
                 </section>
                 
-
-             
-
             <?php 
                 $pag_args = array(
                     'total' => $query->max_num_pages,
@@ -212,8 +154,6 @@
                 echo '</div>';
 
             ?>
-
-           
         </main>
 
 <?php get_footer(); ?>

@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <title>Автопотенциал</title>
-    <!-- <script src="//code.jivo.ru/widget/1BFYas96i1" async></script>
-    <script src="//code.jivo.ru/widget/3S3KXnJwwC" async></script> -->
     
     <?php wp_head(); ?>
     
@@ -199,13 +197,6 @@
                             </button>
                             <h2 class="text-start text-white z-10 font-normal md:text-4xl text-xl uppercase pb-4 ">Заказать авто</h2>
                             <div class="flex items-center justify-between pb-10">
-                                <!-- <div>
-                                    <p class="text-white md:text-base text-sm">Б,</p>
-                                </div>
-                                
-                                <div>
-                                    <p class="text-yellow font-bold md:text-xl text-sm">1 799 975 ₽</p>
-                                </div> -->
                             </div>
             
                             <div class="form-wrapper form validate-form flex-col">         

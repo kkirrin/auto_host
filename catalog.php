@@ -348,23 +348,26 @@ function aj_get($sql)
             <div class="flex items-start justify-start flex-wrap" style="margin-bottom: 80px;">
                 <?php
                 ############### ПАГИНАЦИЯ ВСЕХ ЛОТОВ###############
+
+                // 1.1 Сначала приходят все машины всех марок
                 
                 $full_array= aj_get("select count(*) from main");
                 $lots = $full_array[0]['TAG0'];
-                
+                // 1.2 Формируется пагинация
                 $totalPages = ceil($lots / 20); 
                 $currentPage = isset($_GET['paged']) ? $_GET['paged'] : 1; 
-                
+                // 1.3 При клике на страницу формируется GET запрос
                 $getQueryParams = $_GET;
+                // 1.4 Удаление paged если есть
                 unset($getQueryParams['paged']); 
                 
                 $queryString = http_build_query($getQueryParams);
-                
+                 // 1.4 Формируется начало пагинации и конец
                 $startPage = max(1, $currentPage - 1); 
                 $endPage = min($startPage + 2, $totalPages); 
                 
                     
-                ## SELECT 20 ROWS
+                // 1.4 Сдвиг будет в каждой странице на 20 машин
                 $offset = ((int)$_GET['paged']-1)*20;
                 $arr_pagination = aj_get("select * from main 
                 order by year desc, mileage desc 
@@ -373,6 +376,7 @@ function aj_get($sql)
                 
                 
                 # СОБИРАЕМ ВСЕ АКТИВНЫЕ GET ПАРАМЕТРЫ #
+                // 2.1 Фильтрация по модели. Сбор всех гет параметров после нажатия на кнопку Фильтр.
                 $vendor = !empty($_GET['vendor']) ? $_GET['vendor'] : null;    
                 $model = !empty($_GET['MODEL_NAME']) ? $_GET['MODEL_NAME'] : null;
                 $kuzov = !empty($_GET['KUZOV']) ? $_GET['KUZOV'] : null;                
@@ -386,7 +390,7 @@ function aj_get($sql)
                 $eng_v_from = !empty($_GET['eng_v>=']) ? $_GET['eng_v>='] : null;
                 $eng_v_to = !empty($_GET['eng_v<=']) ? $_GET['eng_v<='] : null;
                     
-                // print_r($conditions);
+                // 2.2 Проверяется каждый GET параметр
                 if ($vendor) {
                     $marka_name = "marka_name='" . $vendor . "'";
                 }
@@ -424,9 +428,9 @@ function aj_get($sql)
                     $eng_v_to_name = "eng_v<='" . $eng_v_to . "'";
                 }
                 
-                
+                // 2.3 Заводится пустой список условий
                 $conditions = [];
-
+                // 2.4 Кладется в массив если не пустой параметр.
                 if (!empty($marka_name)) {
                     $conditions[] = $marka_name;
                 }
@@ -463,15 +467,19 @@ function aj_get($sql)
                 if (!empty($eng_v_to)) {
                     $conditions[] = $eng_v_to_name;
                 }
+                // 2.4 Формируется SQL строка которая передается в функция aj_get
                 $whereClause = '';
                 if (!empty($conditions)) {
                     $whereClause = " WHERE " . implode(' AND ', $conditions);
                 }
 
                 // Финальный запрос ПО ФИЛЬТРАМ
+                // 2.5 Пошел запрос 
                 $query = "SELECT * FROM main" . $whereClause . " ORDER BY year DESC, mileage DESC";
+                // 2.5 Пришли отфильтрованные машины
                 $arr_filter = aj_get($query);
 
+                // 2.6 Отключение пагинации, которая осталась от ВСЕХ ЛОТОВ
                 if(empty($conditions)) {
 
                     echo '<div class="pagination--catalog ">';
@@ -494,7 +502,7 @@ function aj_get($sql)
                     echo '</div>';
 
                 }
-
+                // 1.5 Вывод ВСЕХ машин и пагинации к ней.
                     if(count($conditions) == 0) {
 
                         foreach ($arr_pagination as $v) {
@@ -544,7 +552,7 @@ function aj_get($sql)
 
                     }
                     
-            
+                // 2.7 Отключение паганации ВСЕХ ЛОТОВ. Тут будут только отфильтрованные машины.
 
                  if(!empty($conditions)) {
                     foreach ($arr_filter as $v) {

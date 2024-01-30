@@ -1,3 +1,5 @@
+
+// Файл для скрытых input. Передает их в форму.
 export const initFormMain = () => {
     const select1 = document.getElementById('brand');
     const select2 = document.getElementById('model');
@@ -14,19 +16,6 @@ export const initFormMain = () => {
     const input13 = document.getElementById('value_to');
 
 
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      const select = document.getElementById('value_to');
-      const arrow = document.querySelector('.select-arrow');
-    
-      select.addEventListener('click', function() {
-        arrow.classList.add('open');
-      });
-    
-      select.addEventListener('blur', function() {
-        arrow.classList.remove('open');
-      });
-    });
     if(select1) {
       select1.onchange = function() {
         // Перезаписываем значение переменной selectedValue1 при выборе нового Option
@@ -136,18 +125,4 @@ export const initFormMain = () => {
     });
     }
    
-
-    // Найти все теги video
-    // const allVideos = document.querySelectorAll('video');
-
-    // // Перебрать все найденные видео
-    // allVideos.forEach(function(video) {
-    //   // Проверить, имеет ли видео непустой src
-    //   if (!video.getAttribute('src')) {
-    //     video.style.display = 'none'; // Скрыть видео, если src пустой
-    //   }
-    // });
-
-
-
 }

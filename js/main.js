@@ -1,5 +1,4 @@
 import { initNav } from "./module/nav.js";
-// import { initSlider } from "./module/sliders.js";
 import { initCurrentYear } from "./module/current-year.js";
 import { initScrollToTop } from "./module/scroll-to-top.js";
 import { initScroll } from "./module/scroll.js";
@@ -19,9 +18,8 @@ import { initCardItemSlider } from './module/card-item-slider.js';
 import { initFetchCars } from "./module/fetchCars.js";
 import { initFormMain } from "./module/formMain.js";
 import { initWatchFullReview } from "./module/watchFullReview.js";
-import { initFetchCarsFilter } from "./module/fetchCarsFilter.js";
 import { initFilters } from "./module/filter-cars.js";
-import { initAppendGetField } from "./module/appendGetField.js";
+
 
 
 
@@ -29,7 +27,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     initNav();
-    // initSlider();
     initCurrentYear();
     initScrollToTop();
     initScroll();
@@ -50,9 +47,8 @@ window.addEventListener('DOMContentLoaded', () => {
     initFetchCars();
     initFormMain();
     initWatchFullReview();
-    initFetchCarsFilter();
     initFilters();
-    initAppendGetField();
+ 
 
 
     const wow = new WOW(

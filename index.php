@@ -911,15 +911,15 @@ Template Name: autopotencial
                 <ul class="flex items-start md:justify-between justify-start flex-wrap gap-10 counter-list">
                         <li class="py-3 pr-2 sm:py-7">
                             <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик3.webp'; ?>" alt="" >     
-                            <p class="md:text-xl text-sm text-white pt-3">Директор Иванушко Роман Сергеевич</p>
+                            <p class="md:text-xl text-sm text-white pt-3">Директор Роман Сергеевич</p>
                         </li>
                         <li class="py-3 pr-2 sm:py-7">
                                 <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик1.webp'; ?>" alt="" >
-                            <p class="md:text-xl text-sm text-white pt-3"> Менеджер Корябкин Виктор Дмитриевич</p>
+                            <p class="md:text-xl text-sm text-white pt-3"> Менеджер Виктор Дмитриевич</p>
                         </li>
                         <li class="py-3 pr-2 sm:py-7">
                             <img class="spec" src="<?php echo get_template_directory_uri() . '/src/img/company/челик2.webp'; ?>" alt="" >     
-                            <p class="md:text-xl text-sm text-white pt-3"> Менеджер Истомина Анна Сергеевна</p>
+                            <p class="md:text-xl text-sm text-white pt-3"> Менеджер Анна Сергеевна</p>
                         </li>
                     </ul>
 

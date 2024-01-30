@@ -1,6 +1,7 @@
 export const initFetchCars = () => {
     
     // Запрашиваем данные с помощью fetch
+    // Код для файла japan.js Тут реализован поиск по марке 
     fetch("https://avtopotencial-dv.ru/wp-content/themes/autopotencial/js/japan.js")
     .then(response => {
         // Проверяем, успешно ли выполнен запрос
@@ -25,7 +26,7 @@ export const initFetchCars = () => {
             });
         });
 
-        // Заполняем выпадающие списки на странице данными
+        // Заполняем выпадающие списки на странице данными. Списки находятся уже в верстке
        
             document.getElementById('model').innerHTML = model;
             document.getElementById('brand').innerHTML = brand;
@@ -43,7 +44,7 @@ export const initFetchCars = () => {
                         // console.log(relevantModels)
                         let modelSelect = document.getElementById('model');
                        
-                        // Отвечает за добавление в option новых моделей,в нем же удаление тех, которые не соот.
+                        // Отвечает за добавление в option новых моделей, в нем же удаление тех, которые не соот.
                         Array.from(relevantModels).forEach(model => {
                             modelSelect.appendChild(model.cloneNode(true));
                             model.removeAttribute('hidden');
@@ -59,7 +60,7 @@ export const initFetchCars = () => {
                     });
                 }
                 
-    
+                // Здесь функция принимает brand и по нему модели устанвливает
                 function showModelsForBrand(brandname) {
                     let options = document.querySelectorAll('option[data-id]');
                     // console.log(options)
