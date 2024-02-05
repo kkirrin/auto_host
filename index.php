@@ -1012,7 +1012,7 @@ Template Name: autopotencial
                                     Скачать договор pdf
                                 </a> -->
 
-                                <a class="absolute bottom-6 bg-yellow py-2 px-10 text-white rounded-lg" href="https://avtopotencial-dv.ru/wp-content/uploads/2024/01/Договор.pdf" target="_blank">
+                                <a class="absolute bottom-6 bg-yellow py-2 px-10 text-white rounded-lg" href="https://avtopotencial-dv.ru/wp-content/uploads/2024/02/Договор.pdf" target="_blank">
                                     Открыть договор в PDF
                                 </a>
                             </div>
