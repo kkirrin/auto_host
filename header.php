@@ -32,12 +32,6 @@
                                                 
                         <div class="menu overflow-hidden ">
 
-                        <!-- <?php wp_nav_menu([
-                                'theme_location' => 'menu-catalog',
-                                'container' => 'ul',
-                                'menu_class' => 'flex flex-col text-white px-4 mb-4 hover:text-green', 
-                            ]); 
-                        ?> -->
 
 
 
@@ -52,6 +46,12 @@
         
                                 <li class="px-4 mb-4">
                                     <a class="hover:text-green transition-colors" href="/%d0%b0%d0%b2%d1%82%d0%be-%d0%b2-%d0%bd%d0%b0%d0%bb%d0%b8%d1%87%d0%b8%d0%b8/">Авто в наличии</a></li>
+                                <li class="px-4 mb-4">
+
+                                    <a class="hover:text-green transition-colors" href="https://www.dongchedi.com">Онлайн-ауционы Китая</a></li>
+                                <li class="px-4 mb-4">
+
+                                    <a class="hover:text-green transition-colors" href="http://www.encar.com/index.do">Онлайн-ауционы Кореи</a></li>
                             </ul>
                         </div>
 
@@ -85,6 +85,14 @@
                                         </li>  
                                         <li class="pb-4">
                                             <a href="https://auc.avtopotencial-dv.ru">Сейчас на аукционах</a>
+                                        </li>  
+
+                                        <li class="pb-4">
+                                            <a href="https://www.dongchedi.com">Онлайн-ауционы Китая</a>
+                                        </li>  
+                                        
+                                        <li class="pb-4">
+                                            <a href="http://www.encar.com/index.do">Онлайн-ауционы Кореи</a>
                                         </li>  
                                     </ul>
                                 </div>

@@ -34,6 +34,14 @@
                         <li class="pb-8 hover:text-red transition-all">
                             <a href="https://auc.avtopotencial-dv.ru/">Сейчас на аукционах</a>
                         </li>  
+
+                        <li class="pb-8 hover:text-red transition-all">
+                        <a href="https://www.dongchedi.com">Онлайн-ауционы Китая</a>
+                        </li>  
+
+                        <li class="pb-8 hover:text-red transition-all">
+                            <a href="http://www.encar.com/index.do">Онлайн-ауционы Кореи</a>
+                        </li>  
                     </ul>
                 </div>
                 <div>

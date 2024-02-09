@@ -2,6 +2,8 @@
 /*
 Template Name: autopotencial
 */
+    if (preg_match("/(bot|crawler)/",
+    $_SERVER['HTTP_USER_AGENT'] )) {die();}
 ?>
 
 <?php get_header(); ?>
@@ -51,11 +53,11 @@ Template Name: autopotencial
 
                         
                         <div class="swiper-wrapper h-auto">
-                        <div class="absolute right-0 md:bottom-52 bottom-0 main__auc">
-                            <a href="https://auc.avtopotencial-dv.ru/">
-                                    <div class="flex flex-col items-center mb-2 bg-bg-gray rounded-md p-2">  
+                            <div class="absolute left-0 md:bottom-52 bottom-0 padding_auc">
+                                <a href="https://auc.avtopotencial-dv.ru/">
+                                    <div class="flex flex-col items-center mb-2 bg-red rounded-md p-2">  
                                         <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
-                                        <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
+                                        <p class="text-white md:text-base text-xs">Онлайн-аукцион Японии</p>
                                     </div>
                                 </a>
 
@@ -65,7 +67,45 @@ Template Name: autopotencial
                                         <p class="text-white md:text-base text-xs">Онлайн-чат</p>
                                     </div>
                                 </a>
-                        </div>
+                        
+                            </div>
+<!-- 
+                            <div class="absolute right-0 md:bottom-32 bottom-0 padding_auc">
+                                <div class= "py-10 md: max-w-xs -z-10 md:order-2 order-1">
+                                    <div class="bg-black p-5 rounded">
+                                        <p class="text-white font-medium md:text-xl text-base">Курс валют ЦБ на сегодня:</p>
+                                        <div class="flex items-center justify-between p-5" >
+                                            <ul>
+                                                <li class=" text-white text-base pb-3">
+                                                    JPY/RUB:
+                                                </li> 
+                                                <li class=" text-white text-base pb-3">
+                                                    USD/RUB:
+                                                </li> 
+                                                <li class=" text-white text-base pb-3">
+                                                    EUR/RUB:
+                                                </li> 
+                                            </ul>
+                                            <a class="text-gray text-[10px] z-100" href="https://www.cbr-xml-daily.ru/">Курсы валют, API</a>
+            
+                                            <ul class="currency">
+                                                <li class="exchange-rate-jpy text-yellow text-base font-bold pb-3">
+                                                    
+                                                </li> 
+                                                <li class="exchange-rate-usd text-yellow text-base font-bold pb-3">
+                                                    
+                                                </li> 
+                                                <li class="exchange-rate-eur text-yellow text-base font-bold pb-3">
+                                                    
+                                                </li> 
+                                        
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
                             <div class="swiper-slide autoheight relative bg-black -z-10 max-h-screen">
                                 <div class="flag relative">
                                     <img class="absolute top-0 right-0 z-10 sm:w-full sm:h-auto" src="<?php echo get_template_directory_uri() . '/src/img/main/bg-slide1.png'; ?>" alt="">

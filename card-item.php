@@ -3,6 +3,8 @@
     Template Name: В наличии (корейские)
     Template Post Type: post
 */
+    if (preg_match("/(bot|crawler)/",
+    $_SERVER['HTTP_USER_AGENT'] )) {die();}
 
 ?>
 

@@ -26,11 +26,11 @@
          
       
                 <section class="md:py-44 py-10 bg-black relative overflow-hidden" style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/main/catalog-bg.png'; ?>'); background-position: center; background-repeat: no-repeat;">
-                    <div class="absolute right-0 md:bottom-52 bottom-0 z-10">
-                    <a href="https://auc.avtopotencial-dv.ru/">
-                            <div class="flex flex-col items-center mb-2 bg-bg-gray rounded-md p-2">  
+                    <div class="absolute left-0 md:bottom-52 bottom-0 padding_auc">
+                        <a href="https://auc.avtopotencial-dv.ru/">
+                            <div class="flex flex-col items-center mb-2 bg-red rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
-                                <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
+                                <p class="text-white md:text-base text-xs">Онлайн-аукцион Японии</p>
                             </div>
                         </a>
 
@@ -40,6 +40,7 @@
                                 <p class="text-white md:text-base text-xs">Онлайн-чат</p>
                             </div>
                         </a>
+                
                     </div>
                     <div class="container">
                         

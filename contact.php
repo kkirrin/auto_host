@@ -10,20 +10,21 @@
         <main>
             <h1 class="visually-hidden">Скрытый заголовок</h1>
             <section class="md:py-60 py-32 bg-black -z-10" style="background-image: url('<?php echo get_template_directory_uri() . '/src/img/contact/bg.png' ; ?>');" >
-                <div class="absolute right-0 md:bottom-52 bottom-0 padding_auc">
-                <a href="https://auc.avtopotencial-dv.ru/">
-                            <div class="flex flex-col items-center mb-2 bg-bg-gray bg-opacity-50 rounded-md p-2">  
-                                <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
-                                <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
-                            </div>
-                        </a>
+                <div class="absolute left-0 md:bottom-52 bottom-0 padding_auc">
+                    <a href="https://auc.avtopotencial-dv.ru/">
+                        <div class="flex flex-col items-center mb-2 bg-red rounded-md p-2">  
+                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
+                            <p class="text-white md:text-base text-xs">Онлайн-аукцион Японии</p>
+                        </div>
+                    </a>
 
-                        <a href="#" class="hidden">
-                            <div class="flex flex-col items-center bg-bg-gray bg-opacity-50 rounded-md p-2">
-                                <img src="<?php echo get_template_directory_uri() . '/src/img/icons/chat.svg'; ?>" alt="">
-                                <p class="text-white md:text-base text-xs">Онлайн-чат</p>
-                            </div>
-                        </a>
+                    <a href="#" class="hidden">
+                        <div class="flex flex-col items-center bg-bg-gray bg-opacity-50 rounded-md p-2">
+                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/chat.svg'; ?>" alt="">
+                            <p class="text-white md:text-base text-xs">Онлайн-чат</p>
+                        </div>
+                    </a>
+            
                 </div>
                 <div class="container relative">
                     

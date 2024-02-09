@@ -31,11 +31,11 @@
                     <!-- <div class="absolute md:-top-24 -top-0 right-0">
                         <img src="./src/img/main/catalog-bg.png" alt="">
                     </div> -->
-                    <div class="absolute right-0 md:bottom-52 bottom-0 z-10">
+                    <div class="absolute left-0 md:bottom-52 bottom-0 padding_auc">
                         <a href="https://auc.avtopotencial-dv.ru/">
-                            <div class="flex flex-col items-center mb-2 bg-bg-gray rounded-md p-2">  
+                            <div class="flex flex-col items-center mb-2 bg-red rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
-                                <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
+                                <p class="text-white md:text-base text-xs">Онлайн-аукцион Японии</p>
                             </div>
                         </a>
 
@@ -45,6 +45,7 @@
                                 <p class="text-white md:text-base text-xs">Онлайн-чат</p>
                             </div>
                         </a>
+                
                     </div>
                     <div class="container">
                         

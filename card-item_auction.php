@@ -2,7 +2,8 @@
 /*
     Template Name: card item auction
 */
-
+    if (preg_match("/(bot|crawler)/",
+    $_SERVER['HTTP_USER_AGENT'] )) {die();}
 ?>
 
 <?php get_header(); ?>
@@ -47,11 +48,11 @@
             <h1 class="visually-hidden">Скрытый заголовок</h1>
             <section class="md:py-40 py-32">
                 <div class="container">
-                    <div class="absolute right-0 md:bottom-52 bottom-0 padding_auc">
+                    <div class="absolute left-0 hidden md:bottom-52 bottom-0 padding_auc">
                         <a href="https://auc.avtopotencial-dv.ru/">
-                            <div class="flex flex-col items-center mb-2 bg-bg-gray rounded-md p-2">  
+                            <div class="flex flex-col items-center mb-2 bg-red rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
-                                <p class="text-white md:text-base text-xs">Аукцион-онлайн</p>
+                                <p class="text-white md:text-base text-xs">Онлайн-аукцион Японии</p>
                             </div>
                         </a>
 
@@ -61,7 +62,7 @@
                                 <p class="text-white md:text-base text-xs">Онлайн-чат</p>
                             </div>
                         </a>
-                        
+                
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -360,7 +361,7 @@
                                        
                                 
                                     <div class="md:text-base text-xs pb-5">
-                                        Таможенные платежи: <a href="https://www.tks.ru/auto/calc/">(обратитесь к таможенному калькулятору)</a>
+                                        Таможенные платежи: <a class="text-calc" href="https://www.tks.ru/auto/calc/">(обратитесь к таможенному калькулятору)</a>
                                         <ul class="list-disc md:p-5 p-3">
                                             <li>
                                                 Сборы за таможенное оформление: <input class="partCustoms price" value="3100"> ₽
