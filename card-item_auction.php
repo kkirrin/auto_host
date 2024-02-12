@@ -361,7 +361,7 @@
                                        
                                 
                                     <div class="md:text-base text-xs pb-5">
-                                        Таможенные платежи: <a class="text-calc" href="https://www.tks.ru/auto/calc/">(обратитесь к таможенному калькулятору)</a>
+                                        Таможенные платежи: <a style="text-decoration: underline;" class="text-calc font-semibold" href="https://www.tks.ru/auto/calc/">(обратитесь к таможенному калькулятору по ссылке)</a>
                                         <ul class="list-disc md:p-5 p-3">
                                             <li>
                                                 Сборы за таможенное оформление: <input class="partCustoms price" value="3100"> ₽

@@ -14,7 +14,7 @@
         
             <section class="md:pt-40 md:pb-20 py-10">
                 <div class="container py-20">
-                    <div class="absolute left-0 md:bottom-52 bottom-0 padding_auc">
+                    <!-- <div class="absolute left-0 md:bottom-52 bottom-0 padding_auc">
                         <a href="https://auc.avtopotencial-dv.ru/">
                             <div class="flex flex-col items-center mb-2 bg-red rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
@@ -29,7 +29,7 @@
                             </div>
                         </a>
                 
-                    </div>
+                    </div> -->
                     <h2 class="text-xl lg:text-5xl text-jost font-extrabold line uppercase relative">Выполненные заказы </h2>
                     
                     <div class="flex items-start justify-start flex-wrap">
