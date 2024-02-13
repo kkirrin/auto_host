@@ -6,6 +6,10 @@
 
 /*  */  
 
+.padding_auc {
+  margin-bottom: 150px;
+}
+
 .text-calc {
   color: #e40604;
 }
@@ -767,7 +771,24 @@ video {
   }
 }
 
-
+@media (max-width:1980px) {
+  .slide2 {
+  top: -100px !important;
+  z-index: -1000 !important;
+}
+}
+@media (max-width:1440px) {
+  .slide2 {
+  top: -100px !important;
+  z-index: -1000 !important;
+}
+}
+@media (max-width:1290px) {
+  .slide2 {
+  top: -100px !important;
+  z-index: -1000 !important;
+}
+}
 
 @media (max-width: 767px) {
   .logo {
@@ -775,10 +796,20 @@ video {
   }
 }
 
-.slide2 {
-  top: -100px !important;
-  z-index: -1000 !important;
+@media (max-width:1289px) {
+  .slide2 {
+    top: -234px !important;
+    z-index: -1000 !important;
+  }
 }
+@media (max-width:1070px) {
+  .slide2 {
+    top: -174px !important;
+    z-index: -1000 !important;
+  }
+}
+
+
 
 /* @media(max-width:1200px) {
   .slide2 {

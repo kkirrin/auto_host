@@ -52,6 +52,9 @@
                                 <li class="px-4 mb-4">
 
                                     <a class="hover:text-green transition-colors" href="http://www.encar.com/index.do">Онлайн-ауционы Кореи</a></li>
+                                <li class="px-4 mb-4">
+
+                                    <a class="hover:text-green transition-colors" href="https://www.youtube.com/channel/UCBKiXYVvi1ROscY2_ENwM-Q">Наш youtube-канал</a></li>
                             </ul>
                         </div>
 
