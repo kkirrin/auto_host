@@ -87,7 +87,7 @@
                                             <div class="flex flex-col md:flex-row items-center justify-around">
                                                 <a href="<?php echo the_field('review_link'); ?>" class="link_review">
                                                     <div class="pt-4 pb-4">
-                                                        <a class="text-yellow hover:text-red" href="<?php the_field('ссылка_на_отзыв'); ?>">Смотреть оригинал</a>
+                                                        <a class="text-yellow hover:text-red" href="<?php echo the_field('review_link'); ?>"">Смотреть оригинал</a>
                                                     </div>
                                                 </a>                                      
                                             </div>

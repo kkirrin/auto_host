@@ -48,12 +48,9 @@ Template Name: autopotencial
                 <div class="main-wrapper">
                     <div class="main-item relative">
 
-                        <div class="swiper-pagination"></div>
-                        
-
-                        
+                        <div class="swiper-pagination"></div>   
                         <div class="swiper-wrapper h-auto">
-                            <div class="absolute left-0 md:bottom-52 bottom-0 padding_auc">
+                            <div class="absolute left-0 md:bottom-44 bottom-0 padding_auc">
                                 <a href="https://auc.avtopotencial-dv.ru/">
                                     <div class="flex flex-col items-center mb-2 bg-red rounded-md p-2">  
                                         <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
@@ -415,7 +412,7 @@ Template Name: autopotencial
                                             <div class="flex flex-col items-start gap-4 justify-between">
                                                 <div class="md:text-3xl text-xl font-medium pt-4"><?php the_field('бренд'); ?> <?php the_field('модель'); ?></div>
                                                 <div class="flex flex-row">
-                                                    <div class="flex items-center">
+                                                    <div class="flex items-center sm:flex-col flex-row">
                                                         <img class="pr-1 " src="<?php echo get_template_directory_uri() . '/src/img/icons/speed.svg'; ?>" alt="" >
                                                         <p class="md:pr-3 pr-1  md:text-base text-xs"><?php the_field('объем_двигателя');?>л, <?php the_field('трансмиссия');?>, <?php the_field('пробег');?>км</p>
                                                     </div>
@@ -1194,7 +1191,7 @@ Template Name: autopotencial
                                                         <div class="flex flex-col md:flex-row items-center justify-around">
                                                             <a href="<?php echo the_field('review_link'); ?>" class="link_review">
                                                                 <div class="pt-4 pb-4">
-                                                                    <a class="text-yellow hover:text-red" href="<?php the_field('ссылка_на_отзыв'); ?>">Смотреть оригинал</a>
+                                                                    <a class="text-yellow hover:text-red" href="<?php echo the_field('review_link'); ?>">Смотреть оригинал</a>
                                                                 </div>
                                                             </a>
                                                             
@@ -1339,25 +1336,9 @@ Template Name: autopotencial
                         </div>
 
                         <div class="form-wrapper">
-                            <!-- <form action="#" id="form" class="form validate-form flex-col">
-
-                            
-                                <div class="form__item">
-                                    <input id="formName" type="text" name="name" class="form__input _req w-full"
-                                        placeholder="Ваше имя">
-                                </div>
-
-                                <div class="form__item">
-                                    <input id="formPhone" type="tel" name="phone" class="form__input _req w-full"
-                                        placeholder="Ваш телефон">
-                                </div>
-
-                                <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
-                            </form> -->
-
                             <?php echo do_shortcode('[contact-form-7 id="d806c55" title="Заявка заказать авто"]'); ?>
-
                         </div>
+                        
                         <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
                                 class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
                                 данных</a></p>
