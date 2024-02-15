@@ -16,23 +16,15 @@
                     <a href="https://auc.avtopotencial-dv.ru/" target="_blank">
                         <div class="flex flex-col items-center mb-4 bg-red rounded-md p-2">  
                             <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
-                            <p class="text-white md:text-base text-xs">Онлайн-аукцион Японии</p>
-                        </div>
-                    </a>
-
-                    <a href="#" class="hidden">
-                        <div class="flex flex-col items-center bg-bg-gray bg-opacity-50 rounded-md p-2">
-                            <img src="<?php echo get_template_directory_uri() . '/src/img/icons/chat.svg'; ?>" alt="">
-                            <p class="text-white md:text-base text-xs">Онлайн-чат</p>
+                            <p class="text-white md:text-base text-xs">Онлайн-аукцион</p>
                         </div>
                     </a>
                     
-                    
-                        <div class="bg-black rounded">
-                                    <a class="get up bg-red text-white text-xs rounded-lg popup-link" href="#popup4">
-                            Инструкция по регистрации
-                                </a>
-                        </div>
+                    <div class="bg-black rounded">
+                                <a class="get get--auc up bg-red text-white text-xs rounded-lg popup-link" href="#popup4">
+                        Инструкция
+                            </a>
+                    </div>
                     
                 </div>
 

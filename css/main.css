@@ -5,6 +5,11 @@
 /* Импорт кастомных стилей для компонентов */
 
 /*  */  
+.get.get--auc {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 .popup--instruction {
   min-height: 0 !important;
 }
