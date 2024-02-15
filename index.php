@@ -51,8 +51,8 @@ Template Name: autopotencial
                         <div class="swiper-pagination"></div>   
                         <div class="swiper-wrapper h-auto">
                             <div class="absolute left-0 md:bottom-44 bottom-0 padding_auc">
-                                <a href="https://auc.avtopotencial-dv.ru/">
-                                    <div class="flex flex-col items-center mb-2 bg-red rounded-md p-2">  
+                                <a href="https://auc.avtopotencial-dv.ru/" target="_blank">
+                                    <div class="flex flex-col items-center mb-4 bg-red rounded-md p-2">  
                                         <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
                                         <p class="text-white md:text-base text-xs">Онлайн-аукцион Японии</p>
                                     </div>
@@ -64,43 +64,15 @@ Template Name: autopotencial
                                         <p class="text-white md:text-base text-xs">Онлайн-чат</p>
                                     </div>
                                 </a>
-                        
-                            </div>
-<!-- 
-                            <div class="absolute right-0 md:bottom-32 bottom-0 padding_auc">
-                                <div class= "py-10 md: max-w-xs -z-10 md:order-2 order-1">
-                                    <div class="bg-black p-5 rounded">
-                                        <p class="text-white font-medium md:text-xl text-base">Курс валют ЦБ на сегодня:</p>
-                                        <div class="flex items-center justify-between p-5" >
-                                            <ul>
-                                                <li class=" text-white text-base pb-3">
-                                                    JPY/RUB:
-                                                </li> 
-                                                <li class=" text-white text-base pb-3">
-                                                    USD/RUB:
-                                                </li> 
-                                                <li class=" text-white text-base pb-3">
-                                                    EUR/RUB:
-                                                </li> 
-                                            </ul>
-                                            <a class="text-gray text-[10px] z-100" href="https://www.cbr-xml-daily.ru/">Курсы валют, API</a>
-            
-                                            <ul class="currency">
-                                                <li class="exchange-rate-jpy text-yellow text-base font-bold pb-3">
-                                                    
-                                                </li> 
-                                                <li class="exchange-rate-usd text-yellow text-base font-bold pb-3">
-                                                    
-                                                </li> 
-                                                <li class="exchange-rate-eur text-yellow text-base font-bold pb-3">
-                                                    
-                                                </li> 
-                                        
-                                            </ul>
-                                        </div>
+                                
+                                
+                                    <div class="bg-black rounded">
+                                                <a class="get up bg-red text-white text-xs rounded-lg popup-link" href="#popup4">
+                                        Инструкция по регистрации
+                                            </a>
                                     </div>
-                                </div>
-                            </div> -->
+                               
+                            </div>
 
 
                             <div class="swiper-slide autoheight relative bg-black -z-10 max-h-screen">
@@ -1367,22 +1339,6 @@ Template Name: autopotencial
                         </div>
 
                         <div class="form-wrapper">
-                            <!-- <form action="#" id="form" class="form validate-form flex-col">
-
-                            
-                                <div class="form__item">
-                                    <input id="formName" type="text" name="name" class="form__input _req w-full"
-                                        placeholder="Ваше имя">
-                                </div>
-
-                                <div class="form__item">
-                                    <input id="formPhone" type="tel" name="phone" class="form__input _req w-full"
-                                        placeholder="Ваш телефон">
-                                </div>
-
-                                <button type="submit" class="form__button button bg-red up py-2 px-10 w-full text-white rounded-lg md:text-base text-sm">Заказать авто</button>
-                            </form> -->
-
                             <?php echo do_shortcode('[contact-form-7 id="74aaf08" title="Заявка на добавление отзыва"]'); ?>
 
                         </div>
@@ -1414,6 +1370,42 @@ Template Name: autopotencial
                         <p class="form-section__descriptions w-full">Нажимая кнопку “Получить консультацию” я даю согласие на <a
                                 class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку персональных
                                 данных</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="popup4" class="popup popup--instruction">
+                <div class="popup__body">
+                    <div class="popup__content popup--instruction">
+                        <button class="popup__btn close-popup" aria-label="Закрыть" tabindex="4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
+                                <path d="M4 1.45508L19.9099 17.365" stroke="#FCBC40"/>
+                                <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#FCBC40"/>
+                                </svg>
+                        </button>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-white md:text-base text-sm"><span class="text-yellow">Инструкция</span> по регистрации</p>
+                                <p>
+                                Для того , чтобы воспользоваться аукционами-онлайн, необходимо:
+                                 <ul class="text-white md:text-base text-sm">
+                                    <li>
+                                        Перейти по ссылке <a href="https://auc.avtopotencial-dv.ru/" target="_blank">"Онлайн-аукционы Японии"</a>
+                                    </li> 
+                                    <li>
+                                        Найти в верхнем правом углу кнопку "Вход"
+                                    </li> 
+                                    <li>
+                                        Выбрать "Регистрация"
+                                    </li> 
+                                    <li>
+                                        Пройти полностью регистрацию и начать пользоваться сервисом
+                                    </li> 
+                                 </ul>  
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

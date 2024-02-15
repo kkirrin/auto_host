@@ -88,15 +88,26 @@ export const initSum = () => {
 
 
         let totalSum = 0; 
-        const updateTotalSum = () => {
-          totalSum = [...inputs, ...inputsDollar, ...partInputsPayment, ...partInputsСustoms].reduce((acc, input) => {
-            const value = parseFloat(input.value.replace(/\s/g, '')) || 0;
-            return value + acc;
-          }, 0);
+        const formatPrice = (price) => {
         
-          sum2.textContent = totalSum.toFixed(2);
-          sum1.textContent = totalSum.toFixed(2);
-        };
+          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+      };
+      
+      const updateTotalSum = () => {
+          totalSum = [...inputs, ...inputsDollar, ...partInputsPayment, ...partInputsСustoms].reduce((acc, input) => {
+              const value = parseFloat(input.value.replace(/\s/g, '')) || 0;
+              return value + acc;
+          }, 0);
+          
+          // Добавляем значение из элемента с Id convertJapanPrice к общей сумме
+          const convertJapanPriceInput = document.getElementById('convertJapanPrice');
+          const convertJapanPriceValue = parseFloat(convertJapanPriceInput.value.replace(/\s/g, '')) || 0;
+      
+          totalSum += convertJapanPriceValue;
+      
+          sum2.textContent = formatPrice(totalSum.toFixed(2)); // Форматируем и устанавливаем значения
+          sum1.textContent = formatPrice(totalSum.toFixed(2)); // для sum2 и sum1
+      };
 
     
         inputs.forEach(input => {

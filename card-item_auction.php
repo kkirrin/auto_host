@@ -246,7 +246,7 @@
                                                 '.$priceRub.' ₽
                                                 </p>
                                                 <p class="text-gray md:text-base text-xs">
-                                                    *Цена указана в РФ с ПТС
+                                                    *Цена указана без учета комиссий
                                                 </p>
                                             </div>
                                             <div>
@@ -297,7 +297,7 @@
         
 
                                     <div class="md:text-base text-xs pb-5">
-                                        Окончательная стоимость автомобиля во Владивостоке с ПТС
+                                        Окончательная стоимость автомобиля во Владивостоке с ПТС в рублях
                                         <p id="sum" class="font-bold md:text-base text-xs pt-4">
                                         ₽
                                         </p>
@@ -305,42 +305,42 @@
                                     </div>
         
                                     <div class="md:text-base text-xs pb-5">
-                                        Стоимость авто на аукционе: 
+                                        Стоимость авто на аукционе в йенах: 
                                         <p class="font-bold md:text-base text-xs pt-4">
-                                            <input class="y" placeholder="..." value="<?php echo "$avgPrice" ?>">
+                                            <input id="convertJapanPrice" class="y" placeholder="..." value="<?php echo "$avgPrice" ?>">
                                         </p>
                                     </div>
         
                                     <div class="md:text-base text-xs pb-5">
-                                        Доставка авто до Владивостока:
+                                        Доставка авто до Владивостока в рублях:
                                         <p class="font-bold md:text-base text-xs pt-4">
-                                            <input class="dollar__price" placeholder="..." value="50000"> ₽
+                                            <input class="dollar__price" placeholder="..." value="50000"> 
                                         </p>
                                     </div>
 
                                     <div class="md:text-base text-xs">
-                                        Фиксированные расходы по Японии и до Владивостока (любой аукцион покупки, любой порт отправки):
+                                        Фиксированные расходы по Японии и до Владивостока в рублях (любой аукцион покупки, любой порт отправки ):
                                         <ul class="list-disc md:p-5 p-3 md:text-base text-xs">
                                             <li>
-                                                Комиссии аукциона -  <input class="dollar__price" value="50000"> ₽
+                                                Комиссия агента по Японии за покупку автомобиля и доставка по Японии -  <input class="dollar__price" value="80000"> <p>(~70 000 - 80 000 йен)</p>
                                             </li>
-                                            <li>
+                                            <!-- <li>
                                                 Доставка по Японии, любой аукцион -  <input class="dollar__price" value="60000"> ₽
                                             </li>
                                             <li>
                                                 Комиссия агента в Японии за покупку, любая аукционная стоимость -  <input class="dollar__price" value="50000"> ₽
+                                            </li> -->
+                                            <li>
+                                                Фрахт из любого порта -  <input class="dollar__price" value="60000">  <p>(~60000 йен)</p>
                                             </li>
                                             <li>
-                                                Фрахт из любого порта -  <input class="dollar__price" value="70000"> ₽
-                                            </li>
-                                            <li>
-                                                Гарантия от повреждений -  <input class="dollar__price" value="50000"> ₽
+                                                Гарантия от повреждений (по желанию )-  <input class="dollar__price" value="30000">  <p>(~30 000 йен)</p>
                                             </li>
                                         </ul>
                                     </div>
 
                                     <div class="md:text-base text-xs pb-5">
-                                        Расходы по России:
+                                        Расходы по России в рублях:
                                         <!-- <p class="md:text-base text-xs pt-4">
                                             <span class="font-bold"><input id="priceСustoms" class="w-16" placeholder="..."></span> 
                                         </p> -->
@@ -349,10 +349,10 @@
                                                 Выгрузка, хранение на СВХ первые 5 суток, таможенное оформление, СБКТС, услуга брокера, вывоз из порта до стоянки компании, фотоотчёт: <input value="75000" class="partPayment" >
                                             </li>
                                             <li>
-                                                Расходы, связанные с лабораторией: <input value="4000" class="partPayment" > ₽
+                                                Расходы, связанные с лабораторией: <input value="5000" class="partPayment" > 
                                             </li>
                                             <li>
-                                                Комиссия Автопотенциал-ДВ: <input value="30 000" class="partPayment" > ₽
+                                                Комиссия Автопотенциал-ДВ: от <input value="30000" class="partPayment" > 
                                             </li>
                                         </ul>
 
@@ -361,28 +361,28 @@
                                        
                                 
                                     <div class="md:text-base text-xs pb-5">
-                                        Таможенные платежи: <a style="text-decoration: underline;" class="text-calc font-semibold" href="https://www.tks.ru/auto/calc/">(обратитесь к таможенному калькулятору по ссылке)</a>
+                                        Таможенные платежи в рублях: <a style="text-decoration: underline;" class="text-calc font-semibold" href="https://www.tks.ru/auto/calc/">(обратитесь к таможенному калькулятору по ссылке)</a>
                                         <ul class="list-disc md:p-5 p-3">
-                                            <li>
+                                            <!-- <li>
                                                 Сборы за таможенное оформление: <input class="partCustoms price" value="3100"> ₽
-                                            </li>
+                                            </li> -->
                                             <li>
-                                                Пошлина (на физ.лицо):  <input class="partCustoms price" value="447991"> ₽
+                                                Пошлина на физ.лицо (рассчитывается индивидуально):  <input class="partCustoms price" value=""> ₽
                                             </li>
                                         </ul>
                                     </div>
      
                                     <div class="md:text-base text-xs pb-5">
-                                        Утилизационный сбор:
+                                        Утилизационный сбор в рублях:
                                         <p class="md:text-base text-xs pt-4">
                                             <span class="font-bold">
-                                                <input class="price w-16" value="1000">₽</span> 
+                                                <input class="price w-16" value="5200"></span> 
                                         </p>
                                     </div>
 
                                     <div class="bg-red py-5 px-10 text-white rounded-lg max-w-xs ">
-                                        Итого во Владивостоке с ПТС:
-                                        <p id="sum2" class="font-bold md:text-xl text-base pt-4">₽</p>
+                                        Итого во Владивостоке с ПТС в рублях:
+                                        <p id="sum2" class="font-bold md:text-xl text-base pt-4"></p>
                                     
                                     </div>
                                 </div>

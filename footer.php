@@ -113,6 +113,42 @@
         <div class="scroll-top">
             <img class="arrow-up" src="<?php echo get_template_directory_uri() .'/src/img/up-arrow.png'; ?>" alt="стрелка вверх">
         </div>
+
+        <section id="popup4" class="popup popup--instruction">
+                <div class="popup__body">
+                    <div class="popup__content popup--instruction">
+                        <button class="popup__btn close-popup" aria-label="Закрыть" tabindex="4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
+                                <path d="M4 1.45508L19.9099 17.365" stroke="#FCBC40"/>
+                                <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#FCBC40"/>
+                                </svg>
+                        </button>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-white md:text-base text-sm"><span class="text-yellow">Инструкция</span> по регистрации</p>
+                                <p>
+                                Для того , чтобы воспользоваться аукционами-онлайн, необходимо:
+                                 <ul class="text-white md:text-base text-sm">
+                                    <li>
+                                        Перейти по ссылке <a href="https://auc.avtopotencial-dv.ru/" target="_blank">"Онлайн-аукционы Японии"</a>
+                                    </li> 
+                                    <li>
+                                        Найти в верхнем правом углу кнопку "Вход"
+                                    </li> 
+                                    <li>
+                                        Выбрать "Регистрация"
+                                    </li> 
+                                    <li>
+                                        Пройти полностью регистрацию и начать пользоваться сервисом
+                                    </li> 
+                                 </ul>  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         
         <script type="module"></script>
         <script src="<?php echo get_template_directory_uri(); ?>/js/swiper-bundle.min.js"></script>

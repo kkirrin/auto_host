@@ -48,9 +48,9 @@
         <div class="bg-black">
             <section class="order  h-auto md:pt-40 py-10 relative">
                     <!-- <img class=" -z-10" src="<?php echo get_template_directory_uri() . '/src/img/contact/bg2.png'; ?>" alt=""> -->
-                    <div class="absolute right-0 md:bottom-52 bottom-0 padding_auc">
-                        <a href="https://auc.avtopotencial-dv.ru/">
-                            <div class="flex flex-col items-center mb-2 bg-red rounded-md p-2">  
+                    <div class="absolute left-0 md:bottom-44 bottom-0 padding_auc--order">
+                        <a href="https://auc.avtopotencial-dv.ru/" target="_blank">
+                            <div class="flex flex-col items-center mb-4 bg-red rounded-md p-2">  
                                 <img src="<?php echo get_template_directory_uri() . '/src/img/icons/online.svg'; ?>" alt="">
                                 <p class="text-white md:text-base text-xs">Онлайн-аукцион Японии</p>
                             </div>
@@ -62,6 +62,11 @@
                                 <p class="text-white md:text-base text-xs">Онлайн-чат</p>
                             </div>
                         </a>
+                            <div class="bg-black rounded">
+                                        <a class="get up bg-red text-white text-xs rounded-lg popup-link" href="#popup4">
+                                Инструкция по регистрации
+                                    </a>
+                            </div>
                     </div>
 
                     <div class="container z-0 ">
