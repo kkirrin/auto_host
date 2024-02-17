@@ -29,7 +29,7 @@
                     </a>
                     
                     
-                        <div class="bg-black rounded">
+                        <div class="rounded">
                                     <a class="get get--auc up bg-red text-white text-xs rounded-lg popup-link" href="#popup4">
                             Инструкция
                                 </a>
